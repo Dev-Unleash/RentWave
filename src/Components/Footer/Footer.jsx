@@ -6,6 +6,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { RiLinkedinFill } from "react-icons/ri";
+import logo from "../../assets/logo.png"
 
 
 
@@ -19,7 +20,7 @@ const Footer = () => {
       <div className="first">
         <div className="abt">
         <Link to="/" className="Logo">
-          <h3 style={{textAlign: "left"}}>RentWave</h3>
+          <img src={logo} alt="logo" />
         </Link>
         <p style={{fontSize: "8px", textAlign: "left"}}>RentWave reflect your personality and what you stand for, we help to amplify this beauty to/in your environment.</p>
         </div>

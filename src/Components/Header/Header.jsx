@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { LuUser, LuShoppingCart } from "react-icons/lu";
+// import { LuUser, LuShoppingCart } from "react-icons/lu";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png"
 
 const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
     <div className="headerContainer">
       <div className="Logo">
         <Link to="/" className="Logo">
-          <h3>RentWave</h3>
+         <img src={logo} alt="logo" />
         </Link>
       </div>
       <ul className="HeaderNav">
