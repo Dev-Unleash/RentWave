@@ -6,7 +6,7 @@ const AuthRoutes=()=>{
     
     return(
         <>
-        {checkIfLoggedIn? <Outlet/>:<Navigate to="/auth/login" replace={true}/>}
+        {checkIfLoggedIn? <Outlet/>:<Navigate to="/Login" replace={true}/>}
         </>
     )
 }
