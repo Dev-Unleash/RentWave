@@ -6,16 +6,37 @@ import {
 import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import Services from './Pages/Services/Services';
-import AuthRoutes from './Components/AuthRoutes/AuthRoutes';
+import AuthRoutes from './Pages/Landlord/AuthRoutes/AuthRoutes.jsx';
 import Contact_us from './Pages/Contact_us/Contact_us'
-
-
+import Login from './Components/Auth/Login';
+import Signup from './Components/Auth/Signup';
+import ResetPassword from './Components/Auth/ResetPassword';
+import ForgotPassword from './Components/Auth/ForgotPassword';
+import Tenant from "./Pages/Tenant/Tenant.jsx"
+import Landlord from "./Pages/Landlord/Landlord.jsx"
+import Admin from "./Pages/Admin/Admin.jsx"
+import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
 
 const router = createBrowserRouter([
   
       {
         path: "/",
         element: <Home/>
+      },
+      {
+        path:"/Login",
+        element:<Login/>
+      },
+      {
+        path:"/Signup",
+        element:<Signup/>
+      },
+      {
+        path:"/ResetPassword",
+        element:<ResetPassword/>
+      },{
+        path:"ForgotPassWord",
+        element:<ForgotPassword/>
       },
       {
         path: "/Contact_us",
@@ -29,7 +50,34 @@ const router = createBrowserRouter([
         path: "/Blog",
         element: <Blog/>
       },
-      
+      {
+        element:<AdminPrivate/>,
+        children:[
+          { path:"/Admin",
+            element:<Admin/>
+           },
+        ],
+      },
+      {
+        element:<AuthRoutes/>,
+        children:[
+          {
+            
+              path:"/Landlord",
+              element:<Landlord/>
+             },
+          
+        ]
+      },
+      {
+        element:<TenantPrivate/>,
+        children:[
+          {
+            path:"/Tenant",
+            element:<Tenant/>
+           },
+        ]
+      }
     ],
   
   // {
