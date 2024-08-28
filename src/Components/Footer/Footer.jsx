@@ -28,7 +28,7 @@ const Footer = () => {
           <h6 style={{fontSize: "14px", textAlign: "left", color: "black"}}>CONTACT US</h6>
           <p style={{fontSize: "9px", textAlign: "left"}}>Add : 56, Billy crescent, IApapa, Lagos state</p>
           <p style={{fontSize: "9px", textAlign: "left"}}>Tell : +2349029523034</p>
-          <p style={{fontSize: "9px", textAlign: "left"}}>Email : asemudaraglory@gmail.com</p>
+          <p style={{fontSize: "9px", textAlign: "left"}}>Email : rentwave_support@gmail.com</p>
         </div>
       </div>
       <div className="second">
