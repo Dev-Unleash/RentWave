@@ -18,6 +18,7 @@ import Landlord from "./Pages/Landlord/Landlord.jsx"
 import Admin from "./Pages/Admin/Admin.jsx"
 import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
 
+
 const router = createBrowserRouter([
   
       {
@@ -78,24 +79,10 @@ const router = createBrowserRouter([
             element:<Tenant/>
            },
         ]
-      }
+      },
     ],
   
-  // {
-  //   path: "/auth",
-  //   element: <AuthLayout/>,
-  //   children: [
-  //     {
-  //       path:"login",
-  //       element:<Login/>
-  //     },
-  //     {
-  //       path:"signUp",
-  //       element:<SignUp/>
-  //     }
-  //   ]
-      
-  // }
+  
   
 );
 
