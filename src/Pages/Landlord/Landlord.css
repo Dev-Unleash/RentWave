@@ -1,0 +1,21 @@
+.landlordPage{
+    height: 100vh;
+    width: 100%;
+    background-color: green;
+    display: flex;
+}
+.landlordLeft{
+    height: 100%;
+    width: 22%;
+    background-color: #4D86DB;
+}
+.landlordRight{
+    height: 100%;
+    width:78%;
+    background-color: white;
+}
+.landlordHeader{
+    height: 15%;
+    width: 100%;
+    background-color:#78A3EA;
+}

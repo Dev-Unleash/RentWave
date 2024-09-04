@@ -1,0 +1,411 @@
+.ContactUsContainer{
+    height: 350vh;
+    width: 100%;
+
+    @media screen and (max-width:900px){
+        height: auto;
+       
+    }
+}
+
+.aboutUs{
+    height: 85vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width:900px){
+        flex-direction: column;
+    }
+
+}
+.aboutUsLeft{
+    height: 70%;
+    width: 40%;
+    /* background-color: burlywood; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15%;
+    
+    @media screen and (max-width:900px){
+        height: 40%;
+        width: 100%;
+        text-align: center;
+    };
+    @media screen and  (max-width:425px){
+        padding-top: 20px;
+        height: fit-content;
+     }
+    & p{
+        font-size: 18px;
+        line-height: 30px;
+        @media screen and  (max-width:425px){
+           font-size: 15px;
+         }
+        /* font-weight: 400; */
+    }
+    & h1{
+        display: flex;
+        justify-content: center;
+    }
+}
+.aboutUsRight{
+    height: 75%;
+    width: 40%;
+    background-color: powderblue;
+    @media screen and (max-width:900px){
+        height: 40%;
+        width: 100%;
+    }
+}
+.values{
+    height: 75vh;
+    width: 100%;
+    @media screen and  (max-width:425px){
+        height: 100vh;
+     }
+    /* background-color:green; */
+}
+.OurValues{
+    height: 87%;
+    width: 100%;
+    background-color:  #4D86DB;
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width:900px){
+       flex-direction: column;
+    }
+    @media screen and  (max-width:425px){
+        /* padding-top: 20px; */
+        flex-direction: column;
+        height: 100%;
+     }
+}
+.OurValueWrapper{
+    height: 100%;
+    width: 93%;
+    background-color: #4D86DB;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+
+    @media screen and  (max-width:425px){
+        /* padding-top: 20px; */
+        flex-direction: column;
+        height: fit-content;
+     }
+}
+.boxContainer{
+    height: 89%;
+    width: 100%;
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-between;
+    /* @media screen and (max-width:900px){
+        flex-wrap: wrap;
+     } */
+     @media screen and  (max-width:425px){
+        /* padding-top: 20px; */
+        /* background-color: #fff; */
+        flex-direction: column;
+        height: fit-content;
+     }
+}
+.box1{
+    height: 100%;
+    width: 20%;
+    /* background-color: tomato; */
+ display: flex;
+ flex-direction: column;
+ /* gap: 10px; */
+ @media screen and  (max-width:425px){
+    /* padding-top: 20px; */
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+  
+ }
+    & h3{
+        height: 15%;
+        display: flex;
+        gap: 5%;
+        align-items: center;
+       
+        & hr{
+            display: flex;
+            flex-direction: column;
+            height: 55%;
+            width: 1%;
+            border: none;
+            background-color: orange;
+            /* border-radius: 5px; */
+        }
+    }
+    & p{
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 200;
+    }
+}
+.ImageContainer{
+    height: 38%;
+    width: 100%;
+    background-color: brown;
+    @media screen and  (max-width:425px){
+        /* padding-top: 20px; */
+        flex-direction: column;
+        height: 50%;
+        width: 40%;
+     }
+}
+.Contact{
+    height: 100vh;
+    width: 100%;
+    background-color: #78A3EA;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width:425px){
+        height: 150vh;
+    }
+}
+.contactUsWrapper{
+    height: 100%;
+    width: 93%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (max-width:425px){
+        height: 100%;
+    }
+   
+}
+.contactText{
+    height:30%;
+    width: 70%;
+    /* background-color: yellowgreen; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    @media screen and (max-width:425px){
+        flex-direction: column;
+        height: 40%;
+        width: 100%;
+    }
+    & h1{
+        width: 63%;
+        font-weight: 600;
+        font-size: 28px;
+        text-align: center;
+        @media screen and (max-width:425px){
+          
+            width: 100%;
+        }
+        /* background-color: black; */
+        & p{
+            font-size: 18px;
+        }
+    }
+}
+.TextImage{
+    height: 70%;
+    width: 30%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width:425px){
+          height: 30%;
+        /* width: 100%; */
+    }
+}
+.Contactbox{
+    height: 70%;
+    width: 100%;
+    /* background-color: indigo; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width:425px){
+        height: 100%;
+          flex-direction: column;
+        width: 100%;
+        gap: 5%;
+    }
+}
+.contactBox1{
+    height: 90%;
+    width: 25%;
+    background-color: white;
+    @media screen and (max-width:425px){
+          height: 80%;
+            width: 100%;
+        }
+}
+.ChatBox1Wrapper{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & p{
+        text-align: center;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+}
+.ContactBoxImage{
+    height: 25%;
+    width: 40%;
+    background-color: blue;
+    @media screen and (max-width:425px){
+        height: 50%;
+      /* width: 100%; */
+  }
+}
+.Footer{
+    height: 80vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (max-width:425px){
+        height: 100vh;
+      /* width: 100%; */
+  }
+}
+.FooterUp{
+    height: 48%;
+    width: 60%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    @media screen and (max-width:425px){
+       height: 40%;
+       width: 90%;
+      /* width: 100%; */
+  }
+    & input{
+        height: 20%;
+        width: 100%;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 20px;
+        padding-left: 15px;
+    }
+    & textarea{
+        height: 40%;
+        width: 100%;
+        outline: none;
+        border-radius: 10px;
+        font-size: 20px;
+        padding-left: 15px;
+        padding-top: 10px;
+        border: 1px solid black;
+    }
+
+    & button{
+        height: 17%;
+        width: 30%;
+        border-radius: 10px;
+        border: none;
+        background-color: #0052AA;
+        color: white;
+        font-size: 25px;
+    }
+}
+.FooterDown{
+    height: 48%;
+    width: 93%;
+    /* background-color:blue; */
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 10%;
+    @media screen and (max-width:425px){
+        height:50%;
+        justify-content: space-between;
+        /* gap: 5%; */
+      /* width: 100%; */
+  }
+
+}
+.FooterDownBox1{
+    height: 100%;
+    width: 25%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    @media screen and (max-width:425px){
+       width: 40%;
+      /* width: 100%; */
+  }
+    & p{
+        font-size: 18px;
+        font-weight: 500;
+        justify-content: center;
+    }
+}
+.FooterDownBox2{
+    height: 100%;
+    width:15%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width:425px){
+        width: 20%;
+       /* width: 100%; */
+   }
+    & h3{
+        display: flex;
+        justify-content: center;
+    }
+    & p{
+        /* width: 100%; */
+        font-size: 18px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+    }
+}
+.FooterDownBox3{
+    height: 100%;
+    width: 15%;
+    /* background-color: red; */
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   & h3{
+    display: flex;
+    justify-content: center;
+}
+   & p{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+@media screen and (max-width:425px){
+    width: 25%;
+   /* width: 100%; */
+}
+}
