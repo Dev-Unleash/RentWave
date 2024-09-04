@@ -49,7 +49,7 @@ const Header = () => {
         </NavLink>
       </ul>
       <div className="btns">
-       <button className="btn1">SignUp</button>
+      <button className="btn1"><Link to='/SignUp' className="btn1">SignUp</Link></button>
        <button className="btn1">Login</button>
       </div>
     </div>
