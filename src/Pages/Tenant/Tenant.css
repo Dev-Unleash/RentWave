@@ -1,0 +1,21 @@
+.tenantPage{
+    height: 100vh;
+    width: 100%;
+    background-color: green;
+    display: flex;
+}
+.tenantLeft{
+    height: 100%;
+    width: 22%;
+    background-color: #4D86DB;
+}
+.tenantRight{
+    height: 100%;
+    width:78%;
+    background-color: white;
+}
+.tenantHeader{
+    height: 15%;
+    width: 100%;
+    background-color:#78A3EA;
+}
