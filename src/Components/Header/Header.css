@@ -7,8 +7,10 @@
     gap: 150px;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: rgb(155, 155, 251);
+    background-color: #ffff;
     position: fixed;
+    box-shadow: 2px 4px 3px 2px rgba(0, 0, 0, 0.293);
+    z-index: 99;
   }
   
   .Logo {
@@ -27,7 +29,7 @@
     align-items: center;
     text-align: center;
     font-size: 16px;
-    color: white;
+    color: royalblue;
     cursor: pointer;
     text-decoration: none;
     
@@ -39,7 +41,7 @@
   }
   
   .nav:hover {
-    background-color: blue;
+    background-color: rgba(0, 0, 255, 0.158);
     border-radius: 5px;
     display: flex;
     justify-content: center;

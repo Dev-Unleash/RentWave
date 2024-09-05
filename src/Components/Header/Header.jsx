@@ -22,28 +22,28 @@ const Header = () => {
         <NavLink
           to="/"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "white" })}
+          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
         >
           Home
         </NavLink>
         <NavLink
           to="/services"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "white" })}
+          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
         >
           Services
         </NavLink>
         <NavLink
           to="/contact_us"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "white" })}
+          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
         >
           Contact Us
         </NavLink>
         <NavLink
           to="/blog"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "white" })}
+          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
         >
           Blog
         </NavLink>
