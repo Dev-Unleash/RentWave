@@ -50,7 +50,7 @@ const Header = () => {
       </ul>
       <div className="btns">
       <button className="btn1"><Link to='/SignUp' className="btn1">SignUp</Link></button>
-       <button className="btn1">Login</button>
+       <button className="btn1"><Link to='/Login' className="btn1"> Login</Link></button>
       </div>
     </div>
   );

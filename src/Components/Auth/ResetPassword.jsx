@@ -1,6 +1,7 @@
 import React from 'react'
 import "./ResetPassword.css"
 import Logo from "../../assets/logo.png"
+import image from "../../assets/image.png"
 import { IoArrowBackSharp } from "react-icons/io5";
 const ResetPassword = () => {
   return (
@@ -21,7 +22,7 @@ const ResetPassword = () => {
           </div>
           <div className="keyImage">
             <div className="ImageBox">
-            <img src="" alt="" />
+            <img src={image} alt="" />
             </div>
            
             <p>Reset Password?</p>

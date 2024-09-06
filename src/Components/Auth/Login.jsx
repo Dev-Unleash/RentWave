@@ -3,6 +3,7 @@ import "./Login.css"
 import Logo from "../../assets/logo.png"
 import { FaRegEye } from 'react-icons/fa6'
 import { FaRegEyeSlash } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 const Login = () => {
   const [seePassWord,setSeePassWord]=useState(true)
   const lookPassWord=()=>{
@@ -28,7 +29,7 @@ const Login = () => {
             }
               </div>
           
-              <p>Forgot Password?</p>
+              <p><Link to='/ForgotPassWord'> Forgot Password?</Link></p>
             </form>
           </div>
           <div className="LoginInputDown">
