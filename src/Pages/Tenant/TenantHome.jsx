@@ -15,7 +15,7 @@ const TenantHome = () => {
                 <div className="OneBox">
                     <h1>Maintenance Request</h1>
                     <h3>0</h3>
-                    <p>Sell All</p>
+                    <p> Sell All</p>
                 </div>
                 <div className="OneBox">
                     <h1>Active Subcription</h1>
