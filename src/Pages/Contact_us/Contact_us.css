@@ -1,7 +1,7 @@
 .ContactUsContainer{
-    height: 350vh;
+    height: max-content;
     width: 100%;
-
+    min-height: 100vh;
     @media screen and (max-width:900px){
         height: auto;
        
@@ -330,10 +330,11 @@
 }
 .FooterDown{
     height: 48%;
-    width: 93%;
+    width: 100%;
     /* background-color:blue; */
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
     gap: 10%;
     @media screen and (max-width:425px){
         height:50%;
