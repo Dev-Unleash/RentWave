@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Header.css";
-// import { LuUser, LuShoppingCart } from "react-icons/lu";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png"
 
@@ -49,8 +48,13 @@ const Header = () => {
         </NavLink>
       </ul>
       <div className="btns">
+
+//       <button className="btn1"><Link to='/SignUp' className="btn1">SignUp</Link></button>
+//        <button className="btn1"><Link to='/Login' className="btn1"> Login</Link></button>
+
      <Link to='/SignUp' className="btn1">SignUp</Link>
        <Link to='/Login' className="btn1">Login</Link>
+
       </div>
     </div>
   );
