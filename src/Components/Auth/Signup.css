@@ -15,7 +15,7 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    
+    position: relative;
 }
 .SignUpCenter{
     width: 70%;
@@ -101,11 +101,11 @@ p{
     height: 70%;
     outline: none;
     border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.463);
+    border: 2px solid #e6e7e9;
     padding-inline: 3px;
     font-size: 12px;
     
-        @media screen and (max-width:820px){
+        @media screen and (max-width:900px){
             width: 85%;
         flex-direction: column;
          }
@@ -138,7 +138,7 @@ p{
     height: 70%;
     border-radius: 3px;
     outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.469);
+    border: 2px solid #e6e7e9;
     padding-inline: 3px;
     font-size: 12px;
 }
@@ -149,7 +149,7 @@ p{
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.469);
+    border: 2px solid #e6e7e9;
     border-radius: 3px;
 }
 .input2{

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 // import PhoneInput from 'react-phone-input-2';
 // import 'react-phone-input-2/lib/style.css';
-import { IoEye, IoEyeOff } from 'react-icons/io5';
+import { IoArrowBackSharp, IoEye, IoEyeOff } from 'react-icons/io5';
 import ReactCountryFlag from "react-country-flag"
 import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa6'
 
@@ -20,6 +20,10 @@ const Signup = () => {
     <div className='SignUpContainer'>
       <div className='firstSide'>
         <form className='SignUpCenter'>
+        <div className="backIcon">
+         
+          <p style={{fontSize:'14px', width:'100px', position: 'absolute', top:'0', left:'5px', textAlign: 'center', display:'flex', justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp className='icon' style={{width: "20px"}} />   Go Back</p>
+        </div>
           <div className='topLogo'>
             <div className="Logo">
               <Link to="/" className="Logo">
@@ -47,7 +51,7 @@ const Signup = () => {
           <div className='info'>
             <h5>PhoneNumber</h5>
             <div className='input1' style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <div className='flag' style={{ width: "10%", height: "100%", paddingInline: "6px", borderRight: "1px solid black", display: "flex", justifyContent: 'center', alignItems: 'center' }}><ReactCountryFlag countryCode="ng" svg style={{ width: '16px', height: '16px' }} /></div>
+              <div className='flag' style={{ width: "10%", height: "100%", paddingInline: "6px", borderRight: "2px solid #e6e7e9", display: "flex", justifyContent: 'center', alignItems: 'center' }}><ReactCountryFlag countryCode="ng" svg style={{ width: '16px', height: '16px' }} /></div>
               <input style={{ width: "90%", height: "100%", borderLeft: "1px solid black", border: "none", fontSize: "12px" }} type="number" name='phoneNumber' placeholder='+234' />
             </div>
           </div>
@@ -70,7 +74,7 @@ const Signup = () => {
               }</div>
           </div>
           <div className='terms'>
-            <input style={{ width: "12px", height: "12px", border: "1px solid rgba(0, 0, 0, 0.469)" }} type="checkbox" name="" /><span style={{ fontFamily: "sans-serif", fontSize: "10px", textAlign: "center" }}>I agree with RentWave, and the collection and processing of my personal data in accordance with RentWave</span>
+            <input style={{ width: "12px", height: "12px", border: "2px solid #e6e7e9" }} type="checkbox" name="" required /><span style={{ fontFamily: "sans-serif", fontSize: "10px", textAlign: "center" }}>I agree with RentWave, and the collection and processing of my personal data in accordance with RentWave</span>
           </div>
           <button className='signupBtn'>Sign-Up</button>
           <p style={{ fontFamily: "sans-serif", fontSize: "10px", textAlign: "center" }}>

@@ -48,9 +48,9 @@ const Header = () => {
         </NavLink>
       </ul>
       <div className="btns">
-
+{/* 
 //       <button className="btn1"><Link to='/SignUp' className="btn1">SignUp</Link></button>
-//        <button className="btn1"><Link to='/Login' className="btn1"> Login</Link></button>
+//        <button className="btn1"><Link to='/Login' className="btn1"> Login</Link></button> */}
 
      <Link to='/SignUp' className="btn1">SignUp</Link>
        <Link to='/Login' className="btn1">Login</Link>

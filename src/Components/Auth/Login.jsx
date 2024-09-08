@@ -13,30 +13,7 @@ const Login = () => {
   return (
     <div className='LoginContainer'>
       <div className="LoginWrapper">
-//       <div className="LoginLeft">
-//         <div className="LoginInputContainer">
-//           <div className="LoginInputUp">
-//             <form action="">
-//               <p>Email</p>
-//               <input type="text" placeholder='Email'/>
-//               <p>Password</p>
-//               <div className="passwordholder">
-//               <input  type={seePassWord
-//                 ?"password":"text"
-//             } placeholder='Password'/>
-//               {
-//                 seePassWord?<FaRegEye className="icon"  onClick={lookPassWord}/>:
-//                 <FaRegEyeSlash className="icon"  onClick={()=> setSeePassWord(true)}/>
-//             }
-//               </div>
-          
-//               <p><Link to='/ForgotPassWord'> Forgot Password?</Link></p>
-//             </form>
-//           </div>
-//           <div className="LoginInputDown">
-//             <button>Login</button>
-//             <div className="Down">
-//                 <p>Don't have an account? <span>Sign Up</span></p>
+
         <div className="LoginLeft">
           <div className="LoginInputContainer">
             <div className="LoginInputUp">
@@ -67,7 +44,7 @@ const Login = () => {
                   </div>
                 </div>
 
-                <p>Forgot Password?</p>
+                <p><Link to='/ForgotPassWord'> Forgot Password?</Link></p>
               </form>
             </div>
             <div className="LoginInputDown">
