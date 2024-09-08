@@ -20,7 +20,8 @@ import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
 
 
 const router = createBrowserRouter([
-  
+{  path:"/Tenant",
+  element:<Tenant/>},
       {
         path: "/",
         element: <Home/>
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
         element: <Blog/>
       },
       {
+            
+        path:"/Landlord",
+        element:<Landlord/>
+       },
+      {
         element:<AdminPrivate/>,
         children:[
           { path:"/Admin",
@@ -63,23 +69,15 @@ const router = createBrowserRouter([
       {
         element:<AuthRoutes/>,
         children:[
-          {
+          // {
             
-              path:"/Landlord",
-              element:<Landlord/>
-             },
+          //     path:"/Landlord",
+          //     element:<Landlord/>
+          //    },
           
         ]
       },
-      {
-        element:<TenantPrivate/>,
-        children:[
-          {
-            path:"/Tenant",
-            element:<Tenant/>
-           },
-        ]
-      },
+     
     ],
   
   
