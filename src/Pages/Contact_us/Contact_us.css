@@ -45,6 +45,7 @@
         font-size: 16px;
         text-align: justify;
         line-height: 20px;
+        color: rgba(0, 0, 0, 0.711);
         @media screen and  (max-width:425px){
            font-size: 15px;
          }
