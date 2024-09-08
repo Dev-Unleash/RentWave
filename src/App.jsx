@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element:<ForgotPassword/>
       },
       {
-        path: "/Contact_us",
+        path: "/About_Us",
         element: <Contact_us/>
       },
       {

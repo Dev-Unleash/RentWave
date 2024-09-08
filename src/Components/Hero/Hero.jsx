@@ -1,33 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
-import Property1 from '../../assets/Property1.png';
-import Property2 from '../../assets/Property2.png';
-import Property3 from '../../assets/Property3.png';
-import Property4 from '../../assets/Property4.png';
+import dashboard from "../../assets/dashboard.png"
+// import HeroImage from './Hero.svg'
 
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const images = [Property1, Property2, Property3, Property4];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // 
-
-    return () => clearInterval(interval);
-  }, [images.length]);
 
   return (
     <div className="carousel">
-      {images.map((image, index) => (
-        <div
-          className={`carousel-item ${index === currentIndex ? 'active' : ''}`}
-          key={index}
-        >
-          <img src={image} alt={`Slide ${index + 1}`} />
-        </div>
-      ))}
+     <div className='circle'></div>
+     <div className='circle1'></div>
+     <div className='circle2'></div>
+     <div className='content-center'>
+     <h3>Simplify Rent Payment 
+     and Collection</h3>
+     <h6>Streamline your rent payment process and keep track of every transaction</h6>
+     <button className='btnHero'>Get Started</button>
+     </div>
+     <div className='hero-dashboard'><img src={dashboard} alt="" /></div>
+
+
+          {/* <img src={HeroImage} alt={Hero} /> */}
+      
     </div>
   );
 };

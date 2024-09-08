@@ -22,35 +22,35 @@ const Header = () => {
         <NavLink
           to="/"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
+          style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}
         >
           Home
         </NavLink>
         <NavLink
-          to="/services"
+          to="/About_Us"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
+          style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}
         >
-          Services
+          About Us
         </NavLink>
         <NavLink
-          to="/contact_us"
+          to="/Services"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
+          style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}
         >
-          Contact Us
+          Our Value
         </NavLink>
         <NavLink
-          to="/blog"
+          to="/About_Us"
           className="nav"
-          style={({ isActive }) => (isActive ? { color: "black" } : { color: "royalblue" })}
+          style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}
         >
-          Blog
+          Contacts
         </NavLink>
       </ul>
       <div className="btns">
-      <button className="btn1"><Link to='/SignUp' className="btn1">SignUp</Link></button>
-       <button className="btn1">Login</button>
+     <Link to='/SignUp' className="btn1">SignUp</Link>
+       <Link to='/Login' className="btn1">Login</Link>
       </div>
     </div>
   );
