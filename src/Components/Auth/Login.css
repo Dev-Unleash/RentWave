@@ -227,16 +227,20 @@ form p:nth-child(3){
                 font-weight: 400;
                 color: #4D86DB;
                 cursor: pointer;
+
+
+            
             }
-          
+          & span:hover{
+            text-decoration:underline;
+        }
+        
         }
        
        
     }
 }
-span:hover{
-    text-decoration:underline;
-}
+
 
 button:hover{
     background-color: #0052AA;

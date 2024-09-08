@@ -12,12 +12,14 @@ import Login from './Components/Auth/Login';
 import Signup from './Components/Auth/Signup';
 import ResetPassword from './Components/Auth/ResetPassword';
 import ForgotPassword from './Components/Auth/ForgotPassword';
-import Tenant from "./Pages/Tenant/Tenant.jsx"
+// import Tenant from "./Pages/Tenant/Tenant.jsx"
 import TenantPrivate from './Pages/Tenant/TenantPrivate.jsx';
 import Landlord from "./Pages/Landlord/Landlord.jsx"
 import Admin from "./Pages/Admin/Admin.jsx"
 import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
-
+import TenantHome from './Pages/Tenant/TenantHome.jsx';
+import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
+import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
 
 const router = createBrowserRouter([
 {  path:"/Tenant",
