@@ -7,13 +7,14 @@
     gap: 150px;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: rgb(155, 155, 251);
+    background-color: #ffff;
     position: fixed;
-    /* position: sticky; */
+    box-shadow: 2px 4px 3px 2px rgba(0, 0, 0, 0.293);
+    z-index: 99;
   }
   
   .Logo {
-    width: 150px;
+    width: 200px;
     height: auto;
     text-align: center;
     color: white;
@@ -28,7 +29,7 @@
     align-items: center;
     text-align: center;
     font-size: 16px;
-    color: white;
+    color: royalblue;
     cursor: pointer;
     text-decoration: none;
     
@@ -40,7 +41,7 @@
   }
   
   .nav:hover {
-    background-color: blue;
+    background-color: rgba(0, 0, 255, 0.158);
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -86,7 +87,7 @@
   }
   
   .btns {
-    width: 10%;
+    width: 20%;
     height: 80%;
     display: flex;
     justify-content: center;
@@ -96,16 +97,24 @@
     color: white;
   }
   .btn1 {
-    background-color: rgb(20, 20, 138);
+    background-color: #4D86DB;
     color: white;
     border: none;
-    border-radius: 2px;
-    width: 200px;
-    height: 20px;
-    padding: 3px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    /* padding: 3px; */
     box-shadow: 1px 4px 3px 2px  rgba(16, 16, 16, 0.197);
     cursor: pointer;
     text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn1:hover{
+    background-color: blue;
+    
   }
  
   

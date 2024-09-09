@@ -1,0 +1,60 @@
+.TenantSettingsContainer{
+    height: 97%;
+    width: 100%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+.TenantSettingsContainerHeader{
+    height: 12%;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+
+    & h3{
+        font-size: 20px;
+    }
+
+    & p {
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+.TenantSettingsContainerright{
+    height: 100%;
+    width: 70%;
+    /* background-color: blue; */
+}
+.TenantSettingsContainerLeft{
+    height: 100%;
+    width: 20%;
+    background-color: brown;
+}
+.TenantSettingsDown{
+    height: 80%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+}
+.TenantSettingsDownHeader{
+    height: 10%;
+    width: 100%;
+    background-color: #D9E8FF;
+    display: flex;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    justify-content: center;
+    & ul{
+        height: 100%;
+        width: 40%;
+        display: flex;
+        background-color: blue;
+        display: flex;
+        align-items: center;
+        & li{
+            list-style-type: none;
+        }
+    }
+}

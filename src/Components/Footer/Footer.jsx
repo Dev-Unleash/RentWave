@@ -17,53 +17,45 @@ import logo from "../../assets/logo.png"
 const Footer = () => {
   return (
     <div className='FooterContainer'>
-      <div className="first">
-        <div className="abt">
-        <Link to="/" className="Logo">
-          <img src={logo} alt="logo" />
-        </Link>
-        <p style={{fontSize: "8px", textAlign: "left"}}>RentWave reflect your personality and what you stand for, we help to amplify this beauty to/in your environment.</p>
+      <div className="footer-content">
+        <div className="first">
+          <Link to="/" className="Logo">
+            <img src={logo} alt="logo" />
+          </Link>
+          <p>Eliminate the hassle of manually remembering to pay rent and avoid costly late fees.</p>
         </div>
-        <div className="ctu">
-          <h6 style={{fontSize: "14px", textAlign: "left", color: "black"}}>CONTACT US</h6>
-          <p style={{fontSize: "9px", textAlign: "left"}}>Add : 56, Billy crescent, IApapa, Lagos state</p>
-          <p style={{fontSize: "9px", textAlign: "left"}}>Tell : +2349029523034</p>
-          <p style={{fontSize: "9px", textAlign: "left"}}>Email : rentwave_support@gmail.com</p>
+        <div className="second">
+          <h5>Resources</h5>
+          <p>FAQ</p>
+          <p>Privacy Policy</p>
+          <p>Terms of service</p>
+
         </div>
+        <div className="third">
+          <h5>Company</h5>
+          <Link>About Us</Link>
+          <Link>Our Values</Link>
+          <Link>Contact us</Link>
+        </div>
+        {/* <div className="socials-icon">
+        <div className="socials"><FaFacebookF style={{ width: "18px", }} /></div>
+        <div className="socials"><FaInstagram style={{ width: "18px", }} /></div>
+        <div className="socials"><FaTwitter style={{ width: "18px", }} /></div>
+        <div className="socials"><RiLinkedinFill style={{ width: "18px", }} /></div>
+      </div> */}
       </div>
-      <div className="second">
-        <ul className="list">
-          <p>About us</p>
-          <p>Contact us</p>
-          <p>Services</p>
-          <p>Categories</p>
-        </ul>
-        <ul className="list">
-          <p>Support</p>
-          <p>Knowledge base</p>
-          <p>FAQs</p>
-        </ul>
-        <ul className="list">
-          <p>jobs</p>
-          <p>Our team</p>
-          <p>Leadership</p>
-          <p>Privacy policy</p>
-        </ul>
-      </div>
-      <div className="third">
-        <div className="news-letter">
-       <p style={{display: "flex", justifyContent: "center", alignItems: "center"}}>< CiMail style={{width: "20px",height: "20px"}}/> Subscribe to Newsletter</p>
-       <input type="text"  placeholder="Enter your email" style={{width: "150px", height: "auto",background: "none", outline: "none",border: "1px solid black",borderRadius: "3px",paddingInline: "5px", color: "black", overflow: "hidden" }}/>
-       <button style={{width: "100px", backgroundColor: "black", borderRadius: "3px", color: "white",cursor: 'pointer', border: "none"}}>Submit</button>
+      <div className="bottom-footer">
+        <div className="copyright">&copy; 2024 RentWave Inc.</div>
+        <div className="bottom-right">
+          <p>Acceptable Use Policy</p>
+          <p>Terms & Conditions</p>
+          <p>Privacy Policy</p>
+          <div className="top-btn">^</div>
         </div>
-        <div className="socials-icon">
-          <div className="socials"><FaFacebookF style={{width: "18px", }}/></div>
-          <div className="socials"><FaInstagram style={{width: "18px", }}/></div>
-          <div className="socials"><FaTwitter style={{width: "18px", }}/></div>
-          <div className="socials"><RiLinkedinFill style={{width: "18px", }}/></div>
-        </div>
+       
       </div>
     </div>
+
   )
 }
 
