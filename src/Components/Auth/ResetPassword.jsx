@@ -9,7 +9,7 @@ const ResetPassword = () => {
       <div className="resetPasswordWrapper">
         <div className="backIcon1">
          
-          <p style={{fontSize:'14px',textAlign:'center',fontWeight:'600',display:'flex',justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp className='icon'style={{width: '25px', height:'25px'}} />  Go Back</p>
+          <p className='icon' style={{fontSize:'14px',textAlign:'center',fontWeight:'600',display:'flex',justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp style={{width: '25px', height:'25px'}} />  Go Back</p>
         </div>
         <div className="ResetPasswordInputContainer">
           <div className="ResetPasswordInputWrapper">
@@ -35,7 +35,7 @@ const ResetPassword = () => {
               <div className="NewPassword">
                 <div className='one'>
                   <p>New Password</p>
-                  <input type="text" />
+                  <input type="text" className='reset-input'/>
                 </div>
                 <div className='two'>
                   <p>Confirm New Password</p>

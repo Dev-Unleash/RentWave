@@ -1,22 +1,12 @@
 import React from "react";
-import "./Footer.css"
-import { Link, NavLink } from "react-router-dom";
-import { CiMail } from "react-icons/ci";
-import { FaFacebookF } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { RiLinkedinFill } from "react-icons/ri";
-import logo from "../../assets/logo.png"
+import "./Footer.css";
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
-
-
-
-
-
-
-const Footer = () => {
+const Footer = ({ scrollToTop }) => {
+ 
   return (
-    <div className='FooterContainer'>
+    <div className="FooterContainer">
       <div className="footer-content">
         <div className="first">
           <Link to="/" className="Logo">
@@ -28,35 +18,29 @@ const Footer = () => {
           <h5>Resources</h5>
           <p>FAQ</p>
           <p>Privacy Policy</p>
-          <p>Terms of service</p>
-
+          <p>Terms of Service</p>
         </div>
         <div className="third">
           <h5>Company</h5>
-          <Link>About Us</Link>
-          <Link>Our Values</Link>
-          <Link>Contact us</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/values">Our Values</Link>
+          <Link to="/contact">Contact Us</Link>
         </div>
-        {/* <div className="socials-icon">
-        <div className="socials"><FaFacebookF style={{ width: "18px", }} /></div>
-        <div className="socials"><FaInstagram style={{ width: "18px", }} /></div>
-        <div className="socials"><FaTwitter style={{ width: "18px", }} /></div>
-        <div className="socials"><RiLinkedinFill style={{ width: "18px", }} /></div>
-      </div> */}
       </div>
+
       <div className="bottom-footer">
         <div className="copyright">&copy; 2024 RentWave Inc.</div>
         <div className="bottom-right">
           <p>Acceptable Use Policy</p>
           <p>Terms & Conditions</p>
           <p>Privacy Policy</p>
-          <div className="top-btn">^</div>
+          <div className="top-btn" onClick={scrollToTop} style={{ cursor: "pointer" }}>
+            ↑
+          </div>
         </div>
-
       </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default Footer
+export default Footer;
