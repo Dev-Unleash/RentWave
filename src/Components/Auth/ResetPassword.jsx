@@ -3,6 +3,7 @@ import "./ResetPassword.css"
 import Logo from "../../assets/logo.png"
 import image from "../../assets/image.png"
 import { IoArrowBackSharp } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 const ResetPassword = () => {
   return (
     <div className='resetPasswordContainer'>
@@ -41,7 +42,7 @@ const ResetPassword = () => {
                   <p>Confirm New Password</p>
                   <input type="text" />
                 </div>
-                <button>Done</button>
+                <button><Link to='/Login'>Done</Link></button>
               </div>
 
 
