@@ -3,11 +3,39 @@ import Header from '../../Components/Header/Header'
 import Logo from "../../assets/logo-removebg-preview.png"
 import "./Contact_us.css";
 import About_us from '../../assets/About_Us.png'
-const Contact_us = () => {
+// import { Link } from 'react-router-dom';
+import Footer from '../../Components/Footer/Footer';
+import values4 from '../../assets/values4.png'
+import values3 from '../../assets/values3.png'
+import values2 from '../../assets/values2.png'
+import values1 from '../../assets/values1.png'
+import contactUs from '../../assets/contactUs.png'
+import contactUs1 from '../../assets/contactUs1.png'
+import contactUs2 from '../../assets/contactUs2.png'
+import contactUs3 from '../../assets/contactUs3.png'
+import { useRef } from 'react';
+
+
+
+
+  const Contact_us = () => {
+    const aboutRef = useRef(null);
+    const valuesRef = useRef(null);
+    const contactsRef = useRef(null);
+  
+    const scrollToSection = (section) => {
+      if (section === 'about') {
+        aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+      } else if (section === 'values') {
+        valuesRef.current.scrollIntoView({ behavior: 'smooth' });
+      } else if (section === 'contacts') {
+        contactsRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
   return (
     <div className='ContactUsContainer'>
-      <Header />
-      <div className='aboutUs'>
+       <Header scrollToSection={scrollToSection} />     
+        <div className='aboutUs' ref={aboutRef}>
         <div className="aboutUsLeft">
           <h1>About Us</h1>
           <p>
@@ -23,7 +51,7 @@ const Contact_us = () => {
           <img src={About_us} alt="abtc:\Users\AWEHOME\Downloads\About_Us.png" />
         </div>
       </div>
-      <div className="values">
+      <div className="values" ref={valuesRef}>
         <div className="OurValues">
           <div className="OurValueWrapper">
             <h1>Our Core Values</h1>
@@ -35,10 +63,10 @@ const Contact_us = () => {
                   circumstance, we choose to be
                   kind to those we serve, each
                   other, and the world at large.</p>
-                <div className="ImageContainer"></div>
+                <div className="ImageContainer"><img src={values4} alt="values" /></div>
               </div>
               <div className="box1">
-                <div className="ImageContainer"></div>
+                <div className="ImageContainer"><img src={values3} alt="values" /></div>
                 <h3><hr />Customer Focus</h3>
                 <p>Customers are the only reason
                   we are in business. We create
@@ -52,10 +80,10 @@ const Contact_us = () => {
                   the promises we make and act
                   with integrity even when no one
                   is watching.</p>
-                <div className="ImageContainer"></div>
+                <div className="ImageContainer"><img src={values2} alt="values" /></div>
               </div>
               <div className="box1">
-                <div className="ImageContainer"></div>
+                <div className="ImageContainer"><img src={values1} alt="values" /></div>
                 <h3><hr />Curiosity</h3>
                 <p>We embrace a beginner’s mind.
                   Everyone and everything has
@@ -67,37 +95,36 @@ const Contact_us = () => {
           </div>
         </div>
       </div>
-      <div className="Contact">
+      <div className="Contact" ref={contactsRef}>
         <div className="contactUsWrapper">
           <div className="contactText">
             <div className="TextImage">
-
+              <img src={contactUs} alt="contactUs" />
             </div>
-            <h1>Need Help?Contact Us <br /><p>Visit our <span style={{ color: " #4D86DB" }}>help center</span> to find answers to most questions</p></h1>
+            <h1>Need Help?Contact Us <br /><p>Visit our <span style={{ color: "#0052AA" }}>help center</span> to find answers to most questions</p></h1>
           </div>
           <div className="Contactbox">
             <div className="contactBox1">
               <div className="ChatBox1Wrapper">
                 <div className="ContactBoxImage">
-                  <p>By Chat</p>
-                </div>
-                <p>Did you notice the chat widget in the corner of this page?It's pretty handy.Try it!</p>
+                  <img src={contactUs1} alt="contactUs" />                </div>
+                <p>This feature will be added very soon. stay </p>
               </div>
 
             </div>
             <div className="contactBox1">
               <div className="ChatBox1Wrapper">
                 <div className="ContactBoxImage">
-                  <p>By Email</p>
+                  <img src={contactUs2} alt="contactUs" />
                 </div>
-                <p>Send us an Email anytime day or night.We'll do our best to respond within 24 hours</p>
+                <p><span style={{ color: "blue", cursor: 'pointer' }}>Send us an Email</span> anytime day or night.We'll do our best to respond within 24 hours</p>
               </div>
 
             </div>
             <div className="contactBox1">
               <div className="ChatBox1Wrapper">
                 <div className="ContactBoxImage">
-                  <p>By Phone</p>
+                  <img src={contactUs3} alt="contactUs" />
                 </div>
                 <p>Chat and email are your best options but if you are old school,call us at 09160754804</p>
               </div>
@@ -113,7 +140,8 @@ const Contact_us = () => {
           <textarea name="" id="" placeholder='Type here'></textarea>
           <button>submit</button>
         </div>
-        <div className="FooterDown">
+
+        {/* <div className="FooterDown">
           <div className="FooterDownBox1">
             <div className="Logo">
               <img src={Logo} alt="" />
@@ -122,15 +150,20 @@ const Contact_us = () => {
             <p> Eliminate the hassle of manually remembering to pay rent and avoid costly late fees</p>
           </div>
           <div className="FooterDownBox2">
-            <h3>Resources</h3>
-            <p>FAQ <br />Privacy Policy <br />Terms of service</p>
+          <h5>Resources</h5>
+          <p>FAQ</p>
+          <p>Privacy Policy</p>
+          <p>Terms of service</p>
           </div>
           <div className="FooterDownBox3">
-            <h3>Company</h3>
-            <p>About Us <br /> Our Values <br /> Contact Us</p>
+          <h5>Company</h5>
+          <Link>About Us</Link>
+          <Link>Our Values</Link>
+          <Link>Contact us</Link>
           </div>
-        </div>
+        </div> */}
       </div>
+      <Footer />
     </div>
   )
 }

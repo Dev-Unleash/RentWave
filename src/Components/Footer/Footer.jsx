@@ -52,7 +52,7 @@ const Footer = () => {
           <p>Privacy Policy</p>
           <div className="top-btn">^</div>
         </div>
-       
+
       </div>
     </div>
 

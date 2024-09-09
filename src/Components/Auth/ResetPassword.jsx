@@ -7,9 +7,9 @@ const ResetPassword = () => {
   return (
     <div className='resetPasswordContainer'>
       <div className="resetPasswordWrapper">
-        <div className="backIcon">
-          <IoArrowBackSharp className='icon' />
-          <p>Go Back</p>
+        <div className="backIcon1">
+         
+          <p style={{fontSize:'14px',textAlign:'center',fontWeight:'600',display:'flex',justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp className='icon'style={{width: '25px', height:'25px'}} />  Go Back</p>
         </div>
         <div className="ResetPasswordInputContainer">
           <div className="ResetPasswordInputWrapper">
@@ -41,11 +41,12 @@ const ResetPassword = () => {
                   <p>Confirm New Password</p>
                   <input type="text" />
                 </div>
+                <button>Done</button>
               </div>
 
 
 
-              <button>Done</button>
+             
             </div>
           </div>
         </div>

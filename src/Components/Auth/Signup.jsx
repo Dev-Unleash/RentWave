@@ -18,12 +18,11 @@ const Signup = () => {
 
   return (
     <div className='SignUpContainer'>
+               <p style={{fontSize:'14px', width:'100px', position: 'absolute', top:'0', left:'5px', textAlign: 'center', display:'flex', justifyContent:'center',alignItems:'center',color:'black',cursor:'pointer'}}> <IoArrowBackSharp className='icon' style={{width: "20px"}} />   Go Back</p>
+
       <div className='firstSide'>
         <form className='SignUpCenter'>
-        <div className="backIcon">
-         
-          <p style={{fontSize:'14px', width:'100px', position: 'absolute', top:'0', left:'5px', textAlign: 'center', display:'flex', justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp className='icon' style={{width: "20px"}} />   Go Back</p>
-        </div>
+        
           <div className='topLogo'>
             <div className="Logo">
               <Link to="/" className="Logo">
