@@ -10,33 +10,9 @@ const Login = () => {
   const lookPassWord = () => {
     setSeePassWord(false)
   }
+  
   return (
-    <div className='LoginContainer'>
-      <div className="LoginWrapper">
-//       <div className="LoginLeft">
-//         <div className="LoginInputContainer">
-//           <div className="LoginInputUp">
-//             <form action="">
-//               <p>Email</p>
-//               <input type="text" placeholder='Email'/>
-//               <p>Password</p>
-//               <div className="passwordholder">
-//               <input  type={seePassWord
-//                 ?"password":"text"
-//             } placeholder='Password'/>
-//               {
-//                 seePassWord?<FaRegEye className="icon"  onClick={lookPassWord}/>:
-//                 <FaRegEyeSlash className="icon"  onClick={()=> setSeePassWord(true)}/>
-//             }
-//               </div>
-          
-//               <p><Link to='/ForgotPassWord'> Forgot Password?</Link></p>
-//             </form>
-//           </div>
-//           <div className="LoginInputDown">
-//             <button>Login</button>
-//             <div className="Down">
-//                 <p>Don't have an account? <span>Sign Up</span></p>
+    <>
         <div className="LoginLeft">
           <div className="LoginInputContainer">
             <div className="LoginInputUp">
@@ -88,8 +64,7 @@ const Login = () => {
         <h4>Login your business on Rent Wave</h4>
         <p>Manage Rent Payment With Ease</p>
       </div>
-      </div>
-    </div>
+    </>
   )
 }
 
