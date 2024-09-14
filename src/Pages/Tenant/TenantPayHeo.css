@@ -1,0 +1,22 @@
+
+.TextImagePayment{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    /* background-color: 
+    red; */
+}
+.PayImagePayment{
+    height: 200px;
+    width: 200px;
+ 
+
+    & img{
+        height: 100%;
+        width: 100%;
+    }
+}
