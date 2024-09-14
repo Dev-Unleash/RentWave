@@ -84,8 +84,8 @@ const Header = ({ scrollToSection }) => {
         <div className="dropdown-menu" ref={dropdownRef}>
           <NavLink to="/" onClick={toggleDropdown}>Home</NavLink>
           <NavLink to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('about'); }}>About Us</NavLink>
-          <NavLink to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('values'); }}>Our Value</NavLink>
-          <NavLink to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('contacts'); }}>Contacts</NavLink>
+          <NavLink to="#" onClick={() => { toggleDropdown(); scrollToSection('values'); }}>Our Value</NavLink>
+          <NavLink to="#" onClick={() => { toggleDropdown(); scrollToSection('contacts'); }}>Contacts</NavLink>
           <Link to='/SignUp' className="dropdown-btn" onClick={toggleDropdown}>SignUp</Link>
           <Link to='/Login' className="dropdown-btn" onClick={toggleDropdown}>Login</Link>
         </div>
