@@ -1,4 +1,4 @@
-.TenantPayContainer{
+.TenantSubContainer{
     height: 97%;
     width: 100%;
     /* background-color: green; */
@@ -6,7 +6,7 @@
     flex-direction: column;
     gap: 5%;
 }
-.TenantPayContainerHeader{
+.TenantSubContainerHeader{
     /* height: 12%; */
     width: 100%;
     /* background-color: red; */
@@ -18,19 +18,19 @@
     }
 
     & p {
-        
+    
             font-size: 16px;
             font-weight: 600;
             margin-top: 5px;
         
     }
 }
-.TenantPayContainerright{
+.TenantSubContainerright{
     height: 100%;
     width: 70%;
     /* background-color: blue; */
 }
-.TenantPayContainerLeft{
+.TenantSubContainerLeft{
     height: 100%;
     /* width: 20%; */
     /* background-color: brown; */
@@ -38,7 +38,7 @@
     justify-content: center;
     /* align-items: center; */
 }
-.TenantPayDown{
+.TenantsubDown{
     height: 85%;
     width: 100%;
     border-radius: 5px;
@@ -46,53 +46,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-}
-.TenantPayDownHeader{
-    height: 10%;
-    width: 100%;
-    background-color: #D9E8FF;
-    display: flex;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     justify-content: center;
-    & ul{
-        height: 100%;
-        width: 75%;
-        display: flex;
-        /* background-color: blue; */
-        display: flex;
-        align-items: center;
-        gap: 50px;
-        & li{
-            list-style-type: none;
-            font-weight: 500;
-            cursor: pointer;
-        }
-    }
+    gap: 10px;
 }
-
-.TextPay{
+.TextImagesub{
     height: 500px;
     width: 500px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    /* background-color: red; */
     align-items: center;
     justify-content: center;
-
-    & button{
-        height: 50px;
-        width: 200px;
-        border-radius: 30px;
-        background-color: #4D86DB;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 15px;
-    }
 }
-.PayImages{
+.SubImages{
     height: 200px;
     width: 200px;
  
