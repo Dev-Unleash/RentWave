@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import dashboard from "../../assets/dashboard.png"
+import { Link } from 'react-router-dom';
 // import HeroImage from './Hero.svg'
 
 const Hero = () => {
@@ -14,12 +15,11 @@ const Hero = () => {
      <h3>Simplify Rent Payment 
      and Collection</h3>
      <h6>Streamline your rent payment process and keep track of every transaction</h6>
-     <button className='btnHero'>Get Started</button>
+     <button className='btnHero'><Link to="/Signup">Get Started</Link></button>
      </div>
      <div className='hero-dashboard'><img src={dashboard} alt="" /></div>
 
 
-          {/* <img src={HeroImage} alt={Hero} /> */}
       
     </div>
   );

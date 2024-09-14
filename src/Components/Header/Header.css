@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 100px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #ffff;
@@ -16,11 +16,21 @@
   }
   
   .Logo {
-    width: 200px;
-    height: auto;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    object-fit: contain;
     color: white;
     text-decoration: none;
+    /* background-color: red; */
+  }
+  .Logo{
+    /* width: 20%; */
+    height: 100%;
+   
   }
   
   .HeaderNav {
@@ -40,6 +50,7 @@
   .nav {
     text-decoration: none;
     width: auto;
+    font-size: 25px;
   }
   
   .nav:hover {
@@ -50,7 +61,7 @@
     align-items: center;
     padding-inline: 2px;
   }
-  
+/*   
   .dropdown {
     width: 100px;
     height: auto;
@@ -62,18 +73,18 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 120px; /* Reduced width */
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    margin-top: 10px; /* Adjust to control distance from the nav item */
+    margin-top: 10px; 
   }
   
   .dropdown-content a {
     color: black;
-    padding: 8px 12px; /* Reduced padding */
+    padding: 8px 12px; 
     text-decoration: none;
     display: block;
-    font-size: 12px; /* Reduced font size */
+    font-size: 12px;
   }
   
   .dropdown-content a:hover {
@@ -86,7 +97,7 @@
   
   .dropdown-content.show {
     display: block;
-  }
+  }  */
   
   .btns {
     width: 20%;
@@ -95,7 +106,7 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
-    font-size: 12px;
+    font-size: 20px;
     color: white;
   }
   .btn1 {
@@ -103,8 +114,8 @@
     color: white;
     border: none;
     border-radius: 5px;
-    width: 100px;
-    height: 30px;
+    width: 40%;
+    height: 50px;
     /* padding: 3px; */
     box-shadow: 1px 4px 3px 2px  rgba(16, 16, 16, 0.197);
     cursor: pointer;
@@ -119,4 +130,80 @@
     
   }
  
-  
+  /* Hamburger icon */
+.hamburger {
+  width: 10%;
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
+  /* position: relative; */
+}
+.hamburger-icon{
+  width: 50px;
+  height: 50px;
+  /* position: absolute; */
+  /* right: 0px; */
+}
+
+.dropdown-menu {
+  width: 30%;
+  height: 33vh;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  position: absolute;
+  top: 50px; 
+  right: 0px;
+  padding-left: 10px;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(0, 0, 255, 0.158);
+}
+
+.dropdown-btn {
+  width: 100%;
+  /* background-color: #4D86DB; */
+  color: black;
+
+  /* border-radius: 5px; */
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+}
+
+/* .dropdown-btn:hover {
+  background-color: blue;
+} */
+
+@media screen and (max-width:900px){
+  .HeaderNav{
+    display: none;
+  }
+  .btn1{
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    /* background-color: red; */
+  }
+
+  .dropdown-menu {
+    display: flex;
+  }
+}

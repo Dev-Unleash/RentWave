@@ -22,9 +22,9 @@ const Footer = ({ scrollToTop }) => {
         </div>
         <div className="third">
           <h5>Company</h5>
-          <Link to="/about">About Us</Link>
-          <Link to="/values">Our Values</Link>
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/About_Us">About Us</Link>
+          <Link to="/About_Us">Our Values</Link>
+          <Link to="/About_Us">Contact Us</Link>
         </div>
       </div>
 
