@@ -40,25 +40,42 @@
 }
 .TenantMainDownHeader{
     height: 10%;
-    width: 91.8%;
+    width: 100%;
     background-color: #D9E8FF;
     display: flex;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    justify-content: space-between;
     align-items: center;
-    padding: 0px 40px;
+    gap: 10px;
+    /* padding: 0px 40px; */
 
-    & strong{
+    /* & h3 {
+        background-color: green;
         font-weight: 600;
         font-size:15px;
-    }
+        width: 20px;
+    } */
+& strong{
+    /* width: 30%; */
+    /* background-color: red; */
+    font-weight: 600;
+    font-size:15px;
+    display: flex;
+    justify-content: center;
+}
+
 }
 .TenantMaindowncon{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90%;
+    /* background-color: red; */
+
+    & h3{
+        display: flex;
+        justify-content: center;
+    }
 }
 .TextMainInage{
     height: 500px;
@@ -82,3 +99,9 @@
         font-size: 15px;
     }
 }
+/* Blur effect when popup is active */
+.blur-background {
+    filter: blur(5px);
+    pointer-events: none; /* Prevent interactions when blurred */
+  }
+  

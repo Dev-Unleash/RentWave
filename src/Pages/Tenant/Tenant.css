@@ -9,6 +9,10 @@
     width: 22%;
     background-color: #F5F5F5;
 }
+.menuIcon{
+    width: 40px;
+    height: 40px;
+}
 .LogoContainer{
     height: 12%;
     width: 55%;
@@ -88,7 +92,7 @@ margin-bottom: 13px;
         
         display:flex;
        flex-direction: column;
-        gap: 25px;
+        gap: 13px;
        
     }
 .Logoutmenu{

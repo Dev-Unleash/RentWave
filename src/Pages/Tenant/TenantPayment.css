@@ -35,8 +35,7 @@
     /* width: 20%; */
     /* background-color: brown; */
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    justify-content: flex-end;
 }
 .TenantPayDown{
     height: 85%;
@@ -55,19 +54,23 @@
     display: flex;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    justify-content: center;
+    /* justify-content: center; */
     & ul{
         height: 100%;
-        width: 75%;
+        width: 50%;
         display: flex;
         /* background-color: blue; */
         display: flex;
         align-items: center;
-        gap: 50px;
+        /* justify-content: space-evenly; */
+        /* gap: 50px; */
         & li{
             list-style-type: none;
             font-weight: 500;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            gap: 0px;
         }
     }
 }
@@ -91,6 +94,8 @@
         cursor: pointer;
         font-size: 15px;
     }
+
+    
 }
 .PayImages{
     height: 200px;
