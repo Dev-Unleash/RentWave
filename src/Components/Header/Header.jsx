@@ -82,10 +82,10 @@ const Header = ({ scrollToSection }) => {
      
       {dropdownVisible && (
         <div className="dropdown-menu" ref={dropdownRef}>
-          <NavLink to="/" onClick={toggleDropdown}>Home</NavLink>
-          <NavLink to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('about'); }}>About Us</NavLink>
-          <NavLink to="#" onClick={() => { toggleDropdown(); scrollToSection('values'); }}>Our Value</NavLink>
-          <NavLink to="#" onClick={() => { toggleDropdown(); scrollToSection('contacts'); }}>Contacts</NavLink>
+          <Link to="/" onClick={toggleDropdown}>Home</Link>
+          <Link to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('about'); }}>About Us</Link>
+          <Link to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('values'); }}>Our Value</Link>
+          <Link to="/About_Us" onClick={() => { toggleDropdown(); scrollToSection('contacts'); }}>Contacts</Link>
           <Link to='/SignUp' className="dropdown-btn" onClick={toggleDropdown}>SignUp</Link>
           <Link to='/Login' className="dropdown-btn" onClick={toggleDropdown}>Login</Link>
         </div>
