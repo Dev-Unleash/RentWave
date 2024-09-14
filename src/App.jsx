@@ -97,14 +97,15 @@ const router = createBrowserRouter([
           element:<TenantPayLayout/>,
           children:[
             {
+              path:"/TenantCards",
+              element:<TenantCards/>
+            },
+            {
               path:"/TenantPayment",
               element:<TenantPayment/>
 
             },
-            {
-              path:"/TenantCards",
-              element:<TenantCards/>
-            }
+           
           ]
         },
         {

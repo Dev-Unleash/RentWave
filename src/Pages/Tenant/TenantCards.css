@@ -1,6 +1,6 @@
 
 
-.Textcard{
+.TextCard{
     height: 500px;
     width: 500px;
     display: flex;
@@ -9,7 +9,10 @@
     align-items: center;
     justify-content: center;
   
-
+    & h3{
+        display: flex;
+        justify-content: center;
+    }
     & button{
         height: 50px;
         width: 200px;
@@ -21,7 +24,7 @@
         font-size: 15px;
     }
 }
-.Paycard{
+.cardImages{
     height: 200px;
     width: 200px;
  

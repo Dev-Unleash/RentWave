@@ -9,6 +9,10 @@
     justify-content: center;
     /* background-color: 
     red; */
+    & h3{
+        display: flex;
+        justify-content: center;
+    }
 }
 .PayImagePayment{
     height: 200px;
