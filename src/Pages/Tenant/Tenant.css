@@ -37,12 +37,12 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-
+margin-bottom: 13px;
     & .Pics{
         height: 90px;
         width: 90px;
         border-radius: 50px;
-        background-color: green;
+        
 
         & img{
             height: 100%;
@@ -67,36 +67,35 @@
 }
 
 
- .tenantLeft .MenuContainer {
-  
+ .MenuContainer {
      font-size: 20px;
      width: 100%;
      height: 50%;
-      background-color: green;
       display: flex;
       flex-direction: column;
+      gap: 20px;
+     /* padding-top: 20px;
+     padding-left: 20px; */
+     padding: 0px 20px;
       & nav{
         display: flex;
         font-size: 20px;
+        gap: 15px;
+        font-weight: 500;
       }
      }
-    
+    .MenuWrapper{
+        
+        display:flex;
+       flex-direction: column;
+        gap: 25px;
+       
+    }
 .Logoutmenu{
     height: 5%;
     width: 100%;
-    background-color: red;
     display: flex;
-    & p{
-        display: flex;
-        align-items: center; /* Aligns the icon and text vertically */
-        font-size: 20px;
-        /* gap: 10px; Adds spacing between the icon and text */
-        /* padding-left: 10px;  */
-        margin-top: 0px;
-      
-    }
-
-
+    padding-left: 20px;
 }
 /* .LogoutIcon{
    font-size: 25px;

@@ -1,55 +1,79 @@
-import React from 'react'
-import ola from "../../assets/ola.jpg"
+import React from "react";
+import ola from "../../assets/ola.jpg";
 import { CiStar } from "react-icons/ci";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
-import { Link } from 'react-router-dom';
-import Logo from "../../assets/logo-removebg-preview.png"
-import "./Tenant.css"
+import { Link } from "react-router-dom";
+import Logo from "../../assets/logo-removebg-preview.png";
+import "./Tenant.css";
 const SideBar = () => {
   return (
     <>
-<div className="LogoContainer">
+      <div className="LogoContainer">
         <div className="Logo">
           <img src={Logo} alt="" />
         </div>
+      </div>
+
+      <div className="Profile">
+        <div className="Pics">
+          <img src={ola} alt="" />
         </div>
+        <p>Tolani</p>
+        <h3>Welcome</h3>
+      </div>
+      <div className="MenuContainer" >
+        <div className="MenuWrapper">
+          <nav>
+            {" "}
+            <IoHome size={30} style={{fontSize:"20px"}}/>
+            <Link to="/TenantHome" style={{ textDecoration: "none" ,color:"black" }}>
+              Home
+            </Link>{" "}
+          </nav>
+          <nav>
+            <CiWallet size={30} />
+            <Link to="/TenantSub" style={{ textDecoration: "none",color:"black"  }}>
+              Subcription
+            </Link>
+          </nav>
+          <nav>
+            {" "}
+            <CiStar size={30} />{" "}
+            <Link to="/TenantMain" style={{ textDecoration: "none",color:"black" }}>
+              Maintenance
+            </Link>
+          </nav>
+          <nav>
+            {" "}
+            <CiWallet size={30} />{" "}
+            <Link to="/TenantPayment" style={{ textDecoration: "none",color:"black" }}>
+              Payment
+            </Link>
+          </nav>
+          <nav>
+            <CiStar size={30} />{" "}
+            <Link to="/TenantSettings" style={{ textDecoration: "none",color:"black" }} >
+              {" "}
+              Account Setting
+            </Link>
+          </nav>
+        </div>
+      </div>
+
+      <div className="Logoutmenu">
         
-        <div className="Profile">
-          <div className="Pics">
-            <img src={ola} alt="" />
-          </div>
-          <p>Tolani</p>
-          <h3>Welcome</h3>
-        </div>
-        <div className="MenuContainer" style={{fontSize:"20px"}}>
-         {/* <p><IoHome size={20}/><span>Home </span></p>
-         <p>Subcription</p>
-         <p><CiStar size={20}/><span>Maintenance </span></p>
-         <p> <CiWallet size={20}/><span>Payment</span></p>
-         <p>Account Setting</p> */}
-         {/* <ul>
-            <li>Home </li>
-            <li>Subcription</li>
-            <li>Maintenance</li>
-            <li>Payment</li>
-            <li>Account Setting</li>
-         </ul> */}
-         <IoHome size={20}/><nav><Link to="/TenantHome">Home</Link> </nav>
-         <nav>Subcription</nav>
-         <CiStar size={20}/>  <nav>Maintenance</nav>
-         <CiWallet size={20}/> <nav><Link to="/TenantPayment">Payment</Link></nav>
-         <nav><Link to="/TenantSetting"> Account Setting</Link></nav>
-        </div>
-       <div className="Logoutmenu">
-
-       <CiWallet size={20}/>
-       {/* <AiOutlineLogout className='LogoutIcon'/> */}
-       <p>Logout</p>
-       </div>
+        <nav style={{gap:"20px",display:"flex"}}>
+            <AiOutlineLogout size={30}/>
+            <Link to="/TenantSettings" style={{ textDecoration: "none",color:"black",fontSize:"20px",fontWeight:'500' }} >
+              {" "}
+              Logout
+            </Link>
+          </nav>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

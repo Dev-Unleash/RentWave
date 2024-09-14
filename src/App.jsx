@@ -20,10 +20,15 @@ import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
 import TenantHome from './Pages/Tenant/TenantHome.jsx';
 import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
+import TenantSub from './Pages/Tenant/TenantSub.jsx';
+import TenMain from './Pages/Tenant/TenMain.jsx';
+import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
+import TenantPayHero from './Pages/Tenant/TenantPayHero.jsx';
+import TenantCards from './Pages/Tenant/TenantCards.jsx';
+import MainRequest from './Pages/Tenant/MainRequest.jsx';
 
 const router = createBrowserRouter([
-{  path:"/Tenant",
-  element:<TenantHome/>},
+
       {
         path: "/",
         element: <Home/>
@@ -79,7 +84,44 @@ const router = createBrowserRouter([
           
         ]
       },
-     
+     {
+      element:<TenantPrivate/>,
+      children:[
+        {
+          path:"/TenantHome",
+          element:<TenantHome/>
+        },
+        {
+          path:"/TenantSettings",
+          element:<TenantSettings/>
+        },{
+          path:"/MaintainReq",
+          element:<MainRequest/>
+        },
+        {
+          element:<TenantPayLayout/>,
+          children:[
+            {
+              path:"/TenantPayment",
+              element:<TenantPayment/>
+
+            },
+            {
+              path:"/TenantCards",
+              element:<TenantCards/>
+            }
+          ]
+        },
+        {
+          path:"/TenantSub",
+          element:<TenantSub/>
+        },
+        {
+          path:"/TenantMain",
+          element:<TenMain/>
+        },
+      ]
+     }
     ],
   
   
