@@ -13,21 +13,21 @@ const TenantHome = () => {
           <h1>Spaced Booked</h1>
           <div className="TenantText">
             <h3>0</h3>
-            <p>Sell All</p>
+            <p>See All</p>
           </div>
         </div>
         <div className="OneBox" >
           <h1>Maintenance Request</h1>
           <div className="TenantText">
             <h3 >0</h3>
-            <p>Sell All</p>
+            <p>See All</p>
           </div>
         </div>
         <div className="OneBox">
            <h1>Active Subcription</h1>
            <div className="TenantText">
             <h3>0</h3>
-            <p>Sell All</p>
+            <p>See All</p>
           </div>
         </div>
       </div>

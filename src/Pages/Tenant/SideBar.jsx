@@ -27,34 +27,34 @@ const SideBar = () => {
         <div className="MenuWrapper">
           <nav>
             {" "}
-            <IoHome size={30} style={{fontSize:"20px"}}/>
-            <Link to="/TenantHome" style={{ textDecoration: "none" ,color:"black" }}>
+            <IoHome className="menuIcon"/>
+            <Link to="/TenantHome" style={{ textDecoration: "none" ,color:"black" ,display:"flex",alignItems:"center" }}>
               Home
             </Link>{" "}
           </nav>
           <nav>
-            <CiWallet size={30} />
-            <Link to="/TenantSub" style={{ textDecoration: "none",color:"black"  }}>
+            <CiWallet className="menuIcon" />
+            <Link to="/TenantSub" style={{ textDecoration: "none",color:"black" ,display:"flex",alignItems:"center"  }}>
               Subcription
             </Link>
           </nav>
           <nav>
             {" "}
-            <CiStar size={30} />{" "}
-            <Link to="/TenantMain" style={{ textDecoration: "none",color:"black" }}>
+            <CiStar className="menuIcon" />{" "}
+            <Link to="/TenantMain" style={{ textDecoration: "none",color:"black",display:"flex",alignItems:"center"  }}>
               Maintenance
             </Link>
           </nav>
           <nav>
             {" "}
-            <CiWallet size={30} />{" "}
-            <Link to="/TenantPayment" style={{ textDecoration: "none",color:"black" }}>
+            <CiWallet className="menuIcon" />{" "}
+            <Link to="/TenantPayment" style={{ textDecoration: "none",color:"black",display:"flex",alignItems:"center"  }}>
               Payment
             </Link>
           </nav>
           <nav>
-            <CiStar size={30} />{" "}
-            <Link to="/TenantSettings" style={{ textDecoration: "none",color:"black" }} >
+            <CiStar className="menuIcon" />{" "}
+            <Link to="/TenantSettings" style={{ textDecoration: "none",color:"black",display:"flex",alignItems:"center" }} >
               {" "}
               Account Setting
             </Link>
@@ -65,8 +65,8 @@ const SideBar = () => {
       <div className="Logoutmenu">
         
         <nav style={{gap:"20px",display:"flex"}}>
-            <AiOutlineLogout size={30}/>
-            <Link to="/TenantSettings" style={{ textDecoration: "none",color:"black",fontSize:"20px",fontWeight:'500' }} >
+            <AiOutlineLogout className="menuIcon"/>
+            <Link to="/TenantSettings" style={{ textDecoration: "none",color:"black",fontSize:"20px",fontWeight:'500',display:"flex",alignItems:"center"  }} >
               {" "}
               Logout
             </Link>
