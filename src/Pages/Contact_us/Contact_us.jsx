@@ -18,24 +18,24 @@ import { useRef } from 'react';
 
 
 
-  const Contact_us = () => {
-    const aboutRef = useRef(null);
-    const valuesRef = useRef(null);
-    const contactsRef = useRef(null);
-  
-    const scrollToSection = (section) => {
-      if (section === 'about') {
-        aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-      } else if (section === 'values') {
-        valuesRef.current.scrollIntoView({ behavior: 'smooth' });
-      } else if (section === 'contacts') {
-        contactsRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
-    };
+const Contact_us = () => {
+  const aboutRef = useRef(null);
+  const valuesRef = useRef(null);
+  const contactsRef = useRef(null);
+
+  const scrollToSection = (section) => {
+    if (section === 'about') {
+      aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+    } else if (section === 'values') {
+      valuesRef.current.scrollIntoView({ behavior: 'smooth' });
+    } else if (section === 'contacts') {
+      contactsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div className='ContactUsContainer'>
-       <Header scrollToSection={scrollToSection} />     
-        <div className='aboutUs' ref={aboutRef}>
+      <Header scrollToSection={scrollToSection} />
+      <div className='aboutUs' ref={aboutRef}>
         <div className="aboutUsLeft">
           <h1>About Us</h1>
           <p>
@@ -63,10 +63,10 @@ import { useRef } from 'react';
                   circumstance, we choose to be
                   kind to those we serve, each
                   other, and the world at large.</p>
-                <div className="ImageContainer"><img src={values4} alt="values" /></div>
+                <div className="ImageContainer1"><img src={values4} alt="values" /></div>
               </div>
-              <div className="box1">
-                <div className="ImageContainer"><img src={values3} alt="values" /></div>
+              <div className="box2">
+                <div className="ImageContainer1"><img src={values3} alt="values" /></div>
                 <h3><hr />Customer Focus</h3>
                 <p>Customers are the only reason
                   we are in business. We create
@@ -80,10 +80,10 @@ import { useRef } from 'react';
                   the promises we make and act
                   with integrity even when no one
                   is watching.</p>
-                <div className="ImageContainer"><img src={values2} alt="values" /></div>
+                <div className="ImageContainer1"><img src={values2} alt="values" /></div>
               </div>
-              <div className="box1">
-                <div className="ImageContainer"><img src={values1} alt="values" /></div>
+              <div className="box2">
+                <div className="ImageContainer1"><img src={values1} alt="values" /></div>
                 <h3><hr />Curiosity</h3>
                 <p>We embrace a beginner’s mind.
                   Everyone and everything has
@@ -98,10 +98,10 @@ import { useRef } from 'react';
       <div className="Contact" ref={contactsRef}>
         <div className="contactUsWrapper">
           <div className="contactText">
-            <div className="TextImage">
+            <div className="TextImage1">
               <img src={contactUs} alt="contactUs" />
             </div>
-            <h1>Need Help?Contact Us <br /><p>Visit our <span style={{ color: "#0052AA" }}>help center</span> to find answers to most questions</p></h1>
+            <h1>Need Help?Contact Us <br /><p style={{fontSize:"18px"}}>Visit our <span style={{ color: "#0052AA" }}>help center</span> to find answers to most questions</p></h1>
           </div>
           <div className="Contactbox">
             <div className="contactBox1">
@@ -140,28 +140,6 @@ import { useRef } from 'react';
           <textarea name="" id="" placeholder='Type here'></textarea>
           <button>submit</button>
         </div>
-
-        {/* <div className="FooterDown">
-          <div className="FooterDownBox1">
-            <div className="Logo">
-              <img src={Logo} alt="" />
-            </div>
-            <h3>Avoid Late Fees</h3>
-            <p> Eliminate the hassle of manually remembering to pay rent and avoid costly late fees</p>
-          </div>
-          <div className="FooterDownBox2">
-          <h5>Resources</h5>
-          <p>FAQ</p>
-          <p>Privacy Policy</p>
-          <p>Terms of service</p>
-          </div>
-          <div className="FooterDownBox3">
-          <h5>Company</h5>
-          <Link>About Us</Link>
-          <Link>Our Values</Link>
-          <Link>Contact us</Link>
-          </div>
-        </div> */}
       </div>
       <Footer />
     </div>

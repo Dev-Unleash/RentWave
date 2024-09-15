@@ -20,7 +20,7 @@ const Login = () => {
             <div className='topLogo'>
             <div className="Logo">
               <Link to="/" className="Logo" style={{marginBottom:"100px"}}>
-                <img src={Logo} alt="logo" style={{ width: "70%", }} />
+                <img src={Logo} alt="logo" />
               </Link>
 
             </div>
