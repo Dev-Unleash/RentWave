@@ -99,9 +99,9 @@
         font-size: 15px;
     }
 }
-/* Blur effect when popup is active */
+
 .blur-background {
     filter: blur(5px);
-    pointer-events: none; /* Prevent interactions when blurred */
+    pointer-events: none; 
   }
   
