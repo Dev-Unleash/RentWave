@@ -30,7 +30,7 @@
     /* border: 2px solid red; */
     padding: 20px 20px;
     @media screen and (max-width:900px){
-        width: 100%;
+        width: 90%;
         height: 100%;
      }
 }
@@ -114,6 +114,9 @@ p{
         @media screen and (max-width:900px){
             width: 85%;
         flex-direction: column;
+         }
+        @media screen and (max-width:440px){
+            
          }
     }
 
