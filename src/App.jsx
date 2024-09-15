@@ -142,7 +142,6 @@ import React, { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
-import Services from './Pages/Services/Services';
 import AuthRoutes from './Pages/Landlord/AuthRoutes/AuthRoutes.jsx';
 import Contact_us from './Pages/Contact_us/Contact_us';
 import Login from './Components/Auth/Login';
@@ -164,6 +163,7 @@ import MainRequest from './Pages/Tenant/MainRequest.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+
 
   const router = createBrowserRouter([
     {
@@ -224,6 +224,8 @@ const App = () => {
           path: "/TenantHome",
           element: <TenantHome />
         },
+
+     
         {
           path: "/TenantSettings",
           element: <TenantSettings />

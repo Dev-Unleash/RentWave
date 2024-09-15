@@ -18,15 +18,15 @@ const Signup = () => {
 
   return (
     <div className='SignUpContainer'>
-               <p style={{fontSize:'14px', width:'100px', position: 'absolute', top:'0', left:'5px', textAlign: 'center', display:'flex', justifyContent:'center',alignItems:'center',color:'black',cursor:'pointer'}}> <IoArrowBackSharp className='icon' style={{width: "20px"}} />   Go Back</p>
+               <p style={{fontSize:'14px', width:'20%', position: 'absolute', top:'10px', left:'5px', textAlign: 'center', display:'flex', justifyContent:'flexStart',alignItems:'center',color:'black',cursor:'pointer'}}> <IoArrowBackSharp className='icon' style={{width: "20px"}} />   Go Back</p>
 
       <div className='firstSide'>
         <form className='SignUpCenter'>
         
           <div className='topLogo'>
-            <div className="Logo">
-              <Link to="/" className="Logo">
-                <img src={logo} alt="logo" style={{ width: "70%", }} />
+            <div className="Logo-signup">
+              <Link to="/" className="Logo-signup">
+                <img src={logo} alt="logo" style={{ width: "70%",height:"100%",objectFit: "contain" }} />
               </Link>
             </div>
             <h4 style={{ fontSize: "14px", width: '100%', marginBottom: "50px", }}>Sign up your business on Rent Wave</h4>
