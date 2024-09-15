@@ -139,7 +139,7 @@
 
 // export default App
 import React, { useState } from 'react';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import AuthRoutes from './Pages/Landlord/AuthRoutes/AuthRoutes.jsx';
@@ -163,9 +163,7 @@ import MainRequest from './Pages/Tenant/MainRequest.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
-
-
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Home />
@@ -189,10 +187,6 @@ const App = () => {
     {
       path: "/About_Us",
       element: <Contact_us />
-    },
-    {
-      path: "/Services",
-      element: <Services />
     },
     {
       path: "/Blog",
