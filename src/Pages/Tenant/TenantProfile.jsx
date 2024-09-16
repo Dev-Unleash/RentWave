@@ -1,19 +1,15 @@
 import React from 'react'
-import "./Tenantsettings.css"
-import { FaCamera } from "react-icons/fa6";
-import { MdCircleNotifications } from "react-icons/md";
-import ola from "../../assets/ola.jpg";
-const TenantSettings = () => {
+import"./Tenant.css"
+const TenantProfile = () => {
   return (
     <div className='AcctSettingCon' >
       <div className="AcctSettingsWrapper">
         <div className="AcctSettingsHeader">
-          <h3>Account Setting</h3>
+          <h3>Profile</h3>
         </div>
         <div className="AcctSettingsDown">
         <div className="AcctProfile">
         <div className="Pics">
-        <FaCamera style={{height:"20px",width:"30px",position:"absolute",bottom:"-5px",right:"0px"}}/>
           <img src={ola} alt="Profile" />
         </div>
        
@@ -56,4 +52,4 @@ const TenantSettings = () => {
   )
 }
 
-export default TenantSettings
+export default TenantProfile

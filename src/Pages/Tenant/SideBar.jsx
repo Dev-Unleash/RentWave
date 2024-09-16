@@ -46,12 +46,12 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
               Home
             </Link>
           </nav>
-          <nav>
+          {/* <nav>
             <CiWallet className="menuIcon" />
             <Link to="/TenantSub" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Subscription
             </Link>
-          </nav>
+          </nav> */}
           <nav>
             <CiStar className="menuIcon" />
             <Link to="/TenantMain" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>

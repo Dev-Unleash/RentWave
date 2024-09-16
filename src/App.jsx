@@ -160,6 +160,7 @@ import TenMain from './Pages/Tenant/TenMain.jsx';
 import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
 import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
+import TenantProfile from './Pages/Tenant/TenantProfile.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -249,6 +250,10 @@ const App = () => {
           path: "/TenantMain",
           element: <TenMain />
         },
+        {
+          path:"/TenantProfile",
+          element:<TenantProfile/>
+        }
       ]
     }
   ]);

@@ -10,7 +10,7 @@ const TenantHome = () => {
       </div>
       <div className="TenantDashBoardBox">
         <div className="OneBox">
-          <h1>Spaced Booked</h1>
+          <h1>Payment</h1>
           <div className="TenantText">
             <h3>0</h3>
             <p>See All</p>

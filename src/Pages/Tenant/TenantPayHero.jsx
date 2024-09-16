@@ -14,7 +14,7 @@ const TenantPayHero = () => {
              <p>Manage payment on RentWave</p>
              </div>
              <div className="TenantPayContainerLeft">
-             <IoNotificationsCircleSharp className="menuIcons"/>
+             <IoNotificationsCircleSharp className="menuIcons" style={{cursor:"pointer"}}/>
              </div>
         </div>
       

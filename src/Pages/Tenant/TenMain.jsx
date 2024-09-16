@@ -31,10 +31,8 @@ const TenMain = () => {
         <div className="TenantMainDown">
           <div className="TenantMainDownHeader" >
             <strong>REASON</strong>
-            <strong>TICKET ID</strong>
             <strong>DATE / TIME CREATED</strong>
             <strong>STATUS</strong>
-            <strong>ACTIONS</strong>
           </div>
           <div className="TenantMaindowncon">
             <div className="TextMainInage">
