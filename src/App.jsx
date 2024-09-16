@@ -148,6 +148,7 @@ import Login from './Components/Auth/Login';
 import Signup from './Components/Auth/Signup';
 import ResetPassword from './Components/Auth/ResetPassword';
 import ForgotPassword from './Components/Auth/ForgotPassword';
+import  ResetMessage from './Components/Auth/ResetMesssage.jsx'
 import TenantPrivate from './Pages/Tenant/TenantPrivate.jsx';
 import Landlord from "./Pages/Landlord/Landlord.jsx";
 // import Admin from "./Pages/Admin/Admin.jsx";
@@ -187,6 +188,10 @@ const App = () => {
     {
       path: "/ForgotPassWord",
       element: <ForgotPassword />
+    },
+    {
+      path:"/ResetMessage",
+      element:<ResetMessage/>
     },
     {
       path: "/About_Us",
