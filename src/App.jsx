@@ -148,10 +148,15 @@ import Login from './Components/Auth/Login';
 import Signup from './Components/Auth/Signup';
 import ResetPassword from './Components/Auth/ResetPassword';
 import ForgotPassword from './Components/Auth/ForgotPassword';
+import  ResetMessage from './Components/Auth/ResetMesssage.jsx'
 import TenantPrivate from './Pages/Tenant/TenantPrivate.jsx';
 import Landlord from "./Pages/Landlord/Landlord.jsx";
-import Admin from "./Pages/Admin/Admin.jsx";
+// import Admin from "./Pages/Admin/Admin.jsx";
 import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
+import AdminHome from './Pages/Admin/AdminHome.jsx';
+import AdminLandlord from './Pages/Admin/AdminLandlord.jsx';
+import AdminTenant from './Pages/Admin/AdminTenant.jsx';
+import AdminSettings from './Pages/Admin/AdminSettings.jsx'
 import TenantHome from './Pages/Tenant/TenantHome.jsx';
 import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
@@ -186,6 +191,10 @@ const App = () => {
       element: <ForgotPassword />
     },
     {
+      path:"/ResetMessage",
+      element:<ResetMessage/>
+    },
+    {
       path: "/About_Us",
       element: <Contact_us />
     },
@@ -198,14 +207,29 @@ const App = () => {
       element: <Landlord />
     },
     {
-      element: <AdminPrivate />,
+      element: <AdminPrivate showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
       children: [
         {
-          path: "/Admin",
-          element: <Admin />
+          path: "/AdminHome",
+          element: <AdminHome />
         },
-      ],
-    },
+        {
+          path: "/AdminLandlord",
+          element: <AdminLandlord/>
+        },
+        {
+          path: "/AdminTenant",
+          element: <AdminTenant/>
+        },
+     
+     
+        {
+          path: "/AdminSettings",
+          element: <AdminSettings />
+        },
+       
+          ]
+        },
     {
       element: <AuthRoutes />,
       children: [
