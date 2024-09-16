@@ -108,17 +108,18 @@ margin-bottom: 13px;
 /* .LogoutIcon{
    font-size: 25px;
 } */
-.tenantRight{
+.adminRight{
     height: 100%;
-    width:78%;
+    width:100%;
     background-color:rgb(199, 195, 195);
     display: flex;
     align-items: center;
     justify-content: center;
+    /* padding-bottom: 50px; */
 }
-.tenantRightWrapper{
+.adminRightWrapper{
     height: 100%;
-    width: 92%;
+    width: 100%;
     /* background-color: rgb(190, 187, 187); */
     /* padding-top: 20px; */
     display: flex;
@@ -126,8 +127,8 @@ margin-bottom: 13px;
 }
 .popup {
     position: absolute;
-    top: 65%;
-    left: 10%;
+    top: 55%;
+    left: 0%;
     background-color: #4D86DB;
     border-radius: 20px;
     /* padding: 10px; */

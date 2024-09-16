@@ -63,14 +63,8 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
           </nav>
           <nav>
            <CiWallet  className="menuIcon"/>
-            <Link to="/AdminTenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/AdminPayment" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Payments
-            </Link>
-          </nav>
-          <nav>
-            <MdOutlineManageAccounts  className="menuIcon"/>
-            <Link to="/AdminSettings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
-              Account Setting
             </Link>
           </nav>
         </div>
