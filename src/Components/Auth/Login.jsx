@@ -3,6 +3,7 @@ import "./Login.css"
 import Logo from "../../assets/logo.png"
 import { FaRegEye } from 'react-icons/fa6'
 import { FaRegEyeSlash } from 'react-icons/fa6'
+import { IoArrowBackSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom'
 
 const Login = () => {
@@ -13,7 +14,7 @@ const Login = () => {
   return (
     <div className='LoginContainer'>
       <div className="LoginWrapper">
-
+      <p style={{fontSize:'14px', width:'20%', position: 'absolute', top:'10px', left:'5px', textAlign: 'center', display:'flex', justifyContent:'flexStart',alignItems:'center',color:'black',cursor:'pointer'}}> <IoArrowBackSharp className='icon' style={{width: "20px"}} />   Go Back</p>
         <div className="LoginLeft">
           <div className="LoginInputContainer">
             <div className="LoginInputUp">
@@ -25,6 +26,10 @@ const Login = () => {
 
             </div>
             <h4 style={{ fontSize: "14px", width: '100%', marginBottom: "50px", }}>Sign up your business on Rent Wave</h4>
+            <br />
+            <br />
+            <br />
+            <br />
           </div>
               <form action="">
                 <div className='input-div'>
@@ -48,7 +53,7 @@ const Login = () => {
               </form>
             </div>
             <div className="LoginInputDown">
-              <button>Login</button>
+              <button style={{fontWeight:"600"}}>Login</button>
               <div className="Down">
                 <p>Don't have an account? <span><Link to="/signUp">Sign Up</Link></span></p>
               </div>

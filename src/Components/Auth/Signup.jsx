@@ -36,16 +36,16 @@ const Signup = () => {
           <div className='nameContainer'>
             <div className='Name'>
               <h5>FirstName</h5>
-              <input type="text" name='firstName' className='input' />
+              <input type="text" name='firstName' className='input' placeholder='FirstName' />
             </div>
             <div className='Name'>
               <h5>LastName</h5>
-              <input type="text" name='lastName' className='input' />
+              <input type="text" name='lastName' className='input'placeholder='LastName' />
             </div>
           </div>
           <div className='info'>
             <h5>Email</h5>
-            <input type="text" name='email' className='input1' />
+            <input type="text" name='email' className='input1' placeholder='Email'/>
           </div>
           <div className='info'>
             <h5>PhoneNumber</h5>
@@ -57,7 +57,7 @@ const Signup = () => {
           <div className='info'>
             <h5>Password</h5>
             <div className='passkey'>
-              <input type={seePassWord ? "password" : "text"} className='input2' />
+              <input type={seePassWord ? "password" : "text"} className='input2' placeholder='Password' />
               {
                 seePassWord ? <IoEye className="icon" onClick={lookPassWord} /> :
                   <IoEyeOff className="icon" onClick={() => setSeePassWord(true)} />
@@ -66,7 +66,7 @@ const Signup = () => {
           <div className='info'>
             <h5>Confirm-Password</h5>
             <div className='passkey'>
-              <input type={seePassWord ? "password" : "text"} className='input2' />
+              <input type={seePassWord ? "password" : "text"} className='input2'  placeholder='Password'/>
               {
                 seePassWord ? <IoEye className="icon" onClick={lookPassWord} /> :
                   <IoEyeOff className="icon" onClick={() => setSeePassWord(true)} />

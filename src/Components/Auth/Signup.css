@@ -197,6 +197,7 @@ p{
     color: white;
     font-size: 16px;
     cursor: pointer;
+    font-weight: 600;
     @media screen and (max-width:900px){
         height: 7%;
     

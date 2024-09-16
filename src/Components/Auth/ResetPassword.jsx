@@ -36,13 +36,13 @@ const ResetPassword = () => {
               <div className="NewPassword">
                 <div className='one'>
                   <p>New Password</p>
-                  <input type="text" className='reset-input'/>
+                  <input type="text" placeholder='New Password' required className='reset-input'/>
                 </div>
                 <div className='two'>
                   <p>Confirm New Password</p>
-                  <input type="text" />
+                  <input type="text" placeholder='Confirm Password' required />
                 </div>
-                <button><Link to='/Login'>Done</Link></button>
+                <button><Link to='/Login' style={{color:"white"}}>Done</Link></button>
               </div>
 
 
