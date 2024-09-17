@@ -36,14 +36,58 @@ const TenantHome = () => {
         <h1>
           Recent Activity
         </h1>
-        <div className="TextImage">
+        {/* <div className="TextImage">
         <div className="HomeImage" >
                 <img src={homepics} alt=""/>
             </div>
             <h3>No activities yet but recent scheduled and completed payments will appear here</h3>
-        </div>
+        </div> */}
+           {/* <div className="RecentActPage">
            
-       
+            
+            <div className="RecentActbox">
+              <div className="RecentActboxleft">
+                <p>Payment</p>
+              </div>
+              <div className="RecentActboxright">
+                <p>#180000</p>
+                <p>11/12/2005</p>
+                <p>13:45pm</p>
+              </div>
+            </div>
+            <div className="RecentActbox">
+              <div className="RecentActboxleft">
+                <p>Payment</p>
+              </div>
+              <div className="RecentActboxright">
+                <p>#180000</p>
+                <p>11/12/2005</p>
+                <p>13:45pm</p>
+              </div>
+            </div>
+           </div> */}
+       <table className="RecentActPage">
+       <tbody >
+           <tr>
+          <td>Payment</td>
+        <td>#180000</td>
+        <td>11/12/2005</td>
+        <td>13:45pm</td>
+    </tr>
+    <tr>
+          <td>Payment</td>
+        <td>#180000</td>
+        <td>11/12/2005</td>
+        <td>13:45pm</td>
+    </tr>
+    <tr>
+          <td>Payment</td>
+        <td>#180000</td>
+        <td>11/12/2005</td>
+        <td>13:45pm</td>
+    </tr>
+           </tbody>
+       </table>
       </div>
     </div>
 

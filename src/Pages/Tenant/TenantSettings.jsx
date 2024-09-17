@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Tenantsettings.css"
 import { FaCamera } from "react-icons/fa6";
 import { MdCircleNotifications } from "react-icons/md";
 import ola from "../../assets/ola.jpg";
 const TenantSettings = () => {
+  const[showImg,setShowImg]=useState()
+    const posting= (e)=>{
+        const file= e.target.files[0]
+        const myImage = URL.createObjectURL(file)
+        setShowImg(myImage)
+    }
   return (
     <div className='AcctSettingCon' >
       <div className="AcctSettingsWrapper">
@@ -13,8 +19,17 @@ const TenantSettings = () => {
         <div className="AcctSettingsDown">
         <div className="AcctProfile">
         <div className="Pics">
-        <FaCamera style={{height:"20px",width:"30px",position:"absolute",bottom:"-5px",right:"0px"}}/>
-          <img src={ola} alt="Profile" />
+        {showImg && <img src={showImg} alt="Uploaded" />}
+        <div className="UploadIcon">
+                <input type="file" id='i' hidden onChange={posting} />
+                <label htmlFor="i" style={{width:"max-content"}}>
+                <FaCamera style={{height:"20px",
+        width:"30px",position:"absolute",bottom:"-5px",
+          right:"0px",cursor:"pointer"}}/>
+                </label>
+                </div>
+      
+          
         </div>
        
       </div>

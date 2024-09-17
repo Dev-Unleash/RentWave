@@ -31,9 +31,13 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
       </Link>
 
       <div className="Profile">
-        <div className="Pics">
-          <img src={ola} alt="Profile" />
+      <div className="Pics" style={{cursor:"pointer"}} >
+      <Link to="/TenantProfile">
+        <img src={ola} alt="Profile" />
+        </Link>
         </div>
+        
+
         <p>Tolani</p>
         <h3>Welcome</h3>
       </div>
