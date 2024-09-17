@@ -156,7 +156,6 @@ import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
 import AdminHome from './Pages/Admin/AdminHome.jsx';
 import AdminLandlord from './Pages/Admin/AdminLandlord.jsx';
 import AdminTenant from './Pages/Admin/AdminTenant.jsx';
-import AdminSettings from './Pages/Admin/AdminSettings.jsx'
 import TenantHome from './Pages/Tenant/TenantHome.jsx';
 import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
@@ -165,7 +164,10 @@ import TenMain from './Pages/Tenant/TenMain.jsx';
 // import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
 // import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
+
 import TenantProfile from './Pages/Tenant/TenantProfile.jsx';
+import AdminPayment from './Pages/Admin/AdminPayment.jsx';
+
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -221,13 +223,11 @@ const App = () => {
           path: "/AdminTenant",
           element: <AdminTenant/>
         },
-     
-     
         {
-          path: "/AdminSettings",
-          element: <AdminSettings />
+          path: "/AdminPayment",
+          element: <AdminPayment/>
         },
-       
+  
           ]
         },
     {

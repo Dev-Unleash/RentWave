@@ -15,36 +15,36 @@ const AdminHome = () => {
 
 
   return (
-    <div className="TenantHome">
-      <div>
+    <div className="AdminHome">
+      <div className="adminHomeUp">
         <h1>OverView</h1>
         <p >Here’s a quick Overview of what’s happening</p>
       </div>
-      <div className="TenantDashBoardBox">
+      <div className="AdminDashBoardBox">
         <div className="OneBox1">
           <h1>Admins</h1>
-          <div className="TenantText">
+          <div className="adminText">
             <h3>3</h3>
             <p>See All</p>
           </div>
         </div>
         <div className="OneBox1" >
           <h1>Tenants</h1>
-          <div className="TenantText">
+          <div className="adminText">
             <h3 >8</h3>
             <p>See All</p>
           </div>
         </div>
         <div className="OneBox1">
            <h1>Landlords</h1>
-           <div className="TenantText">
+           <div className="adminText">
             <h3>3</h3>
             <p>See All</p>
           </div>
         </div>
       </div>
 
-      <div className="TenantRecentActivity" >
+      <div className="AdminRecentActivity" >
         {/* <h1>
           Recent Activity
         </h1>

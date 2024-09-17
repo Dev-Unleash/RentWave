@@ -8,8 +8,8 @@ const AdminPrivate = ({showLogoutPopup,setShowLogoutPopup}) => {
         <div className="tenantLeft">
           <AdminSideBar showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup}/>
         </div>
-        <div className="tenantRight" >
-          <div className="tenantRightWrapper">
+        <div className="adminRight" >
+          <div className="adimnRightWrapper">
             <Outlet /> {/* This will render the nested routes */}
           </div>
         </div>
