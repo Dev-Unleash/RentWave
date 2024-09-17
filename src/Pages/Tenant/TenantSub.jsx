@@ -12,7 +12,7 @@ const TenantSub = () => {
          <p>See all your subscriptions here</p>
          </div>
          <div className="TenantSubContainerLeft">
-         <IoNotificationsCircleSharp className="menuIcons"/>
+         <IoNotificationsCircleSharp className="menuIcons" style={{cursor:"pointer"}}/>
          </div>
     </div>
     <div className="TenantsubDown">
