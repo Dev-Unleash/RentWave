@@ -150,9 +150,10 @@ import ResetPassword from './Components/Auth/ResetPassword';
 import ForgotPassword from './Components/Auth/ForgotPassword';
 import  ResetMessage from './Components/Auth/ResetMesssage.jsx'
 import TenantPrivate from './Pages/Tenant/TenantPrivate.jsx';
-import Landlord from "./Pages/Landlord/Landlord.jsx";
+// import Landlord from "./Pages/Landlord/Landlord.jsx";
 // import Admin from "./Pages/Admin/Admin.jsx";
 import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
+import AdminPayment from './Pages/Admin/AdminPayment.jsx'
 import AdminHome from './Pages/Admin/AdminHome.jsx';
 import AdminLandlord from './Pages/Admin/AdminLandlord.jsx';
 import AdminTenant from './Pages/Admin/AdminTenant.jsx';
@@ -164,10 +165,12 @@ import TenMain from './Pages/Tenant/TenMain.jsx';
 // import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
 // import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
-
-import TenantProfile from './Pages/Tenant/TenantProfile.jsx';
-import AdminPayment from './Pages/Admin/AdminPayment.jsx';
-
+import LandLordHome from './Pages/Landlord/LandLordHome.jsx';
+import LandLordpage5 from './Pages/Landlord/LandLordpage5.jsx';
+import LandLordpage2 from './Pages/Landlord/LandLordPage2.jsx';
+import LandLordpage3 from './Pages/Landlord/LandLordpage3.jsx';
+import LandLordpage4 from './Pages/Landlord/LandLordpage4.jsx';
+import Propertics from './Pages/Landlord/Propertics.jsx'
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -209,10 +212,6 @@ const App = () => {
       element: <Blog />
     },
     {
-      path: "/Landlord",
-      element: <Landlord />
-    },
-    {
       element: <AdminPrivate showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
       children: [
         {
@@ -237,7 +236,30 @@ const App = () => {
     {
       element: <AuthRoutes />,
       children: [
-        // Additional routes for landlord
+        {
+          path: "/Landlord",
+          element: <LandLordHome />
+        },
+        {
+          path: '/propertics',
+          element: <Propertics />
+        },
+        {
+          path: '/addTenants',
+          element: <LandLordpage2 />
+        },
+        {
+          path: '/paymentHistory',
+          element: <LandLordpage3 />
+        },
+        {
+          path: '/main',
+          element: <LandLordpage4 />
+        },
+        {
+          path: '/settings',
+          element: <LandLordpage5 />
+        }// Additional routes for landlord
       ]
     },
     {

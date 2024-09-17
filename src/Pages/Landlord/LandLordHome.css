@@ -1,10 +1,11 @@
-.TenantHome{
-    height: 100vh;
+.LandLordHome{
+    height: 100%;
     width: 100%;
     gap: 20px;
     display: flex;
    flex-direction: column;
-    /* padding-top: 30px; */
+   /* background-color: blue; */
+    padding-inline: 30px;
 
     & h1{
         margin-top: 10px;
@@ -17,20 +18,17 @@
 .TenantDashBoardBox{
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-  height: 35%;
+  gap: 50px;
 }
 .OneBox{
-    height:100%;
-    width: 32%;
+    height:180px;
+    width: 305px;
     background-color: white;
     border: 1px solid rgb(143, 141, 141);
     padding: 0px 15px 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 5px;
-    border-top: 10px solid #4D86DB;
     /* gap: 10px; */
     & h1{
         font-size: 20px;
@@ -56,7 +54,7 @@
     }
 }
 .TenantRecentActivity{
- height: 70%;
+ height: 100%;
  background-color: white;
  display: flex;
  flex-direction: column;
@@ -97,50 +95,4 @@
         height: 100%;
         width: 100%;
     }
-}
-.RecentActPage{
-    height:300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* background-color: red; */
-    overflow-y: auto;
-    margin-bottom:35px;
-}
-.RecentActbox{
-    height: 60px;
-    width: 100%;
-    background-color: white;
-    border-bottom: 1px solid #797777;
-    border-top: 1px solid #797777;
-    display: flex;
-   justify-content: space-between;
-    padding: 30px;
-}
-.RecentActboxleft{
-    height: 100%;
-    width: 20%;
-   /* padding-left: 30px; */
-   display: flex;
-   align-items: center;
-   color: black;
-   background-color: peru;
-   & p {
-    color: black;
-
-   }
-}
-.RecentActboxright{
-    height: 100%;
-    width: 30%;
-    display: flex;
-   align-items: center;
-   gap: 30px;
-   /* background-color: peru; */
-   padding-right: 30px;
-   
-   & p {
-    color: black;
-    /* background-color: peru; */
-   }
 }
