@@ -160,6 +160,12 @@ import TenMain from './Pages/Tenant/TenMain.jsx';
 import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
 import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
+import LandLordHome from './Pages/Landlord/LandLordHome.jsx';
+import Propertics from  './Pages/Landlord/Propertics.jsx'
+import LandLordpage2 from './Pages/Landlord/LandLordPage2.jsx';
+import LandLordpage3 from './Pages/Landlord/LandLordpage3.jsx';
+import LandLordpage4 from './Pages/Landlord/LandLordpage4.jsx';
+import LandLordpage5 from './Pages/Landlord/LandLordpage5.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -193,10 +199,6 @@ const App = () => {
       element: <Blog />
     },
     {
-      path: "/Landlord",
-      element: <Landlord />
-    },
-    {
       element: <AdminPrivate />,
       children: [
         {
@@ -208,7 +210,30 @@ const App = () => {
     {
       element: <AuthRoutes />,
       children: [
-        // Additional routes for landlord
+        {
+          path: "/Landlord",
+          element: <LandLordHome />
+        },
+        {
+          path: '/propertics',
+          element: <Propertics />
+        },
+        {
+          path: '/addTenants',
+          element: <LandLordpage2 />
+        },
+        {
+          path: '/paymentHistory',
+          element: <LandLordpage3 />
+        },
+        {
+          path: '/main',
+          element: <LandLordpage4 />
+        },
+        {
+          path: '/settings',
+          element: <LandLordpage5 />
+        }// Additional routes for landlord
       ]
     },
     {

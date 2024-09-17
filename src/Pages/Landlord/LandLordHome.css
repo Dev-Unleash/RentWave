@@ -1,10 +1,11 @@
-.TenantHome{
+.LandLordHome{
     height: 100%;
     width: 100%;
     gap: 20px;
     display: flex;
    flex-direction: column;
-    /* padding-top: 30px; */
+   /* background-color: blue; */
+    padding-inline: 30px;
 
     & h1{
         margin-top: 10px;

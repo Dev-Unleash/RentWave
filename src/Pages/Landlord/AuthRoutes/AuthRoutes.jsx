@@ -1,13 +1,21 @@
-import { useSelector } from "react-redux";
-import {Navigate, Outlet}from "react-router-dom";
+import React from 'react'
+import '../Landlord.css'
+import MenuBar from '../MenuBar'
+import { Outlet } from 'react-router-dom'
 
 const AuthRoutes=()=>{
-    const checkIfLoggedIn = useSelector((state)=> state.isLoggedIn);
+    // const checkIfLoggedIn = useSelector((state)=> state.isLoggedIn);
     
     return(
-        <>
-        {checkIfLoggedIn? <Outlet/>:<Navigate to="/Login" replace={true}/>}
-        </>
+        <div className="LandLordPage">
+          <MenuBar />
+          <div className="Pages">
+            <Outlet />
+          </div>
+        </div>
+        // <>
+        // {checkIfLoggedIn? <Outlet/>:<Navigate to="/Login" replace={true}/>}
+        // </>
     )
 }
 

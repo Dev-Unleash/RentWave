@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import "./TenMain.css";
 import SubImage from "../../assets/download 16.png"; 
