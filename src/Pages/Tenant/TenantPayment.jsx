@@ -6,17 +6,15 @@ import { IoNotificationsCircleSharp } from "react-icons/io5";
 import "./TenantPayment.css"
 import MainRequest from './MainRequest';
 import PaymentPopup from './PaymentPopup';
-const TenantPayment = () => {
-  const [showPopup, setShowPopup] = useState(false); 
+const TenantPayment = ({showPopup,setShowPopup,closePopup}) => {
+  
   // const navigate = useNavigate();
 
   const handleRequestClick = () => {
     setShowPopup(true); 
   };
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
+ 
 
   return (
     <>

@@ -171,6 +171,10 @@ import AdminPayment from './Pages/Admin/AdminPayment.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const closePopup = () => {
+    setShowPopup(false);
+  };
   const router = createHashRouter([
     {
       path: "/",
@@ -251,7 +255,7 @@ const App = () => {
         },
         {
           path: "/MaintainReq",
-          element: <MainRequest />
+          element: <MainRequest showPopup={showPopup}  setShowPopup={ setShowPopup}closePopup={closePopup}/>
         },
         // {
         //   element: <TenantPayLayout />,
@@ -268,7 +272,7 @@ const App = () => {
         // },
       {
           path: "/TenantPayment",
-             element: <TenantPayment />
+             element: <TenantPayment showPopup={showPopup}  setShowPopup={ setShowPopup} closePopup={closePopup}/>
       },
         {
           path: "/TenantSub",
@@ -276,11 +280,11 @@ const App = () => {
         },
         {
           path: "/TenantMain",
-          element: <TenMain />
+          element: <TenMain showPopup={showPopup}  setShowPopup={setShowPopup}/>
         },
         {
           path:"/TenantProfile",
-          element:<TenantProfile/>
+          element:<TenantProfile showPopup={showPopup}  setShowPopup={ setShowPopup} closePopup={closePopup}/>
         }
       ]
     }

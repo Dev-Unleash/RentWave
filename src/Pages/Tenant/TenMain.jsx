@@ -1,26 +1,21 @@
-
-
 import React, { useState } from "react";
 import "./TenMain.css";
-import SubImage from "../../assets/download 16.png"; 
+import SubImage from "../../assets/download 16.png";
 import { useNavigate } from "react-router-dom";
 import MainRequest from "./MainRequest";
 
-const TenMain = () => {
-  const [showPopup, setShowPopup] = useState(false); 
+const TenMain = ({ showPopup, setShowPopup,  }) => {
   const navigate = useNavigate();
 
   const handleRequestClick = () => {
-    setShowPopup(true); 
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
+    setShowPopup(true);
   };
 
   return (
     <>
-      <div className={`TenantMainContainer ${showPopup ? "blur-background" : ""}`}>
+      <div
+        className={`TenantMainContainer ${showPopup ? "blur-background" : ""}`}
+      >
         <div className="TenantMainContainerHeader">
           <div className="TenantMainContainerright">
             <h3>Maintenance Request</h3>
@@ -29,141 +24,21 @@ const TenMain = () => {
         </div>
 
         <div className="TenantMainDown">
-          {/* <div className="TenantMainDownHeader" >
-           
-          </div> */}
-          <table>
-            <thead style={{width:"100%"}}>
-            <tr  className="TenantMainDownHeader" >
-              <th style={{borderTopLeftRadius:"5px"}}>REASON</th>
-              <th>DATE / TIME CREATED</th>
-              <th style={{borderTopRightRadius:"5px"}}>STATUS</th>
-            </tr>
-            </thead>
-           <tbody className="TenantMaindowncon">
-           <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-        <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-    <tr style={{display:"flex",width:"100%",justifyContent:"center",
-            }}>
-          <td style={{display:"flex",justifyContent:"flex-start"}}>Alex</td>
-        <td style={{display:"flex",gap:"10px",justifyContent:"center"}}>11/13/2005   <p  style={{display:"flex",fontSize:"17px",color:"black",
-          fontWeight:"500",alignItems:"center",}}>12:30pm</p></td>
-        <td style={{display:"flex",justifyContent:"flex-end"}}>sent</td>
-    </tr>
-   
-    
-           </tbody>
-          </table>
+          <div className="TenantMainDownHeader">
+            <strong>REASON</strong>
+            <strong>DATE / TIME CREATED</strong>
+            <strong>STATUS</strong>
+          </div>
+          <div className="TenantMaindowncon">
+            <div className="TenantMainbox">
+              <p>Burst pipe</p>
+              <p>
+                15/08/2024
+                <p>13:59pm</p>
+              </p>
+              <p>sent</p>
+            </div>
+          </div>
           {/* <div className="TenantMaindowncon">
             <div className="TextMainInage">
               <h3>Oh Snap! there's nothing here</h3>
@@ -177,13 +52,14 @@ const TenMain = () => {
             </div>
           </div> */}
           <div className="TextMainInage">
-        <button onClick={handleRequestClick}>Create New Request</button>
+            <button onClick={handleRequestClick}>Create New Request</button>
+          </div>
         </div>
-        </div>
-        
       </div>
 
-      {showPopup ? <MainRequest closePopup={closePopup} /> : null} 
+      {showPopup ? (
+        <MainRequest closePopup={() => setShowPopup(false)} />
+      ) : null}
     </>
   );
 };

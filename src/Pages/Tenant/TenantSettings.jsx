@@ -2,19 +2,27 @@ import React, { useState } from 'react'
 import "./Tenantsettings.css"
 import { FaCamera } from "react-icons/fa6";
 import { MdCircleNotifications } from "react-icons/md";
+import { IoArrowBack } from "react-icons/io5";
 import ola from "../../assets/ola.jpg";
+import { useNavigate } from 'react-router-dom';
 const TenantSettings = () => {
   const[showImg,setShowImg]=useState()
+  const navigate=useNavigate()
     const posting= (e)=>{
         const file= e.target.files[0]
         const myImage = URL.createObjectURL(file)
         setShowImg(myImage)
     }
+    const handleClose = () => {
+      navigate(-1); 
+    }
   return (
     <div className='AcctSettingCon' >
       <div className="AcctSettingsWrapper">
         <div className="AcctSettingsHeader">
-          <h3>Account Setting</h3>
+        <h3  className="CloseButtonPro" onClick={handleClose}><IoArrowBack  style={{height:"45px",width:"50px"}}/>
+        Back</h3>
+          <h3 style={{width:"80%",display:"flex",justifyContent:"center"}}>Account Setting</h3>
         </div>
         <div className="AcctSettingsDown">
         <div className="AcctProfile">
