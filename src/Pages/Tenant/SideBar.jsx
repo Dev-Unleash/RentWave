@@ -31,9 +31,13 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
       </Link>
 
       <div className="Profile">
-        <div className="Pics">
-          <img src={ola} alt="Profile" />
+      <div className="Pics" style={{cursor:"pointer"}} >
+      <Link to="/TenantProfile">
+        <img src={ola} alt="Profile" />
+        </Link>
         </div>
+        
+
         <p>Tolani</p>
         <h3>Welcome</h3>
       </div>
@@ -46,12 +50,12 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
               Home
             </Link>
           </nav>
-          <nav>
+          {/* <nav>
             <CiWallet className="menuIcon" />
             <Link to="/TenantSub" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Subscription
             </Link>
-          </nav>
+          </nav> */}
           <nav>
             <CiStar className="menuIcon" />
             <Link to="/TenantMain" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>

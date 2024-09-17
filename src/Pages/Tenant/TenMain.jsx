@@ -1,26 +1,21 @@
-
-
 import React, { useState } from "react";
 import "./TenMain.css";
-import SubImage from "../../assets/download 16.png"; 
+import SubImage from "../../assets/download 16.png";
 import { useNavigate } from "react-router-dom";
 import MainRequest from "./MainRequest";
 
-const TenMain = () => {
-  const [showPopup, setShowPopup] = useState(false); 
+const TenMain = ({ showPopup, setShowPopup,  }) => {
   const navigate = useNavigate();
 
   const handleRequestClick = () => {
-    setShowPopup(true); 
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
+    setShowPopup(true);
   };
 
   return (
     <>
-      <div className={`TenantMainContainer ${showPopup ? "blur-background" : ""}`}>
+      <div
+        className={`TenantMainContainer ${showPopup ? "blur-background" : ""}`}
+      >
         <div className="TenantMainContainerHeader">
           <div className="TenantMainContainerright">
             <h3>Maintenance Request</h3>
@@ -29,14 +24,22 @@ const TenMain = () => {
         </div>
 
         <div className="TenantMainDown">
-          <div className="TenantMainDownHeader" >
+          <div className="TenantMainDownHeader">
             <strong>REASON</strong>
-            <strong>TICKET ID</strong>
             <strong>DATE / TIME CREATED</strong>
             <strong>STATUS</strong>
-            <strong>ACTIONS</strong>
           </div>
           <div className="TenantMaindowncon">
+            <div className="TenantMainbox">
+              <p>Burst pipe</p>
+              <p>
+                15/08/2024
+                <p>13:59pm</p>
+              </p>
+              <p>sent</p>
+            </div>
+          </div>
+          {/* <div className="TenantMaindowncon">
             <div className="TextMainInage">
               <h3>Oh Snap! there's nothing here</h3>
               <div className="SubImages">
@@ -45,13 +48,18 @@ const TenMain = () => {
               <h3 style={{ fontWeight: "400" }}>
                 There are no maintenance requests yet on this account
               </h3>
-              <button onClick={handleRequestClick}>Create New Request</button>
+              
             </div>
+          </div> */}
+          <div className="TextMainInage">
+            <button onClick={handleRequestClick}>Create New Request</button>
           </div>
         </div>
       </div>
 
-      {showPopup ? <MainRequest closePopup={closePopup} /> : null} 
+      {showPopup ? (
+        <MainRequest closePopup={() => setShowPopup(false)} />
+      ) : null}
     </>
   );
 };

@@ -1,15 +1,12 @@
 .TenantMainContainer{
     height: 97%;
     width: 100%;
-    /* background-color: green; */
     display: flex;
     flex-direction: column;
     gap: 5%;
 }
 .TenantMainContainerHeader{
-    /* height: 12%; */
     width: 100%;
-    /* background-color: red; */
     display: flex;
     justify-content: space-between;
 
@@ -26,7 +23,7 @@
 .TenantMainContainerright{
     height: 100%;
     width: 100%;
-    /* background-color: blue; */
+  
 }
 
 .TenantMainDown{
@@ -35,55 +32,64 @@
     border-radius: 5px;
     background-color: white;
     display: flex;
-    /* justify-content: center; */
+
     flex-direction: column;
+
+    
 }
 .TenantMainDownHeader{
-    height: 10%;
+    height: 15%;
     width: 100%;
     background-color: #D9E8FF;
     display: flex;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     align-items: center;
-    gap: 10px;
-    /* padding: 0px 40px; */
-
-    /* & h3 {
-        background-color: green;
-        font-weight: 600;
-        font-size:15px;
-        width: 20px;
-    } */
-& strong{
-    /* width: 30%; */
-    /* background-color: red; */
-    font-weight: 600;
-    font-size:15px;
-    display: flex;
-    justify-content: center;
-}
+    justify-content: space-between;
+ 
+    & strong{
+        width: 30%;
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+    }
 
 }
 .TenantMaindowncon{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    /* background-color: red; */
+    height: 400px;
+    flex-direction: column;
+   overflow-y: auto;
+   width: 100%;
+    /* align-items: center; */
 
-    & h3{
+
+    
+}
+.TenantMainbox{
+    height: 55px;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid rgb(129, 128, 128);
+    border-bottom:  1px solid rgb(129, 128, 128);
+    align-items: center;
+    justify-content: space-between;
+    & p{
+        width: 30%;
         display: flex;
+        font-size: 20px;
         justify-content: center;
+        /* background-color: red; */
+        color: black;
     }
 }
+
 .TextMainInage{
     height: 500px;
-    width: 600px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* background-color: red; */
     align-items: center;
     justify-content: center;
 

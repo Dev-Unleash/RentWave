@@ -161,13 +161,20 @@ import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
 import TenantSub from './Pages/Tenant/TenantSub.jsx';
 import TenMain from './Pages/Tenant/TenMain.jsx';
-import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
-import TenantCards from './Pages/Tenant/TenantCards.jsx';
+// import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
+// import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
+
+import TenantProfile from './Pages/Tenant/TenantProfile.jsx';
 import AdminPayment from './Pages/Admin/AdminPayment.jsx';
+
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const closePopup = () => {
+    setShowPopup(false);
+  };
   const router = createHashRouter([
     {
       path: "/",
@@ -248,29 +255,37 @@ const App = () => {
         },
         {
           path: "/MaintainReq",
-          element: <MainRequest />
+          element: <MainRequest showPopup={showPopup}  setShowPopup={ setShowPopup}closePopup={closePopup}/>
         },
-        {
-          element: <TenantPayLayout />,
-          children: [
-            {
-              path: "/TenantCards",
-              element: <TenantCards />
-            },
-            {
-              path: "/TenantPayment",
-              element: <TenantPayment />
-            },
-          ]
-        },
+        // {
+        //   element: <TenantPayLayout />,
+        //   children: [
+        //     {
+        //       path: "/TenantCards",
+        //       element: <TenantCards />
+        //     },
+        //     {
+        //       path: "/TenantPayment",
+        //       element: <TenantPayment />
+        //     },
+        //   ]
+        // },
+      {
+          path: "/TenantPayment",
+             element: <TenantPayment showPopup={showPopup}  setShowPopup={ setShowPopup} closePopup={closePopup}/>
+      },
         {
           path: "/TenantSub",
           element: <TenantSub />
         },
         {
           path: "/TenantMain",
-          element: <TenMain />
+          element: <TenMain showPopup={showPopup}  setShowPopup={setShowPopup}/>
         },
+        {
+          path:"/TenantProfile",
+          element:<TenantProfile showPopup={showPopup}  setShowPopup={ setShowPopup} closePopup={closePopup}/>
+        }
       ]
     }
   ]);
