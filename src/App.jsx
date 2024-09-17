@@ -162,6 +162,7 @@ import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
 import TenantSub from './Pages/Tenant/TenantSub.jsx';
 import TenMain from './Pages/Tenant/TenMain.jsx';
+import TenantProfile from './Pages/Tenant/TenantProfile.jsx'
 // import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
 // import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
