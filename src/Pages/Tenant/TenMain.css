@@ -38,7 +38,7 @@
     
 }
 .TenantMainDownHeader{
-    height: 10%;
+    height: 15%;
     width: 100%;
     background-color: #D9E8FF;
     display: flex;
@@ -47,17 +47,12 @@
     align-items: center;
     justify-content: space-between;
  
-& th{
- 
-    font-weight: 600;
-    font-size:15px;
-    display: flex;
-    width: 20%;
-    justify-content: center;
-    background-color: #D9E8FF;
-    /* background-color: green; */
-    color: black;
-}
+    & strong{
+        width: 30%;
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+    }
 
 }
 .TenantMaindowncon{
@@ -65,20 +60,27 @@
     height: 400px;
     flex-direction: column;
    overflow-y: auto;
+   width: 100%;
     /* align-items: center; */
 
 
-    & tr{
-        width: 100%;
-        /* gap: 10px; */
-
-        & td{
-            width: 35%;
-            /* background-color: red; */
-            display: flex;
-            justify-content: center;
-            /* align-items: center; */
-        }
+    
+}
+.TenantMainbox{
+    height: 55px;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid rgb(129, 128, 128);
+    border-bottom:  1px solid rgb(129, 128, 128);
+    align-items: center;
+    justify-content: space-between;
+    & p{
+        width: 30%;
+        display: flex;
+        font-size: 20px;
+        justify-content: center;
+        /* background-color: red; */
+        color: black;
     }
 }
 

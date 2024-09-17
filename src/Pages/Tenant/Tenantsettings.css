@@ -16,19 +16,20 @@
 .AcctSettingsHeader{
     height: 5%;
     width: 80%;
-    
+    display: flex;
+    /* gap: 60px; */
 }
 .AcctSettingsDown{
     height: 90%;
     width: 100%;
    display: flex;
    flex-direction: column;
-   gap: 15px;
+   gap: 10px;
    /* background-color: green; */
    align-items: center;
 }
 .AcctProfile{
-    height: 15%;
+    height: 25%;
     width: 100%;
     display: flex;
     align-items: center;
