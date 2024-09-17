@@ -35,7 +35,7 @@ const TenantPayHero = () => {
             <td className='name-column1'>{item.dateRegistered}</td>
             <td className='name-column1'>{item.status}</td>
             <td className='name-column1'>{item.role}</td> 
-            <button className='AdminlandlordDel'>Delete</button>
+            <td><button className='AdminlandlordDel'>Delete</button></td> 
           </tr>
         ))}
       </tbody>

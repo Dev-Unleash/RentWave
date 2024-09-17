@@ -16,36 +16,37 @@ const AdminHome = () => {
 
   return (
     <div className="AdminHome">
-      <div className="adminHomeUp">
-        <h1>OverView</h1>
-        <p >Here’s a quick Overview of what’s happening</p>
-      </div>
-      <div className="AdminDashBoardBox">
-        <div className="OneBox1">
-          <h1>Admins</h1>
-          <div className="adminText">
-            <h3>3</h3>
-            <p>See All</p>
+      <div className="AdminHomeWrapper">
+        <div className="adminHomeUp">
+          <h1>OverView</h1>
+          <p >Here’s a quick Overview of what’s happening</p>
+        </div>
+        <div className="AdminDashBoardBox">
+          <div className="OneBox1">
+            <h1>Admins</h1>
+            <div className="adminText">
+              <h3>3</h3>
+              <p>See All</p>
+            </div>
+          </div>
+          <div className="OneBox1" >
+            <h1>Tenants</h1>
+            <div className="adminText">
+              <h3 >8</h3>
+              <p>See All</p>
+            </div>
+          </div>
+          <div className="OneBox1">
+            <h1>Landlords</h1>
+            <div className="adminText">
+              <h3>3</h3>
+              <p>See All</p>
+            </div>
           </div>
         </div>
-        <div className="OneBox1" >
-          <h1>Tenants</h1>
-          <div className="adminText">
-            <h3 >8</h3>
-            <p>See All</p>
-          </div>
-        </div>
-        <div className="OneBox1">
-           <h1>Landlords</h1>
-           <div className="adminText">
-            <h3>3</h3>
-            <p>See All</p>
-          </div>
-        </div>
-      </div>
 
-      <div className="AdminRecentActivity" >
-        {/* <h1>
+        <div className="AdminRecentActivity" >
+          {/* <h1>
           Recent Activity
         </h1>
         <div className="TextImage">
@@ -54,13 +55,14 @@ const AdminHome = () => {
             </div>
             <h3>No activities yet but recent scheduled and completed payments will appear here</h3>
         </div> */}
-         <div className="table-container">
-          <Table/>
-          <PieChart roleData={tableData} />
-    </div>
+          <div className="table-container">
+            <Table />
+            <PieChart roleData={tableData} />
+          </div>
 
-           
-       
+
+
+        </div>
       </div>
     </div>
 
