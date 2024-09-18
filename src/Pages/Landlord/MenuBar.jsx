@@ -72,7 +72,7 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
           </nav>
           <nav>
             <CiStar className="menuIcon" />
-            <Link to="/addTenants" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/Transactions" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Transaction
             </Link>
           </nav>

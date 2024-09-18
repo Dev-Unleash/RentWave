@@ -172,6 +172,7 @@ import LandLordpage2 from './Pages/Landlord/Transaction.jsx';
 import LandLordpage3 from './Pages/Landlord/LandLordpage3.jsx';
 import LandLordpage4 from './Pages/Landlord/LandLordpage4.jsx';
 import Propertics from './Pages/Landlord/Propertics.jsx'
+import Transaction from './Pages/Landlord/Transaction.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -246,8 +247,8 @@ const App = () => {
           element: <Propertics />
         },
         {
-          path: '/addTenants',
-          element: <LandLordpage2 />
+          path: '/Transactions',
+          element: <Transaction />
         },
         {
           path: '/paymentHistory',
