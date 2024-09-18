@@ -1,6 +1,6 @@
 import React from 'react'
 import './Transaction.css'
-import image from "../../../public/Clip path group.png"
+import image from "../../assets/Clip path group.png"
 
 const Transaction = () => {
   return (

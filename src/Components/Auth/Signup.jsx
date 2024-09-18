@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import { IoArrowBackSharp, IoEye, IoEyeOff } from "react-icons/io5";
 import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
+import "./Signup.css";
+import logo from "../../assets/logo.png";
 
 const Signup = () => {
-  const [seePassWord, setSeePassWord] = useState(true);
-
-
-  const togglePasswordVisibility = () => {
-    setSeePassWord(!seePassWord);
-  };
-
+  const [seePassword, setSeePassword] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,7 +16,14 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
-const nav = useNavigate()
+  const navigate = useNavigate();
+
+  // Toggle password visibility
+  const togglePasswordVisibility = () => {
+    setSeePassword(!seePassword);
+  };
+
+  // Handle form submission
   const register = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
@@ -39,7 +40,7 @@ const nav = useNavigate()
       toast.error("Passwords do not match");
     } else {
       setLoading(true);
-      const ApiData = {
+      const apiData = {
         firstName,
         lastName,
         email,
@@ -48,27 +49,14 @@ const nav = useNavigate()
         confirmPassword,
       };
       const url = "https://rentwave.onrender.com/api/v1/signup";
-      // await fetch(url, {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     firstName,
-      //     lastName,
-      //     email,
-      //     phoneNumber,
-      //     password,
-      //     confirmPassword,
-      //   }),
-      //   headers: { "content-type": "application/json" },
-      // }).then(() => {
-      //   console.log("Done");
-      // });
+
       axios
-        .post(url, ApiData)
+        .post(url, apiData)
         .then((res) => {
           console.log(res);
           setLoading(false);
           toast.success("Sign up successful. Please wait for verification.");
-          nav("/Login")
+          navigate("/Login");
         })
         .catch((error) => {
           console.error(error);
@@ -81,7 +69,8 @@ const nav = useNavigate()
   return (
     <>
       <div className="SignUpContainer">
-        <p onClick={()=>nav("/")}
+        <p
+          onClick={() => navigate("/")}
           style={{
             fontSize: "14px",
             width: "20%",
@@ -96,8 +85,7 @@ const nav = useNavigate()
             cursor: "pointer",
           }}
         >
-          <IoArrowBackSharp className="icon" style={{ width: "20px" }} /> Go
-          Back
+          <IoArrowBackSharp className="icon" style={{ width: "20px" }} /> Go Back
         </p>
 
         <div className="firstSide">
@@ -108,93 +96,19 @@ const nav = useNavigate()
                   <img
                     src={logo}
                     alt="logo"
-                    style={{
-                      width: "70%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
+                    style={{ width: "70%", height: "100%", objectFit: "contain" }}
                   />
                 </Link>
               </div>
-              <h4
-                style={{
-                  fontSize: "14px",
-                  width: "100%",
-                  marginBottom: "50px",
-                }}
-              >
+              <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px" }}>
                 Sign up your business on Rent Wave
               </h4>
-
-  const navigate = useNavigate();
-  const handleClosebtn = () => {
-      navigate(-1); 
-    };
-  // const register = async () => {
-  //   console.log("clicked");
-  //   const name = FormData.get("name");
-  //   console.log(name);
-  // };
-  const [firstName,setFirstName]=useState("")
-  console.log(firstName)
-  const [lastName,setLastName]=useState("")
-  console.log(lastName)
-  const [email,setEmail]=useState("")
-  console.log(email)
-  const [phoneNumber,setPhoneNumber]=useState("")
-  console.log(phoneNumber)
-  const [password,setPassword]=useState("")
-  console.log(password)
-  const [confirmPassword,setConfirmPassword]=useState("")
-  console.log(confirmPassword)
-
-
-  // const register =()=>{
-  //   if(!email || !password || !lastName || !phoneNumber || !firstName || !confirmPassword ){
-  //     alert("All field required")
-  //   }else{
-  //       const ApiData={firstName:firstname}
-  //   }
-  // } 
-  return (
-    <div className="SignUpContainer">
-      <p
-         onClick={handleClosebtn}
-        style={{
-          fontSize: "14px",
-          width: "20%",
-          position: "absolute",
-          top: "10px",
-          left: "5px",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "flexStart",
-          alignItems: "center",
-          color: "black",
-          cursor: "pointer",
-        }}
-       
-      >
-        {" "}
-        <IoArrowBackSharp  className="icon" style={{ width: "20px" }} /> Go Back
-      </p>
-
-      <div className="firstSide">
-        <form className="SignUpCenter">
-          <div className="topLogo">
-            <div className="Logo-signup">
-              <Link to="/" className="Logo-signup">
-                <img
-                  src={logo}
-                  alt="logo"
-                  style={{ width: "70%", height: "100%", objectFit: "contain" }}
-                />
-              </Link>
-
             </div>
 
-            <h4 className="userinfo">User Information</h4>
-            <p>This information will be used to create your account.</p>
+            <div className="userinfo">
+              <h4>User Information</h4>
+              <p>This information will be used to create your account.</p>
+            </div>
 
             <div className="nameContainer">
               <div className="Name">
@@ -222,12 +136,11 @@ const nav = useNavigate()
             <div className="info">
               <h5>Email</h5>
               <input
-                type="text"
+                type="email"
                 name="email"
                 className="input1"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                
               />
             </div>
 
@@ -254,7 +167,7 @@ const nav = useNavigate()
                   }}
                 >
                   <ReactCountryFlag
-                    countryCode="ng"
+                    countryCode="NG"
                     svg
                     style={{ width: "16px", height: "16px" }}
                   />
@@ -280,18 +193,15 @@ const nav = useNavigate()
               <h5>Password</h5>
               <div className="passkey">
                 <input
-                  type={seePassWord ? "password" : "text"}
+                  type={seePassword ? "password" : "text"}
                   className="input2"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {seePassWord ? (
+                {seePassword ? (
                   <IoEye className="icon" onClick={togglePasswordVisibility} />
                 ) : (
-                  <IoEyeOff
-                    className="icon"
-                    onClick={togglePasswordVisibility}
-                  />
+                  <IoEyeOff className="icon" onClick={togglePasswordVisibility} />
                 )}
               </div>
             </div>
@@ -300,18 +210,15 @@ const nav = useNavigate()
               <h5>Confirm Password</h5>
               <div className="passkey">
                 <input
-                  type={seePassWord ? "password" : "text"}
+                  type={seePassword ? "password" : "text"}
                   className="input2"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                {seePassWord ? (
+                {seePassword ? (
                   <IoEye className="icon" onClick={togglePasswordVisibility} />
                 ) : (
-                  <IoEyeOff
-                    className="icon"
-                    onClick={togglePasswordVisibility}
-                  />
+                  <IoEyeOff className="icon" onClick={togglePasswordVisibility} />
                 )}
               </div>
             </div>
@@ -326,13 +233,7 @@ const nav = useNavigate()
                 type="checkbox"
                 required
               />
-              <span
-                style={{
-                  fontFamily: "sans-serif",
-                  fontSize: "10px",
-                  textAlign: "center",
-                }}
-              >
+              <span style={{ fontSize: "10px" }}>
                 I agree with RentWave, and the collection and processing of my
                 personal data in accordance with RentWave
               </span>
@@ -342,44 +243,17 @@ const nav = useNavigate()
               {loading ? "Loading..." : "Sign-Up"}
             </button>
 
-            <p
-              style={{
-                fontFamily: "sans-serif",
-                fontSize: "10px",
-                textAlign: "center",
-              }}
-            >
+            <p style={{ fontSize: "10px", textAlign: "center" }}>
               Already have an account?{" "}
-              <span
-                style={{
-                  color: "royalblue",
-                  fontSize: "10px",
-                  cursor: "pointer",
-                }}
-              >
+              <span style={{ color: "royalblue", cursor: "pointer" }}>
                 <Link to="/Login">Log in</Link>
               </span>
             </p>
 
-            <p
-              style={{
-                fontFamily: "sans-serif",
-                fontSize: "10px",
-                textAlign: "center",
-              }}
-            >
-              By creating an account you automatically agree to RentWave
+            <p style={{ fontSize: "10px", textAlign: "center" }}>
+              By creating an account you automatically agree to RentWave's
             </p>
-            <span
-              style={{
-                color: "royalblue",
-                fontFamily: "sans-serif",
-                fontSize: "10px",
-                cursor: "pointer",
-                textAlign: "center",
-                fontWeight: "600",
-              }}
-            >
+            <span style={{ color: "royalblue", fontSize: "10px", cursor: "pointer", textAlign: "center", fontWeight: "600" }}>
               Terms and Conditions
             </span>
           </form>

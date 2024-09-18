@@ -1,6 +1,6 @@
 import React from 'react'
 import './Propertics.css'
-import image from "../../../public/Group (1).png"
+import image from "../../assets/Group (1).png"
 
 const Propertics = () => {
   return (
