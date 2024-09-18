@@ -150,24 +150,31 @@ import ResetPassword from './Components/Auth/ResetPassword';
 import ForgotPassword from './Components/Auth/ForgotPassword';
 import  ResetMessage from './Components/Auth/ResetMesssage.jsx'
 import TenantPrivate from './Pages/Tenant/TenantPrivate.jsx';
-import Landlord from "./Pages/Landlord/Landlord.jsx";
+// import Landlord from "./Pages/Landlord/Landlord.jsx";
 // import Admin from "./Pages/Admin/Admin.jsx";
 import AdminPrivate from './Pages/Admin/AdminPrivate.jsx';
+import AdminPayment from './Pages/Admin/AdminPayment.jsx'
 import AdminHome from './Pages/Admin/AdminHome.jsx';
 import AdminLandlord from './Pages/Admin/AdminLandlord.jsx';
 import AdminTenant from './Pages/Admin/AdminTenant.jsx';
+import AdminProfileTenant from './Pages/Admin/AdminProfile-Landlord/AdminProfile-Landlord.jsx';
+import AdminProfileLandlord from './Pages/Admin/AdminProfile-tenant/AdminProfile-Tenant.jsx'
+import AdminPaymentView1 from './Pages/Admin/AdminPaymentView1.jsx'
 import TenantHome from './Pages/Tenant/TenantHome.jsx';
 import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
 import TenantSub from './Pages/Tenant/TenantSub.jsx';
 import TenMain from './Pages/Tenant/TenMain.jsx';
+import TenantProfile from './Pages/Tenant/TenantProfile.jsx'
 // import TenantPayLayout from './Pages/Tenant/TenantPayLayout.jsx';
 // import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
-
-import TenantProfile from './Pages/Tenant/TenantProfile.jsx';
-import AdminPayment from './Pages/Admin/AdminPayment.jsx';
-
+import LandLordHome from './Pages/Landlord/LandLordHome.jsx';
+import LandLordpage5 from './Pages/Landlord/LandLordpage5.jsx';
+import Propertics from './Pages/Landlord/Propertics.jsx'
+import Transaction from './Pages/Landlord/Transaction.jsx';
+import Tenantspage from './Pages/Landlord/Tenantspage.jsx';
+import Maintenance from './Pages/Landlord/Maintenance.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -209,10 +216,6 @@ const App = () => {
       element: <Blog />
     },
     {
-      path: "/Landlord",
-      element: <Landlord />
-    },
-    {
       element: <AdminPrivate showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
       children: [
         {
@@ -225,19 +228,56 @@ const App = () => {
         },
         {
           path: "/AdminTenant",
-          element: <AdminTenant/>
+          element: <AdminTenant/>,
         },
+            {
+              path:"/AdminTenantProfile",
+              element: <AdminProfileTenant />
+            },
+            {
+              path:"/AdminLandlordProfile",
+              element: <AdminProfileLandlord />
+            },
+        
+       
         {
           path: "/AdminPayment",
           element: <AdminPayment/>
         },
+        {
+          path:"/AdminPaymentView1",
+          element:<AdminPaymentView1/>
+        }
   
           ]
         },
     {
       element: <AuthRoutes />,
       children: [
-        // Additional routes for landlord
+        {
+          path: "/Landlord",
+          element: <LandLordHome />
+        },
+        {
+          path: '/propertics',
+          element: <Propertics />
+        },
+        {
+          path: '/Transactions',
+          element: <Transaction />
+        },
+        {
+          path: '/View-Tenant',
+          element: <Tenantspage />
+        },
+        {
+          path: '/maintenance',
+          element: <Maintenance />
+        },
+        {
+          path: '/settings',
+          element: <LandLordpage5 />
+        }// Additional routes for landlord
       ]
     },
     {

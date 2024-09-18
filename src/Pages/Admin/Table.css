@@ -1,5 +1,5 @@
 .table-container {
-    width: 90%;
+    width: 100%;
     height: 100%;
     /* padding: 20px; */
     display: flex;
@@ -10,9 +10,10 @@
 
 table {
     width: 100%;
-    height: 70%;
+    height: 100%;
     border-collapse: collapse;
     text-align: left;
+    overflow: scroll;
    
 }
 
