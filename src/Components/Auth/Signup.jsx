@@ -253,7 +253,15 @@ const Signup = () => {
             <p style={{ fontSize: "10px", textAlign: "center" }}>
               By creating an account you automatically agree to RentWave's
             </p>
-            <span style={{ color: "royalblue", fontSize: "10px", cursor: "pointer", textAlign: "center", fontWeight: "600" }}>
+            <span
+              style={{
+                color: "royalblue",
+                fontSize: "10px",
+                cursor: "pointer",
+                textAlign: "center",
+                fontWeight: "600",
+              }}
+            >
               Terms and Conditions
             </span>
           </form>
@@ -269,7 +277,6 @@ const Signup = () => {
           <p>Manage Rent Payment With Ease</p>
         </div>
       </div>
-      <Toaster />
     </>
   );
 };
