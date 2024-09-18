@@ -38,6 +38,8 @@
   .InputPayForm{
     height: 90%;
     width: 100%;
+    gap: 5px;
+ 
   }
 .payInput{
     height:20%;
@@ -53,7 +55,7 @@
         border: 1px solid grey;
     }
     & select{
-        height: 65%;
+        height: 60%;
         width: 100%;
         outline: none;
         border-radius: 5px;
