@@ -65,7 +65,9 @@ const TenantSettings = () => {
           </div>
           <div className="AcctInputdown1">
             <p>Date of Birth</p>
-          <input type="date" style={{width:"100%",height:"60%"}} />
+          <input type="date" style={{width:"100%",height:"60%",borderRadius:"5px",border:
+            '1px solid grey'
+          }} />
           </div>
             </div>
          

@@ -20,10 +20,6 @@ const PaymentPopup = ({ closePopup }) => {
                 </div>
 
                 <div className='payInput'>
-                  <p>Property Name</p>
-                  <input type="text"  />
-                </div>
-                <div className='payInput'>
                   <p>Amount</p>
                   <input type="text"  />
                 </div>
@@ -35,6 +31,11 @@ const PaymentPopup = ({ closePopup }) => {
                     <option value="card">Card</option>
                   </select>
                   </div>
+                <div className='payInput' >
+                  <p>Notes <span>(optional)</span></p>
+                  <input type="text"  style={{height:"65"}}/>
+                </div>
+                
                 </div>
                 <div className="payButton">
                     <button>pay</button>
