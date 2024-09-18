@@ -2,7 +2,7 @@ import React from 'react'
 import './Propertics.css'
 import image from "../../../public/Group (1).png"
 
-const Propertics = () => {
+const Transaction = () => {
   return (
     <div className='Pages'>
       <div className="PropsContainers">
@@ -23,4 +23,4 @@ const Propertics = () => {
   )
 }
 
-export default Propertics
+export default Transaction

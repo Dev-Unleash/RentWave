@@ -10,23 +10,24 @@ const LandLordHome = () => {
       </div>
       <div className="TenantDashBoardBox">
         <div className="OneBox">
-          <h1>Spaced Booked</h1>
+          <h1>Property listed</h1>
           <div className="TenantText">
             <h3>0</h3>
             <p>See All</p>
           </div>
         </div>
         <div className="OneBox" >
-          <h1>Maintenance Request</h1>
+          <h1>Tenants</h1>
           <div className="TenantText">
             <h3 >0</h3>
             <p>See All</p>
           </div>
         </div>
         <div className="OneBox">
-           <h1>Active Subcription</h1>
+           <h1>EARNINGS</h1>
            <div className="TenantText">
-            <h3>0</h3>
+            <h3 className="h3">₦0.00</h3>
+            This month
             <p>See All</p>
           </div>
         </div>
