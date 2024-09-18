@@ -2,6 +2,14 @@ import React from "react";
 import "./TenantHome.css";
 import homepics from "../../assets/download 12.png"
 const TenantHome = () => {
+  const data = [
+    { Type:"payment", Amount: "₦1000000" ,Date:"2023-09-01" , time:"2:45pm" },
+    { Type:"payment", Amount: "₦1000000" ,Date:"2023-09-01" ,time:"2:45pm" },
+    { Type:"payment", Amount: "₦1000000" ,Date:"2023-09-01" , time:"2:45pm" },
+    { Type:"payment", Amount: "₦1000000" ,Date:"2023-09-01" , time:"2:45pm" },
+    { Type:"payment", Amount: "₦1000000" ,Date:"2023-09-01", time:"2:45pm" },
+  ]
+ 
   return (
     <div className="TenantHome">
       <div>
@@ -66,31 +74,51 @@ const TenantHome = () => {
               </div>
             </div>
            </div> */}
-       <table className="RecentActPage">
+           <div  className="RecentActPage">
+       <table>
        <tbody >
-           <tr>
-          <td>Payment</td>
-        <td>#180000</td>
-        <td>11/12/2005</td>
-        <td>13:45pm</td>
-    </tr>
-    <tr>
-          <td>Payment</td>
-        <td>#180000</td>
-        <td>11/12/2005</td>
-        <td>13:45pm</td>
-    </tr>
-    <tr>
-          <td>Payment</td>
-        <td>#180000</td>
-        <td>11/12/2005</td>
-        <td>13:45pm</td>
-    </tr>
+        {
+          data.map((item,index)=>(
+            <tr key={index}>
+            <td className="actColumn1">{item.Type}</td>
+          <td className="actColumn" >{item.Amount}</td>
+          <td className="actColumn">{item.Date}</td>
+          <td className="actColumn">{item.time}</td>
+      </tr>
+          ))
+        }
+  
            </tbody>
        </table>
+       </div>
       </div>
     </div>
-
+  // <div className="TenantPayHis">
+  // <table>
+  //   <thead>
+  //     <tr>
+  //       <th className='AColumn2'>Date</th>
+  //       <th className='AColumn2'>Amount</th>
+  //       <th className='AColumn2'>Payment Method</th>
+  //       <th className='AColumn2'>Time</th>
+  //       <th className='AColumn2'>Status</th> 
+  
+  //     </tr>
+  //   </thead>
+  //   <tbody>
+  //     {data.map((item, index) => (
+  //       <tr key={index}>
+  //         <td className='AColumn2'>{item.Date}</td>
+  //         <td className='AColumn2'>{item.Amount}</td>
+  //         <td className='AColumn2'>{item.PaymentMethod}</td>
+  //         <td className='AColumn2'>{item.time}</td>
+  //         <td className='AColumn2'>{item.status}</td>
+  //       </tr>
+  //     ))}
+  //   </tbody>
+  // </table>
+   
+  // </div>
   );
 };
 

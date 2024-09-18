@@ -77,32 +77,14 @@ const MainRequest = ({ closePopup }) => {
             </div>
           </div>
           <div className="buttons">
-            <button
-              style={{
-                border: "2px solid #0052AA",
-                borderRadius: "25px",
-                width: "25%",
-                height: "100%",
-                color: "#4D86DB",
-                backgroundColor: "white",
-                fontSize: "15px",
-                cursor: "pointer",
-              }}
+            <button className="cancelButton"
+             
               onClick={closePopup}
             >
               cancel
             </button>
-            <button
-              style={{
-                borderRadius: "25px",
-                width: "25%",
-                height: "100%",
-                color: "white",
-                backgroundColor: "#4D86DB",
-                border: "none",
-                fontSize: "15px",
-                cursor: "pointer",
-              }}
+            <button className="submitButton"
+            
               onClick={submitRequest}
             >
               submit
