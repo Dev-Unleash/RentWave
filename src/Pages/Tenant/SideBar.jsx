@@ -4,7 +4,7 @@ import { CiStar } from "react-icons/ci";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./Tenant.css";
 
@@ -46,33 +46,33 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
         <div className="MenuWrapper">
           <nav>
             <IoHome className="menuIcon" />
-            <Link to="/TenantHome" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/TenantHome" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Home
-            </Link>
+            </NavLink>
           </nav>
           {/* <nav>
             <CiWallet className="menuIcon" />
-            <Link to="/TenantSub" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/TenantSub" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Subscription
-            </Link>
+            </NavLink>
           </nav> */}
           <nav>
             <CiStar className="menuIcon" />
-            <Link to="/TenantMain" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/TenantMain" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Maintenance
-            </Link>
+            </NavLink>
           </nav>
           <nav>
             <CiWallet className="menuIcon" />
-            <Link to="/TenantPayment" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/TenantPayment" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Payment
-            </Link>
+            </NavLink>
           </nav>
           <nav>
             <CiStar className="menuIcon" />
-            <Link to="/TenantSettings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/TenantSettings" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Account Setting
-            </Link>
+            </NavLink>
           </nav>
         </div>
       </div>

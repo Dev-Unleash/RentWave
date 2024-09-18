@@ -10,8 +10,8 @@ const Propertics = () => {
           <p>My Portfolio</p>
           <input type="search" placeholder='Search' />
         </div>
-        <div className="btns">
-          <botton>Add property</botton>
+        <div className="btnsLandlord">
+          <botton className='btnsLandlord'>Add property</botton>
         </div>
         <div className="table">
           <img src={image} alt="" />

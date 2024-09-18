@@ -12,7 +12,7 @@ const Tenantspage = () => {
         </div>
         <div className="btnes">
             <p>View your tenants</p>
-            <botton>Invite Tenants</botton>
+            <botton className="btnsLandlord">Invite Tenants</botton>
           </div>
         <div className="table">
           <img src={image} alt="" />

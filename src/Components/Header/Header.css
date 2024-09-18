@@ -51,14 +51,14 @@
   font-size: 25px;
 }
 
-.nav:hover {
+/* .nav:hover {
   background-color: rgba(0, 0, 255, 0.158);
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-inline: 2px;
-}
+} */
 
 .btns {
   width: 20%;

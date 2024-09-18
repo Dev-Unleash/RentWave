@@ -10,9 +10,13 @@ import { FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
 
 const Signup = () => {
   const [seePassWord, setSeePassWord] = useState(true);
+  const [seePassWord2, setSeePassWord2] = useState(true);
+
   const lookPassWord = () => {
     setSeePassWord(false);
-
+  };
+  const lookPassWord2 = () => {
+    setSeePassWord2(false);
   };
   const navigate = useNavigate();
   const handleClosebtn = () => {
@@ -164,15 +168,15 @@ const Signup = () => {
             <h5>Confirm-Password</h5>
             <div className="passkey">
               <input
-                type={seePassWord ? "password" : "text"}
+                type={seePassWord2 ? "password" : "text"}
                 className="input2"
                 onChange={(e)=>(setConfirmPassword((prev)=>prev + e.target.value))}/>
-              {seePassWord ? (
-                <IoEye className="icon" onClick={lookPassWord} />
+              {seePassWord2 ? (
+                <IoEye className="icon" onClick={lookPassWord2} />
               ) : (
                 <IoEyeOff
                   className="icon"
-                  onClick={() => setSeePassWord(true)}
+                  onClick={() => setSeePassWord2(true)}
                 />
               )}
             </div>
