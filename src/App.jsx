@@ -171,10 +171,10 @@ import TenantProfile from './Pages/Tenant/TenantProfile.jsx'
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
 import LandLordHome from './Pages/Landlord/LandLordHome.jsx';
 import LandLordpage5 from './Pages/Landlord/LandLordpage5.jsx';
-import LandLordpage2 from './Pages/Landlord/LandLordPage2.jsx';
-import LandLordpage3 from './Pages/Landlord/LandLordpage3.jsx';
-import LandLordpage4 from './Pages/Landlord/LandLordpage4.jsx';
 import Propertics from './Pages/Landlord/Propertics.jsx'
+import Transaction from './Pages/Landlord/Transaction.jsx';
+import Tenantspage from './Pages/Landlord/Tenantspage.jsx';
+import Maintenance from './Pages/Landlord/Maintenance.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -263,16 +263,16 @@ const App = () => {
           element: <Propertics />
         },
         {
-          path: '/addTenants',
-          element: <LandLordpage2 />
+          path: '/Transactions',
+          element: <Transaction />
         },
         {
-          path: '/paymentHistory',
-          element: <LandLordpage3 />
+          path: '/View-Tenant',
+          element: <Tenantspage />
         },
         {
-          path: '/main',
-          element: <LandLordpage4 />
+          path: '/maintenance',
+          element: <Maintenance />
         },
         {
           path: '/settings',

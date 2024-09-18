@@ -72,19 +72,19 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
           </nav>
           <nav>
             <CiStar className="menuIcon" />
-            <Link to="/addTenants" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/Transactions" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Transaction
             </Link>
           </nav>
           <nav>
             <CiWallet className="menuIcon" />
-            <Link to="/paymentHistory" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/View-Tenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Tenants
            </Link>
           </nav>
           <nav>
             <CiStar className="menuIcon" />
-            <Link to="/settings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/Maintenance" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
             Maintenance
             </Link>
           </nav>

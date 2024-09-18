@@ -35,6 +35,10 @@
         font-weight: 500;
        color: #3b3a3a;
     }
+
+    & .h3 {
+        line-height: 10px;
+    }
    
   
 }
