@@ -3,6 +3,7 @@ import "./AdminLandlord.css"
 // import TenantPayment from './TenantPayment'
 // import TenantPayHero from './TenantPayHero'
 import { Outlet } from 'react-router-dom'
+import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
 const AdminLandlord = () => {
 
@@ -12,10 +13,24 @@ const AdminLandlord = () => {
     { name: "Sam avede", dateRegistered: "2023-07-21", status: "Active", role: "Landlord" },
     { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Landlord" },
     { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Landlord" },
+    { name: "Sam avede", dateRegistered: "2023-07-21", status: "Active", role: "Landlord" },
+    { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Landlord" },
+    { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Landlord" },
+    { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Landlord" },
+    { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Landlord" },
+    { name: "Sam avede", dateRegistered: "2023-07-21", status: "Active", role: "Landlord" },
+    { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Landlord" },
+    { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Landlord" },
   ]
   return (
 <div className="AdminLandlordContainer">
+    <div className='AdminLandlordUp'>
       <h4>Landlord Track</h4>
+      <div className='search-input'>
+      <CiSearch style={{width:"30px",height:'30px',color:"white",cursor:'pointer'}}/>
+        <input type="text" />
+      </div>
+      </div>
       <div className="AdminLandlord">
       <table>
         <thead>
@@ -31,8 +46,8 @@ const AdminLandlord = () => {
         </thead>
         <tbody>
           {data.map((item, index) => (
-            <tr key={index}>
-              <td className='name-column'>{item.name}</td>
+            <tr key={index} >
+              <td className='name-column'><Link to='/AdminLandlordProfile' style={{cursor:'pointer',color:"black",fontWeight:'normal'}}>{item.name}</Link></td>
               <td className='name-column1'>{item.dateRegistered}</td>
               <td className='name-column1'>{item.status}</td>
               <td className='name-column1'>{item.role}</td> 

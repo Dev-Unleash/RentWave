@@ -7,7 +7,7 @@ import { FaPeopleRoof } from "react-icons/fa6";
 import { GiFamilyHouse } from "react-icons/gi";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./Admin.css";
 
@@ -43,29 +43,29 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
 
       <div className="MenuContainer">
         <div className="MenuWrapper">
-          <nav>
+          <nav >
             <IoHome className="menuIcon" />
-            <Link to="/AdminHome" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/AdminHome" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Home
-            </Link>
+            </NavLink>
           </nav>
-          <nav>
+          <nav >
             <GiFamilyHouse className="menuIcon" />
-            <Link to="/AdminLandlord" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/AdminLandlord" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Landlords
-            </Link>
+            </NavLink>
           </nav>
           <nav>
            <FaPeopleRoof className="menuIcon"/>
-            <Link to="/AdminTenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/AdminTenant" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Tenants
-            </Link>
+            </NavLink>
           </nav>
           <nav>
            <CiWallet  className="menuIcon"/>
-            <Link to="/AdminPayment" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <NavLink to="/AdminPayment" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Payments
-            </Link>
+            </NavLink>
           </nav>
         </div>
       </div>

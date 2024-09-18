@@ -1,6 +1,6 @@
 import React from 'react'
 import './Transaction.css'
-import image from "../../../public/Clip path group.png"
+import image from "../../assets/Clip path group.png"
 
 const Transaction = () => {
   return (
@@ -11,7 +11,7 @@ const Transaction = () => {
           <input type="search" placeholder='Search' />
         </div>
           <div className="btnes">
-            <botton>Download statement</botton>
+            <botton className="ds">Download statement</botton>
             <botton className="ds">Withdraw</botton>
           </div>
         <div className="table">

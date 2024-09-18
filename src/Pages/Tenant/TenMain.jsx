@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TenMain.css";
-import SubImage from "../../assets/download 16.png";
-import { useNavigate } from "react-router-dom";
 import MainRequest from "./MainRequest";
 
-const TenMain = ({ showPopup, setShowPopup,  }) => {
-  const navigate = useNavigate();
+const TenMain = ({ showPopup, setShowPopup }) => {
+  const data = [
+    { Reason: "Burst pipe", Date: "2023-09-01", status: "Sent", time: "2:45pm" },
+    { Reason: "Leaking roof", Date: "2023-09-02", status: "In Progress", time: "10:00am" },
+    { Reason: "Clogged drain", Date: "2023-09-03", status: "Completed", time: "5:30pm" },
+    { Reason: "Broken window", Date: "2023-09-04", status: "Pending", time: "1:15pm" },
+  ];
 
   const handleRequestClick = () => {
     setShowPopup(true);
@@ -13,9 +16,7 @@ const TenMain = ({ showPopup, setShowPopup,  }) => {
 
   return (
     <>
-      <div
-        className={`TenantMainContainer ${showPopup ? "blur-background" : ""}`}
-      >
+      <div className={`TenantMainContainer ${showPopup ? "blur-background" : ""}`}>
         <div className="TenantMainContainerHeader">
           <div className="TenantMainContainerright">
             <h3>Maintenance Request</h3>
@@ -24,42 +25,36 @@ const TenMain = ({ showPopup, setShowPopup,  }) => {
         </div>
 
         <div className="TenantMainDown">
-          <div className="TenantMainDownHeader">
-            <strong>REASON</strong>
-            <strong>DATE / TIME CREATED</strong>
-            <strong>STATUS</strong>
-          </div>
           <div className="TenantMaindowncon">
-            <div className="TenantMainbox">
-              <p>Burst pipe</p>
-              <p>
-                15/08/2024
-                <p>13:59pm</p>
-              </p>
-              <p>sent</p>
-            </div>
+            <table>
+              <thead>
+                <tr className="TenantMainDownHeader">
+                  <th className="TenMaincolumn1" style={{borderTopLeftRadius:"5px",width:"30%"}}>REASON</th>
+                  <th className="TenMaincolumn">DATE</th>
+                  <th className="TenMaincolumn">TIME</th>
+                  <th className="TenMaincolumn"  style={{borderTopRightRadius:"5px"}}>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item, index) => (
+                  <tr key={index}>
+                    <td className="TenMaincolumn1"style={{width:"30%"}} >{item.Reason}</td>
+                    <td className="TenMaincolumn" style={{width:"20%"}}>{item.Date}</td>
+                    <td className="TenMaincolumn" style={{width:"20%"}}>{item.time}</td>
+                    <td className="TenMaincolumn">{item.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          {/* <div className="TenantMaindowncon">
-            <div className="TextMainInage">
-              <h3>Oh Snap! there's nothing here</h3>
-              <div className="SubImages">
-                <img src={SubImage} alt="No maintenance requests" />
-              </div>
-              <h3 style={{ fontWeight: "400" }}>
-                There are no maintenance requests yet on this account
-              </h3>
-              
-            </div>
-          </div> */}
+
           <div className="TextMainInage">
             <button onClick={handleRequestClick}>Create New Request</button>
           </div>
         </div>
       </div>
 
-      {showPopup ? (
-        <MainRequest closePopup={() => setShowPopup(false)} />
-      ) : null}
+      {showPopup && <MainRequest closePopup={() => setShowPopup(false)} />}
     </>
   );
 };

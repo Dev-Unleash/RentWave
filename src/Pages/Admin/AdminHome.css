@@ -64,8 +64,13 @@
         font-weight: 500;
        color: #3b3a3a;
     }
+
+    
+}
    
-  
+.OneBox1:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
 .adminText{
     display: flex;
@@ -115,16 +120,32 @@
 }
 .table-container{
     width: 100%;
-    height: 55%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 100px;
+    flex-direction: column;
+    padding-left: 20px ;
+    padding-right: 20px;
+    /* gap: 100px; */
     /* border: 2px solid gold; */
+}
+.tableHolder{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.table-container h5{
+    width: 95%;
+    font-size: 20px;
+    padding-bottom: 10px;
 }
 .pieChartContainer{
     width: 40%;
-    height: 80%;
+    height: 100%;
 }
 .HomeImage{
     display: flex;

@@ -1,64 +1,78 @@
-import React, { useState } from 'react'
-// import "./TenantPayHeo.css"
-import TenPay from "../../assets/no-bank 1.png"
-import TenantPayHero from './TenantPayHero'
-import { IoNotificationsCircleSharp } from "react-icons/io5";
-import "./TenantPayment.css"
-import MainRequest from './MainRequest';
+import React from 'react';
+import { IoNotificationsCircleSharp } from 'react-icons/io5';
 import PaymentPopup from './PaymentPopup';
-const TenantPayment = ({showPopup,setShowPopup,closePopup}) => {
-  
-  // const navigate = useNavigate();
+import './TenantPayment.css';
 
+const TenantPayment = ({ showPopup, setShowPopup, closePopup }) => {
   const handleRequestClick = () => {
-    setShowPopup(true); 
+    setShowPopup(true);
   };
 
- 
+  const data = [
+    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
+    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
+    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
+    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
+    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
+  ];
 
   return (
     <>
-    <div className= {`TenantPayContainer ${showPopup ? "blur-background" : ""}`}>
-
-      <div className="TenantPayContainerHeader">
-        
-        <div className="TenantPayContainerright">
-        <h3>Payment </h3>
-        <p>Manage payment on RentWave</p>
-        </div>
-        <div className="TenantPayContainerLeft">
-        <IoNotificationsCircleSharp className="menuIcons" style={{cursor:"pointer"}}/>
-        </div>
-      
-   </div>
-   <div className='paymentdownContainer'>
-   <div className="iniPayment">
-    <button onClick={handleRequestClick}>Initiate Payment</button>
-   </div>
-     <div className="TenantPayDown">
-           <div className="TenantPayDownHeader">
-             <ul>
-             <li>Payment History</li>
-             
-            </ul>
-           
+      <div className={`TenantPayContainer ${showPopup ? 'blur-background' : ''}`}>
+        <div className="TenantPayContainerHeader">
+          <div className="TenantPayContainerright">
+            <h3>Payment</h3>
+            <p>Manage payment on RentWave</p>
           </div>
-           <div className="TextImagePayment">
-      
-       <div className="PayImagePayment">
-           <img src={TenPay } alt="" />
-       </div>
-       <h3>No Payment History</h3>
-       <h3 style={{fontWeight:"400",fontSize:"18px"}}>Looks like you haven’t any payment history yet</h3>
-         </div>
-           </div>
-    
-           </div>
-         </div>
-         {/* <PaymentPopup closePopup={closePopup}/> */}
-         {showPopup ? <PaymentPopup closePopup={closePopup} /> : null} 
-         </>
-  )
-}
+          <div className="TenantPayContainerLeft">
+            <IoNotificationsCircleSharp className="menuIcons" style={{ cursor: 'pointer' }} />
+          </div>
+        </div>
 
-export default TenantPayment
+        <div className="paymentdownContainer">
+          <div className="iniPayment">
+            <button onClick={handleRequestClick}>Initiate Payment</button>
+          </div>
+
+          <div className="TenantPayDown">
+            <div className="TenantPayDownHeader">
+              <ul>
+                <li>Payment History</li>
+              </ul>
+            </div>
+
+            <div className="TenantPayHis">
+              <table className="paymentTable">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item, index) => (
+                    <tr key={index}>
+                      <td>{item.Date}</td>
+                      <td>{item.Amount}</td>
+                      <td>{item.PaymentMethod}</td>
+                      <td>{item.time}</td>
+                      <td>{item.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Payment Popup */}
+      {showPopup ? <PaymentPopup closePopup={closePopup} /> : null}
+    </>
+  );
+};
+
+export default TenantPayment;

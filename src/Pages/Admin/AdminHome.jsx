@@ -3,6 +3,7 @@ import "./AdminHome.css";
 // import homepics from "../../assets/download 12.png"
 import Table from "./Table";
 import PieChart from "./PieChart";
+import { Link } from "react-router-dom";
 const AdminHome = () => {
 
   const [tableData, setTableData] = useState([
@@ -26,21 +27,21 @@ const AdminHome = () => {
             <h1>Admins</h1>
             <div className="adminText">
               <h3>3</h3>
-              <p>See All</p>
+              <p></p>
             </div>
           </div>
           <div className="OneBox1" >
             <h1>Tenants</h1>
             <div className="adminText">
               <h3 >8</h3>
-              <p>See All</p>
+              <p><Link to='/AdminTenant'>See All</Link></p>
             </div>
           </div>
           <div className="OneBox1">
             <h1>Landlords</h1>
             <div className="adminText">
-              <h3>3</h3>
-              <p>See All</p>
+              <h3>5</h3>
+              <p><Link to='/AdminLandlord'>See All</Link></p>
             </div>
           </div>
         </div>
@@ -56,8 +57,11 @@ const AdminHome = () => {
             <h3>No activities yet but recent scheduled and completed payments will appear here</h3>
         </div> */}
           <div className="table-container">
+            <h5>Recent Activity</h5>
+            <div className="tableHolder">
             <Table />
             <PieChart roleData={tableData} />
+            </div>
           </div>
 
 

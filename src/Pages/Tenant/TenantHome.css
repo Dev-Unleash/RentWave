@@ -102,10 +102,18 @@
     height:300px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     /* background-color: red; */
     overflow-y: auto;
-    margin-bottom:35px;
+    /* margin-bottom:35px; */
+
+    & tbody{
+        width: 100%;
+        background-color: red;
+    }
+    & tr{
+        width: 100%;
+    }
 }
 .RecentActbox{
     height: 60px;
@@ -143,4 +151,15 @@
     color: black;
     /* background-color: peru; */
    }
+}
+
+.actColumn{
+    width: 15%;
+    /* background-color: green; */
+    /* display: flex; */
+ 
+}
+.actColumn1{
+    width: 60%;
+    /* background-color: red; */
 }

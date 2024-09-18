@@ -157,6 +157,9 @@ import AdminPayment from './Pages/Admin/AdminPayment.jsx'
 import AdminHome from './Pages/Admin/AdminHome.jsx';
 import AdminLandlord from './Pages/Admin/AdminLandlord.jsx';
 import AdminTenant from './Pages/Admin/AdminTenant.jsx';
+import AdminProfileTenant from './Pages/Admin/AdminProfile-Landlord/AdminProfile-Landlord.jsx';
+import AdminProfileLandlord from './Pages/Admin/AdminProfile-tenant/AdminProfile-Tenant.jsx'
+import AdminPaymentView1 from './Pages/Admin/AdminPaymentView1.jsx'
 import TenantHome from './Pages/Tenant/TenantHome.jsx';
 import TenantSettings from './Pages/Tenant/TenantSettings.jsx';
 import TenantPayment from './Pages/Tenant/TenantPayment.jsx';
@@ -225,12 +228,26 @@ const App = () => {
         },
         {
           path: "/AdminTenant",
-          element: <AdminTenant/>
+          element: <AdminTenant/>,
         },
+            {
+              path:"/AdminTenantProfile",
+              element: <AdminProfileTenant />
+            },
+            {
+              path:"/AdminLandlordProfile",
+              element: <AdminProfileLandlord />
+            },
+        
+       
         {
           path: "/AdminPayment",
           element: <AdminPayment/>
         },
+        {
+          path:"/AdminPaymentView1",
+          element:<AdminPaymentView1/>
+        }
   
           ]
         },
