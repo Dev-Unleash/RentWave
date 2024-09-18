@@ -1,6 +1,6 @@
 import React from 'react'
 import './Transaction.css'
-import image from "../../../public/Group (1).png"
+import image from "../../../public/Clip path group.png"
 
 const Transaction = () => {
   return (
@@ -16,11 +16,22 @@ const Transaction = () => {
           </div>
         <div className="table">
           <div className="head">
-            <div className="headone"></div>
-            <div className="headtwo"></div>
+            <div className="headone">
+              <p>Date</p>
+              <p>Portfolio</p>
+              <p>Tenant</p>
+            </div>
+            <div className="headtwo">
+              <p>Amount</p>
+              <p>Status</p>
+            </div>
           </div>
-          <img src={image} alt="" />
-          <p>No properties yet but properties for this portfolio will be listed <br/> here.</p>
+          <div className="imagepack">
+            <img src={image} alt="" />
+            <p>No transactions yet but all payments, credits and charges for <br/>  
+            your account will appear here.</p>            
+          </div>
+
         </div>
       </div>
       
