@@ -1,90 +1,91 @@
-.TenantMainContainer{
+.TenantMainContainer {
     height: 97%;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 5%;
 }
-.TenantMainContainerHeader{
+
+.TenantMainContainerHeader {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
-    & h3{
-        font-size: 20px;
-    }
-
-    & p {
-        font-size: 16px;
-        font-weight: 600;
-        margin-top: 5px;
-    }
 }
-.TenantMainContainerright{
+
+.TenantMainContainerHeader h3 {
+    font-size: 20px;
+}
+
+.TenantMainContainerHeader p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.TenantMainContainerright {
     height: 100%;
     width: 100%;
-  
 }
 
-.TenantMainDown{
+.TenantMainDown {
     height: 85%;
     width: 100%;
     border-radius: 5px;
     background-color: white;
     display: flex;
-
     flex-direction: column;
-
-    
 }
-.TenantMainDownHeader{
-    height: 15%;
-    width: 100%;
+
+.TenantMainDownHeader {
+    height: 40px;
     background-color: #D9E8FF;
-    display: flex;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    align-items: center;
-    justify-content: space-between;
- 
-    & strong{
-        width: 30%;
-        /* background-color: red; */
-        display: flex;
-        justify-content: center;
-    }
-
+    text-align: left;
+    padding-left: 15px;
+   
 }
-.TenantMaindowncon{
-    display: flex;
-    height: 400px;
-    flex-direction: column;
-   overflow-y: auto;
-   width: 100%;
-    /* align-items: center; */
 
-
-    
+.TenMaincolumn1 {
+    width: 40%;
+    padding: 10px;
+    text-align: left;
 }
-.TenantMainbox{
-    height: 55px;
+
+.TenMaincolumn {
+    width: 20%;
+    padding: 10px;
+    text-align: left;
+}
+
+.TenantMaindowncon {
+    height: 80%;
     width: 100%;
-    display: flex;
-    border-top: 1px solid rgb(129, 128, 128);
-    border-bottom:  1px solid rgb(129, 128, 128);
-    align-items: center;
-    justify-content: space-between;
-    & p{
-        width: 30%;
-        display: flex;
-        font-size: 20px;
-        justify-content: center;
-        /* background-color: red; */
-        color: black;
-    }
+    overflow-y: auto;
 }
 
-.TextMainInage{
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+}
+
+thead th {
+    background-color: #D9E8FF; 
+    color: black; 
+    padding: 10px;
+    font-weight: bold;
+    /* text-align: left; */
+    width: 25%; 
+ 
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.TextMainInage {
     height: 500px;
     width: 100%;
     display: flex;
@@ -92,22 +93,20 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
+}
 
-
-    & button{
-        height: 50px;
-        width: 200px;
-        border-radius: 30px;
-        background-color: #4D86DB;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 15px;
-    }
+.TextMainInage button {
+    height: 50px;
+    width: 200px;
+    border-radius: 30px;
+    background-color: #4D86DB;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 .blur-background {
     filter: blur(5px);
-    pointer-events: none; 
-  }
-  
+    pointer-events: none;
+}

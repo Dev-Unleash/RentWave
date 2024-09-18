@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-// import PhoneInput from 'react-phone-input-2';
-// import 'react-phone-input-2/lib/style.css';
 import { IoArrowBackSharp, IoEye, IoEyeOff } from "react-icons/io5";
 import ReactCountryFlag from "react-country-flag";
-import { FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
+import axios from "axios";
+import { toast, Toaster } from "react-hot-toast";
 
 const Signup = () => {
   const [seePassWord, setSeePassWord] = useState(true);
@@ -82,69 +81,90 @@ const Signup = () => {
                   style={{ width: "70%", height: "100%", objectFit: "contain" }}
                 />
               </Link>
+
             </div>
-            <h4
-              style={{ fontSize: "14px", width: "100%", marginBottom: "50px" }}
-            >
-              Sign up your business on Rent Wave
-            </h4>
-          </div>
-          <h4 className="userinfo">User Information</h4>
-          <p>This information would be used to create your account.</p>
-          <div className="nameContainer">
-            <div className="Name">
-              <h5>FirstName</h5>
-              <input type="text" name="firstName" className="input" onChange={(e)=>(setFirstName((prev)=>prev + e.target.value))}/>
+
+            <h4 className="userinfo">User Information</h4>
+            <p>This information will be used to create your account.</p>
+
+            <div className="nameContainer">
+              <div className="Name">
+                <h5>First Name</h5>
+                <input
+                  type="text"
+                  name="firstName"
+                  className="input"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+              <div className="Name">
+                <h5>Last Name</h5>
+                <input
+                  type="text"
+                  name="lastName"
+                  className="input"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
             </div>
-            <div className="Name">
-              <h5>LastName</h5>
-              <input type="text" name="lastName" className="input" onChange={(e)=>(setLastName((prev)=>prev + e.target.value))}/>
+
+            <div className="info">
+              <h5>Email</h5>
+              <input
+                type="text"
+                name="email"
+                className="input1"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                
+              />
             </div>
-          </div>
-          <div className="info">
-            <h5>Email</h5>
-            <input type="text" name="email" className="input1" onChange={(e)=>(setEmail((prev)=>prev + e.target.value))}/>
-          </div>
-          <div className="info">
-            <h5>PhoneNumber</h5>
-            <div
-              className="input1"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+
+            <div className="info">
+              <h5>Phone Number</h5>
               <div
-                className="flag"
+                className="input1"
                 style={{
-                  width: "10%",
-                  height: "100%",
-                  paddingInline: "6px",
-                  borderRight: "2px solid #e6e7e9",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <ReactCountryFlag
-                  countryCode="ng"
-                  svg
-                  style={{ width: "16px", height: "16px" }}
+                <div
+                  className="flag"
+                  style={{
+                    width: "10%",
+                    height: "100%",
+                    paddingInline: "6px",
+                    borderRight: "2px solid #e6e7e9",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <ReactCountryFlag
+                    countryCode="ng"
+                    svg
+                    style={{ width: "16px", height: "16px" }}
+                  />
+                </div>
+                <input
+                  style={{
+                    width: "90%",
+                    height: "100%",
+                    borderLeft: "1px solid black",
+                    border: "none",
+                    fontSize: "12px",
+                  }}
+                  type="number"
+                  name="phoneNumber"
+                  placeholder="+234"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
               </div>
-              <input
-                style={{
-                  width: "90%",
-                  height: "100%",
-                  borderLeft: "1px solid black",
-                  border: "none",
-                  fontSize: "12px",
-                }}
-                type="number"
-                name="phoneNumber"
-                placeholder="+234"
-                onChange={(e)=>(setPhoneNumber((prev)=>prev + e.target.value))}/>
             </div>
           </div>
           <div className="info">
