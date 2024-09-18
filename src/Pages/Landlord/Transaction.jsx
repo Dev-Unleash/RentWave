@@ -11,7 +11,7 @@ const Transaction = () => {
           <input type="search" placeholder='Search' />
         </div>
           <div className="btnes">
-            <botton>Download statement</botton>
+            <botton className="ds">Download statement</botton>
             <botton className="ds">Withdraw</botton>
           </div>
         <div className="table">
