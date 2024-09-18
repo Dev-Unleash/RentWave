@@ -3,10 +3,15 @@
     width: 100%;
     background-color: green;
     display: flex;
+    @media screen and (max-width: 900px) {
+        overflow: hidden;
+      }
 }
+
 .Sidebarwhole{
     height: 100%;
     /* background-color: red; */
+    
 }
 .tenantLeft{
     height: 100%;
@@ -86,18 +91,42 @@ margin-bottom: 13px;
      /* padding-top: 20px;
      padding-left: 20px; */
      padding: 0px 20px;
-      & nav{
-        display: flex;
-        font-size: 20px;
-        gap: 15px;
-        font-weight: 500;
-      }
+     @media screen and (max-width: 900px) {
+        gap: 20px;
+        height: 45%;
      }
+  
     .MenuWrapper{
-        
+        height: 100%;
         display:flex;
        flex-direction: column;
         gap: 13px;
+        @media screen and (max-width: 900px) {
+            
+            gap: 8px;
+            height: 80%;
+            /* background-color: red; */
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+         }
+        & nav{
+            display: flex;
+            font-size: 20px;
+            gap: 15px;
+            font-weight: 500;
+            @media screen and (max-width: 900px) {
+                font-size: 16px;
+                gap: 10px;
+             }
+             & Link{
+                @media screen and (max-width: 900px) {
+                    font-size: 16px;
+                    /* gap: 10px; */
+                 }
+             }
+          }
+         }
        
     }
 .Logoutmenu{

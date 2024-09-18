@@ -22,6 +22,11 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    @media screen and (max-width: 900px) {
+      gap: 25px;
+    /* height: fit-content; */
+      /* background-color: red; */
+   }
    
   }
   
@@ -31,11 +36,17 @@
     height: 5%;
     /* background-color: blue; */
     justify-content: space-between;
-
+    @media screen and (max-width: 900px) {
+    height: 0%;
+     }
     & h3{
         display: flex;
         height: 5%;
         justify-content: space-between;
+        @media screen and (max-width: 900px) {
+          height: 0%;
+          font-size: 13px;
+           }
     }
     
  }
@@ -53,6 +64,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 5px;
+    @media screen and (max-width: 900px) {
+      height: 96%;
+       }
  }
   .reqInput{
     width: 100%;
@@ -64,6 +78,11 @@
     & p{
         font-size:14px;
         font-weight: 600;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
+    
     }
     & input{
         height: 60%;
@@ -84,6 +103,10 @@
     & p{
         font-size: 14px;
         font-weight: 600;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
     }
     & textarea{
         height: 75%;
@@ -103,6 +126,10 @@
     & p{
         font-size: 14px;
         font-weight: 600;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
     }
     
   }
@@ -127,6 +154,10 @@
         outline: none;
         font-size: 15px;
         padding: 0px 5px 0px 5px;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
     }
   }
   .DateReqInputright{
@@ -145,6 +176,10 @@
         font-size: 15px;
         color: #4e4d4d;
         padding: 0px 5px 0px 5px;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
     }
   }
   .reqPhone{
@@ -157,6 +192,10 @@
     & p{
         font-size: 17px;
         font-weight: 600;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
     }
     & input{
         height: 70%;
@@ -178,6 +217,10 @@
     & p{
         font-size: 15px;
         font-weight: 600;
+        @media screen and (max-width: 900px) {
+          
+          font-size: 12px;
+           }
     }
     & .imgbox{
         height: 85%;
@@ -220,6 +263,46 @@
    height: 7%;
   display: flex;
   justify-content: flex-end;
-  /* background-color: yellow; */
+  
   gap: 25px;
+  @media screen and (max-width: 900px) {
+  height: 8%;
+  display: flex;
+  align-items: flex-end;
+  /* background-color: yellow; */
+     }
+
+}
+.cancelButton {
+  border: 2px solid #0052AA;
+  border-radius: 25px;
+  width: 25%;
+  height: 100%;
+  color: #4D86DB;
+  background-color: white;
+  font-size: 15px;
+  cursor: pointer;
+  @media screen and (max-width: 900px) {
+    height:75%;
+    font-size: 12px;
+    border-radius: 18px;
+    width: 40%
+       }
+}
+
+.submitButton {
+  border-radius: 25px;
+  width: 25%;
+  height: 100%;
+  color: white;
+  background-color: #4D86DB;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  @media screen and (max-width: 900px) {
+    height:75%;
+    font-size: 12px;
+    border-radius: 18px;
+    width: 40%;
+       }
 }
