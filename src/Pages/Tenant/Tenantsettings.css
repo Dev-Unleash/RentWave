@@ -67,10 +67,15 @@
     /* background-color: brown; */
     
     & input{
+        height: 70%;
         width: 80%;
+        border-radius: 5px;
+        border: 1px solid grey;
+        /* border-radius: none; */
     }
     & p{
         padding-left: 10%;
+        font-size: 18px;
     
     }
 }
@@ -99,7 +104,9 @@
         width: 80%;
         background-color: blue;
     } */
-
+& p{
+    font-size: 18px;
+}
     & select{
         height: 60%;
         width:100%;
