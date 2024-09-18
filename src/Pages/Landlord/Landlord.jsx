@@ -1,15 +1,11 @@
 import React from 'react'
-import "./Landlord.css"
+import MenuBar from './MenuBar'
+
 const Landlord = () => {
   return (
-    <div className='landlordPage'>
-    <div className="landlordLeft"></div>
-    <div className="landlordRight">
-      <div className="landlordHeader">
-        
-      </div>
+    <div>
+      
     </div>
-  </div>
   )
 }
 

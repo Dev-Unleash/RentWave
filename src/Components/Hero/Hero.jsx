@@ -17,7 +17,8 @@ const Hero = () => {
      <h6>Streamline your rent payment process and keep track of every transaction</h6>
      <button className='btnHero'><Link to="/Signup">Get Started</Link></button>
      </div>
-     <div className='hero-dashboard'><img src={dashboard} alt="" /></div>
+     <div className='hero-dashboard'><img src={dashboard} alt="" />
+     </div>
 
 
       

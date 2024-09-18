@@ -1,4 +1,4 @@
-.TenantProfilePage{
+.AdminTenantProfilePage{
     height: 100vh;
     width: 100%;
     display: flex;
@@ -39,7 +39,7 @@
     /* background-color: red; */
 }
 .Profilepic{
-    height: 10%;
+    height: 20%;
     width: 100%;
     /* background-color: red; */
     display: flex;
@@ -61,21 +61,23 @@
         }
     }
 }
-.ProfDetail{
-    height: 85%;
+.ProfDetail2{
+    height: 75%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 60px;
     /* background-color: red; */
     gap: 10px;
     & ul{
         display: flex;
         flex-direction: column;
         width: 100%;
+        list-style-type: none;
         /* background-color: blue; */
         justify-content: space-between;
-        gap: 35px;
+        gap: 25px;
         & li{
           list-style-type: none;
           display: flex;

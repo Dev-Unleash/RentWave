@@ -10,6 +10,7 @@ import { toast, Toaster } from "react-hot-toast";
 const Signup = () => {
   const [seePassWord, setSeePassWord] = useState(true);
 
+
   const togglePasswordVisibility = () => {
     setSeePassWord(!seePassWord);
   };
@@ -124,6 +125,72 @@ const nav = useNavigate()
               >
                 Sign up your business on Rent Wave
               </h4>
+
+  const navigate = useNavigate();
+  const handleClosebtn = () => {
+      navigate(-1); 
+    };
+  // const register = async () => {
+  //   console.log("clicked");
+  //   const name = FormData.get("name");
+  //   console.log(name);
+  // };
+  const [firstName,setFirstName]=useState("")
+  console.log(firstName)
+  const [lastName,setLastName]=useState("")
+  console.log(lastName)
+  const [email,setEmail]=useState("")
+  console.log(email)
+  const [phoneNumber,setPhoneNumber]=useState("")
+  console.log(phoneNumber)
+  const [password,setPassword]=useState("")
+  console.log(password)
+  const [confirmPassword,setConfirmPassword]=useState("")
+  console.log(confirmPassword)
+
+
+  // const register =()=>{
+  //   if(!email || !password || !lastName || !phoneNumber || !firstName || !confirmPassword ){
+  //     alert("All field required")
+  //   }else{
+  //       const ApiData={firstName:firstname}
+  //   }
+  // } 
+  return (
+    <div className="SignUpContainer">
+      <p
+         onClick={handleClosebtn}
+        style={{
+          fontSize: "14px",
+          width: "20%",
+          position: "absolute",
+          top: "10px",
+          left: "5px",
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "flexStart",
+          alignItems: "center",
+          color: "black",
+          cursor: "pointer",
+        }}
+       
+      >
+        {" "}
+        <IoArrowBackSharp  className="icon" style={{ width: "20px" }} /> Go Back
+      </p>
+
+      <div className="firstSide">
+        <form className="SignUpCenter">
+          <div className="topLogo">
+            <div className="Logo-signup">
+              <Link to="/" className="Logo-signup">
+                <img
+                  src={logo}
+                  alt="logo"
+                  style={{ width: "70%", height: "100%", objectFit: "contain" }}
+                />
+              </Link>
+
             </div>
 
             <h4 className="userinfo">User Information</h4>
