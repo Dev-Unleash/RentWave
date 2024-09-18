@@ -10,6 +10,10 @@ const MainRequest = ({ closePopup }) => {
         const myImage = URL.createObjectURL(file)
         setShowImg(myImage)
     }
+    const submitRequest =()=>{
+        alert("request submitted")
+        closePopup()
+    }
   return (
     <div className="MainRequestPopupOverlay">
       <div className="MainRequestFormWrapper">
@@ -55,7 +59,7 @@ const MainRequest = ({ closePopup }) => {
             
                 <div className="UploadIcon">
                 <input type="file" id='i' hidden onChange={posting} />
-                <label htmlFor="i">
+                <label htmlFor="i" style={{width:"max-content"}}>
                   <IoImage  style={{ cursor: "pointer", width:"30px",height:"30px"}} />
                 </label>
                 </div>
@@ -66,12 +70,12 @@ const MainRequest = ({ closePopup }) => {
                     <button style={{border:"2px solid #0052AA",
                     borderRadius:"25px",width:"25%",
                         height:"100%",color:"#4D86DB",
-                        backgroundColor:"white",fontSize:"15px",cursor:"pointer"}}>cancel</button>
+                        backgroundColor:"white",fontSize:"15px",cursor:"pointer"}} onClick={closePopup}>cancel</button>
                     <button  style={{
                     borderRadius:"25px",width:"25%",
                         height:"100%",color:"white",
                         backgroundColor:"#4D86DB",
-                        border:"none",fontSize:"15px",cursor:"pointer"}}>submit</button>
+                        border:"none",fontSize:"15px",cursor:"pointer"}} onClick={submitRequest}>submit</button>
                 </div>
         </div>
       </div>

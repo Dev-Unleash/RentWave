@@ -45,7 +45,7 @@ const ForgotPassword = () => {
 
 
 
-              <button><Link to='/ResetPassword'>Reset Password</Link></button>
+              <button><Link to='/ResetPassword' style={{color:"white"}}>Reset Password</Link></button>
             </div>
           </div>
         </div>

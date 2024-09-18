@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import ola from "../../assets/ola.jpg";
+import ben from "../../assets/devBen.png";
 import { CiStar } from "react-icons/ci";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
+import { FaPeopleRoof } from "react-icons/fa6";
+import { GiFamilyHouse } from "react-icons/gi";
+import { MdOutlineManageAccounts } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
-import "./Tenant.css";
+import "./Admin.css";
 
 const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
   const nav =useNavigate()
@@ -31,14 +34,10 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
       </Link>
 
       <div className="Profile">
-      <div className="Pics" style={{cursor:"pointer"}} >
-      <Link to="/TenantProfile">
-        <img src={ola} alt="Profile" />
-        </Link>
+        <div className="Pics">
+          <img src={ben} alt="Profile" />
         </div>
-        
-
-        <p>Tolani</p>
+        <p>DevBen</p>
         <h3>Welcome</h3>
       </div>
 
@@ -46,32 +45,26 @@ const SideBar = ({showLogoutPopup,setShowLogoutPopup}) => {
         <div className="MenuWrapper">
           <nav>
             <IoHome className="menuIcon" />
-            <Link to="/TenantHome" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/AdminHome" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Home
             </Link>
           </nav>
-          {/* <nav>
-            <CiWallet className="menuIcon" />
-            <Link to="/TenantSub" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
-              Subscription
-            </Link>
-          </nav> */}
           <nav>
-            <CiStar className="menuIcon" />
-            <Link to="/TenantMain" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
-              Maintenance
+            <GiFamilyHouse className="menuIcon" />
+            <Link to="/AdminLandlord" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+              Landlords
             </Link>
           </nav>
           <nav>
-            <CiWallet className="menuIcon" />
-            <Link to="/TenantPayment" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
-              Payment
+           <FaPeopleRoof className="menuIcon"/>
+            <Link to="/AdminTenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+              Tenants
             </Link>
           </nav>
           <nav>
-            <CiStar className="menuIcon" />
-            <Link to="/TenantSettings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
-              Account Setting
+           <CiWallet  className="menuIcon"/>
+            <Link to="/AdminPayment" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+              Payments
             </Link>
           </nav>
         </div>

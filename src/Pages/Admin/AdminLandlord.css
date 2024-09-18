@@ -1,0 +1,104 @@
+.AdminLandlordContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    /* border: 6px solid green; */
+
+}
+.AdminLandlordContainer h4{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+    /* border-bottom: 1px solid black; */
+    font-size: 20px;
+    padding-top: 30px;
+    padding-left: 25px;
+}
+.AdminLandlord{
+    width: 95%;
+    height: 80%;
+}
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    text-align: left;
+   
+}
+
+th, td {
+    width: 100%;
+    height: 20%;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+}
+
+th {
+    width: 100%;
+    height: 20%;
+    background-color: #4D86DB;
+    color: white;
+}
+tbody{
+    width: 100%;
+    height: 10px; 
+}
+
+td {
+    width: 100%;
+    height: 20%;
+    font-size: 18px;
+    /* text-align: center; Center content horizontally */
+    /* vertical-align: middle; Center content vertically */
+}
+
+tr:hover {
+    background-color: #4D86DB;
+}
+
+tbody tr:nth-child(even) {
+    width: 100%;
+    height: 20%;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+tbody tr:nth-child(odd) {
+    width: 100%;
+    height: 20%;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.name-column{
+    width: 40%;
+}
+.name-column1{
+    width: 15%;
+}
+.name-column2{
+    width: 15%;
+
+}
+.AdminlandlordDel{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(250, 6, 6);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    
+   
+}
+.AdminlandlordDel:hover{
+    background-color: rgb(198, 5, 5);
+}
