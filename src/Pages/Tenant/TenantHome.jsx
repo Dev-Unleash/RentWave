@@ -17,21 +17,21 @@ const TenantHome = () => {
         <p >Here’s a quick Overview of what’s happening</p>
       </div>
       <div className="TenantDashBoardBox">
-        <div className="OneBox">
+        <div className="OneBox" style={{borderTop:"10px solid #4D86DB"}}>
           <h1>Payment</h1>
           <div className="TenantText">
             <h3>0</h3>
             <p>See All</p>
           </div>
         </div>
-        <div className="OneBox" >
+        <div className="OneBox" style={{borderTop:"10px solid #4D86DB"}}>
           <h1>Maintenance Request</h1>
           <div className="TenantText">
             <h3 >0</h3>
             <p>See All</p>
           </div>
         </div>
-        <div className="OneBox">
+        <div className="OneBox" style={{borderTop:"10px solid #4D86DB"}}>
            <h1>Active Subcription</h1>
            <div className="TenantText">
             <h3>0</h3>

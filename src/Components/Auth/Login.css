@@ -44,17 +44,28 @@
 }
 
 form {
-    height: 60%;
+    height: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
+ 
+}
+.LoginInputForm{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: yellow; */
+   
+    
 }
 
-form input {
-    height: 60%;
+.LoginInputForm input {
+    height: 45%;
     width: 70%;
     border: 1px solid rgba(0, 0, 0, 0.403);
     border-radius: 5px;
@@ -63,17 +74,19 @@ form input {
     outline: none;
 }
 
-form p:nth-child(5) {
+.LoginInputForm p:nth-child(5) {
     color: #4D86DB;
     font-size: 14px;
     font-weight: 400;
 }
 
-form p:nth-child(1),
-form p:nth-child(3) {
+.LoginInputForm p:nth-child(1),
+.LoginInputForm p:nth-child(3) {
     font-size: 14px;
     font-weight: 400;
+    width: 70%;
     text-align: left;
+    /* background-color: green; */
 }
 
 .input-div {
@@ -83,10 +96,12 @@ form p:nth-child(3) {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
 }
 
 .passwordholder {
-    height: 60%;
+    height: 43%;
     width: 70%;
     display: flex;
     align-items: center;
@@ -118,11 +133,13 @@ form p:nth-child(3) {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: #fff; */
 }
 
 .LoginInputDown button {
-    height: 40px;
+    height: 80px;
     width: 70%;
     border: none;
     background-color: #4D86DB;
@@ -234,7 +251,7 @@ button:hover {
     }
 
     .LoginInputContainer {
-        width: 350px;
+        width: 100%;
     }
     form input{
         width: 100%;
@@ -243,7 +260,7 @@ button:hover {
 
     .passwordholder {
         height: 60px;
-        width: 350px;
+        width:100%;
     }
 
     .passwordholder input {
@@ -272,6 +289,9 @@ button:hover {
 
     .logoContainer {
         width: 220px;
+    }
+    .LoginInputForm{
+        width: 100%;
     }
 
     .logo {
