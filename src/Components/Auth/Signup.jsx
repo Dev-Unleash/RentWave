@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 // import PhoneInput from 'react-phone-input-2';
 // import 'react-phone-input-2/lib/style.css';
@@ -12,8 +12,12 @@ const Signup = () => {
   const [seePassWord, setSeePassWord] = useState(true);
   const lookPassWord = () => {
     setSeePassWord(false);
-  };
 
+  };
+  const navigate = useNavigate();
+  const handleClosebtn = () => {
+      navigate(-1); 
+    };
   // const register = async () => {
   //   console.log("clicked");
   //   const name = FormData.get("name");
@@ -43,6 +47,7 @@ const Signup = () => {
   return (
     <div className="SignUpContainer">
       <p
+         onClick={handleClosebtn}
         style={{
           fontSize: "14px",
           width: "20%",
@@ -56,9 +61,10 @@ const Signup = () => {
           color: "black",
           cursor: "pointer",
         }}
+       
       >
         {" "}
-        <IoArrowBackSharp className="icon" style={{ width: "20px" }} /> Go Back
+        <IoArrowBackSharp  className="icon" style={{ width: "20px" }} /> Go Back
       </p>
 
       <div className="firstSide">

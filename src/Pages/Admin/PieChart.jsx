@@ -8,7 +8,7 @@ const PieChart = ({ roleData }) => {
   // Prepare data for the pie chart
   const roleCounts = {
     Tenant: 8,
-    Landlord: 3,
+    Landlord: 5,
     Admin: 3
   };
 
@@ -33,7 +33,7 @@ const PieChart = ({ roleData }) => {
   return (
     <div className="pieChartContainer">
       <h2>Role Distribution</h2>
-      <Pie data={data} />
+      <Pie data={data}  />
     </div>
   );
 };
