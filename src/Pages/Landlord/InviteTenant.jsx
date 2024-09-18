@@ -1,5 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './InviteTenant.css'; // Import the CSS file for styling
+
+// const FilePicker = () => {
+//     const fileInputRef = useRef(null);
+
+//     const handleButtonClick = () => {
+//         fileInputRef.current.click();
+//     };
+
+//     const handleFileChange = (event) => {
+//         const file = event.target.files[0];
+//         if (file) {
+//             console.log('Selected file:', file.name);
+//         }
+//     };
+// };
 
 const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
   if (!isOpen) return null;
@@ -64,7 +79,10 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
             <input type="checkbox" name="" id="" />
             <div className='p'>Require Renters Insurance</div>
         </div>
-        <button onClick={handleSubmit}>Save </button>
+        <div>
+            {/* <button onClick={()=>handleButtonClick()}>Choose File</button> */}
+        </div>        
+        <button onClick={handleSubmit}> Save </button>
       </div>
 
     </div>

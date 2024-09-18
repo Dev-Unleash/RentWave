@@ -57,10 +57,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       /* position: absolute;
       right: 8%; */
     }
-  
+
 
     & p{
         font-weight: 400;
