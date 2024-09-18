@@ -1,7 +1,7 @@
 import React from 'react'
 import './Landlord.css'
 import './Maintenance.css'
-import image from '../../../public/download 16.png'
+import image from '../../assets/download 16.png'
 
 const Maintenance = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Tenantspage.css'
-import image from "../../../public/Clip.png"
+import image from "../../assets/Clip.png"
 
 const Tenantspage = () => {
   return (

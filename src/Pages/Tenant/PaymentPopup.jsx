@@ -9,6 +9,7 @@ const PaymentPopup = ({ closePopup }) => {
         <h3 className="CloseButton" onClick={closePopup}>X</h3>
         </div>
       <form action="">
+        <div className="InputPayForm">
                 <div className='payInput'>
                   <p>First Name</p>
                   <input type="text"/>
@@ -22,7 +23,10 @@ const PaymentPopup = ({ closePopup }) => {
                   <p>Property Name</p>
                   <input type="text"  />
                 </div>
-    
+                <div className='payInput'>
+                  <p>Amount</p>
+                  <input type="text"  />
+                </div>
                 <div className='payInput'>
                   <p>Payment Method</p>
                   <select name="select" id="">
@@ -30,12 +34,13 @@ const PaymentPopup = ({ closePopup }) => {
                     <option value="Bank Transfer">Bank Transfer</option>
                     <option value="card">Card</option>
                   </select>
-
+                  </div>
                 </div>
-              </form>
                 <div className="payButton">
                     <button>pay</button>
                 </div>
+              </form>
+               
       </div>
     </div>
   )
