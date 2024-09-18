@@ -84,7 +84,7 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
           </nav>
           <nav>
             <CiStar className="menuIcon" />
-            <Link to="/settings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/Maintenance" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
             Maintenance
             </Link>
           </nav>

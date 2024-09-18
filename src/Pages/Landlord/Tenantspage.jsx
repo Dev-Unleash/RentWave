@@ -1,6 +1,6 @@
 import React from 'react'
 import './Tenantspage.css'
-import image from "../../../public/Group (1).png"
+import image from "../../../public/Clip.png"
 
 const Tenantspage = () => {
   return (
@@ -16,7 +16,7 @@ const Tenantspage = () => {
           </div>
         <div className="table">
           <img src={image} alt="" />
-          <p>No properties yet but properties for this portfolio will be listed <br/> here.</p>
+          <p>No renters yet but renter details and status will appear here.</p>
         </div>
       </div>
       
