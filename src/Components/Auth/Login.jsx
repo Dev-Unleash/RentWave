@@ -113,6 +113,7 @@ const nav=useNavigate()
                 <br />
               </div>
               <form action="" onSubmit={userLogin}>
+                <div className="LoginInputForm">
                 <div className="input-div">
                   <p>Email</p>
                   <input
@@ -147,16 +148,16 @@ const nav=useNavigate()
                 <p>
                   <Link to="/ForgotPassWord"> Forgot Password?</Link>
                 </p>
-                <button
+                </div>
+                
+                <div className="LoginInputDown">
+            <button
                   style={{ fontWeight: "600" }}
                   type="submit"
                   disabled={loading}
                 >
                   {loading ? "Loading..." : "Login"}
                 </button>
-              </form>
-            </div>
-            <div className="LoginInputDown">
               <div className="Down">
                 <p>
                   Don't have an account?{" "}
@@ -166,6 +167,9 @@ const nav=useNavigate()
                 </p>
               </div>
             </div>
+              </form>
+            </div>
+           
           </div>
         </div>
         <div className="secondSide">
