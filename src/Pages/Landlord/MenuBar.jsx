@@ -78,7 +78,7 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
           </nav>
           <nav>
             <CiWallet className="menuIcon" />
-            <Link to="/paymentHistory" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <Link to="/View-Tenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Tenants
            </Link>
           </nav>
