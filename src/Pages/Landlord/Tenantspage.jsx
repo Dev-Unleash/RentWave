@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Tenantspage.css'
-import image from "../../../public/Clip.png"
 import InviteTenant from './InviteTenant'
 import image from "../../assets/Clip.png"
 

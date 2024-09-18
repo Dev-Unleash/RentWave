@@ -64,7 +64,7 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
             <input type="checkbox" name="" id="" />
             <div className='p'>Require Renters Insurance</div>
         </div>
-        <button onClick={handleSubmit}>Save</button>
+        <button onClick={handleSubmit}>Save </button>
       </div>
 
     </div>
