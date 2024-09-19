@@ -14,7 +14,6 @@ const Logout = () => {
     const handleLogoutConfirm = () => {
         nav("/");
         setShowLogoutPopup(false);
-        alert("You've Logged Out successfully");
     };
 
     const handleLogoutCancel = () => {

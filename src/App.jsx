@@ -175,6 +175,7 @@ import Transaction from './Pages/Landlord/Transaction.jsx';
 import Tenantspage from './Pages/Landlord/Tenantspage.jsx';
 import Maintenance from './Pages/Landlord/Maintenance.jsx';
 import LandlordProfile from './Pages/Landlord/LandlordProfile.jsx';
+import LandlordProfilepage from './Pages/Landlord/LandlordProfilepage.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -277,6 +278,10 @@ const App = () => {
         {
           path: '/settings',
           element: <LandlordProfile />
+        },
+        {
+          path: '/profile',
+          element: <LandlordProfilepage />
         }// Additional routes for landlord
       ]
     },

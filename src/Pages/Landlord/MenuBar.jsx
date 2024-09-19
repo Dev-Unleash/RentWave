@@ -43,7 +43,9 @@ const MenuBar = () => {
 
       <div className="Profile1">
         <div className="Pics1">
+        <Link to="/profile">
           <img src={image} alt="Profile" />
+        </Link>
         </div>
         <p>Mr. Johnson</p>
         <h3>Welcome</h3>
