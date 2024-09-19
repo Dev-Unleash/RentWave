@@ -57,6 +57,7 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 5px;
+    box-shadow: 1px 10px 16px 1px rgba(0, 0, 0, 0.296);
     border-top: 20px solid #4D86DB;
     /* gap: 10px; */
     & h1{

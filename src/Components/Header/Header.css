@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 200px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #ffff;
@@ -33,7 +33,7 @@
 }
 
 .HeaderNav {
-  width: 65%;
+  width: 55%;
   height: 80%;
   display: flex;
   justify-content: space-evenly;
@@ -43,6 +43,7 @@
   color: royalblue;
   cursor: pointer;
   text-decoration: none;
+  /* gap: 50px; */
 }
 
 .nav {
@@ -75,11 +76,28 @@
   background-color: #4D86DB;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 40%;
   height: 50px;
   box-shadow: 1px 4px 3px 2px rgba(16, 16, 16, 0.197);
   cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnHeader1 {
+  /* background-color: #4D86DB; */
+  color: black;
+  border: 2px solid #4D86DB;
+  border-radius: 10px;
+  width: 40%;
+  height: 50px;
+  box-shadow: 1px 4px 3px 2px rgba(16, 16, 16, 0.197);
+  cursor: pointer;
+  font-weight: 700;
   text-decoration: none;
   text-align: center;
   display: flex;
@@ -87,7 +105,11 @@
   align-items: center;
 }
 
-.btn1:hover {
+.btnHeader:hover {
+  background-color: blue;
+}
+.btnHeader1:hover {
+  color: #ffff;
   background-color: blue;
 }
 

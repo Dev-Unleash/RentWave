@@ -20,11 +20,13 @@
   justify-content: space-between;
   gap: 50px;
 }
-.OneBox{
+.OneBox2{
     height: 180px;
     width: 305px;
     background-color: white;
-    border: 1px solid rgb(143, 141, 141);
+    /* border: 1px solid rgb(143, 141, 141); */
+    /* border-top: 20px solid #4D86DB; */
+    box-shadow: 1px 10px 16px 1px rgba(0, 0, 0, 0.296);
     border-radius: 10px;
     padding: 0px 15px 15px;
     display: flex;

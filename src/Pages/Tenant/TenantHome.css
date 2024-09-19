@@ -24,13 +24,14 @@
     height:100%;
     width: 32%;
     background-color: white;
-    border: 1px solid rgb(143, 141, 141);
+    /* border: 1px solid rgb(143, 141, 141); */
     padding: 0px 15px 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 5px;
-    border-top: 10px solid #4D86DB;
+    border-top: 20px solid #4D86DB;
+    box-shadow: 1px 10px 16px 1px rgba(0, 0, 0, 0.296);
     /* gap: 10px; */
     & h1{
         font-size: 20px;

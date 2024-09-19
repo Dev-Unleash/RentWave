@@ -70,7 +70,7 @@ const Header = ({ scrollToSection }) => {
         </div>
       </ul>
       <div className="btns">
-        <Link to='/SignUp' className="btnHeader">SignUp</Link>
+        <Link to='/SignUp' className="btnHeader1">SignUp</Link>
         <Link to='/Login' className="btnHeader">Login</Link>
       </div>
 
