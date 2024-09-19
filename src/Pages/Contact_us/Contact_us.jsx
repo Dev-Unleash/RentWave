@@ -25,6 +25,7 @@ const Contact_us = () => {
   const aboutRef = useRef(null);
   const valuesRef = useRef(null);
   const contactsRef = useRef(null);
+  const emailRef = useRef(null);
   useEffect(() =>{
     AOS.init()
   },{})
@@ -37,11 +38,14 @@ const Contact_us = () => {
     } else if (section === 'contacts') {
       contactsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+    else if (section === 'email') {
+      emailRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
   return (
     <div className='ContactUsContainer'>
       <Header scrollToSection={scrollToSection} />
-      <div className='aboutUs' ref={aboutRef} data-aos="fade-down" data-aos-duration="2000">
+      <div  className='aboutUs' ref={aboutRef} data-aos="fade-down" data-aos-duration="2000">
         <div className="aboutUsLeft" data-aos="fade-down" data-aos-duration="2000">
           <h1>About Us</h1>
           <p>
@@ -123,7 +127,7 @@ const Contact_us = () => {
                 <div className="ContactBoxImage" data-aos="fade-down" data-aos-duration="2000">
                   <img src={contactUs2} alt="contactUs" />
                 </div>
-                <p><span style={{ color: "blue", cursor: 'pointer' }}>Send us an Email</span> anytime day or night.We'll do our best to respond within 24 hours</p>
+                <p><span onClick={() => scrollToSection('email')} style={{ color: "blue", cursor: 'pointer' }}>Send us an Email</span> anytime day or night.We'll do our best to respond within 24 hours</p>
               </div>
 
             </div>
@@ -140,11 +144,11 @@ const Contact_us = () => {
           </div>
         </div>
       </div>
-      <div className="Footer" data-aos="fade-down" data-aos-duration="2000">
+      <div className="Footer" ref={emailRef} data-aos="fade-down" data-aos-duration="2000">
         <div className="FooterUp">
           <input type="text" placeholder='Email:' />
           <textarea name="" id="" placeholder='Type here'></textarea>
-          <button data-aos="fade-down" data-aos-duration="2000">submit</button>
+          <button className='ctuFooterBtn' data-aos="fade-down" data-aos-duration="2000">submit</button>
         </div>
       </div>
       <Footer />

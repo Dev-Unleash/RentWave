@@ -4,9 +4,11 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const Header = ({ scrollToSection }) => {
+const Header = ({ headerRef }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null); 
+
+
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
@@ -27,7 +29,7 @@ const Header = ({ scrollToSection }) => {
   }, [dropdownRef]);
 
   return (
-    <div className="headerContainer">
+    <div className="headerContainer" ref={headerRef} >
       <div className="Logo">
         <Link to="/" className="Logo">
           <img src={logo} alt="logo" />

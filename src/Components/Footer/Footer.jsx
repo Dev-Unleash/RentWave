@@ -3,7 +3,10 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
-const Footer = ({ scrollToTop }) => {
+const Footer = ({ headerRef }) => {
+    const scrollToHeader = () => {
+      headerRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
  
   return (
     <div className="FooterContainer">
@@ -34,7 +37,7 @@ const Footer = ({ scrollToTop }) => {
           <p>Acceptable Use Policy</p>
           <p>Terms & Conditions</p>
           <p>Privacy Policy</p>
-          <div className="top-btn" onClick={scrollToTop} style={{ cursor: "pointer" }}>
+          <div className="top-btn" onClick={scrollToHeader} style={{ cursor: "pointer" }}>
             ↑
           </div>
         </div>

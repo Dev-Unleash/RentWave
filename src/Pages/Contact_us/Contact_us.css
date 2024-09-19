@@ -422,12 +422,16 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    padding-top: 10px;
 }
 
 @media screen and (max-width: 900px) {
     .FooterUp {
         height: 80%;
         width: 90%;
+    }
+    .ctuFooterBtn{
+        width: 50%;
     }
 }
 
@@ -452,15 +456,18 @@
     border: 1px solid black;
 }
 
-.FooterUp button {
-    height: 15%;
-    width: 30%;
+.ctuFooterBtn {
+    height: 40px;
+    width: 40%;
     border-radius: 10px;
     border: none;
     background-color: #0052AA;
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+.ctuFooterBtn:hover{
+    background-color: blue;
 }
 
 /* .FooterDown {
