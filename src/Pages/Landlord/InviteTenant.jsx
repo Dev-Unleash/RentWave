@@ -1,20 +1,6 @@
 import React, { useRef } from 'react';
-import './InviteTenant.css'; // Import the CSS file for styling
-
-// const FilePicker = () => {
-//     const fileInputRef = useRef(null);
-
-//     const handleButtonClick = () => {
-//         fileInputRef.current.click();
-//     };
-
-//     const handleFileChange = (event) => {
-//         const file = event.target.files[0];
-//         if (file) {
-//             console.log('Selected file:', file.name);
-//         }
-//     };
-// };
+import './InviteTenant.css';
+import { LuUpload } from "react-icons/lu";
 
 const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
   if (!isOpen) return null;
@@ -23,6 +9,21 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
     onSubmit();
     onClose();
   };
+
+    const fileInputRef = useRef(null);
+
+    const chooseFile = () => {
+        fileInputRef.current.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+        // You can process the file here, e.g., upload it or display its name
+            console.log('Selected file:', file.name);
+        }
+    };
+
 
   return (
     <div className="modal">
@@ -79,11 +80,17 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
             <input type="checkbox" name="" id="" />
             <div className='p'>Require Renters Insurance</div>
         </div>
-        <div>
-            {/* <button onClick={()=>handleButtonClick()}>Choose File</button> */}
+        <div className='Buttons'>
+            <input
+                type="file"
+                ref={fileInputRef}
+                style={{ display: 'none' }}
+                onChange={handleFileChange}
+            />
+            <button className='Button' onClick={chooseFile}> <LuUpload className='icon'/> Upload Lease</button>
+            <button className='Button2'onClick={handleSubmit}> Save </button>
         </div>        
-        <button onClick={handleSubmit}> Save </button>
-      </div>
+ </div>
 
     </div>
   );
