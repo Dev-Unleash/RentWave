@@ -49,7 +49,7 @@
     color: #fff;
     /* position: relative; */
   
-    & botton {
+    & .bot {
       width: 29%;
       height: 75%;
       background-color: #4D86DB;
@@ -58,8 +58,10 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      gap: 10px;
       /* position: absolute;
       right: 8%; */
+      
     }
 
 
@@ -96,4 +98,7 @@
         color: #000000;
     }
 }
+
+
+
 

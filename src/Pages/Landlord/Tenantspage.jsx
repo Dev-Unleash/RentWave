@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './Tenantspage.css'
 import InviteTenant from './InviteTenant'
 import image from "../../assets/Clip.png"
+import { RiAddFill } from "react-icons/ri";
+import { RiSearchLine } from "react-icons/ri";
 
 const Tenantspage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +21,7 @@ const Tenantspage = () => {
         </div>
         <div className="btnes">
             <p>View your tenants</p>
-            <botton onClick={openModal}>Invite Tenants</botton>
+            <botton className='bot' onClick={openModal}><RiAddFill className='icon'/> Invite Tenants</botton>
         </div>
         <div className="table">
           <img src={image} alt="" />
