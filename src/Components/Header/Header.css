@@ -107,10 +107,14 @@
 
 .btnHeader:hover {
   background-color: blue;
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 .btnHeader1:hover {
   color: #ffff;
   background-color: blue;
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 
 .hamburger {

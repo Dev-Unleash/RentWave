@@ -30,7 +30,7 @@ const Hero = () => {
             </Link>
           </div>
           <div className='herodashProfile'>
-            <img src={devBen} alt="" />
+            <Link style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}} to='/profile'><img src={devBen} alt="" /></Link>
             <h5>Mr Johnson <br />
               <span style={{fontWeight:'600'}}>Welcome</span></h5>
           </div>

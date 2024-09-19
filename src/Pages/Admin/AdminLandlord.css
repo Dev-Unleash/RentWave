@@ -120,6 +120,12 @@ tbody tr:nth-child(odd) {
     width: 15%;
 
 }
+.AdminbtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 .AdminlandlordDel{
     width: 100px;
     height: 30px;
@@ -130,12 +136,28 @@ tbody tr:nth-child(odd) {
     color: white;
     font-size: 18px;
     font-weight: 600;
-    cursor: pointer;
-    
+    cursor: pointer;  
    
+}
+.AdminEdit{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #4D86DB;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer; 
 }
 .AdminlandlordDel:hover{
     background-color: rgb(198, 5, 5);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+.AdminEdit:hover{
+    background-color: blue;
     transform: scale(1.1);
     transition: all 0.5s;
 }

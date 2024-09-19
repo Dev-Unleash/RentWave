@@ -34,14 +34,14 @@ const AdminHome = () => {
             <h1>Tenants</h1>
             <div className="adminText">
               <h3 >8</h3>
-              <p><Link to='/AdminTenant'>See All</Link></p>
+              <p><Link to='/AdminTenant' style={{color:'#4D86DB'}}>See All</Link></p>
             </div>
           </div>
           <div className="OneBox1">
             <h1>Landlords</h1>
             <div className="adminText">
               <h3>5</h3>
-              <p><Link to='/AdminLandlord'>See All</Link></p>
+              <p><Link to='/AdminLandlord' style={{color:'#4D86DB'}}>See All</Link></p>
             </div>
           </div>
         </div>

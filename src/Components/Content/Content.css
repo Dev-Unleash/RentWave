@@ -98,6 +98,8 @@
 
 .content-btn:hover {
     background-color: blue;
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
 
 .content-img {
@@ -166,6 +168,8 @@
 
 .content-btn1:hover {
     background-color: blue;
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
 
 @media screen and (max-width: 900px) {
