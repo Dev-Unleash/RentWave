@@ -1,0 +1,68 @@
+.AcctSetCon {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.naming {
+    height: 20%;
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #141415;
+
+    & .fullname {
+        height: 30%;
+        width: 80%;
+        /* background-color: aqua; */
+        display: flex;
+        gap: 25px;
+
+        & p {
+            font-size: 18px;
+        }
+        
+    }
+
+    & .write {
+        height: 60%;
+        width: 80%;
+        /* background-color: blue; */
+        display: flex;
+        gap: 30px;
+
+
+
+        & input {
+            flex: 1;
+            border-radius: 5px;
+            border: 1px solid grey;
+        }
+    }
+}
+
+.h4 {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add {
+    width: 80%;
+    height: 100%;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28.72px;
+    text-align: left;
+
+}

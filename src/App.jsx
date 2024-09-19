@@ -170,11 +170,11 @@ import TenantProfile from './Pages/Tenant/TenantProfile.jsx'
 // import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
 import LandLordHome from './Pages/Landlord/LandLordHome.jsx';
-import LandLordpage5 from './Pages/Landlord/LandLordpage5.jsx';
 import Propertics from './Pages/Landlord/Propertics.jsx'
 import Transaction from './Pages/Landlord/Transaction.jsx';
 import Tenantspage from './Pages/Landlord/Tenantspage.jsx';
 import Maintenance from './Pages/Landlord/Maintenance.jsx';
+import LandlordProfile from './Pages/Landlord/LandlordProfile.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -252,11 +252,11 @@ const App = () => {
           ]
         },
     {
-      element: <AuthRoutes showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
+      element: <AuthRoutes />,
       children: [
         {
           path: "/Landlord",
-          element: <LandLordHome showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />
+          element: <LandLordHome />
         },
         {
           path: '/propertics',
@@ -276,7 +276,7 @@ const App = () => {
         },
         {
           path: '/settings',
-          element: <LandLordpage5 />
+          element: <LandlordProfile />
         }// Additional routes for landlord
       ]
     },
