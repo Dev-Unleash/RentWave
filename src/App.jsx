@@ -252,11 +252,11 @@ const App = () => {
           ]
         },
     {
-      element: <AuthRoutes />,
+      element: <AuthRoutes showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
       children: [
         {
           path: "/Landlord",
-          element: <LandLordHome />
+          element: <LandLordHome showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />
         },
         {
           path: '/propertics',

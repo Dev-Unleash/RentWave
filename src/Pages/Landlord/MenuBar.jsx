@@ -16,7 +16,7 @@
 
 
 import React, { useState } from "react";
-import ola from "../../assets/ola.jpg";
+import image from "../../assets/Frame 775.png";
 import { CiStar } from "react-icons/ci";
 import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
@@ -39,57 +39,57 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
   };
 
   return (
-    <div className="Sidebarwhole">
+    <div className="Sidebarwhole1">
       <Link to="/">
-        <div className="LogoContainer">
-          <div className="Logo">
+        <div className="LogoContainer1">
+          <div className="Logo1">
             <img src={Logo} alt="Logo" />
           </div>
         </div>
       </Link>
 
-      <div className="Profile">
-        <div className="Pics">
-          <img src={ola} alt="Profile" />
+      <div className="Profile1">
+        <div className="Pics1">
+          <img src={image} alt="Profile" />
         </div>
-        <p>Tolani</p>
+        <p>Mr. Johnson</p>
         <h3>Welcome</h3>
       </div>
 
-      <div className="MenuContainer">
-        <div className="MenuWrapper">
+      <div className="MenuContainer1">
+        <div className="MenuWrapper1">
           <nav>
-            <IoHome className="menuIcon" />
+            <IoHome className="menuIcon1" />
             <Link to="/LandLord" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Home
             </Link>
           </nav>
           <nav>
-            <CiWallet className="menuIcon" />
+            <CiWallet className="menuIcon1" />
             <Link to="/propertics" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
             Properties
             </Link>
           </nav>
           <nav>
-            <CiStar className="menuIcon" />
+            <CiStar className="menuIcon1" />
             <Link to="/Transactions" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Transaction
             </Link>
           </nav>
           <nav>
-            <CiWallet className="menuIcon" />
+            <CiWallet className="menuIcon1" />
             <Link to="/View-Tenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Tenants
            </Link>
           </nav>
           <nav>
-            <CiStar className="menuIcon" />
+            <CiStar className="menuIcon1" />
             <Link to="/Maintenance" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
             Maintenance
             </Link>
           </nav>
           <nav>
-          <FaTools className="menuIcon" />
+          <FaTools className="menuIcon1" />
             <Link to="/settings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Account Setting
             </Link>
@@ -97,7 +97,7 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
         </div>
       </div>
 
-      <div className="Logoutmenu">
+      <div className="Logoutmenu1">
         <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
           <AiOutlineLogout className="menuIcon" />
           <p style={{ fontSize: "25px", color: "black", display: "flex", alignItems: "center", cursor: "pointer" }}>
