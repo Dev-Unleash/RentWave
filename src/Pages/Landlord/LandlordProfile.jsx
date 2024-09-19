@@ -5,9 +5,18 @@ import './Landlord.css'
 import { FaCamera } from "react-icons/fa6";
 import { IoArrowBack } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import Address from './Address';
 
 
 const LandlordProfile = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+    const handleSubmit = () => alert('Submitted!');
+
+    
   const[showImg,setShowImg]=useState()
   const navigate=useNavigate()
     const posting= (e)=>{
@@ -80,8 +89,13 @@ const LandlordProfile = () => {
           </div>
             </div>
             <div className="h4">
-                <h4 className='add'>CLICK TO ADD YOUR ADDRESS</h4>
+                <h4 className='add' onClick={openModal}>CLICK TO ADD YOUR ADDRESS</h4>
             </div>
+            <Address
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                onSubmit={handleSubmit}
+            />
 
          
       </form>
