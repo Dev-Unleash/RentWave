@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import Header from '../../Components/Header/Header'
 import Logo from "../../assets/logo-removebg-preview.png"
 import "./Contact_us.css";
@@ -14,6 +15,8 @@ import contactUs1 from '../../assets/contactUs1.png'
 import contactUs2 from '../../assets/contactUs2.png'
 import contactUs3 from '../../assets/contactUs3.png'
 import { useRef } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -22,6 +25,9 @@ const Contact_us = () => {
   const aboutRef = useRef(null);
   const valuesRef = useRef(null);
   const contactsRef = useRef(null);
+  useEffect(() =>{
+    AOS.init()
+  },{})
 
   const scrollToSection = (section) => {
     if (section === 'about') {
@@ -35,8 +41,8 @@ const Contact_us = () => {
   return (
     <div className='ContactUsContainer'>
       <Header scrollToSection={scrollToSection} />
-      <div className='aboutUs' ref={aboutRef}>
-        <div className="aboutUsLeft">
+      <div className='aboutUs' ref={aboutRef} data-aos="fade-down" data-aos-duration="2000">
+        <div className="aboutUsLeft" data-aos="fade-down" data-aos-duration="2000">
           <h1>About Us</h1>
           <p>
             Rent Wave is poised to revolutionize the rental
@@ -47,11 +53,11 @@ const Contact_us = () => {
             experience, reduce stress and anxiety,
             and improve communication between
             landlords and tenants. Join us in shaping the future of real estate management!</p>
-        </div><div className="aboutUsRight">
+        </div><div className="aboutUsRight" data-aos="fade-down" data-aos-duration="2000">
           <img src={About_us} alt="abtc:\Users\AWEHOME\Downloads\About_Us.png" />
         </div>
       </div>
-      <div className="values" ref={valuesRef}>
+      <div className="values" ref={valuesRef} data-aos="fade-down" data-aos-duration="2000">
         <div className="OurValues">
           <div className="OurValueWrapper">
             <h1>Our Core Values</h1>
@@ -63,10 +69,10 @@ const Contact_us = () => {
                   circumstance, we choose to be
                   kind to those we serve, each
                   other, and the world at large.</p>
-                <div className="ImageContainer1"><img src={values4} alt="values" /></div>
+                <div className="ImageContainer1" data-aos="fade-down" data-aos-duration="2000"><img src={values4} alt="values" /></div>
               </div>
               <div className="box2">
-                <div className="ImageContainer1"><img src={values3} alt="values" /></div>
+                <div className="ImageContainer1" data-aos="fade-down" data-aos-duration="2000"><img src={values3} alt="values" /></div>
                 <h3><hr />Customer Focus</h3>
                 <p>Customers are the only reason
                   we are in business. We create
@@ -80,10 +86,10 @@ const Contact_us = () => {
                   the promises we make and act
                   with integrity even when no one
                   is watching.</p>
-                <div className="ImageContainer1"><img src={values2} alt="values" /></div>
+                <div className="ImageContainer1" data-aos="fade-down" data-aos-duration="2000"><img src={values2} alt="values" /></div>
               </div>
               <div className="box2">
-                <div className="ImageContainer1"><img src={values1} alt="values" /></div>
+                <div className="ImageContainer1" data-aos="fade-down" data-aos-duration="2000"><img src={values1} alt="values" /></div>
                 <h3><hr />Curiosity</h3>
                 <p>We embrace a beginner’s mind.
                   Everyone and everything has
@@ -95,35 +101,35 @@ const Contact_us = () => {
           </div>
         </div>
       </div>
-      <div className="Contact" ref={contactsRef}>
+      <div className="Contact" ref={contactsRef} data-aos="fade-down" data-aos-duration="2000">
         <div className="contactUsWrapper">
           <div className="contactText">
-            <div className="TextImage1">
+            <div className="TextImage1" data-aos="fade-down" data-aos-duration="2000">
               <img src={contactUs} alt="contactUs" />
             </div>
             <h1>Need Help?Contact Us <br /><p style={{fontSize:"18px"}}>Visit our <span style={{ color: "#0052AA" }}>help center</span> to find answers to most questions</p></h1>
           </div>
-          <div className="Contactbox">
+          <div className="Contactbox" data-aos="fade-down" data-aos-duration="2000">
             <div className="contactBox1">
               <div className="ChatBox1Wrapper">
-                <div className="ContactBoxImage">
+                <div className="ContactBoxImage" data-aos="fade-down" data-aos-duration="2000">
                   <img src={contactUs1} alt="contactUs" />                </div>
                 <p>This feature will be added very soon. stay </p>
               </div>
 
             </div>
-            <div className="contactBox1">
+            <div className="contactBox1" data-aos="fade-down" data-aos-duration="2000">
               <div className="ChatBox1Wrapper">
-                <div className="ContactBoxImage">
+                <div className="ContactBoxImage" data-aos="fade-down" data-aos-duration="2000">
                   <img src={contactUs2} alt="contactUs" />
                 </div>
                 <p><span style={{ color: "blue", cursor: 'pointer' }}>Send us an Email</span> anytime day or night.We'll do our best to respond within 24 hours</p>
               </div>
 
             </div>
-            <div className="contactBox1">
+            <div className="contactBox1" data-aos="fade-down" data-aos-duration="2000">
               <div className="ChatBox1Wrapper">
-                <div className="ContactBoxImage">
+                <div className="ContactBoxImage" data-aos="fade-down" data-aos-duration="2000">
                   <img src={contactUs3} alt="contactUs" />
                 </div>
                 <p>Chat and email are your best options but if you are old school,call us at 09160754804</p>
@@ -134,11 +140,11 @@ const Contact_us = () => {
           </div>
         </div>
       </div>
-      <div className="Footer">
+      <div className="Footer" data-aos="fade-down" data-aos-duration="2000">
         <div className="FooterUp">
           <input type="text" placeholder='Email:' />
           <textarea name="" id="" placeholder='Type here'></textarea>
-          <button>submit</button>
+          <button data-aos="fade-down" data-aos-duration="2000">submit</button>
         </div>
       </div>
       <Footer />

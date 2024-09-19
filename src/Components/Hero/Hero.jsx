@@ -1,17 +1,22 @@
+"use client"
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import dashboard from "../../assets/dashboard.png";
 import logo from '../../assets/logo.png';
 import devBen from '../../assets/devBen.png';
 import { IoHome } from "react-icons/io5";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 // import HeroImage from './Hero.svg'
 
 const Hero = () => {
+  useEffect(() =>{
+    AOS.init()
+  },{})
 
   return (
-    <div className="carousel">
+    <div className="carousel" data-aos="fade-down" data-aos-duration="2000">
       {/* <div className='circle'></div>
      <div className='circle1'></div>
      <div className='circle2'></div> */}
@@ -19,9 +24,9 @@ const Hero = () => {
         <h3>Simplify Rent Payment
           and Collection</h3>
         <h6>Streamline your rent payment process and keep track of every transaction</h6>
-        <button className='btnHero'><Link to="/Signup">Get Started</Link></button>
+        <button className='btnHero' data-aos="fade-down" data-aos-duration="2000"><Link to="/Signup">Get Started</Link></button>
       </div>
-      <div className='hero-dashboard'>
+      <div className='hero-dashboard' data-aos="fade-down" data-aos-duration="2000">
         {/* <img src={dashboard} alt="" /> */}
         <div className='heroDashLeft'>
           <div className="heroLogo">
