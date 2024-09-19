@@ -10,6 +10,8 @@ const LandLordHome = () => {
       </div>
       <div className="TenantDashBoardBox">
         <div className="OneBox">
+          <h5 className="pin"></h5>
+          <div className="pins"></div>
           <h1>Property listed</h1>
           <div className="TenantText">
             <h3>0</h3>
@@ -17,6 +19,8 @@ const LandLordHome = () => {
           </div>
         </div>
         <div className="OneBox" >
+        <h5 className="pin"></h5>
+        <div className="pins"></div>
           <h1>Tenants</h1>
           <div className="TenantText">
             <h3 >0</h3>
@@ -24,6 +28,8 @@ const LandLordHome = () => {
           </div>
         </div>
         <div className="OneBox">
+        <h5 className="pin"></h5>
+        <div className="pins"></div>
            <h1>EARNINGS</h1>
            <div className="TenantText">
             <h3 className="h3">₦0.00</h3>
