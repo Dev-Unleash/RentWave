@@ -1,6 +1,7 @@
 import React from 'react'
 import './Transaction.css'
 import image from "../../assets/Clip path group.png"
+import { RiDownload2Line, RiSearchLine } from 'react-icons/ri'
 
 const Transaction = () => {
   return (
@@ -8,10 +9,13 @@ const Transaction = () => {
       <div className="PropsContainers">
         <div className="up">
           <p>Transactions</p>
-          <input type="search" placeholder='Search' />
+          <div className='input'>
+            <RiSearchLine  className='icon'/>
+            <input type="search" placeholder='Search' className='put'/>
+          </div>
         </div>
           <div className="btnes">
-            <botton className="ds">Download statement</botton>
+            <botton className="dst"><RiDownload2Line className='icon'/>Download statement</botton>
             <botton className="ds">Withdraw</botton>
           </div>
         <div className="table">

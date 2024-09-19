@@ -25,6 +25,8 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./MenuBar.css";
 import Logout from "./Logout";
+import { GiFamilyHouse } from "react-icons/gi";
+import { MdPeopleAlt } from "react-icons/md";
 
 const MenuBar = () => {
  
@@ -56,19 +58,19 @@ const MenuBar = () => {
             </Link>
           </nav>
           <nav>
-            <CiWallet className="menuIcon1" />
+          <GiFamilyHouse className="menuIcon1" />           
             <Link to="/propertics" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
             Properties
             </Link>
           </nav>
           <nav>
-            <CiStar className="menuIcon1" />
-            <Link to="/Transactions" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+          <CiWallet className="menuIcon1" />
+          <Link to="/Transactions" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Transaction
             </Link>
           </nav>
           <nav>
-            <CiWallet className="menuIcon1" />
+          <MdPeopleAlt className="menuIcon1" />
             <Link to="/View-Tenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
               Tenants
            </Link>

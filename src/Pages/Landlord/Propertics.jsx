@@ -1,6 +1,7 @@
 import React from 'react'
 import './Propertics.css'
 import image from "../../assets/Group (1).png"
+import { RiAddFill, RiSearchLine } from 'react-icons/ri'
 
 const Propertics = () => {
   return (
@@ -8,10 +9,13 @@ const Propertics = () => {
       <div className="PropsContainers">
         <div className="up">
           <p>My Portfolio</p>
-          <input type="search" placeholder='Search' />
+          <div className='input'>
+            <RiSearchLine  className='icon'/>
+            <input type="search" placeholder='Search' className='put'/>
+          </div>
         </div>
         <div className="btnsLandlord">
-          <botton className='btnsLandlord'>Add property</botton>
+          <botton className='btnsLand'><RiAddFill className='icon'/>Add property</botton>
         </div>
         <div className="table">
           <img src={image} alt="" />

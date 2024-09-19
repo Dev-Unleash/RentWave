@@ -44,16 +44,18 @@
   /* background-color: #fff; */
   position: relative;
 
-  & botton {
-    width: 25%;
+  & .btnsLand {
+    width: 20%;
     height: 75%;
     background-color: #4D86DB;
     border-radius: 10px;
     display: flex;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     position: absolute;
     right: 8%;
+    color: #fff;
   }
 }
 
