@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineLogout } from 'react-icons/ai'; // Make sure to install react-icons
+import { AiOutlineLogout } from 'react-icons/ai'; 
 import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
@@ -8,16 +8,17 @@ const Logout = () => {
     const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
     const handleLogoutClick = () => {
-        setShowLogoutPopup(true); // Show the confirmation popup
+        setShowLogoutPopup(true);
     };
 
     const handleLogoutConfirm = () => {
         nav("/");
         setShowLogoutPopup(false);
+        alert("You've Logged Out successfully");
     };
 
     const handleLogoutCancel = () => {
-        setShowLogoutPopup(false); // Close the popup without logging out
+        setShowLogoutPopup(false);
     };
 
     return (
