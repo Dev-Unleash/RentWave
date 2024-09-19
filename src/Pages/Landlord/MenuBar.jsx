@@ -21,22 +21,13 @@ import { CiStar } from "react-icons/ci";
 import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
-import { AiOutlineLogout } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./MenuBar.css";
+import Logout from "./Logout";
 
-const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
-  const nav =useNavigate()
-  const handleLogoutClick = () => {
-    setShowLogoutPopup(!showLogoutPopup);
-  };
-  const handleLogoutConfirm = () => {
-    nav("/")
-  };
-  const handleLogoutCancel = () => {
-    setShowLogoutPopup(false);
-  };
+const MenuBar = () => {
+ 
 
   return (
     <div className="Sidebarwhole1">
@@ -96,25 +87,7 @@ const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
           </nav>
         </div>
       </div>
-
-      <div className="Logoutmenu1">
-        <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
-          <AiOutlineLogout className="menuIcon" />
-          <p style={{ fontSize: "25px", color: "black", display: "flex", alignItems: "center", cursor: "pointer" }}>
-            Logout
-          </p>
-        </nav>
-
-        {showLogoutPopup && (
-          <div className="popup">
-            <p style={{color:"white",width:"100%",display:"flex",justifyContent:"center"}}>Are you sure?</p>
-            <div className="popup-text">
-              <p onClick={handleLogoutConfirm}>Yes</p>
-              <p onClick={handleLogoutCancel}>No</p>
-            </div>
-          </div>
-        )}
-      </div>
+      <Logout />
     </div>
   );
 };
