@@ -17,7 +17,10 @@ const Tenantspage = () => {
       <div className="PropsContainers">
         <div className="up">
           <p>Tenants</p>
-          <input type="search" placeholder='Search' />
+          <div className='input'>
+            <RiSearchLine  className='icon'/>
+            <input type="search" placeholder='Search' className='put'/>
+          </div>
         </div>
         <div className="btnes">
             <p>View your tenants</p>

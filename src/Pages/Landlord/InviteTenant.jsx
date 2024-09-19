@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './InviteTenant.css';
 import { LuUpload } from "react-icons/lu";
+import { RiErrorWarningFill } from "react-icons/ri";
 
 const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
   if (!isOpen) return null;
@@ -74,7 +75,7 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
         </div>
         <div className="agree">
             <input type="checkbox" name="" id="" />
-            <div className='p'>Remove renter at end of lease.</div>
+            <div className='p'>Remove renter at end of lease.<RiErrorWarningFill className='icon'/></div>
         </div>
         <div className="agree">
             <input type="checkbox" name="" id="" />
