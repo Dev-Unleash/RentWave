@@ -128,9 +128,9 @@ const Login = () => {
                         )}
                       </div>
                     </div>
-                    <p style={{ width: "70%" }}>
-                      <Link to="/ForgotPassWord"> Forgot Password?</Link>
-                    </p>
+                    <p>
+                  <Link style={{color:'royalblue'}} to="/ForgotPassWord"> Forgot Password?</Link>
+                </p>
                   </div>
 
 
@@ -148,9 +148,7 @@ const Login = () => {
                     </div>
                   </div>
                 </form>
-                <p>
-                  <Link style={{color:'royalblue'}} to="/ForgotPassWord"> Forgot Password?</Link>
-                </p>
+              
                 </div>
                 
                 
