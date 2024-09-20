@@ -277,11 +277,12 @@ button:hover {
 
     .LoginLeft {
         width: 100%;
-        height: 65%;
+        height: 80%;
     }
 
     .LoginInputContainer {
         width: 100%;
+        height: 80%;
     }
     form input{
         width: 100%;
@@ -290,17 +291,19 @@ button:hover {
 
     .passwordholder {
         height: 60px;
-        width:100%;
+        width:70%;
     }
 
     .passwordholder input {
+        width: 350px;
+        height: 60px;
         border: 2px solid #e6e7e9;
         border-right: none;
     }
 
     .LoginInputDown button {
-        width: 350px;
-        height: 60px;
+        width: 300px;
+        height: 90px;
     }
 
     .LoginRight {
@@ -319,6 +322,10 @@ button:hover {
 
     .logoContainer {
         width: 220px;
+    }
+    .loginForm{
+        width: 100%;
+        height: 90%;
     }
     .LoginInputForm{
         width: 100%;

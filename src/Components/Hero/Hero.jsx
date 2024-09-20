@@ -40,7 +40,7 @@ const Hero = () => {
         className='hero-dashboard'
         data-aos="fade-down"
         data-aos-duration="2000"
-        style={{ display: isLoggedIn ? 'flex' : 'none' }} // Conditional style based on login status
+        // style={{ display: isLoggedIn ? 'flex' : 'none' }} // Conditional style based on login status
       >
         <div className='heroDashLeft'>
           <div className="heroLogo">

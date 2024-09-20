@@ -97,11 +97,11 @@ const Login = () => {
                       <img src={Logo} alt="logo" />
                     </Link>
                   </div>
-                  <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px" }}>
+                  <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px", textAlign:"center", paddingBottom:'90px' }}>
                     Sign up your business on Rent Wave
                   </h4>
                 </div>
-                <form onSubmit={userLogin}>
+                <form className="loginForm" onSubmit={userLogin}>
                   <div className="LoginInputForm">
                     <div className="input-div">
                       <p>Email</p>
