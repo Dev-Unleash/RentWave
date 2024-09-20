@@ -82,8 +82,7 @@ const nav=useNavigate()
           }}
         >
           {" "}
-          <IoArrowBackSharp className="icon" style={{ width: "20px" }} /> Go
-          Back
+          <IoArrowBackSharp className="icon" style={{ width: "20px" }} />
         </p>
         <div className="LoginLeft">
           <div className="LoginInputContainer">
