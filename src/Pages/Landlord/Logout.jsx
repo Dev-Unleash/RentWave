@@ -1,24 +1,48 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai'; 
 import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
-    const nav =useNavigate()
-
-    const [showLogoutPopup, setShowLogoutPopup] = useState(false);
-
+    const userData = JSON.parse(userInfo);
+    const userInfo = localStorage.getItem("userInfo");
+    const nav = useNavigate();
     const handleLogoutClick = () => {
         setShowLogoutPopup(true);
-    };
-
-    const handleLogoutConfirm = () => {
-        nav("/");
+      };
+    
+      const handleLogoutConfirm = async () => {
+        const url = "https://rentwave.onrender.com/api/v1/logout";
+        const token = localStorage.getItem("userToken");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+    
+        try {
+          await axios.post(url, {}, config);
+          localStorage.removeItem("userInfo");
+          localStorage.removeItem("userToken");
+          toast.success("Logout successful");
+          nav("/");
+        } catch (error) {
+          toast.error("Logout failed. Please try again.");
+        } finally {
+          setShowLogoutPopup(false);
+        }
+      };
+    
+      const handleLogoutCancel = () => {
         setShowLogoutPopup(false);
-    };
-
-    const handleLogoutCancel = () => {
-        setShowLogoutPopup(false);
-    };
+      };
+    
+      useEffect(() => {
+        if (!userData) {
+          nav("/");
+        }
+      }, [userData, nav]);
+    
 
     return (
         <div className="Logoutmenu1">
