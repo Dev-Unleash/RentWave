@@ -86,7 +86,7 @@ const Login = () => {
               cursor: "pointer",
             }}
           >
-            <IoArrowBackSharp className="icon" style={{ width: "20px" }} /> Go Back
+            <IoArrowBackSharp className="icon" style={{ width: "40px",height:'40px', paddingLeft:'20px' }} /> 
           </p>
           <div className="LoginLeft">
             <div className="LoginInputContainer">
