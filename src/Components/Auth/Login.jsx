@@ -133,6 +133,7 @@ const Login = () => {
                     </p>
                   </div>
 
+
                   <div className="LoginInputDown">
                     <button style={{ fontWeight: "600" }} type="submit" disabled={loading}>
                       {loading ? "Loading..." : "Login"}
@@ -147,7 +148,12 @@ const Login = () => {
                     </div>
                   </div>
                 </form>
-              </div>
+                <p>
+                  <Link style={{color:'royalblue'}} to="/ForgotPassWord"> Forgot Password?</Link>
+                </p>
+                </div>
+                
+                
             </div>
           </div>
           <div className="secondSide">

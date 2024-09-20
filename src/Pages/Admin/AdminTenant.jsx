@@ -11,13 +11,6 @@ const TenantPayHero = () => {
     { name: "Jane falade", dateRegistered: "2023-08-15", status: "Inactive", role: "Tenant" },
     { name: "Sam avede", dateRegistered: "2023-07-21", status: "Active", role: "Tenant" },
     { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Tenant" },
-    { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Tenant" },
-    { name: "Sam avede", dateRegistered: "2023-07-21", status: "Active", role: "Tenant" },
-    { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Tenant" },
-    { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Tenant" },
-    { name: "Sam avede", dateRegistered: "2023-07-21", status: "Active", role: "Tenant" },
-    { name: "Alex chinonso", dateRegistered: "2023-06-14", status: "Active", role: "Tenant" },
-    { name: "Maria akpan", dateRegistered: "2023-05-10", status: "Inactive", role: "Tenant" },
   ]
   return (
   

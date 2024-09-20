@@ -85,12 +85,16 @@ const ForgotPassword = () => {
                       required
                     />
                   </div>
-                </div>
-                <button type="submit" disabled={loading}>
+            
+                <button type="submit" disabled={loading} className='forgetPasswordBtn'>
                   {loading ? 'Sending...' : 'Reset Password'}
                 </button>
               </form>
              
+
+              </div>
+
+            
             </div>
           </div>
         </div>

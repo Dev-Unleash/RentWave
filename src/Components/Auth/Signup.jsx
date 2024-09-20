@@ -9,6 +9,7 @@ import logo from "../../assets/logo.png";
 
 const Signup = () => {
   const [seePassword, setSeePassword] = useState(true);
+  const [seePassword2, setSeePassword2] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,6 +22,9 @@ const Signup = () => {
   // Toggle password visibility
   const togglePasswordVisibility = () => {
     setSeePassword(!seePassword);
+  };
+  const togglePasswordVisibility2 = () => {
+    setSeePassword2(!seePassword2);
   };
 
   // Handle form submission
@@ -84,7 +88,7 @@ const Signup = () => {
   };
 
   return (
-    <>
+    
       <div className="SignUpContainer">
         <p
           onClick={() => navigate("/")}
@@ -102,7 +106,7 @@ const Signup = () => {
             cursor: "pointer",
           }}
         >
-          <IoArrowBackSharp className="icon" style={{ width: "20px" }} /> Go Back
+          <IoArrowBackSharp className="icon" style={{ width: "20px" }} />
         </p>
 
         <div className="firstSide">
@@ -227,15 +231,15 @@ const Signup = () => {
               <h5>Confirm Password</h5>
               <div className="passkey">
                 <input
-                  type={seePassword ? "password" : "text"}
+                  type={seePassword2 ? "password" : "text"}
                   className="input2"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                {seePassword ? (
-                  <IoEye className="icon" onClick={togglePasswordVisibility} />
+                {seePassword2 ? (
+                  <IoEye className="icon" onClick={togglePasswordVisibility2} />
                 ) : (
-                  <IoEyeOff className="icon" onClick={togglePasswordVisibility} />
+                  <IoEyeOff className="icon" onClick={togglePasswordVisibility2} />
                 )}
               </div>
             </div>
@@ -250,7 +254,7 @@ const Signup = () => {
                 type="checkbox"
                 required
               />
-              <span style={{ fontSize: "10px" }}>
+              <span className="termsText" >
                 I agree with RentWave, and the collection and processing of my
                 personal data in accordance with RentWave
               </span>
@@ -260,20 +264,20 @@ const Signup = () => {
               {loading ? "Loading..." : "Sign-Up"} {/* Shows "Loading..." when loading is true */}
             </button>
 
-            <p style={{ fontSize: "10px", textAlign: "center" }}>
+            <p style={{ fontSize: "12px", textAlign: "center" }}>
               Already have an account?{" "}
               <span style={{ color: "royalblue", cursor: "pointer" }}>
-                <Link to="/Login">Log in</Link>
+                <Link style={{color:'royalblue'}} to="/Login">Log in</Link>
               </span>
             </p>
 
-            <p style={{ fontSize: "10px", textAlign: "center" }}>
+            <p style={{ fontSize: "12px", textAlign: "center" }}>
               By creating an account you automatically agree to RentWave's
             </p>
             <span
               style={{
                 color: "royalblue",
-                fontSize: "10px",
+                fontSize: "12px",
                 cursor: "pointer",
                 textAlign: "center",
                 fontWeight: "600",
@@ -294,8 +298,10 @@ const Signup = () => {
           <p>Manage Rent Payment With Ease</p>
         </div>
       </div>
+
       <Toaster/>
     </>
+
   );
 };
 

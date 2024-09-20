@@ -16,105 +16,82 @@
 
 
 import React, { useState } from "react";
-import ola from "../../assets/ola.jpg";
+import image from "../../assets/Frame 775.png";
 import { CiStar } from "react-icons/ci";
 import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
-import { AiOutlineLogout } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./MenuBar.css";
+import Logout from "./Logout";
+import { GiFamilyHouse } from "react-icons/gi";
+import { MdPeopleAlt } from "react-icons/md";
 
-const MenuBar = ({showLogoutPopup,setShowLogoutPopup}) => {
-  const nav =useNavigate()
-  const handleLogoutClick = () => {
-    setShowLogoutPopup(!showLogoutPopup);
-  };
-  const handleLogoutConfirm = () => {
-    nav("/")
-  };
-  const handleLogoutCancel = () => {
-    setShowLogoutPopup(false);
-  };
+const MenuBar = () => {
+ 
 
   return (
-    <div className="Sidebarwhole">
+    <div className="Sidebarwhole1">
       <Link to="/">
-        <div className="LogoContainer">
-          <div className="Logo">
+        <div className="LogoContainer1">
+          <div className="Logo1">
             <img src={Logo} alt="Logo" />
           </div>
         </div>
       </Link>
 
-      <div className="Profile">
-        <div className="Pics">
-          <img src={ola} alt="Profile" />
+      <div className="Profile1">
+        <div className="Pics1">
+        <Link to="/profile">
+          <img src={image} alt="Profile" />
+        </Link>
         </div>
-        <p>Tolani</p>
+        <p>Mr. Johnson</p>
         <h3>Welcome</h3>
       </div>
 
-      <div className="MenuContainer">
-        <div className="MenuWrapper">
+      <div className="MenuContainer1">
+        <div className="MenuWrapper1">
           <nav>
-            <IoHome className="menuIcon" />
-            <Link to="/LandLord" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <IoHome className="menuIcon1" />
+            <NavLink to="/LandLord" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Home
-            </Link>
+            </NavLink>
           </nav>
           <nav>
-            <CiWallet className="menuIcon" />
-            <Link to="/propertics" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+          <GiFamilyHouse className="menuIcon1" />           
+            <NavLink to="/propertics" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
             Properties
-            </Link>
+            </NavLink>
           </nav>
           <nav>
-            <CiStar className="menuIcon" />
-            <Link to="/Transactions" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+          <CiWallet className="menuIcon1" />
+          <NavLink to="/Transactions" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Transaction
-            </Link>
+            </NavLink>
           </nav>
           <nav>
-            <CiWallet className="menuIcon" />
-            <Link to="/View-Tenant" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+          <MdPeopleAlt className="menuIcon1" />
+            <NavLink to="/View-Tenant" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Tenants
-           </Link>
+           </NavLink>
           </nav>
           <nav>
-            <CiStar className="menuIcon" />
-            <Link to="/Maintenance" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+            <CiStar className="menuIcon1" />
+            <NavLink to="/Maintenance" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
             Maintenance
-            </Link>
+            </NavLink>
           </nav>
           <nav>
-          <FaTools className="menuIcon" />
-            <Link to="/settings" style={{ textDecoration: "none", color: "black", display: "flex", alignItems: "center" }}>
+          <FaTools className="menuIcon1" />
+            <NavLink to="/settings" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
               Account Setting
-            </Link>
+            </NavLink>
           </nav>
         </div>
       </div>
-
-      <div className="Logoutmenu">
-        <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
-          <AiOutlineLogout className="menuIcon" />
-          <p style={{ fontSize: "25px", color: "black", display: "flex", alignItems: "center", cursor: "pointer" }}>
-            Logout
-          </p>
-        </nav>
-
-        {showLogoutPopup && (
-          <div className="popup">
-            <p style={{color:"white",width:"100%",display:"flex",justifyContent:"center"}}>Are you sure?</p>
-            <div className="popup-text">
-              <p onClick={handleLogoutConfirm}>Yes</p>
-              <p onClick={handleLogoutCancel}>No</p>
-            </div>
-          </div>
-        )}
-      </div>
+      <Logout />
     </div>
   );
 };

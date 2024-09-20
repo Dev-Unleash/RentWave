@@ -147,8 +147,11 @@ form {
     /* background-color: blue; */
 }
 
+
 .LoginInputDown button {
     height: 70px;
+
+
     width: 70%;
     border: none;
     background-color: #4D86DB;

@@ -26,14 +26,45 @@
     
     }
 
-    & input {
+    & .input {
         width: 60%;
         height: 50%;
         border: 1px solid #696969;
         border-radius: 10px;
         background-color: transparent;
         outline: none;
-        padding: 10px;
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        padding-inline: 10px;
+        
+
+
+        & .put {
+            width: 95%;
+            height: 100%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            padding: 5px;
+            position: relative;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 28.72px;
+            overflow-x: scroll;
+        }
+        
+        
+        & .put::placeholder{
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 28.72px;
+            text-align: left;
+            position: absolute;
+            top: 15%;
+            color: #141415;
+            
+        }
     }
 
 }
@@ -49,7 +80,7 @@
     color: #fff;
     /* position: relative; */
   
-    & botton {
+    & .bot {
       width: 29%;
       height: 75%;
       background-color: #4D86DB;
@@ -57,10 +88,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+      gap: 10px;
       /* position: absolute;
       right: 8%; */
+      
     }
-  
+
 
     & p{
         font-weight: 400;
@@ -72,7 +106,7 @@
     }
   }
 
-.table {
+.table1 {
     width: 95%;
     height: 72%;
     background-color: #fff;
@@ -82,6 +116,8 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    padding-bottom: 40px;
+    /* border: 2px solid red; */
 
     & img {
         width: 20%;
@@ -95,4 +131,18 @@
         color: #000000;
     }
 }
+.table table{
+    width: 100%;
+    height: 100%;
+   
+}
+.tenantTable{
+    width: 100%;
+    height: 100%;
+    overflow:scroll;
+    
+}
+
+
+
 

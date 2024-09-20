@@ -141,7 +141,6 @@
 import React, { useState } from 'react';
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from './Pages/Home/Home';
-import Blog from './Pages/Blog/Blog';
 import AuthRoutes from './Pages/Landlord/AuthRoutes/AuthRoutes.jsx';
 import Contact_us from './Pages/Contact_us/Contact_us';
 import Login from './Components/Auth/Login';
@@ -170,11 +169,15 @@ import TenantProfile from './Pages/Tenant/TenantProfile.jsx'
 // import TenantCards from './Pages/Tenant/TenantCards.jsx';
 import MainRequest from './Pages/Tenant/MainRequest.jsx';
 import LandLordHome from './Pages/Landlord/LandLordHome.jsx';
-import LandLordpage5 from './Pages/Landlord/LandLordpage5.jsx';
 import Propertics from './Pages/Landlord/Propertics.jsx'
 import Transaction from './Pages/Landlord/Transaction.jsx';
 import Tenantspage from './Pages/Landlord/Tenantspage.jsx';
 import Maintenance from './Pages/Landlord/Maintenance.jsx';
+import LandlordProfile from './Pages/Landlord/LandlordProfile.jsx';
+import LandlordProfilepage from './Pages/Landlord/LandlordProfilepage.jsx';
+import TenantProfileVeiw1 from './Pages/Landlord/TenantProfileView1.jsx';
+import TransactionVeiw1 from './Pages/Landlord/TransactionVeiw1.jsx'
+import PropertyView1  from './Pages/Landlord/PropertyVeiw1.jsx'
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -210,10 +213,6 @@ const App = () => {
     {
       path: "/About_Us",
       element: <Contact_us />
-    },
-    {
-      path: "/Blog",
-      element: <Blog />
     },
     {
       element: <AdminPrivate showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
@@ -276,8 +275,24 @@ const App = () => {
         },
         {
           path: '/settings',
-          element: <LandLordpage5 />
-        }// Additional routes for landlord
+          element: <LandlordProfile />
+        },
+        {
+          path: '/profile',
+          element: <LandlordProfilepage />
+        },
+        {
+          path:'/TenantProfileView1',
+          element:<TenantProfileVeiw1 />
+        },
+        {
+          path:'/TransactionVeiw1',
+          element:<TransactionVeiw1 />
+        },
+        {
+          path:'/PropertyView1',
+          element:<PropertyView1 />
+        }
       ]
     },
     {

@@ -1,20 +1,21 @@
-.Sidebarwhole{
+.Sidebarwhole1{
+    width: 20%;
     height: 100%;
     background-color: #F5F5F5;
 }
 
-.menuIcon{
-    width: 40px;
-    height: 40px;
+.menuIcon1{
+    width: 30px;
+    height: 30px;
 }
-.LogoContainer{
+.LogoContainer1{
     height: 12%;
     width: 55%;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    & .Logo{
+    & .Logo1{
         height: 80%;
         width: 80%;
 
@@ -25,17 +26,18 @@
     }
 }
 
-.Profile{
+.Profile1{
     height: 25%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-margin-bottom: 13px;
-    & .Pics{
-        height: 90px;
-        width: 90px;
+    gap: 2px;
+    margin-bottom: 13px;
+
+    & .Pics1{
+        height: 75px;
+        width: 75px;
         border-radius: 50px;
         
 
@@ -62,7 +64,7 @@ margin-bottom: 13px;
 }
 
 
- .MenuContainer {
+ .MenuContainer1 {
      font-size: 20px;
      width: 100%;
      height: 50%;
@@ -79,20 +81,21 @@ margin-bottom: 13px;
         font-weight: 500;
       }
      }
-    .MenuWrapper{
+    .MenuWrapper1{
         
         display:flex;
        flex-direction: column;
         gap: 13px;
        
     }
-.Logoutmenu{
+.Logoutmenu1{
     height: 5%;
     width: 100%;
     display: flex;
     padding-left: 20px;
+    align-items: center;
 }
-.popup {
+.popup1 {
     position: absolute;
     top: 65%;
     left: 10%;
@@ -110,7 +113,7 @@ margin-bottom: 13px;
     gap: 20px;
   }
   
-  .popup p {
+  .popup1 p {
   
     font-size: 23px;
     font-weight: 700;
@@ -120,7 +123,7 @@ margin-bottom: 13px;
     justify-content: center;
   }
   
-  .popup-text {
+  .popup-text1 {
     width: 100%;
     display: flex;
     align-items: center;

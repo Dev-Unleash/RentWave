@@ -41,6 +41,7 @@ const AdminLandlord = () => {
             <th className='name-column1'>Role</th> 
             <th className='name-column2'>Action</th>
            
+           
       
           </tr>
         </thead>
@@ -51,7 +52,7 @@ const AdminLandlord = () => {
               <td className='name-column1'>{item.dateRegistered}</td>
               <td className='name-column1'>{item.status}</td>
               <td className='name-column1'>{item.role}</td> 
-               <td><button className='AdminlandlordDel'>Delete</button></td> 
+               <td><div className='AdminbtnContainer'><button className='AdminlandlordDel'>Delete</button> <button className='AdminEdit'>Edit</button></div></td> 
             </tr>
           ))}
         </tbody>

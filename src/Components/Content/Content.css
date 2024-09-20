@@ -1,33 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Hidden state before scroll */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.7s ease-in-out;
-}
-
-/* Fade-in animation once visible */
-.fadeIn {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-/* Rest of your CSS remains the same */
-
-
-
 .ContentContainer {
     width: 100%;
     height: max-content;
@@ -42,12 +15,9 @@
     align-items: center;
     text-align: center;
    
-    animation: fadeIn 1s ease-in-out forwards;
-    opacity: 0;
+   
 }
-
-.content2 {
-    animation-delay: 0.3s;}
+  
 
 .content-block {
     width: 60%;
@@ -57,8 +27,7 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    animation: fadeIn 1.5s ease-in-out forwards;
-    opacity: 0;
+   
 }
 
 .content-block h5 {
@@ -78,6 +47,8 @@
     background-color: #4D86DB;
     border-radius: 5px;
     margin-top: 30px;
+    border: none;
+    outline: none;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -86,8 +57,6 @@
     cursor: pointer;
     box-shadow: 1px 10px 16px 1px rgba(0, 0, 0, 0.296);
     text-align: center;
-    animation: fadeIn 2s ease-in-out forwards;
-    opacity: 0;
 }
 
 .content-btn a {
@@ -98,6 +67,8 @@
 
 .content-btn:hover {
     background-color: blue;
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
 
 .content-img {
@@ -106,9 +77,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 2s ease-in-out forwards;
-    opacity: 0;
-    animation-delay: 0.5s;
 }
 
 .content-img img {
@@ -130,8 +98,6 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    animation: fadeIn 2.5s ease-in-out forwards;
-    opacity: 0;
 }
 
 .content-down h2 {
@@ -160,12 +126,12 @@
     align-items: center;
     font-size: 25px;
     cursor: pointer;
-    animation: fadeIn 3s ease-in-out forwards;
-    opacity: 0;
 }
 
 .content-btn1:hover {
     background-color: blue;
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
 
 @media screen and (max-width: 900px) {
