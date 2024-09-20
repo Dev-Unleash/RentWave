@@ -31,6 +31,9 @@ const Signup = () => {
   const register = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
+    console.log("Register button clicked"); // Check if the function is called
+
+    // Validate the input fields
     if (
       !email ||
       !password ||
@@ -40,33 +43,47 @@ const Signup = () => {
       !confirmPassword
     ) {
       toast.error("All fields are required");
+      console.log("Some fields are missing");
     } else if (password !== confirmPassword) {
       toast.error("Passwords do not match");
+      console.log("Passwords do not match");
     } else {
-      setLoading(true);
-      const apiData = {
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        password,
-        confirmPassword,
-      };
-      const url = "https://rentwave.onrender.com/api/v1/signup";
+      try {
+        setLoading(true); // Set loading state to true
+        console.log("Loading state:", loading); // Check loading state
+        
+        const apiData = {
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          password,
+          confirmPassword,
+        };
 
-      axios
-        .post(url, apiData)
-        .then((res) => {
-          console.log(res);
-          setLoading(false);
-          toast.success("Sign up successful. Please wait for verification.");
-          navigate("/Login");
-        })
-        .catch((error) => {
-          console.error(error);
-          setLoading(false);
+        const url = "https://rentwave.onrender.com/api/v1/signup";
+
+    
+        const res = await axios.post(url, apiData);
+        console.log("API response:", res);
+
+       
+        setLoading(false);
+        toast.success("Sign up successful. Please wait for verification.");
+        navigate("/Login");
+      } catch (error) {
+        setLoading(false); 
+        console.error("Error during signup:", error);
+  
+   
+        if (error.response && error.response.data && error.response.data.message) {
+          
+          toast.error(error.response.data.message);
+        } else {
+         
           toast.error("Sign up failed. Please try again.");
-        });
+        }
+      }
     }
   };
 
@@ -244,7 +261,7 @@ const Signup = () => {
             </div>
 
             <button className="signupBtn" type="submit" disabled={loading}>
-              {loading ? "Loading..." : "Sign-Up"}
+              {loading ? "Loading..." : "Sign-Up"} {/* Shows "Loading..." when loading is true */}
             </button>
 
             <p style={{ fontSize: "12px", textAlign: "center" }}>
@@ -281,6 +298,10 @@ const Signup = () => {
           <p>Manage Rent Payment With Ease</p>
         </div>
       </div>
+
+      <Toaster/>
+    </>
+
   );
 };
 

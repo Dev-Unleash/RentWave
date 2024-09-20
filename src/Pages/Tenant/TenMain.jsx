@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./TenMain.css";
 import MainRequest from "./MainRequest";
+import axios from "axios";
 
 const TenMain = ({ showPopup, setShowPopup }) => {
   const data = [
@@ -13,6 +14,34 @@ const TenMain = ({ showPopup, setShowPopup }) => {
   const handleRequestClick = () => {
     setShowPopup(true);
   };
+  const userToken = localStorage.getItem("userToken");
+  const userInfo = localStorage.getItem("userInfo");
+  const userData= JSON.parse(userInfo)
+  console.log(userData)
+  const id = userData._id
+  console.log(id)
+  const getUser=()=>{
+      const url=`https://rentwave.onrender.com/api/v1/maintenance-requests/${id}`
+      console.log(url)
+      axios.get(url , {
+        headers: {
+          Authorization: `Bearer ${userToken}`, 
+        }
+      })
+      .then(res=>{
+        console.log(res)
+ 
+  
+      })   .catch(Error=>{
+        console.log(Error)
+        
+      })
+    }
+  
+    useEffect(()=>{
+      getUser()
+    },[])
+  
 
   return (
     <>
