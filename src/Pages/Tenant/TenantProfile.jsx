@@ -11,7 +11,10 @@ const TenantProfile = () => {
   };
 
   const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
-
+  // const userToken = localStorage.getItem("userToken");
+  const userInfo = localStorage.getItem("userInfo");
+  const userData = JSON.parse(userInfo);
+  console.log(userData)
   return (
     <div className="TenantProfilePage">
       <div className="TenantProfilePageWrapper">
