@@ -296,7 +296,7 @@ const App = () => {
       ]
     },
     {
-      element: <TenantPrivate showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
+      element: <TenantPrivate  />,
       children: [
         {
           path: "/TenantHome",
