@@ -71,10 +71,12 @@ const Signup = () => {
 
        
         setLoading(false);
-        toast.success("Success Notification !", {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-        navigate("/Login");
+        toast.success(res.data.message);
+        // alert(res.data.message)
+        setTimeout(()=>{
+          navigate("/Login");
+
+        },4000)
       } catch (error) {
         setLoading(false); 
         console.error("Error during signup:", error);

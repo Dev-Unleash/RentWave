@@ -3,13 +3,13 @@ import "./TenantHome.css";
 import homepics from "../../assets/download 12.png";
 import { formatDateTime } from "../../Components/utils/utils";
 const TenantHome = () => {
-  const data = [
-    { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
-    { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
-    { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
-    { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
-    { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
-  ];
+  // const data = [
+  //   { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
+  //   { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
+  //   { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
+  //   { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
+  //   { Type: "payment", Amount: "₦1000000", Date: "2023-09-01", time: "2:45pm" },
+  // ];
 
   const paymentHistory =
     JSON.parse(localStorage.getItem("paymentHistory")) || [];
@@ -56,8 +56,8 @@ const TenantHome = () => {
         <div className="OneBox" style={{ borderTop: "10px solid #4D86DB" }}>
           <h1>Active Subcription</h1>
           <div className="TenantText">
-            <h3>0</h3>
-            <p>See All</p>
+            <h3>1</h3>
+            {/* <p>See All</p> */}
           </div>
         </div>
       </div>
