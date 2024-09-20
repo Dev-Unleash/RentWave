@@ -11,7 +11,10 @@ const TenantProfile = () => {
   };
 
   const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
-
+  // const userToken = localStorage.getItem("userToken");
+  const userInfo = localStorage.getItem("userInfo");
+  const userData = JSON.parse(userInfo);
+  console.log(userData)
   return (
     <div className="TenantProfilePage">
       <div className="TenantProfilePageWrapper">
@@ -40,17 +43,17 @@ const TenantProfile = () => {
           <ul>
             <li>
               <h3>Name:</h3>
-              <span>{`${tenantData?.firstName || "N/A"} ${
-                tenantData?.lastName || "N/A"
+              <span>{`${tenantData?.firstName || userData.firstName} ${
+                tenantData?.lastName || userData.lastName
               }`}</span>
             </li>
             <li>
               <h3>Email address:</h3>
-              <span>{tenantData?.email || "N/A"}</span>
+              <span>{tenantData?.email || userData.email}</span>
             </li>
             <li>
               <h3>Phone number:</h3>
-              <span>{tenantData?.phoneNumber || "N/A"}</span>
+              <span>{tenantData?.phoneNumber || userData.phoneNumber}</span>
             </li>
             <li>
               <h3>Gender:</h3>

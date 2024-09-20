@@ -16,7 +16,7 @@ const MainRequest = ({ closePopup }) => {
     pictures: [],
   });
 
-  // Handle input changes for text, textarea, and phone number fields
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -25,7 +25,7 @@ const MainRequest = ({ closePopup }) => {
     }));
   };
 
-  // Handle date and time changes
+
   const handleDateChange = (index, e) => {
     const { name, value } = e.target;
     const updatedDates = formData.availableDates.map((dateItem, i) =>
@@ -114,6 +114,7 @@ const MainRequest = ({ closePopup }) => {
       console.error("Error submitting request:", error);
       alert("Error submitting request");
     }
+    closePopup()
   };
 
   return (
@@ -214,7 +215,7 @@ const MainRequest = ({ closePopup }) => {
             <button className="cancelButton" type="button" onClick={closePopup}>
               Cancel
             </button>
-            <button className="submitButton" type="submit">
+            <button className="submitButton" type="submit" > 
               Submit
             </button>
           </div>

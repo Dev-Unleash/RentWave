@@ -9,43 +9,43 @@ const TenantPayment = ({ showPopup, setShowPopup, closePopup }) => {
     setShowPopup(true);
   };
 
-  const data = [
-    {
-      Date: "2023-09-01",
-      Amount: "₦1000000",
-      PaymentMethod: "Verve card",
-      status: "Pending",
-      time: "2:45pm",
-    },
-    {
-      Date: "2023-09-01",
-      Amount: "₦1000000",
-      PaymentMethod: "Verve card",
-      status: "Pending",
-      time: "2:45pm",
-    },
-    {
-      Date: "2023-09-01",
-      Amount: "₦1000000",
-      PaymentMethod: "Verve card",
-      status: "Pending",
-      time: "2:45pm",
-    },
-    {
-      Date: "2023-09-01",
-      Amount: "₦1000000",
-      PaymentMethod: "Verve card",
-      status: "Pending",
-      time: "2:45pm",
-    },
-    {
-      Date: "2023-09-01",
-      Amount: "₦1000000",
-      PaymentMethod: "Verve card",
-      status: "Pending",
-      time: "2:45pm",
-    },
-  ];
+  // const data = [
+  //   {
+  //     Date: "2023-09-01",
+  //     Amount: "₦1000000",
+  //     PaymentMethod: "Verve card",
+  //     status: "Pending",
+  //     time: "2:45pm",
+  //   },
+  //   {
+  //     Date: "2023-09-01",
+  //     Amount: "₦1000000",
+  //     PaymentMethod: "Verve card",
+  //     status: "Pending",
+  //     time: "2:45pm",
+  //   },
+  //   {
+  //     Date: "2023-09-01",
+  //     Amount: "₦1000000",
+  //     PaymentMethod: "Verve card",
+  //     status: "Pending",
+  //     time: "2:45pm",
+  //   },
+  //   {
+  //     Date: "2023-09-01",
+  //     Amount: "₦1000000",
+  //     PaymentMethod: "Verve card",
+  //     status: "Pending",
+  //     time: "2:45pm",
+  //   },
+  //   {
+  //     Date: "2023-09-01",
+  //     Amount: "₦1000000",
+  //     PaymentMethod: "Verve card",
+  //     status: "Pending",
+  //     time: "2:45pm",
+  //   },
+  // ];
 
   const paymentHistory =
     JSON.parse(localStorage.getItem("paymentHistory")) || [];

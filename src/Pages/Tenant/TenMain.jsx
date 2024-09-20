@@ -104,8 +104,8 @@ const TenMain = ({ showPopup, setShowPopup }) => {
                   );
 
                   return (
-                    <tr key={index}>
-                      <td className="TenMaincolumn1" style={{ width: "30%" }}>
+                    <tr key={index} >
+                      <td className="TenMaincolumn1" style={{ width: "30%" }} >
                         {item.maintenanceRequest.requestFor}
                       </td>
                       <td className="TenMaincolumn" style={{ width: "20%" }}>
