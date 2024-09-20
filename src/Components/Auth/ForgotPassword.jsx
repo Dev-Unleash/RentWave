@@ -33,7 +33,7 @@ const ForgotPassword = () => {
       if (response.ok) {
         const data = await response.json();
         toast.success(data.message);
-        
+        nav('/ResetPassword')
       } else if (response.status === 404) {
         setLoading(false)
         toast.error("User with this email does not exist");
@@ -85,9 +85,10 @@ const ForgotPassword = () => {
                       required
                     />
                   </div>
-            
+            </div>
                 <button type="submit" disabled={loading} className='forgetPasswordBtn'>
-                  {loading ? 'Sending...' : 'Reset Password'}
+                   {loading ? 'Sending...' : 'Reset Password'}
+                 
                 </button>
               </form>
              
@@ -99,7 +100,7 @@ const ForgotPassword = () => {
           </div>
         </div>
       </div>
-    </div>
+    
     <Toaster/>
     </>
   );

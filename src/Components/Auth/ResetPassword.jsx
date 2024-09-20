@@ -3,17 +3,31 @@ import "./ResetPassword.css"
 import Logo from "../../assets/logo.png"
 import image from "../../assets/image.png"
 import { IoArrowBackSharp } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const ResetPassword = () => {
+<<<<<<< HEAD
   const handleClose = () => {
     nav(-1); 
   }
+=======
+  const nav=useNavigate()
+  const handleClose = () => {
+    nav(-1);
+  };
+
+>>>>>>> c001a152d767ce3da4c0a7bea5ce4b0d6bf446e2
   return (
     <div className='resetPasswordContainer'>
       <div className="resetPasswordWrapper">
-        <div className="backIcon1">
+        <div className="backIcon1" onClick={handleClose }>
          
+<<<<<<< HEAD
           <p  onClick={handleClose} className='icon' style={{fontSize:'14px',textAlign:'center',fontWeight:'600',display:'flex',justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp style={{width: '25px', height:'25px'}} /></p>
+=======
+          <p className='icon'
+           style={{fontSize:'14px',textAlign:'center'
+           ,fontWeight:'600',display:'flex',justifyContent:'center',alignItems:'center',color:'black'}}> <IoArrowBackSharp style={{width: '25px', height:'25px'}} />  Go Back</p>
+>>>>>>> c001a152d767ce3da4c0a7bea5ce4b0d6bf446e2
         </div>
         <div className="ResetPasswordInputContainer">
           <div className="ResetPasswordInputWrapper">

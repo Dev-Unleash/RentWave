@@ -88,7 +88,7 @@ const Signup = () => {
   };
 
   return (
-    
+    <>
       <div className="SignUpContainer">
         <p
           onClick={() => navigate("/")}
@@ -261,7 +261,7 @@ const Signup = () => {
             </div>
 
             <button className="signupBtn" type="submit" disabled={loading}>
-              {loading ? "Loading..." : "Sign-Up"} {/* Shows "Loading..." when loading is true */}
+              {loading ? "Loading..." : "Sign-Up"} 
             </button>
 
             <p style={{ fontSize: "12px", textAlign: "center" }}>
