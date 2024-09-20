@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoArrowBackSharp, IoEye, IoEyeOff } from "react-icons/io5";
 import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
-import { toast, Toaster } from "react-hot-toast";
+// import { toast, Toaster } from "react-hot-toast";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./Signup.css";
 import logo from "../../assets/logo.png";
 
@@ -69,7 +71,9 @@ const Signup = () => {
 
        
         setLoading(false);
-        toast.success("Sign up successful. Please wait for verification.");
+        toast.success("Success Notification !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
         navigate("/Login");
       } catch (error) {
         setLoading(false); 
@@ -299,7 +303,8 @@ const Signup = () => {
         </div>
       </div>
 
-      <Toaster/>
+      {/* <Toaster/> */}
+      <ToastContainer />
     </>
 
   );
