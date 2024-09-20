@@ -3,6 +3,7 @@ import './Propertics.css'
 import image from "../../assets/Group (1).png"
 import { RiAddFill, RiSearchLine } from 'react-icons/ri'
 import AddProperty from './addProperty.jsx'
+import { Link } from 'react-router-dom'
 
 const Propertics = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,9 +24,33 @@ const Propertics = () => {
         <div className="btnsLandlord">
           <botton className='btnsLand' onClick={openModal}><RiAddFill className='icon'/>Add property</botton>
         </div>
-        <div className="table">
-          <img src={image} alt="" />
-          <p>No properties yet but properties for this portfolio will be listed <br/> here.</p>
+        <div className="table3">
+          {/* <img src={image} alt="" />
+          <p>No properties yet but properties for this portfolio will be listed <br/> here.</p> */}
+          <div className='propertiesCard'><Link to='/PropertyView1'><h6>Property Name: <span>Vcg Estate</span></h6></Link> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>office space</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Boamt Nest</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>condo</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Danish haven</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>flat</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Bay Veiw</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>apartment</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
         </div>
       </div>
 

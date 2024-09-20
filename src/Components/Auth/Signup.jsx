@@ -250,7 +250,7 @@ const Signup = () => {
             <p style={{ fontSize: "12px", textAlign: "center" }}>
               Already have an account?{" "}
               <span style={{ color: "royalblue", cursor: "pointer" }}>
-                <Link to="/Login">Log in</Link>
+                <Link style={{color:'royalblue'}} to="/Login">Log in</Link>
               </span>
             </p>
 

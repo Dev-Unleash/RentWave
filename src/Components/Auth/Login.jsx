@@ -146,12 +146,12 @@ const nav=useNavigate()
                 </div>
 
                 <p>
-                  <Link to="/ForgotPassWord"> Forgot Password?</Link>
+                  <Link style={{color:'royalblue'}} to="/ForgotPassWord"> Forgot Password?</Link>
                 </p>
                 </div>
                 
                 <div className="LoginInputDown">
-            <button
+            <button className="loginBtn"
                   style={{ fontWeight: "600" }}
                   type="submit"
                   disabled={loading}
@@ -162,7 +162,7 @@ const nav=useNavigate()
                 <p>
                   Don't have an account?{" "}
                   <span>
-                    <Link to="/signUp">Sign Up</Link>
+                    <Link style={{color:'royalblue'}} to="/signUp">Sign Up</Link>
                   </span>
                 </p>
               </div>

@@ -40,7 +40,7 @@ const ResetPassword = () => {
                 </div>
                 <div className='two'>
                   <p>Confirm New Password</p>
-                  <input type="text" placeholder='Confirm Password' required />
+                  <input type="text" placeholder='Confirm Password' required  className='reset-input' />
                 </div>
                 <button><Link to='/ResetMessage' style={{color:"white"}}>Done</Link></button>
               </div>

@@ -141,7 +141,6 @@
 import React, { useState } from 'react';
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from './Pages/Home/Home';
-import Blog from './Pages/Blog/Blog';
 import AuthRoutes from './Pages/Landlord/AuthRoutes/AuthRoutes.jsx';
 import Contact_us from './Pages/Contact_us/Contact_us';
 import Login from './Components/Auth/Login';
@@ -176,6 +175,9 @@ import Tenantspage from './Pages/Landlord/Tenantspage.jsx';
 import Maintenance from './Pages/Landlord/Maintenance.jsx';
 import LandlordProfile from './Pages/Landlord/LandlordProfile.jsx';
 import LandlordProfilepage from './Pages/Landlord/LandlordProfilepage.jsx';
+import TenantProfileVeiw1 from './Pages/Landlord/TenantProfileView1.jsx';
+import TransactionVeiw1 from './Pages/Landlord/TransactionVeiw1.jsx'
+import PropertyView1  from './Pages/Landlord/PropertyVeiw1.jsx'
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -211,10 +213,6 @@ const App = () => {
     {
       path: "/About_Us",
       element: <Contact_us />
-    },
-    {
-      path: "/Blog",
-      element: <Blog />
     },
     {
       element: <AdminPrivate showLogoutPopup={showLogoutPopup} setShowLogoutPopup={setShowLogoutPopup} />,
@@ -282,7 +280,19 @@ const App = () => {
         {
           path: '/profile',
           element: <LandlordProfilepage />
-        }// Additional routes for landlord
+        },
+        {
+          path:'/TenantProfileView1',
+          element:<TenantProfileVeiw1 />
+        },
+        {
+          path:'/TransactionVeiw1',
+          element:<TransactionVeiw1 />
+        },
+        {
+          path:'/PropertyView1',
+          element:<PropertyView1 />
+        }
       ]
     },
     {
