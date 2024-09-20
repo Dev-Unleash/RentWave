@@ -33,7 +33,7 @@ const ForgotPassword = () => {
       if (response.ok) {
         const data = await response.json();
         toast.success(data.message);
-        
+        nav('/ResetPassword')
       } else if (response.status === 404) {
         setLoading(false)
         toast.error("User with this email does not exist");
@@ -87,7 +87,7 @@ const ForgotPassword = () => {
                   </div>
             </div>
                 <button type="submit" disabled={loading} className='forgetPasswordBtn'>
-                  <Link to='/ResetPassword' style={{color:"white"}}> {loading ? 'Sending...' : 'Reset Password'}</Link>
+                   {loading ? 'Sending...' : 'Reset Password'}
                  
                 </button>
               </form>
