@@ -15,23 +15,69 @@
 
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import image from "../../assets/Frame 775.png";
 import { CiStar } from "react-icons/ci";
 import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./MenuBar.css";
 import Logout from "./Logout";
 import { GiFamilyHouse } from "react-icons/gi";
 import { MdPeopleAlt } from "react-icons/md";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const MenuBar = () => {
- 
+  const nav = useNavigate();
+  const userInfo = localStorage.getItem("userInfo");
+  const userData = JSON.parse(userInfo);
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+
+  const handleLogoutClick = () => {
+    setShowLogoutPopup(true);
+  };
+
+  const handleLogoutConfirm = async () => {
+    const url = "https://rentwave.onrender.com/api/v1/logout";
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      await axios.post(url, {}, config);
+      localStorage.removeItem("userInfo");
+      localStorage.removeItem("userToken");
+      toast.success("Logout successful");
+      nav("/");
+    } catch (error) {
+      toast.error("Logout failed. Please try again.");
+    } finally {
+      setShowLogoutPopup(false);
+    }
+  };
+
+  const handleLogoutCancel = () => {
+    setShowLogoutPopup(false);
+  };
+
+  useEffect(() => {
+    if (!userData) {
+      nav("/");
+    }
+  }, [userData, nav]);
+
+  const userName = JSON.parse(localStorage.getItem("userProfile"));
+
 
   return (
+    <>
     <div className="Sidebarwhole1">
       <Link to="/">
         <div className="LogoContainer1">
@@ -44,10 +90,14 @@ const MenuBar = () => {
       <div className="Profile1">
         <div className="Pics1">
         <Link to="/profile">
-          <img src={image} alt="Profile" />
+          <img src={ localStorage.getItem("userProfile")
+                    ? JSON.parse(localStorage.getItem("userProfile")).tenant
+                        .profilePicture.pictureUrl
+                    : ""} 
+                    alt="Profile" />
         </Link>
         </div>
-        <p>Mr. Johnson</p>
+        <p>{userName?.landlord?.firstName}</p>
         <h3>Welcome</h3>
       </div>
 
@@ -91,8 +141,47 @@ const MenuBar = () => {
           </nav>
         </div>
       </div>
-      <Logout />
-    </div>
+      <div className="Logoutmenu">
+          <nav
+            style={{ gap: "20px", display: "flex" }}
+            onClick={handleLogoutClick}
+          >
+            <AiOutlineLogout className="menuIcon" />
+            <p
+              style={{
+                fontSize: "25px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+            >
+              Logout
+            </p>
+          </nav>
+
+          {showLogoutPopup && (
+            <div className="popup">
+              <p
+                style={{
+                  color: "white",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                Are you sure?
+              </p>
+              <div className="popup-text">
+                <p onClick={handleLogoutConfirm}>Yes</p>
+                <p onClick={handleLogoutCancel}>No</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <Toaster />
+    </>    
   );
 };
 
