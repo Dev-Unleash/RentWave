@@ -27,7 +27,7 @@ const Propertics = () => {
         <div className="table3">
           {/* <img src={image} alt="" />
           <p>No properties yet but properties for this portfolio will be listed <br/> here.</p> */}
-          <div className='propertiesCard'><Link to='/PropertyView1'><h6>Property Name: <span>Vcg Estate</span></h6></Link> 
+          <div className='propertiesCard'><Link to='/PropertyView1' style={{color:'black'}}><h6>Property Name: <span>Vcg Estate</span></h6></Link> 
           <h6>Location: <span>Lekki</span></h6>
           <h6>Property Type: <span>office space</span></h6>
           <button className='propertyDel'>Delete</button>

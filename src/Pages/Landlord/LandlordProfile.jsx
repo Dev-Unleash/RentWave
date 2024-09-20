@@ -30,7 +30,7 @@ const LandlordProfile = () => {
   return (
     <div className="Pages">
         <div className='AcctSetCon' >
-      <div className="AcctSettingsWrapper">
+      <div className="AcctSettingsWrapper1">
         <div className="AcctSettingsHeader">
         <h3  className="CloseButtonPro" onClick={handleClose}><IoArrowBack  style={{height:"45px",width:"50px"}}/>
         Back</h3>
@@ -88,19 +88,11 @@ const LandlordProfile = () => {
           }} />
           </div>
             </div>
-            <div className="h4">
-                <h4 className='add' onClick={openModal}>CLICK TO ADD YOUR ADDRESS</h4>
-            </div>
-            <Address
-                isOpen={isModalOpen} 
-                onClose={closeModal} 
-                onSubmit={handleSubmit}
-            />
 
          
       </form>
       </div>
-      <button className='Editbtn' style={{height:"8%",width:"45%",borderRadius:"10px",
+      <button className='Edit' style={{height:"8%",width:"45%",borderRadius:"10px",
         backgroundColor:"#4D86DB",cursor:"pointer",border:"none",color:"white",fontSize:"18px"}}>Save Changes</button>
         </div>
       </div>
