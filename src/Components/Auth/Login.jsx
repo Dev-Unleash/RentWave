@@ -48,13 +48,13 @@ const Login = () => {
       localStorage.setItem("userInfo", JSON.stringify(userData));
       localStorage.setItem("userToken", userToken);
 
-      setTimeout(() => {
+      
         if (userData.role === "Landlord") {
           nav("/Landlord");
         } else {
           nav("/TenantHome");
         }
-      }, 1000); 
+      ; 
     } catch (error) {
       setLoading(false);
       setLoadingMessage(""); 

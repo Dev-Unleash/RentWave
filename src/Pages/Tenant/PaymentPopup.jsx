@@ -35,7 +35,12 @@ const PaymentPopup = ({ closePopup }) => {
     e.preventDefault(); // Prevent default form submission
 
     // Check if all required fields are filled
-    if (!payData.firstName || !payData.lastName || !payData.amount || !payData.paymentMethod) {
+    if (
+      !payData.firstName ||
+      !payData.lastName ||
+      !payData.amount ||
+      !payData.paymentMethod
+    ) {
       toast.error("All fields are required");
       return;
     }
@@ -52,16 +57,25 @@ const PaymentPopup = ({ closePopup }) => {
     };
 
     try {
-      const url = "https://rentwave.onrender.com/api/v1/payment/payRent";
+      const url = "https://rentwave.onrender.com/api/v1/payRent";
       console.log("Sending request to:", url);
       const response = await axios.post(url, apiData, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
       });
-      console.log("Response:", response.data);
+      // Get the existing payments from localStorage or initialize an empty array
+      const existingPayments =
+        JSON.parse(localStorage.getItem("paymentHistory")) || [];
 
+      // Push the new payment data to the array
+      existingPayments.push(apiData);
+
+      // Save the updated array to localStorage
+      localStorage.setItem("paymentHistory", JSON.stringify(existingPayments));
       // Initialize Korapay after the backend processes the data
+
+      // window.location.href = ""
       window.Korapay.initialize({
         key: paymentKey,
         reference: `Omotolani_${Date.now()}`,
@@ -87,6 +101,9 @@ const PaymentPopup = ({ closePopup }) => {
       setLoading(false);
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);
+      console.error("Error:", error);
+      console.log(apiData);
+
       toast.error("Error sending data to backend. Please try again.");
       setLoading(false);
     }
@@ -139,11 +156,15 @@ const PaymentPopup = ({ closePopup }) => {
                 >
                   <option value="">Select</option>
                   <option value="Bank Transfer">Bank Transfer</option>
-                  <option value="Card">Card</option>
+                  <option value="Credit Card">Card</option>
+                  <option value="Cash">Cash</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div className="payInput">
-                <p>Notes <span>(optional)</span></p>
+                <p>
+                  Notes <span>(optional)</span>
+                </p>
                 <input
                   type="text"
                   name="notes"

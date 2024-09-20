@@ -97,6 +97,18 @@ const MainRequest = ({ closePopup }) => {
         const responseData = await response.json();
         console.log("Request submitted successfully:", responseData);
         alert("Request submitted successfully");
+        // Get the existing data from localStorage or initialize an empty array
+        const existingRequests =
+          JSON.parse(localStorage.getItem("maintenanceRequests")) || [];
+
+        // Push the new response data to the array
+        existingRequests.push(responseData);
+
+        // Save the updated array back to localStorage
+        localStorage.setItem(
+          "maintenanceRequests",
+          JSON.stringify(existingRequests)
+        );
       }
     } catch (error) {
       console.error("Error submitting request:", error);
