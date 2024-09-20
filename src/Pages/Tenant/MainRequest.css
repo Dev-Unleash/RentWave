@@ -117,71 +117,54 @@
         outline: none;
     }
   }
-  .DateReq{
+  .DateReq {
     width: 100%;
-    height: 25%;
     display: flex;
     flex-direction: column;
-    /* background-color: green; */
-    & p{
-        font-size: 14px;
-        font-weight: 600;
-        @media screen and (max-width: 900px) {
-          
-          font-size: 12px;
-           }
-    }
-    
+    height: 20%;
   }
-  .DateReqInput{
-    height: 90%;
+  
+  .DateReqInput {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-  }
-  .DateReqInputleft{
+    justify-content: space-between; 
     height: 100%;
-    width: 45%;
+  }
+  
+  .daterow {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    width: 32%; 
+   height: 100%;
 
-    & input{
-        height: 30%;
-        width: 100%;
-        border: 1px solid #dddcdc;
-        border-radius: 5px;
-        outline: none;
-        font-size: 15px;
-        padding: 0px 5px 0px 5px;
-        @media screen and (max-width: 900px) {
-          
-          font-size: 12px;
-           }
-    }
   }
-  .DateReqInputright{
-    height: 100%;
-    width: 45%;
+  
+  .DateReqInputleft,
+  .DateReqInputright {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* background-color: yellow; */
-    & input{
-        height: 30%;
-        width:100%;
-        border: 1px solid #dddcdc;
-        border-radius: 5px;
-        outline: none;
-        font-size: 15px;
-        color: #4e4d4d;
-        padding: 0px 5px 0px 5px;
-        @media screen and (max-width: 900px) {
-          
-          font-size: 12px;
-           }
-    }
+    /* justify-content: center; */
+  
+    height: 100%;
+  
   }
+  
+  .DateReqInputleft input,
+  .DateReqInputright input {
+    width: 100%; 
+    border: 1px solid #dddcdc;
+    border-radius: 5px;
+    outline: none;
+    /* padding: 5px; */
+    font-size: 14px;
+    display: flex;
+    height: 90%;
+    /* justify-content: space-between; */
+    
+
+  }
+  
   .reqPhone{
     width: 100%;
     height: 10.5%;
@@ -230,6 +213,8 @@
         /* padding: 10px 0px 0px 10px; */
         display: flex;
         flex-direction: column;
+
+
       
     }
    
