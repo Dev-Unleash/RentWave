@@ -142,7 +142,7 @@ const Login = () => {
                       <p>
                         Don't have an account?{" "}
                         <span>
-                          <Link to="/signUp">Sign Up</Link>
+                          <Link to="/signUp" style={{color:'royalblue'}}>Sign Up</Link>
                         </span>
                       </p>
                     </div>

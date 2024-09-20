@@ -85,9 +85,10 @@ const ForgotPassword = () => {
                       required
                     />
                   </div>
-            
+            </div>
                 <button type="submit" disabled={loading} className='forgetPasswordBtn'>
-                  {loading ? 'Sending...' : 'Reset Password'}
+                  <Link to='/ResetPassword' style={{color:"white"}}> {loading ? 'Sending...' : 'Reset Password'}</Link>
+                 
                 </button>
               </form>
              
@@ -99,7 +100,7 @@ const ForgotPassword = () => {
           </div>
         </div>
       </div>
-    </div>
+    
     <Toaster/>
     </>
   );
