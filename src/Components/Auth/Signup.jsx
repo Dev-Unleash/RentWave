@@ -88,7 +88,7 @@ const Signup = () => {
   };
 
   return (
-    
+    <>
       <div className="SignUpContainer">
         <p
           onClick={() => navigate("/")}
