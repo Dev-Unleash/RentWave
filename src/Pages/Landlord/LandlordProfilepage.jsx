@@ -20,7 +20,7 @@ const LandlordProfilepage = () => {
                 Back</h3>
                 <h3 style={{width:"20%"}}>Profile</h3>
                 <Link to="/settings" style={{width:"20%",justifyContent:"flex-end"}}>
-                <button>Edit</button>
+                <button className='Editbtn'>Edit</button>
                 </Link>
                
             </div>

@@ -100,7 +100,7 @@ const LandlordProfile = () => {
          
       </form>
       </div>
-      <button style={{height:"8%",width:"45%",borderRadius:"10px",
+      <button className='Editbtn' style={{height:"8%",width:"45%",borderRadius:"10px",
         backgroundColor:"#4D86DB",cursor:"pointer",border:"none",color:"white",fontSize:"18px"}}>Save Changes</button>
         </div>
       </div>
