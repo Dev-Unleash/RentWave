@@ -51,6 +51,8 @@ const SideBar = () => {
     }
   }, [userData, nav]);
 
+  const userName = JSON.parse(localStorage.getItem("userProfile"));
+
   return (
     <>
       <div className="Sidebarwhole">
@@ -65,10 +67,19 @@ const SideBar = () => {
         <div className="Profile">
           <div className="Pics" style={{ cursor: "pointer" }}>
             <Link to="/TenantProfile">
-              <img src={ola} alt="Profile" />
+              <img
+                src={
+                  localStorage.getItem("userProfile")
+                    ? JSON.parse(localStorage.getItem("userProfile")).tenant
+                        .profilePicture.pictureUrl
+                    : ""
+                }
+                alt="Profile"
+              />
             </Link>
           </div>
-          <p>{userData?.firstName}</p>
+
+          <p>{userName?.tenant?.firstName}</p>
           <h3>Welcome</h3>
         </div>
 
@@ -76,25 +87,45 @@ const SideBar = () => {
           <div className="MenuWrapper">
             <nav>
               <IoHome className="menuIcon" />
-              <NavLink to="/TenantHome" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
+              <NavLink
+                to="/TenantHome"
+                style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }
+              >
                 Home
               </NavLink>
             </nav>
             <nav>
               <CiStar className="menuIcon" />
-              <NavLink to="/TenantMain" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
+              <NavLink
+                to="/TenantMain"
+                style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }
+              >
                 Maintenance
               </NavLink>
             </nav>
             <nav>
               <CiWallet className="menuIcon" />
-              <NavLink to="/TenantPayment" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
+              <NavLink
+                to="/TenantPayment"
+                style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }
+              >
                 Payment
               </NavLink>
             </nav>
             <nav>
               <CiStar className="menuIcon" />
-              <NavLink to="/TenantSettings" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
+              <NavLink
+                to="/TenantSettings"
+                style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }
+              >
                 Account Setting
               </NavLink>
             </nav>
@@ -102,16 +133,36 @@ const SideBar = () => {
         </div>
 
         <div className="Logoutmenu">
-          <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
+          <nav
+            style={{ gap: "20px", display: "flex" }}
+            onClick={handleLogoutClick}
+          >
             <AiOutlineLogout className="menuIcon" />
-            <p style={{ fontSize: "25px", color: "black", display: "flex", alignItems: "center", cursor: "pointer" }}>
+            <p
+              style={{
+                fontSize: "25px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+            >
               Logout
             </p>
           </nav>
 
           {showLogoutPopup && (
             <div className="popup">
-              <p style={{ color: "white", width: "100%", display: "flex", justifyContent: "center" }}>Are you sure?</p>
+              <p
+                style={{
+                  color: "white",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                Are you sure?
+              </p>
               <div className="popup-text">
                 <p onClick={handleLogoutConfirm}>Yes</p>
                 <p onClick={handleLogoutCancel}>No</p>

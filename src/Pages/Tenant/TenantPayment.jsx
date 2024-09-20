@@ -1,7 +1,8 @@
-import React from 'react';
-import { IoNotificationsCircleSharp } from 'react-icons/io5';
-import PaymentPopup from './PaymentPopup';
-import './TenantPayment.css';
+import React from "react";
+import { IoNotificationsCircleSharp } from "react-icons/io5";
+import PaymentPopup from "./PaymentPopup";
+import "./TenantPayment.css";
+import { formatDateTime } from "../../Components/utils/utils";
 
 const TenantPayment = ({ showPopup, setShowPopup, closePopup }) => {
   const handleRequestClick = () => {
@@ -9,23 +10,61 @@ const TenantPayment = ({ showPopup, setShowPopup, closePopup }) => {
   };
 
   const data = [
-    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
-    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
-    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
-    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
-    { Date: '2023-09-01', Amount: '₦1000000', PaymentMethod: 'Verve card', status: 'Pending', time: '2:45pm' },
+    {
+      Date: "2023-09-01",
+      Amount: "₦1000000",
+      PaymentMethod: "Verve card",
+      status: "Pending",
+      time: "2:45pm",
+    },
+    {
+      Date: "2023-09-01",
+      Amount: "₦1000000",
+      PaymentMethod: "Verve card",
+      status: "Pending",
+      time: "2:45pm",
+    },
+    {
+      Date: "2023-09-01",
+      Amount: "₦1000000",
+      PaymentMethod: "Verve card",
+      status: "Pending",
+      time: "2:45pm",
+    },
+    {
+      Date: "2023-09-01",
+      Amount: "₦1000000",
+      PaymentMethod: "Verve card",
+      status: "Pending",
+      time: "2:45pm",
+    },
+    {
+      Date: "2023-09-01",
+      Amount: "₦1000000",
+      PaymentMethod: "Verve card",
+      status: "Pending",
+      time: "2:45pm",
+    },
   ];
+
+  const paymentHistory =
+    JSON.parse(localStorage.getItem("paymentHistory")) || [];
 
   return (
     <>
-      <div className={`TenantPayContainer ${showPopup ? 'blur-background' : ''}`}>
+      <div
+        className={`TenantPayContainer ${showPopup ? "blur-background" : ""}`}
+      >
         <div className="TenantPayContainerHeader">
           <div className="TenantPayContainerright">
             <h3>Payment</h3>
             <p>Manage payment on RentWave</p>
           </div>
           <div className="TenantPayContainerLeft">
-            <IoNotificationsCircleSharp className="menuIcons" style={{ cursor: 'pointer' }} />
+            <IoNotificationsCircleSharp
+              className="menuIcons"
+              style={{ cursor: "pointer" }}
+            />
           </div>
         </div>
 
@@ -53,15 +92,21 @@ const TenantPayment = ({ showPopup, setShowPopup, closePopup }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item, index) => (
-                    <tr key={index}>
-                      <td>{item.Date}</td>
-                      <td>{item.Amount}</td>
-                      <td>{item.PaymentMethod}</td>
-                      <td>{item.time}</td>
-                      <td>{item.status}</td>
-                    </tr>
-                  ))}
+                  {paymentHistory.map((item, index) => {
+                    const { formattedDate, formattedTime } = formatDateTime(
+                      new Date()
+                    );
+
+                    return (
+                      <tr key={index}>
+                        <td>{formattedDate}</td>
+                        <td>{item.amount}</td>
+                        <td>{item.paymentMethod}</td>
+                        <td>{formattedTime}</td>
+                        <td>{"Sent"}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
