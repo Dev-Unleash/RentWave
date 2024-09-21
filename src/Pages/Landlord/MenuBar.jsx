@@ -1,22 +1,4 @@
-// import React from 'react'
-// import './Landlord.css'
-
-// const MenuBar = () => {
-//   return (
-//     <div className='MenuBar'>
-      
-//     </div>
-//   )
-// }
-
-// export default MenuBar
-
-
-
-
-
 import React, { useEffect, useState } from "react";
-import image from "../../assets/Frame 775.png";
 import { CiStar } from "react-icons/ci";
 import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
@@ -24,7 +6,6 @@ import { IoHome } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./MenuBar.css";
-import Logout from "./Logout";
 import { GiFamilyHouse } from "react-icons/gi";
 import { MdPeopleAlt } from "react-icons/md";
 import axios from "axios";
@@ -37,10 +18,12 @@ const MenuBar = () => {
   const userData = JSON.parse(userInfo);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
+  // Handle Logout Click Popup
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
 
+  // Handle Logout Confirmation
   const handleLogoutConfirm = async () => {
     const url = "https://rentwave.onrender.com/api/v1/logout";
     const token = localStorage.getItem("userToken");
@@ -63,115 +46,103 @@ const MenuBar = () => {
     }
   };
 
+  // Handle Logout Cancel
   const handleLogoutCancel = () => {
     setShowLogoutPopup(false);
   };
 
+  // Redirect if user is not logged in
   useEffect(() => {
     if (!userData) {
       nav("/");
     }
   }, [userData, nav]);
 
-  const userName = JSON.parse(localStorage.getItem("userProfile"));
+  // Fetch the landlord's profile data from localStorage
+  const userProfile = JSON.parse(localStorage.getItem("userProfile"));
 
+  // Debugging: log out the userProfile object to check its structure
+  console.log("User Profile: ", userProfile);
 
   return (
     <>
-    <div className="Sidebarwhole1">
-      <Link to="/">
-        <div className="LogoContainer1">
-          <div className="Logo1">
-            <img src={Logo} alt="Logo" />
+      <div className="Sidebarwhole1">
+        <Link to="/">
+          <div className="LogoContainer1">
+            <div className="Logo1">
+              <img src={Logo} alt="Logo" />
+            </div>
+          </div>
+        </Link>
+
+        <div className="Profile1">
+          <div className="Pics1">
+            <Link to="/profile">
+              <img
+                // Safely access the profile picture URL or fallback to a default image
+                src={
+                  userProfile?.landlord?.profilePicture?.pictureUrl || "fallback-image-url"
+                }
+                alt="Profile"
+              />
+            </Link>
+          </div>
+          <p>{userProfile?.landlord?.firstName || "Unknown User"}</p> {/* Safely access firstName */}
+          <h3>Welcome</h3>
+        </div>
+
+        <div className="MenuContainer1">
+          <div className="MenuWrapper1">
+            <nav>
+              <IoHome className="menuIcon1" />
+              <NavLink to="/LandLord" className={({ isActive }) => isActive ? "active-link" : ""}>
+                Home
+              </NavLink>
+            </nav>
+            <nav>
+              <GiFamilyHouse className="menuIcon1" />
+              <NavLink to="/propertics" className={({ isActive }) => isActive ? "active-link" : ""}>
+                Properties
+              </NavLink>
+            </nav>
+            <nav>
+              <CiWallet className="menuIcon1" />
+              <NavLink to="/Transactions" className={({ isActive }) => isActive ? "active-link" : ""}>
+                Transactions
+              </NavLink>
+            </nav>
+            <nav>
+              <MdPeopleAlt className="menuIcon1" />
+              <NavLink to="/View-Tenant" className={({ isActive }) => isActive ? "active-link" : ""}>
+                Tenants
+              </NavLink>
+            </nav>
+            <nav>
+              <CiStar className="menuIcon1" />
+              <NavLink to="/Maintenance" className={({ isActive }) => isActive ? "active-link" : ""}>
+                Maintenance
+              </NavLink>
+            </nav>
+            <nav>
+              <FaTools className="menuIcon1" />
+              <NavLink to="/settings" className={({ isActive }) => isActive ? "active-link" : ""}>
+                Account Settings
+              </NavLink>
+            </nav>
           </div>
         </div>
-      </Link>
 
-      <div className="Profile1">
-        <div className="Pics1">
-        <Link to="/profile">
-          <img src={ localStorage.getItem("userProfile")
-                    ? JSON.parse(localStorage.getItem("userProfile")).tenant 
-                        .profilePicture.pictureUrl
-                    : ""} 
-                    alt="Profile" />
-        </Link>
-        </div>
-        <p>{userName?.landlord?.firstName}</p>
-        <h3>Welcome</h3>
-      </div>
-
-      <div className="MenuContainer1">
-        <div className="MenuWrapper1">
-          <nav>
-            <IoHome className="menuIcon1" />
-            <NavLink to="/LandLord" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
-              Home
-            </NavLink>
-          </nav>
-          <nav>
-          <GiFamilyHouse className="menuIcon1" />           
-            <NavLink to="/propertics" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
-            Properties
-            </NavLink>
-          </nav>
-          <nav>
-          <CiWallet className="menuIcon1" />
-          <NavLink to="/Transactions" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
-              Transaction
-            </NavLink>
-          </nav>
-          <nav>
-          <MdPeopleAlt className="menuIcon1" />
-            <NavLink to="/View-Tenant" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
-              Tenants
-           </NavLink>
-          </nav>
-          <nav>
-            <CiStar className="menuIcon1" />
-            <NavLink to="/Maintenance" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
-            Maintenance
-            </NavLink>
-          </nav>
-          <nav>
-          <FaTools className="menuIcon1" />
-            <NavLink to="/settings" style={({ isActive }) => (isActive ? { color: "royalblue" } : { color: "black" })}>
-              Account Setting
-            </NavLink>
-          </nav>
-        </div>
-      </div>
-      <div className="Logoutmenu">
-          <nav
-            style={{ gap: "20px", display: "flex" }}
-            onClick={handleLogoutClick}
-          >
+        <div className="Logoutmenu">
+          <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
             <AiOutlineLogout className="menuIcon" />
-            <p
-              style={{
-                fontSize: "25px",
-                color: "black",
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
+            <p style={{ fontSize: "25px", color: "black", cursor: "pointer" }}>
               Logout
             </p>
           </nav>
 
           {showLogoutPopup && (
             <div className="popup">
-              <p
-                style={{
-                  color: "white",
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                Are you sure?
-              </p>
+              <p style={{ color: "white", textAlign: "center" }}>Are you sure?</p>
               <div className="popup-text">
                 <p onClick={handleLogoutConfirm}>Yes</p>
                 <p onClick={handleLogoutCancel}>No</p>
@@ -181,7 +152,7 @@ const MenuBar = () => {
         </div>
       </div>
       <Toaster />
-    </>    
+    </>
   );
 };
 

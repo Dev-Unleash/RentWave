@@ -6,6 +6,8 @@ import { IoArrowBackSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const nav = useNavigate();
@@ -41,14 +43,16 @@ const Login = () => {
       const res = await axios.post(url, ApiData);
       console.log(res)
       setLoading(false);
-      toast.success("Login successful");
+      toast.success(res.data.message);
 
       const userData = res.data.data;
       const userToken = res.data.token;
       localStorage.setItem("userInfo", JSON.stringify(userData));
       localStorage.setItem("userToken", userToken);
 
-      
+      setTimeout(() => {
+        toast.success(res.data.message);
+      }, 1000);
         if (userData.role === "Landlord") {
           nav("/Landlord");
         } else {
@@ -175,7 +179,8 @@ const Login = () => {
           </div>
         )}
       </div>
-      <Toaster />
+      {/* <Toaster /> */}
+      <ToastContainer/>
     </>
   );
 };

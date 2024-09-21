@@ -79,7 +79,35 @@
     cursor: pointer;
 }
 
-.Edit {
-    /* position: absolute;
-    bottom: 1%; */
+.Acctgender {
+    width: 80%;
+
+    & p {
+        font-size: 18px;
+    }
+
+    & .select {
+        padding: 10px;
+        border-radius: 5px;
+    }
 }
+
+.AcctInputContainer1 {
+    height: 85%;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    height: 93%;
+    width: 100%;
+    /* background-color: red; */
+}
+
+/* .Edit {
+    position: absolute;
+    bottom: 1%;
+} */
