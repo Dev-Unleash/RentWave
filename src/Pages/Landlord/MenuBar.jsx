@@ -63,7 +63,8 @@ const MenuBar = () => {
     }
   };
 
-  const handleLogoutCancel = () => {
+  const handleLogoutCancel = () =>
+     {
     setShowLogoutPopup(false);
   };
 
