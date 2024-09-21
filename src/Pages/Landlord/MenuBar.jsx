@@ -91,7 +91,7 @@ const MenuBar = () => {
         <div className="Pics1">
         <Link to="/profile">
           <img src={ localStorage.getItem("userProfile")
-                    ? JSON.parse(localStorage.getItem("userProfile")).tenant
+                    ? JSON.parse(localStorage.getItem("userProfile")).tenant 
                         .profilePicture.pictureUrl
                     : ""} 
                     alt="Profile" />
