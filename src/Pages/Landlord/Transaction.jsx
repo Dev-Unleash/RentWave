@@ -1,25 +1,31 @@
-import React from 'react'
-import './Transaction.css'
-import image from "../../assets/Clip path group.png"
-import { CiSearch } from "react-icons/ci";
-
-import { RiDownload2Line, RiSearchLine } from 'react-icons/ri'
+import React, { useEffect, useState } from 'react';
+import './Transaction.css';
+import { RiSearchLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Transaction = () => {
-  const data = [
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-    { name: "John ade", Amount: "₦1000000" , date:"2023-09-01", status: "Pending", time:"2:45pm" },
-  ]
+  const [payments, setPayments] = useState([]);
+  const token = localStorage.getItem("userToken");
+  const url = "https://rentwave.onrender.com/api/v1/payments"; // Update with your actual API URL
+
+  const fetchPayments = async () => {
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setPayments(response.data.data); // Store the payment data
+    } catch (error) {
+      console.error("Error fetching payments:", error.response?.data?.message || error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchPayments();
+  }, []);
+
   return (
     <div className='Pages'>
       <div className="PropsContainers">
@@ -29,11 +35,12 @@ const Transaction = () => {
             <RiSearchLine className='icon' />
             <input type="search" placeholder='Search' className='put' />
           </div>
+          
         </div>
-        <div className="btnes">
-          <botton className="dst"><RiDownload2Line className='icon' />Download statement</botton>
-          <botton className="ds">Withdraw</botton>
+        <div className="TotalLndAmt">
+        <p>Total Amount:</p>
         </div>
+        
         <div className="table">
           <div className="tableData">
             <table>
@@ -44,32 +51,29 @@ const Transaction = () => {
                   <th className='name-column1'>Date</th>
                   <th className='name-column1'>Status</th>
                   <th className='name-column2'>Time</th>
-
-
                 </tr>
               </thead>
               <tbody>
-                {data.map((item, index) => (
-                  <tr key={index}>
-                    <td className='name-column'><Link to='/TransactionVeiw1' style={{ cursor: 'pointer', color: "black", fontWeight: 'normal' }}>{item.name}</Link></td>
-                    <td className='name-column1'>{item.Amount}</td>
-                    <td className='name-column1'>{item.date}</td>
+                {payments.map((item) => (
+                  <tr key={item._id}>
+                    <td className='name-column'>
+                      <Link to='/TransactionView1' style={{ cursor: 'pointer', color: "black", fontWeight: 'normal' }}>
+                        {item.firstName} {item.lastName} {/* Display full name */}
+                      </Link>
+                    </td>
+                    <td className='name-column1'>₦{item.amount}</td> {/* Display amount */}
+                    <td className='name-column1'>{new Date(item.paymentDate).toLocaleDateString()}</td> {/* Display date */}
                     <td className='name-column1'>{item.status}</td>
-                    <td className='name-column1'>{item.time}</td>
+                    <td className='name-column1'>{new Date(item.paymentDate).toLocaleTimeString()}</td> {/* Display time */}
                   </tr>
                 ))}
               </tbody>
             </table>
-
           </div>
-          {/* <Outlet/> */}
         </div>
-
       </div>
     </div>
+  );
+};
 
-
-  )
-}
-
-export default Transaction
+export default Transaction;

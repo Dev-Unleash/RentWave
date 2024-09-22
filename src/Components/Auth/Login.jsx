@@ -5,7 +5,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,46 +26,40 @@ const Login = () => {
   };
 
   const userLogin = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    const url = "https://rentwave.onrender.com/api/v1/login";
+    e.preventDefault();
 
     if (!email || !password) {
       toast.error("All fields are required");
       return;
     }
 
-    setLoading(true);
-    setLoadingMessage("Preparing your dashboard, please wait...");
-
-    const ApiData = { email, password };
+    const apiData = { email, password };
+    const url = "https://rentwave.onrender.com/api/v1/login";
 
     try {
-      const res = await axios.post(url, ApiData);
-      console.log(res)
-      setLoading(false);
-      toast.success(res.data.message);
+      setLoading(true); 
 
+      const res = await axios.post(url, apiData);
+      console.log(res)
       const userData = res.data.data;
       const userToken = res.data.token;
+
       localStorage.setItem("userInfo", JSON.stringify(userData));
       localStorage.setItem("userToken", userToken);
-
+      setLoading(false); 
+      toast.success("Login successful");
+        setLoadingMessage("preparing your dashboard please wait....")
       setTimeout(() => {
-        toast.success(res.data.message);
-      }, 1000);
+     
         if (userData.role === "Landlord") {
           nav("/Landlord");
         } else {
           nav("/TenantHome");
         }
-      ; 
+      }, 5000);
     } catch (error) {
-      setLoading(false);
-      setLoadingMessage(""); 
-      const errorMessage =
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : "Login failed. Please try again.";
+      setLoading(false); 
+      const errorMessage = error.response?.data?.message || "Login failed. Please try again.";
       toast.error(errorMessage);
     }
   };
@@ -90,7 +84,7 @@ const Login = () => {
               cursor: "pointer",
             }}
           >
-            <IoArrowBackSharp className="icon" style={{ width: "50px",height:'50px', paddingLeft:'20px' }} /> 
+            <IoArrowBackSharp className="icon" style={{ width: "50px", height: '50px', paddingLeft: '20px' }} />
           </p>
           <div className="LoginLeft">
             <div className="LoginInputContainer">
@@ -101,7 +95,7 @@ const Login = () => {
                       <img src={Logo} alt="logo" />
                     </Link>
                   </div>
-                  <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px", textAlign:"center", paddingBottom:'90px' }}>
+                  <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px", textAlign: "center", paddingBottom: '90px' }}>
                     Sign up your business on Rent Wave
                   </h4>
                 </div>
@@ -110,7 +104,7 @@ const Login = () => {
                     <div className="input-div">
                       <p>Email</p>
                       <input
-                        type="text"
+                        type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -133,10 +127,9 @@ const Login = () => {
                       </div>
                     </div>
                     <p>
-                  <Link style={{color:'royalblue'}} to="/ForgotPassWord"> Forgot Password?</Link>
-                </p>
+                      <Link style={{ color: 'royalblue' }} to="/ForgotPassWord"> Forgot Password?</Link>
+                    </p>
                   </div>
-
 
                   <div className="LoginInputDown">
                     <button style={{ fontWeight: "600" }} type="submit" disabled={loading}>
@@ -146,16 +139,13 @@ const Login = () => {
                       <p>
                         Don't have an account?{" "}
                         <span>
-                          <Link to="/signUp" style={{color:'royalblue'}}>Sign Up</Link>
+                          <Link to="/signUp" style={{ color: 'royalblue' }}>Sign Up</Link>
                         </span>
                       </p>
                     </div>
                   </div>
                 </form>
-              
-                </div>
-                
-                
+              </div>
             </div>
           </div>
           <div className="secondSide">
@@ -170,17 +160,16 @@ const Login = () => {
         </div>
 
         {/* Loading Overlay */}
-        {loading && (
+        {loadingMessage && (
           <div className="loading-overlay">
             <div className="loading-message">
               <h4>{loadingMessage}</h4>
-              <p>Loading...</p>
+             
             </div>
           </div>
         )}
       </div>
-      {/* <Toaster /> */}
-      <ToastContainer/>
+      <ToastContainer /> {/* Toast Container for react-toastify */}
     </>
   );
 };

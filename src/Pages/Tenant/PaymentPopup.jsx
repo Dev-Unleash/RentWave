@@ -27,14 +27,13 @@ const PaymentPopup = ({ closePopup }) => {
   const userInfo = localStorage.getItem("userInfo");
   const userData = JSON.parse(userInfo);
   const UserEmail = userData?.email;
-
   const paymentKey = import.meta.env.VITE_Public_Key;
 
-  // Function to handle payment submission
+ 
   const payKorapay = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
 
-    // Check if all required fields are filled
+   
     if (
       !payData.firstName ||
       !payData.lastName ||
@@ -47,66 +46,57 @@ const PaymentPopup = ({ closePopup }) => {
 
     setLoading(true);
 
-    // Send input data to backend
-    const apiData = {
-      firstName: payData.firstName,
-      lastName: payData.lastName,
-      amount: payData.amount,
-      paymentMethod: payData.paymentMethod,
-      notes: payData.notes,
-    };
+   
+    window.Korapay.initialize({
+      key: paymentKey,
+      reference: `Omotolani_${Date.now()}`,
+      amount: payData.amount * 1, 
+      currency: "NGN",
+      customer: {
+        name: `${payData.firstName} ${payData.lastName}`,
+        email: UserEmail,
+      },
+      onSuccess: async function (response) {
+        console.log(response);
+        toast.success("Payment successful. Check email for receipt.");
+        closePopup();
+        // Prepare data for API call
+        const apiData = {
+          firstName: payData.firstName,
+          lastName: payData.lastName,
+          amount: payData.amount,
+          paymentMethod: payData.paymentMethod,
+          notes: payData.notes,
+        };
 
-    try {
-      const url = "https://rentwave.onrender.com/api/v1/payRent";
-      console.log("Sending request to:", url);
-      const response = await axios.post(url, apiData, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      });
-      // Get the existing payments from localStorage or initialize an empty array
-      const existingPayments =
-        JSON.parse(localStorage.getItem("paymentHistory")) || [];
+        try {
+          const url = "https://rentwave.onrender.com/api/v1/payRent";
+          console.log("Sending request to:", url);
+          const apiResponse = await axios.post(url, apiData, {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+          });
 
-      // Push the new payment data to the array
-      existingPayments.push(apiData);
+          const existingPayments = JSON.parse(localStorage.getItem("paymentHistory")) || [];
+          existingPayments.push(apiData);
+          localStorage.setItem("paymentHistory", JSON.stringify(existingPayments));
 
-      // Save the updated array to localStorage
-      localStorage.setItem("paymentHistory", JSON.stringify(existingPayments));
-      // Initialize Korapay after the backend processes the data
-
-      // window.location.href = ""
-      window.Korapay.initialize({
-        key: paymentKey,
-        reference: `Omotolani_${Date.now()}`,
-        amount: payData.amount * 100, // amount in kobo
-        currency: "NGN",
-        customer: {
-          name: `${payData.firstName} ${payData.lastName}`,
-          email: UserEmail,
-        },
-        onSuccess: function (response) {
-          console.log(response);
-          toast.success("Payment successful. Check email for receipt.");
-
-          // Close the popup after the payment is successful
+         
           closePopup();
-        },
-        onError: function (error) {
-          console.error(error);
-          toast.error("Payment failed. Please try again.");
-        },
-      });
+        } catch (error) {
+          console.error("Error:", error.response?.data || error.message);
+          toast.error( "Error:",error.response?.data || error.message);
+        }
+      },
+      onError: function (error) {
+        console.error(error);
+        toast.error("Payment failed. Please try again.");
+        setLoading(false);
+      },
+    });
 
-      setLoading(false);
-    } catch (error) {
-      console.error("Error:", error.response?.data || error.message);
-      console.error("Error:", error);
-      console.log(apiData);
-
-      toast.error("Error sending data to backend. Please try again.");
-      setLoading(false);
-    }
+    setLoading(false); 
   };
 
   return (
