@@ -34,6 +34,7 @@ const MenuBar = () => {
     setShowLogoutPopup(true);
   };
 
+
   // Handle Logout Confirmation
   const handleLogoutConfirm = async () => {
     const url = "https://rentwave.onrender.com/api/v1/logout";
