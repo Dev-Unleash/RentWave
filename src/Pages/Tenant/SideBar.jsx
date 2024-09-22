@@ -15,10 +15,45 @@ const SideBar = () => {
   const userInfo = localStorage.getItem("userInfo");
   const userData = JSON.parse(userInfo);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [tenant, setTenant] = useState(null);
+
+  const userName =JSON.parse(localStorage.getItem("userInfo"));
+  const tenantId = userName._id
+  console.log(userName.firstName)
 
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
+
+  useEffect(() => {
+    const fetchTenant = async () => {
+      if (!tenantId) {
+        console.error("No tenant ID found");
+        return;
+      }
+  
+      const url = `https://rentwave.onrender.com/api/v1/tenant/${tenantId}`;
+      const token = localStorage.getItem("userToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+  
+      try {
+        const res = await axios.get(url, config);
+        const data = res.data;
+        console.log("Tenant Data:", data);
+        setTenant(data); // Set the tenant data to state
+      } catch (error) {
+        console.error("Error fetching tenant data:", error.response || error);
+        // toast.error(error.response?.data?.message || "Tenant not found.");
+      }
+    };
+  
+    fetchTenant();
+  }, [tenantId]);
+  
 
   const handleLogoutConfirm = async () => {
     const url = "https://rentwave.onrender.com/api/v1/logout";
@@ -52,8 +87,6 @@ const SideBar = () => {
     }
   }, [userData, nav]);
 
-  const userName =JSON.parse(localStorage.getItem("userInfo"));
-  console.log(userName.firstName)
   return (
     <>
       <div className="Sidebarwhole">
@@ -68,9 +101,9 @@ const SideBar = () => {
         <div className="Profile">
           <div className="Pics" style={{ cursor: "pointer" }}>
           <Link to="/TenantProfile">
-      {localStorage.getItem("userProfile") && JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture?.pictureUrl ? (
+      {localStorage.getItem("userInfo") && JSON.parse(localStorage.getItem("userInfo")).profilePicture?.pictureUrl ? (
         <img
-          src={JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture.pictureUrl}
+          src={tenant.data.profilePicture.pictureUrl}
           alt="Profile"
         />
       ) : (
@@ -79,7 +112,7 @@ const SideBar = () => {
     </Link>
           </div>
 
-          <p>{userName?.firstName}</p>
+          <p>{userName?.firstName + " " + userName.lastName}</p>
           <h3>Welcome</h3>
         </div>
 

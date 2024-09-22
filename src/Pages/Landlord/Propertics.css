@@ -23,7 +23,7 @@
 .up{
     width: 100%;
     height: 15%;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,15 +62,16 @@
   }
   .propertiesHeader h6 {
     flex: 1; /* Each header takes equal space */
-    text-align: center;
+    text-align: left;
     font-size: 20px; /* Center text */
+    padding-left: 20px;
   }
   
   .propertiesCard {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Ensure items are spaced evenly */
-    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Ensure items are spaced evenly */
+    align-items: flex-start; /* Center items vertically */
     padding: 10px;
     background-color: white;
     cursor: pointer;
@@ -86,12 +87,13 @@
   .propertiesCard h6 {
     margin: 0; /* Remove default margin */
     flex: 1; /* Each property data takes equal space */
-    text-align: center; /* Center align each property data */
+    text-align: left; /* Center align each property data */
   }
 .btnsLandlord {
   width: 100%;
   height: 10%;  
-  position: relative;
+display: flex;
+justify-content: flex-end;
 
   & .btnsLand {
     width: 20%;
@@ -102,7 +104,7 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /* position: absolute; */
     right: 8%;
     color: #fff;
     border: none;
@@ -136,11 +138,12 @@
     width: 100%;
     height: 20%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     /* border: 2px solid black; */
     border-radius: 5px;
     padding-inline: 10px;
+    text-align: left;
     background-color:white;
     cursor: pointer;
 }
@@ -185,13 +188,16 @@
         height: 30px;
     }
     .table3{
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        gap: 20px;
         background-color: rgb(199, 195, 195);
         overflow-y: scroll;
     }
     .propertiesCard{
         height: auto;
         flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
         gap: 20px;
     }
     .propertyDel{

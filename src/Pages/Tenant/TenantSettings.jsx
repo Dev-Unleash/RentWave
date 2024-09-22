@@ -130,7 +130,7 @@ const TenantSettings = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  required
+                  // required
                 />
               </div>
               <div className="AcctInput">
@@ -140,7 +140,7 @@ const TenantSettings = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  required
+                  // required
                 />
               </div>
               <div className="AcctInput">
@@ -150,7 +150,7 @@ const TenantSettings = () => {
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  required
+                  // required
                 />
               </div>
               <button

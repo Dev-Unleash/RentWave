@@ -75,6 +75,8 @@ const MenuBar = () => {
   // Debugging: log out the userProfile object to check its structure
   console.log("User Profile: ", userProfile);
 
+  const name = `${userProfile.data.firstName} ${userProfile.data.lastName}`
+
   return (
     <>
       <div className="Sidebarwhole1">
@@ -92,13 +94,13 @@ const MenuBar = () => {
               <img
                 // Safely access the profile picture URL or fallback to a default image
                 src={
-                  userProfile?.landlord?.profilePicture?.pictureUrl || "fallback-image-url"
+                  userProfile.data.profilePicture.pictureUrl || "fallback-image-url"
                 }
                 alt="Profile"
               />
             </Link>
           </div>
-          <p>{userProfile?.landlord?.firstName || "Unknown User"}</p> {/* Safely access firstName */}
+          <p>{name || "Unknown User"}</p> {/* Safely access firstName */}
           <h3>Welcome</h3>
         </div>
 

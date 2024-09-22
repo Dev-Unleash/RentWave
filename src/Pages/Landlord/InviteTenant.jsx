@@ -70,6 +70,8 @@ console.log(formData)
       leaseEnd: formData.leaseEnd,
     };
 
+    console.log("formData: ", body)
+
   
 
     const config = {
