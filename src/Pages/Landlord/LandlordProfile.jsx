@@ -220,7 +220,8 @@ const LandlordProfile = () => {
     });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWU4ODhjYzNmZmE2Zjk0MTIwZTI3YSIsInJvbGUiOiJMYW5kbG9yZCIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpYXQiOjE3MjY5MjQ4ODYsImV4cCI6MTcyNzAxMTI4Nn0.WObdHWSiucKMXKXqth2H1_WUdOxtbX-xxbtq3ctuf0k";
+    const token = localStorage.getItem("userToken");
+    //const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZWU4ODhjYzNmZmE2Zjk0MTIwZTI3YSIsInJvbGUiOiJMYW5kbG9yZCIsImlzQWRtaW4iOmZhbHNlLCJpc1N1cGVyQWRtaW4iOmZhbHNlLCJpYXQiOjE3MjY5MjQ4ODYsImV4cCI6MTcyNzAxMTI4Nn0.WObdHWSiucKMXKXqth2H1_WUdOxtbX-xxbtq3ctuf0k";
 
     useEffect(() => {
         const landlordData = JSON.parse(localStorage.getItem("userProfile"))?.landlord;
@@ -336,7 +337,7 @@ const LandlordProfile = () => {
                                             name="firstName"
                                             value={formData.firstName}
                                             onChange={handleInputChange}
-                                            required
+                                            // required
                                         />
                                         </div>
                                         <div className='writeInput'>
@@ -346,7 +347,7 @@ const LandlordProfile = () => {
                                             name="lastName"
                                             value={formData.lastName}
                                             onChange={handleInputChange}
-                                            required
+                                            // required
                                         />
                                         </div>
                                     </div>
@@ -359,7 +360,7 @@ const LandlordProfile = () => {
                                         name="phoneNumber"
                                         value={formData.phoneNumber}
                                         onChange={handleInputChange}
-                                        required
+                                        // required
                                     />
                                 </div>
                                 <div className="AcctInputdown">

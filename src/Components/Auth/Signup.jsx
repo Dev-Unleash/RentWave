@@ -78,7 +78,7 @@ const Signup = () => {
        }, [])
        
         setLoading(false);
-        toast.success(res.data.message);
+        toast.success(res.data.data.message);
         // alert(res.data.message)
         setTimeout(()=>{
           navigate("/Login");

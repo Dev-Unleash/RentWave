@@ -19,6 +19,7 @@ const MenuBar = () => {
   const userData = JSON.parse(userInfo);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [activeIcon, setActiveIcon] = useState(null);
+  const [landlord, setLandlord] = useState(null)
 
 
   // const toggleActive = (icon) => {
@@ -27,6 +28,42 @@ const MenuBar = () => {
   //     [icon]: !prevStates[icon], // Toggles only the clicked icon's state
   //   }));
   // };
+
+    // Fetch the landlord's profile data from localStorage
+    const userProfile = JSON.parse(localStorage.getItem("userInfo"));
+
+    // Debugging: log out the userProfile object to check its structure
+    console.log("User Profile: ", userProfile);
+    const landlordId = userProfile._id
+
+  useEffect(() => {
+    const fetchLandlord = async () => {
+      if (!landlordId) {
+        console.error("No landlord ID found");
+        return;
+      }
+  
+      const url = `https://rentwave.onrender.com/api/v1/user/${landlordId}`;
+      const token = localStorage.getItem("userToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+  
+      try {
+        const res = await axios.get(url, config);
+        const data = res.data;
+        console.log("landlord Data:", data);
+        setLandlord(data); 
+      } catch (error) {
+        console.error("Error fetching landlord data:", error.response || error);
+        // toast.error(error.response?.data?.message || "landlord not found.");
+      }
+    };
+  
+    fetchLandlord();
+  }, [landlordId]);
 
 
   // Handle Logout Click Popup
@@ -70,13 +107,7 @@ const MenuBar = () => {
     }
   }, [userData, nav]);
 
-  // Fetch the landlord's profile data from localStorage
-  const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-
-  // Debugging: log out the userProfile object to check its structure
-  console.log("User Profile: ", userProfile);
-
-  const name = `${userProfile.data.firstName} ${userProfile.data.lastName}`
+  const name = `${userProfile?.firstName} ${userProfile?.lastName}`
 
   return (
     <>
@@ -95,7 +126,7 @@ const MenuBar = () => {
               <img
                 // Safely access the profile picture URL or fallback to a default image
                 src={
-                  userProfile.data.profilePicture.pictureUrl || "fallback-image-url"
+                  userProfile?.profilePicture?.pictureUrl || "fallback-image-url"
                 }
                 alt="Profile"
               />

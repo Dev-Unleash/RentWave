@@ -121,5 +121,11 @@
 
     }
 }
+@media screen and (max-width: 900px) {
+    table{
+        overflow: scroll;
+        
+    }
+}
 
 

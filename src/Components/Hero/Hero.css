@@ -69,11 +69,11 @@
   color: #ffff;
   font-size: 25px;
 }
-.btnHero:hover{
+/* .btnHero:hover{
   background-color: blue;
   transform: scale(1.1);
   transition: all 1s;
-}
+} */
 .btnHero a{
   text-decoration: none;
   color: #ffff;
