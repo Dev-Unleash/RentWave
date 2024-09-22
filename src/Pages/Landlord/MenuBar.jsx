@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CiStar } from "react-icons/ci";
-import { FaTools } from "react-icons/fa";
+import { FaRegUserCircle, FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import { GrHostMaintenance } from "react-icons/gr";
@@ -12,11 +12,14 @@ import { MdPeopleAlt } from "react-icons/md";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineLogout } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
 
 const MenuBar = () => {
   const nav = useNavigate();
   const userInfo = localStorage.getItem("userInfo");
+  console.log(userInfo)
   const userData = JSON.parse(userInfo);
+  console.log(userData)
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [activeIcon, setActiveIcon] = useState(null);
 
@@ -33,6 +36,7 @@ const MenuBar = () => {
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
+
 
 
   // Handle Logout Confirmation
@@ -74,9 +78,13 @@ const MenuBar = () => {
   const userProfile = JSON.parse(localStorage.getItem("userProfile"));
 
   // Debugging: log out the userProfile object to check its structure
-  // console.log("User Profile: ", userProfile);
+  useEffect(() => {
+    userProfile
+  },[] )
+  
+ 
 
-  const name = `${userProfile.data.firstName} ${userProfile.data.lastName}`
+  // const name = `${userProfile.data.firstName} ${userProfile.data.lastName}`
 
   return (
     <>
@@ -92,16 +100,16 @@ const MenuBar = () => {
         <div className="Profile1">
           <div className="Pics1">
             <Link to="/profile">
-              <img
-                // Safely access the profile picture URL or fallback to a default image
+              {/* <img
+                Safely access the profile picture URL or fallback to a default image
                 src={
                   userProfile.data.profilePicture.pictureUrl || "fallback-image-url"
                 }
                 alt="Profile"
-              />
+              /> */}<FaRegUserCircle size={70}/>
             </Link>
           </div>
-          <p>{name || "Unknown User"}</p> {/* Safely access firstName */}
+          <p>{userData.firstName}</p> {/* Safely access firstName */}
           <h3>Welcome</h3>
         </div>
 
@@ -173,7 +181,8 @@ const MenuBar = () => {
             </div>
           )}
         </div>
-     <Toaster />
+        </div>
+     <ToastContainer/>
     </>
   );
 };

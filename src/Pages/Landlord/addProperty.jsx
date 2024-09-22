@@ -71,7 +71,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
         const errorMessage = error.response.data.message || 'Failed to create property.';
         toast.error(errorMessage);
       } else {
-        alert(error.response?.data?.errors);
+        alert(errorMessage);
       }
     } finally {
       setLoading(false); 
