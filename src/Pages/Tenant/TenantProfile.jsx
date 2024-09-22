@@ -2,6 +2,7 @@ import React from "react";
 import "./TenantProfile.css";
 import { Link, useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const TenantProfile = () => {
   const navigate = useNavigate();
@@ -33,10 +34,14 @@ const TenantProfile = () => {
         <div className="Profilepic">
           <div className="Pics" style={{ cursor: "pointer" }}>
             {/* If profilePicture is available, display it; otherwise, show a default image */}
-            <img
-              src={tenantData?.profilePicture?.pictureUrl || "ola"}
-              alt="Profile"
-            />
+            {localStorage.getItem("userProfile") && JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture?.pictureUrl ? (
+        <img
+          src={JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture.pictureUrl}
+          alt="Profile"
+        />
+      ) : (
+        <FaRegUserCircle size={50} /> // Adjust size as needed
+      )}
           </div>
         </div>
         <div className="ProfDetail">

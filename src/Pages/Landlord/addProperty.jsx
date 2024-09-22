@@ -1,95 +1,190 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './AddProperty.css';
 import { LuUpload } from "react-icons/lu";
-import { RiErrorWarningFill } from "react-icons/ri";
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const AddProperty = ({ isOpen, onClose, onSubmit }) => {
+const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [bedrooms, setBedrooms] = useState("");
+  const [bathrooms, setBathrooms] = useState("");
+  const [amenities, setAmenities] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const fileInputRef = useRef(null);
+
   if (!isOpen) return null;
 
-  const handleSubmit = () => {
-    onSubmit();
-    onClose();
+  const chooseFile = () => {
+    fileInputRef.current.click();
   };
 
-    const fileInputRef = useRef(null);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
 
-    const chooseFile = () => {
-        fileInputRef.current.click();
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Set loading to true
 
-    const handleFileChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-        // You can process the file here, e.g., upload it or display its name
-            console.log('Selected file:', file.name);
-        }
-    };
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('location', location);
+    formData.append('price', price);
+    formData.append('propertyType', propertyType);
+    formData.append('bedrooms', bedrooms);
+    formData.append('bathrooms', bathrooms);
+    formData.append('amenities', amenities);
+    formData.append('description', description);
+    if (selectedFile) {
+      formData.append('images', selectedFile);
+    }
+
+    try {
+      const token = localStorage.getItem("userToken");
+      const response = await axios.post('https://rentwave.onrender.com/api/v1/properties', formData, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      // Extract the propertyId from the response
+      const propertyId = response.data.data._id; // Ensure this matches the structure returned by your backend
+      console.log("Property created with ID:", propertyId);
+      setPropertyId(propertyId);
+      // Show success message
+      toast.success(response.data.message || 'Property added successfully!');
+      
+      // Do something with the propertyId (e.g., store in state, pass to another component)
+      
+      onClose(); // Close the modal
+    } catch (error) {
+      console.error("Error creating property:", error);
+
+      if (error.response && error.response.data) {
+        const errorMessage = error.response.data.message || 'Failed to create property.';
+        toast.error(errorMessage);
+      } else {
+        toast.error('An error occurred.');
+      }
+    } finally {
+      setLoading(false); // Reset loading state
+    }
+};
 
 
   return (
     <div className="modal">
       <div className="modal-content">
-        <span className="close-btn" onClick={onClose}>&times;</span>
-        <h2>Property</h2>
-        <p>Add or edit your property details</p>
-        <div className='Prosinput'>
-            <div className="words">
-                <p>Property Name</p>  
-                <input type="text" className='inputs'/>
-            </div>
+        <div className="ModalHeader">
+          <span className="close-btn" onClick={onClose}>&times;</span>
+          <h2>Add Property</h2>
+          <p>Add or edit your property details</p>
         </div>
-        <div className="email">
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" required={true}/>
-        </div>
-        <div className="email">
-            <p> Property type</p>
-            <select>
-                <option>Select Property</option>
-                <option>Apartment</option>
-                <option>House</option>
-                <option>Condo</option>
-                <option>Townhouse</option>
-                <option>Studio</option>
-            </select>
-        </div>
-        <div className='nameinput'>
-            <div className="words">
-                <p>Price</p>
-                <p>Amenities</p>
-            </div>
-            <div className="inputs">
-                <input type="text" placeholder='₦' />
-                <input type="text" name="" id="" />
-            </div>
-           
-        </div>
-        <div className='nameinput'>
-            <div className="words">
-                <p>Bedrooms</p>
-                <p>Bathrooms</p>
-            </div>
-            <div className="inputs">
-                <input type="text"  />
-                <input type="text" />
-            </div>
-        </div>
-        <div className="Desc">
-            <p>Description</p>
-            <input type="text" className='descInput'/>
-        </div>
-        <div className='Buttons'>
-            <input
-                type="file"
-                ref={fileInputRef}
-                style={{ display: 'none' }}
-                onChange={handleFileChange}
-            />
-            <button className='But' onClick={chooseFile}> <LuUpload className=' buticon'/> Upload Lease</button>
-        </div>  
-        <button className='Button2'onClick={handleSubmit}> Save </button>      
- </div>
 
+        <form onSubmit={handleSubmit}>
+          <div className='Prosinput'>
+            <div className="words">
+              <p>Property Name</p>
+              <input 
+                type="text" 
+                className='inputs' 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="email">
+            <label htmlFor="location">Location</label>
+            <input 
+              type="text" 
+              id="location" 
+              name="location" 
+              required 
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+          <div className="email">
+            <p>Property Type</p>
+            <select value={propertyType} onChange={(e) => setPropertyType(e.target.value)}>
+              <option>Select Property</option>
+              <option value="Apartment">apartment</option>
+              <option value="House">House</option>
+              <option value="Condo">condo</option>
+              <option value="Townhouse">Townhouse</option>
+            </select>
+          </div>
+          <div className='nameinput'>
+            <div className="words">
+              <p>Price</p>
+              <p>Amenities</p>
+            </div>
+            <div className="inputs">
+              <input 
+                type="text" 
+                placeholder='₦' 
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+              <input 
+                type="text" 
+                placeholder='e.g., Pool, Gym' 
+                value={amenities}
+                onChange={(e) => setAmenities(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className='nameinput'>
+            <div className="words">
+              <p>Bedrooms</p>
+              <p>Bathrooms</p>
+            </div>
+            <div className="inputs">
+              <input 
+                type="text" 
+                value={bedrooms}
+                onChange={(e) => setBedrooms(e.target.value)}
+              />
+              <input 
+                type="text" 
+                value={bathrooms}
+                onChange={(e) => setBathrooms(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="Desc">
+            <p>Description</p>
+            <input 
+              type="text" 
+              className='descInput'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className='Buttons'>
+            <input
+              type="file"
+              ref={fileInputRef}
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
+            />
+            <button className='But' onClick={chooseFile}> 
+              <LuUpload className='buticon'/> Upload Image
+            </button>
+          </div>
+          <button className='Button2' type='submit' disabled={loading}>
+            {loading ? 'Loading...' : 'Add'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

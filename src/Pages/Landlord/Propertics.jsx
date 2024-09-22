@@ -1,67 +1,106 @@
-import React, { useState } from 'react'
-import './Propertics.css'
-import image from "../../assets/Group (1).png"
-import { RiAddFill, RiSearchLine } from 'react-icons/ri'
-import AddProperty from './addProperty.jsx'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import './Propertics.css';
+import { RiAddFill, RiSearchLine } from 'react-icons/ri';
+import AddProperty from "./addProperty";
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PropertyDetailsPopup from './PropertyDetailsPopup'; // Import the popup component
 
 const Propertics = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [properties, setProperties] = useState([]);
+  const [selectedProperty, setSelectedProperty] = useState(null); // State for the selected property
+  const [isPopupOpen, setIsPopupOpen] = useState(false); // State for the popup visibility
+  const [propertyId, setPropertyId] = useState(null);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-  const handleSubmit = () => alert('Submitted!');
+  
+  const openPopup = (property) => {
+    setPropertyId(property._id);
+    setSelectedProperty(property);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setSelectedProperty(null);
+    setIsPopupOpen(false);
+  };
+
+  const fetchProperties = async () => {
+    try {
+      const token = localStorage.getItem("userToken");
+      const response = await axios.get('https://rentwave.onrender.com/api/v1/landlord/properties', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      setProperties(response.data.data);
+      toast.success(response.data.message);
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+      toast.error('Failed to fetch properties.');
+    }
+  };
+
+  useEffect(() => {
+    fetchProperties();
+  }, []);
+
   return (
     <div className='Pages'>
       <div className="PropsContainers">
         <div className="up">
           <p>My Portfolio</p>
           <div className='input'>
-            <RiSearchLine  className='icon'/>
-            <input type="search" placeholder='Search' className='put'/>
+            <RiSearchLine className='icon' />
+            <input type="search" placeholder='Search' className='put' />
           </div>
         </div>
         <div className="btnsLandlord">
-          <botton className='btnsLand' onClick={openModal}><RiAddFill className='icon'/>Add property</botton>
+          <button className='btnsLand' onClick={openModal}>
+            <RiAddFill className='icon' />Add property
+          </button>
         </div>
         <div className="table3">
-          {/* <img src={image} alt="" />
-          <p>No properties yet but properties for this portfolio will be listed <br/> here.</p> */}
-          <div className='propertiesCard'><Link to='/PropertyView1' style={{color:'black'}}><h6>Property Name: <span>Vcg Estate</span></h6></Link> 
-          <h6>Location: <span>Lekki</span></h6>
-          <h6>Property Type: <span>office space</span></h6>
-          <button className='propertyDel'>Delete</button>
-
+          <div className="propertiesHeader">
+            <h6>Property Name</h6>
+            <h6>Location</h6>
+            <h6>Availability</h6>
           </div>
-          <div className='propertiesCard'><h6>Property Name: <span>Boamt Nest</span></h6> 
-          <h6>Location: <span>Lekki</span></h6>
-          <h6>Property Type: <span>condo</span></h6>
-          <button className='propertyDel'>Delete</button>
-
-          </div>
-          <div className='propertiesCard'><h6>Property Name: <span>Danish haven</span></h6> 
-          <h6>Location: <span>Lekki</span></h6>
-          <h6>Property Type: <span>flat</span></h6>
-          <button className='propertyDel'>Delete</button>
-
-          </div>
-          <div className='propertiesCard'><h6>Property Name: <span>Bay Veiw</span></h6> 
-          <h6>Location: <span>Lekki</span></h6>
-          <h6>Property Type: <span>apartment</span></h6>
-          <button className='propertyDel'>Delete</button>
-
-          </div>
+          {properties.length > 0 ? (
+            properties.map(property => (
+              <div 
+                className='propertiesCard' 
+                key={property._id} 
+                onClick={() => openPopup(property)} 
+              >
+                <h6>{property.name}</h6>
+                <h6>{property.location}</h6>
+                <h6>{property.isAvailable ? "Available" : "Not Available"}</h6>
+              </div>
+            ))
+          ) : (
+            <p>No properties yet. Properties for this portfolio will be listed here.</p>
+          )}
         </div>
       </div>
 
-      <AddProperty 
+      <AddProperty
         isOpen={isModalOpen} 
         onClose={closeModal} 
-        onSubmit={handleSubmit}
       />
-      
-    </div>
-  )
-}
 
-export default Propertics
+      {/* Popup for property details */}
+      <PropertyDetailsPopup 
+        isOpen={isPopupOpen} 
+        onClose={closePopup} 
+        property={selectedProperty} 
+        propertyId={propertyId}
+      />
+    </div>
+  );
+};
+
+export default Propertics;

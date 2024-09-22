@@ -5,45 +5,17 @@ import axios from "axios";
 import { formatDateTime } from "../../Components/utils/utils";
 
 const TenMain = ({ showPopup, setShowPopup }) => {
-  // const data = [
-  //   {
-  //     Reason: "Burst pipe",
-  //     Date: "2023-09-01",
-  //     status: "Sent",
-  //     time: "2:45pm",
-  //   },
-  //   {
-  //     Reason: "Leaking roof",
-  //     Date: "2023-09-02",
-  //     status: "In Progress",
-  //     time: "10:00am",
-  //   },
-  //   {
-  //     Reason: "Clogged drain",
-  //     Date: "2023-09-03",
-  //     status: "Completed",
-  //     time: "5:30pm",
-  //   },
-  //   {
-  //     Reason: "Broken window",
-  //     Date: "2023-09-04",
-  //     status: "Pending",
-  //     time: "1:15pm",
-  //   },
-  // ];
-
   const handleRequestClick = () => {
     setShowPopup(true);
   };
+
   const userToken = localStorage.getItem("userToken");
   const userInfo = localStorage.getItem("userInfo");
   const userData = JSON.parse(userInfo);
-  console.log(userData);
   const id = userData._id;
-  console.log(id);
+
   const getUser = () => {
     const url = `https://rentwave.onrender.com/api/v1/maintenance-requests/${id}`;
-    console.log(url);
     axios
       .get(url, {
         headers: {
@@ -99,14 +71,19 @@ const TenMain = ({ showPopup, setShowPopup }) => {
               </thead>
               <tbody>
                 {data.map((item, index) => {
+                  
+                  const maintenanceRequest = item.maintenanceRequest || {};
                   const { formattedDate, formattedTime } = formatDateTime(
-                    item.maintenanceRequest.createdAt
+                    maintenanceRequest.createdAt || new Date()
                   );
 
                   return (
-                    <tr key={index} >
-                      <td className="TenMaincolumn1" style={{ width: "30%" }} >
-                        {item.maintenanceRequest.requestFor}
+                    <tr key={index}>
+                      <td
+                        className="TenMaincolumn1"
+                        style={{ width: "30%" }}
+                      >
+                        {maintenanceRequest.requestFor || "Unknown Request"}
                       </td>
                       <td className="TenMaincolumn" style={{ width: "20%" }}>
                         {formattedDate}
@@ -114,7 +91,9 @@ const TenMain = ({ showPopup, setShowPopup }) => {
                       <td className="TenMaincolumn" style={{ width: "20%" }}>
                         {formattedTime}
                       </td>
-                      <td className="TenMaincolumn">{item.status || "Sent"}</td>
+                      <td className="TenMaincolumn">
+                        {item.status || "Sent"}
+                      </td>
                     </tr>
                   );
                 })}
