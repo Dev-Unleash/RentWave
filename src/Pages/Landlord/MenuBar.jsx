@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CiStar } from "react-icons/ci";
-import { FaRegUserCircle, FaTools } from "react-icons/fa";
+import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import { GrHostMaintenance } from "react-icons/gr";
@@ -12,17 +12,13 @@ import { MdPeopleAlt } from "react-icons/md";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineLogout } from "react-icons/ai";
-import { ToastContainer } from "react-toastify";
 
 const MenuBar = () => {
   const nav = useNavigate();
   const userInfo = localStorage.getItem("userInfo");
-  console.log(userInfo)
   const userData = JSON.parse(userInfo);
-  console.log(userData)
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [activeIcon, setActiveIcon] = useState(null);
-  const [landlord, setLandlord] = useState(null)
 
 
   // const toggleActive = (icon) => {
@@ -32,48 +28,11 @@ const MenuBar = () => {
   //   }));
   // };
 
-    // Fetch the landlord's profile data from localStorage
-    const userProfile = JSON.parse(localStorage.getItem("userInfo"));
-
-    // Debugging: log out the userProfile object to check its structure
-    console.log("User Profile: ", userProfile);
-    const landlordId = userProfile._id
-
-  useEffect(() => {
-    const fetchLandlord = async () => {
-      if (!landlordId) {
-        console.error("No landlord ID found");
-        return;
-      }
-  
-      const url = `https://rentwave.onrender.com/api/v1/user/${landlordId}`;
-      const token = localStorage.getItem("userToken");
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-  
-      try {
-        const res = await axios.get(url, config);
-        const data = res.data;
-        console.log("landlord Data:", data);
-        setLandlord(data); 
-      } catch (error) {
-        console.error("Error fetching landlord data:", error.response || error);
-        // toast.error(error.response?.data?.message || "landlord not found.");
-      }
-    };
-  
-    fetchLandlord();
-  }, [landlordId]);
-
 
   // Handle Logout Click Popup
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
-
 
 
   // Handle Logout Confirmation
@@ -111,7 +70,14 @@ const MenuBar = () => {
     }
   }, [userData, nav]);
 
-  const name = `${userProfile?.firstName} ${userProfile?.lastName}`
+  // Fetch the landlord's profile data from localStorage
+  const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+
+  // Debugging: log out the userProfile object to check its structure
+  console.log("User Profile: ", userInfo);
+
+  // const name = `${userInfo?.firstName} ${userInfo?.lastName}`
+  const name = `${userInfo?.firstName || "N/A"} ${userInfo?.lastName || "N/A"}`
 
   return (
     <>
@@ -127,63 +93,63 @@ const MenuBar = () => {
         <div className="Profile1">
           <div className="Pics1">
             <Link to="/profile">
-              {/* <img
-                Safely access the profile picture URL or fallback to a default image
+              <img
+                // Safely access the profile picture URL or fallback to a default image
                 src={
-                  userProfile?.profilePicture?.pictureUrl || "fallback-image-url"
+                  userInfo?.profilePicture?.pictureUrl || "fallback-image-url"
                 }
                 alt="Profile"
-              /> */}<FaRegUserCircle size={70}/>
+              />
             </Link>
           </div>
-          <p>{userData.firstName}</p> {/* Safely access firstName */}
+          <p>{name || "Unknown User"}</p> {/* Safely access firstName */}
           <h3>Welcome</h3>
         </div>
 
         <div className="MenuContainer1">
           <div className="MenuWrapper1">
             <nav>
+            <Link className="menuside" to='/LandLord'>  <IoHome onClick={() => setActiveIcon("home")} 
+                  color={activeIcon === "home" ? 'royalblue' : 'black'}  className="menuIcon1"  /></Link>
               <NavLink to="/LandLord"  onClick={() => setActiveIcon("home")} 
-                  style={({ isActive }) =>
-                    isActive ? { color: "royalblue" } : { color: "black" }
-                  }>
+                  className='active-link'>
                 Home
               </NavLink>
             </nav>
             <nav>
+            <Link className="menuside" to='/propertics'>  <GiFamilyHouse onClick={() => setActiveIcon("properties")} 
+            color={activeIcon === "properties" ? 'royalblue' : 'black'}  className="menuIcon1"  /></Link>
               <NavLink to="/propertics"  onClick={() => setActiveIcon("properties")} 
-           style={({ isActive }) =>
-            isActive ? { color: "royalblue" } : { color: "black" }
-          }>
+           className='active-link'>
                 Properties
               </NavLink>
             </nav>
             <nav>
+             <Link className="menuside" to='/Transactions'> <CiWallet onClick={() => setActiveIcon("transactions")} 
+                  color={activeIcon === "transactions" ? 'royalblue' : 'black'}   className="menuIcon1"   /></Link>
               <NavLink to="/Transactions"onClick={() => setActiveIcon("transactions")} 
-                 style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }>
+                  className='active-link'>
                 Transactions
               </NavLink>
             </nav>
             <nav>
-              <NavLink to="/View-Tenant" style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }>
+            <Link className="menuside" to='/View-Tenant'>   <MdPeopleAlt  onClick={() => setActiveIcon("tenants")} 
+                  color={activeIcon === "tenants" ? 'royalblue' : 'black'}   className="menuIcon1"   /></Link>
+              <NavLink to="/View-Tenant"onClick={() => setActiveIcon("tenants")}className='active-link'>
                 Tenants
               </NavLink>
             </nav>
             <nav>
-              <NavLink to="/Maintenance" style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }>
+            <Link className="menuside" to='/Maintenance'>   <GrHostMaintenance onClick={() => setActiveIcon("maintenance")} 
+                  color={activeIcon === "maintenance" ? 'royalblue' : 'black'}   className="menuIcon1" /></Link>           
+              <NavLink to="/Maintenance" onClick={() => setActiveIcon("maintenance")} className='active-link'>
                 Maintenance
               </NavLink>
             </nav>
             <nav>
-              <NavLink to="/settings" style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }>
+            <Link className="menuside" to='/settings'>   <FaTools  onClick={() => setActiveIcon("settings")} 
+                  color={activeIcon === "settings" ? 'royalblue' : 'black'}  className="menuIcon1"   /></Link>           
+              <NavLink to="/settings" onClick={() => setActiveIcon("settings")} className='active-link'>
                 Account Settings
               </NavLink>
             </nav>
@@ -208,10 +174,10 @@ const MenuBar = () => {
             </div>
           )}
         </div>
-        </div>
-     <ToastContainer/>
+      </div>
+      <Toaster />
     </>
   );
 };
 
-export default MenuBar;
+export default MenuBar
