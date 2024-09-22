@@ -88,7 +88,8 @@ console.log(formData)
       onSubmit();
       onClose();
     } catch (error) {
-      toast.error("Error onboarding tenant. Please try again.", {
+      alert(error.response?.data?.errors)
+      toast.error(error.response?.data?.errors, {
         autoClose: 3000,
       });
       console.error("Error onboarding tenant:", error);

@@ -108,6 +108,7 @@ justify-content: flex-end;
     right: 8%;
     color: #fff;
     border: none;
+    cursor: pointer;
   }
 }
 

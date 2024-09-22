@@ -40,7 +40,7 @@ const Propertics = () => {
       toast.success(response.data.message);
     } catch (error) {
       console.error("Error fetching properties:", error);
-      toast.error('Failed to fetch properties.');
+      toast.error(error.response?.data?.errors);
     }
   };
 
@@ -52,14 +52,14 @@ const Propertics = () => {
     <div className='Pages'>
       <div className="PropsContainers">
         <div className="up">
-          <p>My Portfolio</p>
+          <p>My Property</p>
           <div className='input'>
             <RiSearchLine className='icon' />
             <input type="search" placeholder='Search' className='put' />
           </div>
         </div>
         <div className="btnsLandlord">
-          <button className='btnsLand' onClick={openModal}>
+          <button className='btnsLand' onClick={openModal} >
             <RiAddFill className='icon' />Add property
           </button>
         </div>
@@ -80,7 +80,7 @@ const Propertics = () => {
               </div>
             ))
           ) : (
-            <p>No properties yet. Properties for this portfolio will be listed here.</p>
+            <p>Loading Properties....</p>
           )}
         </div>
       </div>

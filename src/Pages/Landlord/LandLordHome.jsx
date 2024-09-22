@@ -41,7 +41,7 @@ const LandLordHome = () => {
       const paymentsResponse = await axios.get(paymentsUrl, config);
       const total = paymentsResponse.data.data.reduce((acc, payment) => acc + payment.amount, 0);
       setTotalPayments(total);
-      setTotalEarnings(total); // Assuming total payments equal total earnings
+      setTotalEarnings(total); 
     } catch (error) {
       console.error("Error fetching total payments:", error);
     }
