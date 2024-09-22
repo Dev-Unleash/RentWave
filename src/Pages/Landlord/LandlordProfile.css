@@ -89,6 +89,7 @@
     cursor: pointer;
 }
 
+
 .Acctgender {
     width: 80%;
 
@@ -117,10 +118,6 @@ form {
     /* background-color: red; */
 }
 
-/* .Edit {
-    position: absolute;
-    bottom: 1%;
-} */
 
 
 @media screen and (max-width:900px) {
