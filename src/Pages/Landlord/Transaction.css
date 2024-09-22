@@ -11,12 +11,12 @@
 
 .up{
     width: 100%;
-    height: 15%;
+    height: 10%;
     /* background-color: blue; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 30px;
+    /* padding-inline: 30px; */
 
 
     & p {
@@ -75,7 +75,7 @@
 
 .table {
     width: 95%;
-    height: 72%;
+    height: 80%;
     background-color: #fff;
     border-radius: 10px;
     display: flex;
@@ -138,4 +138,18 @@
     width: 100%;
     height: 100%;
     overflow: scroll;
+}
+.TotalLndAmt{
+    width: 90%;
+    height: 5%;
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: red; */
+    & p{
+        font-size: 20px;
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
+        color: black;
+    }
 }

@@ -9,6 +9,21 @@ const Address = ({ isOpen, onClose, onSubmit }) => {
       onSubmit();
       onClose();
     };
+//     <div className="email">
+//     <p>Property</p>
+//     <select
+//         name="property"
+//         value={formData.property}
+//         onChange={handleInputChange}
+//     >
+//         <option value="">Select Property</option>
+//         {properties.map(property => (
+//             <option key={property._id} value={property._id}>
+//                 {property.name}
+//             </option>
+//         ))}
+//     </select>
+// </div>
   
   return (
     <div className="mod">

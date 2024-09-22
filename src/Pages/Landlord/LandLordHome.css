@@ -25,7 +25,7 @@
     width: 305px;
     background-color: white;
     /* border: 1px solid rgb(143, 141, 141); */
-    /* border-top: 20px solid #4D86DB; */
+    border-top: 10px solid #4D86DB;
     box-shadow: 1px 10px 16px 1px rgba(0, 0, 0, 0.296);
     border-radius: 10px;
     padding: 0px 15px 15px;
@@ -33,6 +33,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+
     /* gap: 10px; */
     & h1{
         font-size: 20px;

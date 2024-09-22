@@ -7,7 +7,18 @@
     align-items: center;
     gap: 10px;
 }
-
+.bot{
+    width: 400px;
+    height:30px;
+    background-color: #4D86DB;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    
+}
 
 .up{
     width: 100%;
@@ -37,11 +48,49 @@
     }
 
 }
-
+.propertiesHeader {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue; /* Header background color */
+    color: black; /* Header text color */
+    padding: 10px;
+    border-radius: 5px 5px 0 0; /* Rounded corners on the top */
+    font-weight: bold;
+    position: sticky;
+  }
+  .propertiesHeader h6 {
+    flex: 1; /* Each header takes equal space */
+    text-align: center;
+    font-size: 20px; /* Center text */
+  }
+  
+  .propertiesCard {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ensure items are spaced evenly */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    background-color: white;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(163, 161, 161);
+  }
+  
+  .propertyData {
+    display: flex;
+    justify-content: space-between; /* Space the properties evenly */
+    width: 100%; /* Make sure it takes full width */
+  }
+  
+  .propertiesCard h6 {
+    margin: 0; /* Remove default margin */
+    flex: 1; /* Each property data takes equal space */
+    text-align: center; /* Center align each property data */
+  }
 .btnsLandlord {
   width: 100%;
   height: 10%;  
-  /* background-color: #fff; */
   position: relative;
 
   & .btnsLand {
@@ -56,6 +105,7 @@
     position: absolute;
     right: 8%;
     color: #fff;
+    border: none;
   }
 }
 
@@ -91,7 +141,8 @@
     /* border: 2px solid black; */
     border-radius: 5px;
     padding-inline: 10px;
-    background-color:aliceblue;
+    background-color:white;
+    cursor: pointer;
 }
 .propertiesCard h6{
     font-size: 18px;

@@ -8,6 +8,7 @@ import Logo from "../../assets/logo-removebg-preview.png";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import "./Tenant.css";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const SideBar = () => {
   const nav = useNavigate();
@@ -51,8 +52,8 @@ const SideBar = () => {
     }
   }, [userData, nav]);
 
-  const userName = JSON.parse(localStorage.getItem("userProfile"));
-
+  const userName =JSON.parse(localStorage.getItem("userInfo"));
+  console.log(userName.firstName)
   return (
     <>
       <div className="Sidebarwhole">
@@ -66,20 +67,19 @@ const SideBar = () => {
 
         <div className="Profile">
           <div className="Pics" style={{ cursor: "pointer" }}>
-            <Link to="/TenantProfile">
-              <img
-                src={
-                  localStorage.getItem("userProfile")
-                    ? JSON.parse(localStorage.getItem("userProfile")).tenant
-                        .profilePicture.pictureUrl
-                    : ""
-                }
-                alt="Profile"
-              />
-            </Link>
+          <Link to="/TenantProfile">
+      {localStorage.getItem("userProfile") && JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture?.pictureUrl ? (
+        <img
+          src={JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture.pictureUrl}
+          alt="Profile"
+        />
+      ) : (
+        <FaRegUserCircle size={50} /> // Adjust size as needed
+      )}
+    </Link>
           </div>
 
-          <p>{userName?.tenant?.firstName}</p>
+          <p>{userName?.firstName}</p>
           <h3>Welcome</h3>
         </div>
 

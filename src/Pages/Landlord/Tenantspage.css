@@ -74,14 +74,15 @@
     height: 10%;  
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding-inline: 26px;
+    justify-content: flex-end;
     /* background-color: #fff; */
     color: #fff;
     /* position: relative; */
   
     & .bot {
-      width: 29%;
+      width: 25%;
       height: 75%;
       background-color: #4D86DB;
       border-radius: 10px;
@@ -90,6 +91,8 @@
       align-items: center;
       cursor: pointer;
       gap: 10px;
+      color: #fff;
+      font-size: 18px;
       /* position: absolute;
       right: 8%; */
       

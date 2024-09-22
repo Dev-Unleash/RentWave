@@ -4,6 +4,7 @@ import { FaCamera } from "react-icons/fa6";
 import { IoArrowBack } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const TenantSettings = () => {
   const [showImg, setShowImg] = useState();
@@ -94,14 +95,18 @@ const TenantSettings = () => {
         <div className="AcctSettingsDown">
           <div className="AcctProfile">
             <div className="Pics">
-              {showImg && <img src={showImg} alt="Profile" />}
+            {showImg ? (
+    <img src={showImg} alt="Profile" />
+  ) : (
+    <FaRegUserCircle style={{ height: "100px", width: "100px", color: "grey" }} />
+  )}
               <div className="UploadIcon">
                 <input type="file" id="i" hidden onChange={posting} />
                 <label htmlFor="i" style={{ width: "max-content" }}>
                   <FaCamera
                     style={{
-                      height: "20px",
-                      width: "30px",
+                      height: "30px",
+                      width: "40px",
                       position: "absolute",
                       bottom: "-5px",
                       right: "0px",
