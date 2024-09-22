@@ -89,12 +89,7 @@
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-/* .Edit {
-    position: absolute;
-    bottom: 1%;
-} */
-=======
+
 .Acctgender {
     width: 80%;
 
@@ -123,10 +118,6 @@
     /* background-color: red; */
 }
 
-/* .Edit {
-    position: absolute;
-    bottom: 1%;
-} */
 
 
 @media screen and (max-width:900px) {
@@ -149,4 +140,3 @@
         width: 200px;
     }
 }
->>>>>>> 99cb9ed31fd6f45e4df3d993bef08bc223298451
