@@ -16,7 +16,7 @@
 //     const openModal = () => setIsModalOpen(true);
 //     const closeModal = () => setIsModalOpen(false);
 
-    
+
 //   const[showImg,setShowImg]=useState();
 //   const [formData, setFormData] = useState({
 //     firstName: "",
@@ -109,10 +109,10 @@
 //           right:"0px",cursor:"pointer"}}/>
 //                 </label>
 //                 </div>
-      
-          
+
+
 //         </div>
-       
+
 //       </div>
 //       <div className="AcctInputContainer1">
 //       <form 
@@ -191,7 +191,7 @@
 //       </div>
 //     </div>
 //     </div>
-    
+
 //   )
 // }
 
@@ -328,11 +328,12 @@ const LandlordProfile = () => {
                             <form style={{ height: "100%", width: "100%" }} onSubmit={handleSubmit}>
                                 <div className="naming">
                                     <div className="fullname">
-                                       
-                                       
+
+
                                     </div>
                                     <div className="write">
-                                    <p>First Name</p>
+                                        <div className='writeInput'>
+                                        <p>First Name</p>
                                         <input
                                             type="text"
                                             name="firstName"
@@ -340,8 +341,9 @@ const LandlordProfile = () => {
                                             onChange={handleInputChange}
                                             required
                                         />
-                                    
-                                         <p>Last Name</p>
+                                        </div>
+                                        <div className='writeInput'>
+                                        <p>Last Name</p>
                                         <input
                                             type="text"
                                             name="lastName"
@@ -349,6 +351,7 @@ const LandlordProfile = () => {
                                             onChange={handleInputChange}
                                             required
                                         />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="AcctInput">

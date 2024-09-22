@@ -198,3 +198,12 @@
     line-height: 28.72px;
 }
   
+@media screen and (max-width:900px) {
+    .inputs{
+        width: 80%;
+        /* background-color: #4D86DB; */
+        justify-content: center;
+        align-items: center;
+    }
+
+}

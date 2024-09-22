@@ -49,7 +49,7 @@ const Hero = () => {
             </Link>
           </div>
           <div className='herodashProfile'>
-            <Link style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} to='/profile'>
+            <Link style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} to=''>
               <img src={devBen} alt="" />
             </Link>
             <h5>Mr Johnson <br />
@@ -58,7 +58,7 @@ const Hero = () => {
           <div className='heroProfileIcon'>
             <IoHome style={{ width: '30px', height: '30px' }} className="menuIcon" />
             <span>
-              <Link style={{ color: 'black', paddingLeft: '10px', fontSize: '18px' }} to='/Landlord'>Home</Link>
+              <Link style={{ color: 'black', paddingLeft: '10px', fontSize: '18px' }} to=''>Home</Link>
             </span>
           </div>
         </div>
@@ -69,17 +69,17 @@ const Hero = () => {
             <div className='heroCard'>
               <p>Space Booked</p>
               <h5>0</h5>
-              <Link to='/Landlord' style={{ color: 'blue' }}>See All</Link>
+              <Link to='' style={{ color: 'blue' }}>See All</Link>
             </div>
             <div className='heroCard'>
               <p>Maintenance Request</p>
               <h5>0</h5>
-              <Link to='/Landlord' style={{ color: 'blue' }}>See All</Link>
+              <Link to='' style={{ color: 'blue' }}>See All</Link>
             </div>
             <div className='heroCard'>
               <p>Active Subscription</p>
               <h5>0</h5>
-              <Link to='/Landlord' style={{ color: 'blue' }}>See All</Link>
+              <Link to='' style={{ color: 'blue' }}>See All</Link>
             </div>
           </div>
         </div>

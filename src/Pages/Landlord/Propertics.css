@@ -191,7 +191,7 @@
     }
     .propertiesCard{
         height: auto;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 20px;
     }
     .propertyDel{
