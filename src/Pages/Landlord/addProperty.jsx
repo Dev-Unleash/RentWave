@@ -55,16 +55,15 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
         },
       });
 
-      // Extract the propertyId from the response
-      const propertyId = response.data.data._id; // Ensure this matches the structure returned by your backend
+    
+      const propertyId = response.data.data._id; 
       console.log("Property created with ID:", propertyId);
       setPropertyId(propertyId);
-      // Show success message
       toast.success(response.data.message || 'Property added successfully!');
       
-      // Do something with the propertyId (e.g., store in state, pass to another component)
+    
       
-      onClose(); // Close the modal
+      onClose(); 
     } catch (error) {
       console.error("Error creating property:", error);
 
@@ -72,10 +71,10 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
         const errorMessage = error.response.data.message || 'Failed to create property.';
         toast.error(errorMessage);
       } else {
-        toast.error('An error occurred.');
+        alert(error.response?.data?.errors);
       }
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false); 
     }
 };
 
@@ -181,7 +180,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
             </button>
           </div>
           <button className='Button2' type='submit' disabled={loading}>
-            {loading ? 'Loading...' : 'Add'}
+            {loading ? 'Loading...' : 'Add'} 
           </button>
         </form>
       </div>

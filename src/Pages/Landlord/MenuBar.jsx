@@ -33,6 +33,7 @@ const MenuBar = () => {
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
+ 
 
   // Handle Logout Confirmation
   const handleLogoutConfirm = async () => {
@@ -69,9 +70,6 @@ const MenuBar = () => {
     }
   }, [userData, nav]);
 
-  // Fetch the landlord's profile data from localStorage
-  const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-
   // Debugging: log out the userProfile object to check its structure
   console.log("User Profile: ", userProfile);
 
@@ -101,7 +99,9 @@ const MenuBar = () => {
           <p>{userProfile?.landlord?.firstName || "Unknown User"}</p> {/* Safely access firstName */}
           <h3>Welcome</h3>
         </div>
-
+        <p>{ userData.firstName}</p>
+        <h3>Welcome</h3>
+      </div>
         <div className="MenuContainer1">
           <div className="MenuWrapper1">
             <nav>
