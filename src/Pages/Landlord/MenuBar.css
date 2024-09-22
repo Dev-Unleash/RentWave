@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
 
-    & .Logo1{
+    & .Logolandlord{
         height: 80%;
         width: 80%;
 
@@ -111,6 +111,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+   
   }
   
   .popup1 p {
@@ -139,5 +140,80 @@
 
     
   }
+
+  .active-link {
+    color: royalblue;
+  }
   
+  @media screen and (max-width: 900px) {
+    .Sidebarwhole1{
+        height: 100%;
+        /* position: relative; */
+        
+    }
+    .MenuContainer1 {
+       height: 70%;
+    }
+    .MenuWrapper1{
+        height: 100%;
+        /* background-color: aquamarine; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        /* position: relative; */
+    }
+    .MenuWrapper1  nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10%;
+        width: 100%;
+        /* background-color: blueviolet; */
+       
+    }
+    .Profile1{
+        display: none;
+    }
+    .active-link{
+        width: 30%;
+        display: none;
+        font-size: 10px;
+       
+    }
+
+    .menuIcon1{
+        color: black;
+        width: 40px;
+        height: 40px;
+        /* color: #4D86DB; */
+    }
+    .LogoContainer1{
+        width: 100px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .Logolandlord{
+        width: 10px;
+        height: 40px;
+    }
+    .Logoutmenu{
+        width: 100%;
+       
+    }
+    .Logoutmenu p{
+        font-size: 10px;
+        display: none;
+    }
+    /* .popup1{
+        position: absolute;
+        right: 1000px;
+       margin-left: 100px;
+       border: 4px solid red;
+    } */
+
+}
  

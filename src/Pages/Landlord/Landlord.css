@@ -10,4 +10,11 @@
     height: 100%;
     width: 78vw;
     background-color: rgb(207, 206, 206);
+    /* background-color: rgb(114, 25, 25); */
+}
+@media screen and (max-width:900px){
+    .Pages{
+       overflow: scroll;
+       width: 100%;
+    }
 }

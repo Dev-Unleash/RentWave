@@ -95,7 +95,7 @@
 .AcctInputContainer1 {
     height: 85%;
     width: 100%;
-    /* background-color: red; */
+    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,3 +111,15 @@
     position: absolute;
     bottom: 1%;
 } */
+
+
+@media screen and (max-width:900px) {
+    .AcctInputContainer1{
+        overflow-y: scroll;
+        height: 80%;
+    }
+    .write{
+        height: auto;
+        flex-direction: column;
+    }
+}

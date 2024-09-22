@@ -3,6 +3,7 @@ import { CiStar } from "react-icons/ci";
 import { FaTools } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
+import { GrHostMaintenance } from "react-icons/gr";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-removebg-preview.png";
 import "./MenuBar.css";
@@ -17,6 +18,16 @@ const MenuBar = () => {
   const userInfo = localStorage.getItem("userInfo");
   const userData = JSON.parse(userInfo);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [activeIcon, setActiveIcon] = useState(null);
+
+
+  // const toggleActive = (icon) => {
+  //   setActiveStates((prevStates) => ({
+  //     ...prevStates,
+  //     [icon]: !prevStates[icon], // Toggles only the clicked icon's state
+  //   }));
+  // };
+
 
   // Handle Logout Click Popup
   const handleLogoutClick = () => {
@@ -69,7 +80,7 @@ const MenuBar = () => {
       <div className="Sidebarwhole1">
         <Link to="/">
           <div className="LogoContainer1">
-            <div className="Logo1">
+            <div className="Logolandlord">
               <img src={Logo} alt="Logo" />
             </div>
           </div>
@@ -94,38 +105,53 @@ const MenuBar = () => {
         <div className="MenuContainer1">
           <div className="MenuWrapper1">
             <nav>
-              <IoHome className="menuIcon1" />
-              <NavLink to="/LandLord" className={({ isActive }) => isActive ? "active-link" : ""}>
+            <Link to='/LandLord'>  <IoHome onClick={() => setActiveIcon("home")} 
+                  color={activeIcon === "home" ? 'royalblue' : 'black'}  className="menuIcon1"  /></Link>
+              <NavLink to="/LandLord"  onClick={() => setActiveIcon("home")} 
+                  color={activeIcon === "home" ? 'royalblue' : 'black'} className='active-link'>
                 Home
               </NavLink>
             </nav>
             <nav>
-              <GiFamilyHouse className="menuIcon1" />
-              <NavLink to="/propertics" className={({ isActive }) => isActive ? "active-link" : ""}>
+            <Link to='/propertics'>  <GiFamilyHouse onClick={() => setActiveIcon("properties")} 
+            color={activeIcon === "properties" ? 'royalblue' : 'black'}  className="menuIcon1"  /></Link>
+              <NavLink to="/propertics"  onClick={() => setActiveIcon("properties")} 
+            color={activeIcon === "properties" ? 'royalblue' : 'black'}className='active-link'>
                 Properties
               </NavLink>
             </nav>
             <nav>
-              <CiWallet className="menuIcon1" />
-              <NavLink to="/Transactions" className={({ isActive }) => isActive ? "active-link" : ""}>
+             <Link to='/Transactions'> <CiWallet onClick={() => setActiveIcon("transactions")} 
+                  color={activeIcon === "transactions" ? 'royalblue' : 'black'}   className="menuIcon1"   /></Link>
+              <NavLink to="/Transactions"onClick={() => setActiveIcon("transactions")} 
+                  color={activeIcon === "transactions" ? 'royalblue' : 'black'}  className='active-link'>
                 Transactions
               </NavLink>
             </nav>
             <nav>
-              <MdPeopleAlt className="menuIcon1" />
-              <NavLink to="/View-Tenant" className={({ isActive }) => isActive ? "active-link" : ""}>
+            <Link to='/View-Tenant'>   <MdPeopleAlt  onClick={() => setActiveIcon("tenants")} 
+                  color={activeIcon === "tenants" ? 'royalblue' : 'black'}   className="menuIcon1"   /></Link>
+              <NavLink to="/View-Tenant" style={({ isActive4 }) =>
+                  isActive4 ? { color: "royalblue" } : { color: "black" }
+                }className='active-link'>
                 Tenants
               </NavLink>
             </nav>
             <nav>
-              <CiStar className="menuIcon1" />
-              <NavLink to="/Maintenance" className={({ isActive }) => isActive ? "active-link" : ""}>
+            <Link to='/Maintenance'>   <GrHostMaintenance onClick={() => setActiveIcon("maintenance")} 
+                  color={activeIcon === "maintenance" ? 'royalblue' : 'black'}   className="menuIcon1" /></Link>           
+              <NavLink to="/Maintenance" style={({ isActive5 }) =>
+                  isActive5 ? { color: "royalblue" } : { color: "black" }
+                }className='active-link'>
                 Maintenance
               </NavLink>
             </nav>
             <nav>
-              <FaTools className="menuIcon1" />
-              <NavLink to="/settings" className={({ isActive }) => isActive ? "active-link" : ""}>
+            <Link to='/settings'>   <FaTools  onClick={() => setActiveIcon("settings")} 
+                  color={activeIcon === "settings" ? 'royalblue' : 'black'}  className="menuIcon1"   /></Link>           
+              <NavLink to="/settings" style={({ isActive6 }) =>
+                  isActive6 ? { color: "royalblue" } : { color: "black" }
+                }className='active-link'>
                 Account Settings
               </NavLink>
             </nav>
@@ -134,7 +160,7 @@ const MenuBar = () => {
 
         <div className="Logoutmenu">
           <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
-            <AiOutlineLogout className="menuIcon" />
+            <AiOutlineLogout className="menuIcon1" />
             <p style={{ fontSize: "25px", color: "black", cursor: "pointer" }}>
               Logout
             </p>

@@ -51,6 +51,54 @@ const Propertics = () => {
           <button className='propertyDel'>Delete</button>
 
           </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Danish haven</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>flat</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Bay Veiw</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>apartment</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Danish haven</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>flat</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Bay Veiw</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>apartment</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Danish haven</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>flat</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Bay Veiw</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>apartment</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Danish haven</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>flat</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
+          <div className='propertiesCard'><h6>Property Name: <span>Bay Veiw</span></h6> 
+          <h6>Location: <span>Lekki</span></h6>
+          <h6>Property Type: <span>apartment</span></h6>
+          <button className='propertyDel'>Delete</button>
+
+          </div>
         </div>
       </div>
 

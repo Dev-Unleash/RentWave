@@ -328,10 +328,11 @@ const LandlordProfile = () => {
                             <form style={{ height: "100%", width: "100%" }} onSubmit={handleSubmit}>
                                 <div className="naming">
                                     <div className="fullname">
-                                        <p>First Name</p>
-                                        <p>Last Name</p>
+                                       
+                                       
                                     </div>
                                     <div className="write">
+                                    <p>First Name</p>
                                         <input
                                             type="text"
                                             name="firstName"
@@ -339,6 +340,8 @@ const LandlordProfile = () => {
                                             onChange={handleInputChange}
                                             required
                                         />
+                                    
+                                         <p>Last Name</p>
                                         <input
                                             type="text"
                                             name="lastName"
