@@ -71,7 +71,7 @@ const MenuBar = () => {
   }, [userData, nav]);
 
   // Debugging: log out the userProfile object to check its structure
-  console.log("User Profile: ", userProfile);
+  // console.log("User Profile: ", userProfile);
 
   return (
     <>
@@ -105,53 +105,47 @@ const MenuBar = () => {
         <div className="MenuContainer1">
           <div className="MenuWrapper1">
             <nav>
-            <Link to='/LandLord'>  <IoHome onClick={() => setActiveIcon("home")} 
-                  color={activeIcon === "home" ? 'royalblue' : 'black'}  className="menuIcon1"  /></Link>
               <NavLink to="/LandLord"  onClick={() => setActiveIcon("home")} 
-                  color={activeIcon === "home" ? 'royalblue' : 'black'} className='active-link'>
+                  style={({ isActive }) =>
+                    isActive ? { color: "royalblue" } : { color: "black" }
+                  }>
                 Home
               </NavLink>
             </nav>
             <nav>
-            <Link to='/propertics'>  <GiFamilyHouse onClick={() => setActiveIcon("properties")} 
-            color={activeIcon === "properties" ? 'royalblue' : 'black'}  className="menuIcon1"  /></Link>
               <NavLink to="/propertics"  onClick={() => setActiveIcon("properties")} 
-            color={activeIcon === "properties" ? 'royalblue' : 'black'}className='active-link'>
+           style={({ isActive }) =>
+            isActive ? { color: "royalblue" } : { color: "black" }
+          }>
                 Properties
               </NavLink>
             </nav>
             <nav>
-             <Link to='/Transactions'> <CiWallet onClick={() => setActiveIcon("transactions")} 
-                  color={activeIcon === "transactions" ? 'royalblue' : 'black'}   className="menuIcon1"   /></Link>
               <NavLink to="/Transactions"onClick={() => setActiveIcon("transactions")} 
-                  color={activeIcon === "transactions" ? 'royalblue' : 'black'}  className='active-link'>
+                 style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }>
                 Transactions
               </NavLink>
             </nav>
             <nav>
-            <Link to='/View-Tenant'>   <MdPeopleAlt  onClick={() => setActiveIcon("tenants")} 
-                  color={activeIcon === "tenants" ? 'royalblue' : 'black'}   className="menuIcon1"   /></Link>
-              <NavLink to="/View-Tenant" style={({ isActive4 }) =>
-                  isActive4 ? { color: "royalblue" } : { color: "black" }
-                }className='active-link'>
+              <NavLink to="/View-Tenant" style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }>
                 Tenants
               </NavLink>
             </nav>
             <nav>
-            <Link to='/Maintenance'>   <GrHostMaintenance onClick={() => setActiveIcon("maintenance")} 
-                  color={activeIcon === "maintenance" ? 'royalblue' : 'black'}   className="menuIcon1" /></Link>           
-              <NavLink to="/Maintenance" style={({ isActive5 }) =>
-                  isActive5 ? { color: "royalblue" } : { color: "black" }
-                }className='active-link'>
+              <NavLink to="/Maintenance" style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }>
                 Maintenance
               </NavLink>
             </nav>
             <nav>
-            <Link to='/settings'>   <FaTools  onClick={() => setActiveIcon("settings")} 
-                  color={activeIcon === "settings" ? 'royalblue' : 'black'}  className="menuIcon1"   /></Link>           
-              <NavLink to="/settings" style={({ isActive6 }) =>
-                  isActive6 ? { color: "royalblue" } : { color: "black" }
-                }className='active-link'>
+              <NavLink to="/settings" style={({ isActive }) =>
+                  isActive ? { color: "royalblue" } : { color: "black" }
+                }>
                 Account Settings
               </NavLink>
             </nav>
@@ -176,8 +170,7 @@ const MenuBar = () => {
             </div>
           )}
         </div>
-      </div>
-      <Toaster />
+     <Toaster />
     </>
   );
 };
