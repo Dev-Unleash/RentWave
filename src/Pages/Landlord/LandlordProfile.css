@@ -50,7 +50,16 @@
         display: flex;
         gap: 30px;
 
-
+        & .writeInput{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        & .writeInput p{
+            font-size: 16px;
+        }
 
         & input {
             flex: 1;
@@ -59,6 +68,7 @@
         }
     }
 }
+
 
 .h4 {
     height: 10%;
@@ -79,7 +89,64 @@
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* .Edit {
     position: absolute;
     bottom: 1%;
 } */
+=======
+.Acctgender {
+    width: 80%;
+
+    & p {
+        font-size: 18px;
+    }
+
+    & .select {
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
+
+.AcctInputContainer1 {
+    height: 85%;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    height: 93%;
+    width: 100%;
+    /* background-color: red; */
+}
+
+/* .Edit {
+    position: absolute;
+    bottom: 1%;
+} */
+
+
+@media screen and (max-width:900px) {
+    .AcctSettingsWrapper1{
+        width: 90%;
+    }
+    .AcctInputContainer1{
+        overflow-y: scroll;
+        height: 80%;
+    }
+    .write{
+        height: auto;
+        flex-direction: column;
+    }
+    .AcctInput{
+        height: 70px;
+        border: none;
+    }
+    form button{
+        width: 200px;
+    }
+}
+>>>>>>> 99cb9ed31fd6f45e4df3d993bef08bc223298451
