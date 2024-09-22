@@ -120,3 +120,15 @@
     height: 1%; 
     background-color: transparent;
 } */
+
+@media screen and (max-width: 900px) {
+    .LandLordHome{
+        height: max-content;
+        /* overflow-y: scroll; */
+        /* background-color: brown; */
+    }
+    .TenantDashBoardBox{
+        flex-wrap: wrap;
+    }
+   
+}

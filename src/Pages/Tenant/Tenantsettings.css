@@ -51,7 +51,7 @@
     }
 }
 .AcctInputContainer{
-    height: 75%;
+    height: 85%;
     width: 100%;
     /* background-color: red; */
     display: flex; 
@@ -121,3 +121,9 @@
 
  
 }
+/* @media screen and (max-width:900px) {
+    .AcctInputContainer{
+        flex-direction: column;
+        background-color: brown;
+    }
+} */

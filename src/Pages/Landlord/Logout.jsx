@@ -54,7 +54,7 @@ const Logout = () => {
             </nav>
 
             {showLogoutPopup && (
-                <div className="popup">
+                <div className="popup1">
                     <p style={{ color: "white", width: "100%", display: "flex", justifyContent: "center" }}>
                         Are you sure?
                     </p>
