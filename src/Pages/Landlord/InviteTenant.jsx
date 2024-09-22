@@ -69,9 +69,6 @@ console.log(formData)
       leaseStart: formData.leaseStart,
       leaseEnd: formData.leaseEnd,
     };
-
-  
-
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -86,7 +83,8 @@ console.log(formData)
       onSubmit();
       onClose();
     } catch (error) {
-      toast.error("Error onboarding tenant. Please try again.", {
+      alert(error.response?.data?.errors)
+      toast.error(error.response?.data?.errors, {
         autoClose: 3000,
       });
       console.error("Error onboarding tenant:", error);

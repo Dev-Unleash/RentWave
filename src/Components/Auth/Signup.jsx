@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoArrowBackSharp, IoEye, IoEyeOff } from "react-icons/io5";
 import ReactCountryFlag from "react-country-flag";
@@ -68,7 +68,14 @@ const Signup = () => {
     
         const res = await axios.post(url, apiData);
         console.log("API response:", res);
-
+        const userData = res.data.data;
+        const userToken = res.data.token;
+  
+        localStorage.setItem("userInfo", JSON.stringify(userData));
+        localStorage.setItem("userToken", userToken);
+       useEffect(() => {
+        userData
+       }, [])
        
         setLoading(false);
         toast.success(res.data.message);

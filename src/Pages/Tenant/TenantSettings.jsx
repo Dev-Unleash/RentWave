@@ -5,6 +5,7 @@ import { IoArrowBack } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaRegUserCircle } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
 
 const TenantSettings = () => {
   const [showImg, setShowImg] = useState();
@@ -56,10 +57,13 @@ const TenantSettings = () => {
     apiData.append("firstName", formData.firstName);
     apiData.append("lastName", formData.lastName);
     apiData.append("phoneNumber", formData.phoneNumber);
+    
     if (formData.profilePicture instanceof File) {
       apiData.append("profilePicture", formData.profilePicture);
     }
-
+  
+    console.log("Submitting profile data:", apiData);
+  
     try {
       const response = await axios.put(url, apiData, {
         headers: {
@@ -72,13 +76,15 @@ const TenantSettings = () => {
       setLoading(false);
       handleClose();
     } catch (error) {
-      console.error("Error updating profile:", error);
+      console.error("Error updating profile:", error.response);
+      toast.error(error.response?.data?.errors || "An error occurred while updating your profile.");
       setLoading(false);
-      alert("Failed to update profile.");
     }
   };
+  
 
   return (
+    <>
     <div className="AcctSettingCon">
       <div className="AcctSettingsWrapper">
         <div className="AcctSettingsHeader">
@@ -174,6 +180,8 @@ const TenantSettings = () => {
         </div>
       </div>
     </div>
+    <ToastContainer/>
+    </>
   );
 };
 

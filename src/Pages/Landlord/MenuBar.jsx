@@ -40,6 +40,7 @@ const MenuBar = () => {
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
+ 
 
   const handleLogoutConfirm = async () => {
     const url = "https://rentwave.onrender.com/api/v1/logout";
@@ -73,7 +74,7 @@ const MenuBar = () => {
     }
   }, [userData, nav]);
 
-  const userName = JSON.parse(localStorage.getItem("userProfile"));
+ 
 
 
   return (
@@ -97,7 +98,7 @@ const MenuBar = () => {
                     alt="Profile" />
         </Link>
         </div>
-        <p>{userName?.landlord?.firstName}</p>
+        <p>{ userData.firstName}</p>
         <h3>Welcome</h3>
       </div>
 
