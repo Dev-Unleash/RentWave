@@ -69,6 +69,11 @@ console.log(formData)
       leaseStart: formData.leaseStart,
       leaseEnd: formData.leaseEnd,
     };
+
+    console.log("formData: ", body)
+
+  
+
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,

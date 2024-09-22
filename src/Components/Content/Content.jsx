@@ -44,7 +44,7 @@ Downloadable reports are compatible with virtually all
 accounting systems.
 Designed with independent landlords in mind, there are no
 hidden fees or a minimum number of units.</p>
-            <button className="content-btn" data-aos="fade-down" data-aos-duration="2000"><Link to="/Signup">Expolre</Link></button></div>
+            <button className="content-btn" data-aos="fade-down" data-aos-duration="2000"><Link to="/Signup">Explore</Link></button></div>
        </div>
         <div className="content" data-aos-duration="2000">
           <div className="content-block" data-aos="fade-down" data-aos-duration="2000">

@@ -153,3 +153,8 @@
         color: black;
     }
 }
+@media screen and (max-width:900px) {
+    .TotalLndAmt p{
+justify-content: flex-start;
+    }
+}

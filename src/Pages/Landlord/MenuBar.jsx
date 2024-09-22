@@ -33,7 +33,7 @@ const MenuBar = () => {
   const handleLogoutClick = () => {
     setShowLogoutPopup(true);
   };
- 
+
 
   // Handle Logout Confirmation
   const handleLogoutConfirm = async () => {
@@ -70,8 +70,13 @@ const MenuBar = () => {
     }
   }, [userData, nav]);
 
+  // Fetch the landlord's profile data from localStorage
+  const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+
   // Debugging: log out the userProfile object to check its structure
   // console.log("User Profile: ", userProfile);
+
+  const name = `${userProfile.data.firstName} ${userProfile.data.lastName}`
 
   return (
     <>
@@ -90,18 +95,16 @@ const MenuBar = () => {
               <img
                 // Safely access the profile picture URL or fallback to a default image
                 src={
-                  userProfile?.landlord?.profilePicture?.pictureUrl || "fallback-image-url"
+                  userProfile.data.profilePicture.pictureUrl || "fallback-image-url"
                 }
                 alt="Profile"
               />
             </Link>
           </div>
-          <p>{userProfile?.landlord?.firstName || "Unknown User"}</p> {/* Safely access firstName */}
+          <p>{name || "Unknown User"}</p> {/* Safely access firstName */}
           <h3>Welcome</h3>
         </div>
-        <p>{ userData.firstName}</p>
-        <h3>Welcome</h3>
-      </div>
+
         <div className="MenuContainer1">
           <div className="MenuWrapper1">
             <nav>

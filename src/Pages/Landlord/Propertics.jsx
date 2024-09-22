@@ -65,10 +65,8 @@ const Propertics = () => {
         </div>
         <div className="table3">
           <div className="propertiesHeader">
-            <h6>Property Name</h6>
-            <h6>Location</h6>
-            <h6>Availability</h6>
-          </div>
+            <h6>All Properties</h6>
+                     </div>
           {properties.length > 0 ? (
             properties.map(property => (
               <div 
@@ -76,9 +74,9 @@ const Propertics = () => {
                 key={property._id} 
                 onClick={() => openPopup(property)} 
               >
-                <h6>{property.name}</h6>
-                <h6>{property.location}</h6>
-                <h6>{property.isAvailable ? "Available" : "Not Available"}</h6>
+                <h6>Property Name:{property.name}</h6>
+                <h6>Location:{property.location}</h6>
+                <h6>Availability:{property.isAvailable ? "Available" : "Not Available"}</h6>
               </div>
             ))
           ) : (

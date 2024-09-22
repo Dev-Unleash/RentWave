@@ -292,8 +292,8 @@ const LandlordProfile = () => {
                 <div className="AcctSettingsWrapper1">
                     <div className="AcctSettingsHeader">
                         <h3 className="CloseButtonPro" onClick={handleClose}>
-                            <IoArrowBack style={{ height: "45px", width: "50px" }} />
-                            Back
+                            <IoArrowBack style={{ height: "45px", width: "50px",padding:'10px' }} />
+                            
                         </h3>
                         <h3 style={{ width: "80%", display: "flex", justifyContent: "center" }}>
                             Account Setting
@@ -327,10 +327,7 @@ const LandlordProfile = () => {
                         <div className="AcctInputContainer1">
                             <form style={{ height: "100%", width: "100%" }} onSubmit={handleSubmit}>
                                 <div className="naming">
-                                    <div className="fullname">
-
-
-                                    </div>
+                                    
                                     <div className="write">
                                         <div className='writeInput'>
                                         <p>First Name</p>
@@ -354,6 +351,7 @@ const LandlordProfile = () => {
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div className="AcctInput">
                                     <p>Phone Number</p>
                                     <input
@@ -378,7 +376,7 @@ const LandlordProfile = () => {
                                     disabled={loading}
                                     className='Edit'
                                     style={{
-                                        height: "8%",
+                                        height: "10%",
                                         width: "45%",
                                         borderRadius: "10px",
                                         backgroundColor: loading ? "#888" : "#4D86DB",
