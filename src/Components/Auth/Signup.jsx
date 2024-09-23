@@ -241,6 +241,7 @@ const Signup = () => {
                   />
                 )}
               </div>
+              <p>Password must be more than 6 character  and must contain Uppercase,LowerCase and symbol</p>
             </div>
 
             <div className="info">
@@ -261,6 +262,7 @@ const Signup = () => {
                   />
                 )}
               </div>
+              <p>Password must match</p>
             </div>
 
             <div className="terms">

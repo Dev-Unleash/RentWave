@@ -97,7 +97,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
               />
             </div>
           </div>
-          <div className="email">
+          <div className="mail">
             <label htmlFor="location">Location</label>
             <input 
               type="text" 
@@ -108,7 +108,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-          <div className="email">
+          <div className="email" style={{backgroundColor:"white",height:"10%"}}>
             <p>Property Type</p>
             <select value={propertyType} onChange={(e) => setPropertyType(e.target.value)}>
               <option>Select Property</option>
