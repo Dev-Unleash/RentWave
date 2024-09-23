@@ -73,11 +73,11 @@ const SideBar = () => {
     setShowLogoutPopup(false);
   };
 
-  useEffect(() => {
-    if (!tenantData) {
-      nav("/");
-    }
-  }, [tenantData, nav]);
+  // useEffect(() => {
+  //   if (!tenantData) {
+  //     nav("/");
+  //   }
+  // }, [tenantData, nav]);
 
   return (
     <>
@@ -101,7 +101,7 @@ const SideBar = () => {
             </Link>
           </div>
 
-          <p>{`${tenantData?.data.firstName} ${tenantData?.data.lastName}`}</p>
+          <p>{`${tenantData?.firstName} ${tenantData?.lastName}`}</p>
           <h3>Welcome</h3>
         </div>
 
