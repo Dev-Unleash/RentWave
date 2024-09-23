@@ -77,7 +77,6 @@
 // };
 
 // export default Transaction;
-
 import React, { useEffect, useState } from 'react';
 import './Transaction.css';
 import { RiSearchLine } from 'react-icons/ri';
@@ -88,7 +87,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 const Transaction = () => {
   const [payments, setPayments] = useState([]);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Uncomment the loading state
   const [errorMessage, setErrorMessage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
@@ -121,7 +120,7 @@ const Transaction = () => {
       toast.error(message); // Display error message
       setErrorMessage(message);
     } finally {
-      setLoading(false);
+      setLoading(false); // Ensure the loading state is updated
     }
   };
 
@@ -140,17 +139,18 @@ const Transaction = () => {
           </div>
         </div>
 
-       
         <div className='withdraw'>
           <button className='witdralBtn' onClick={() => setIsModalOpen(true)}>Withdraw</button>
         </div>
 
         <div className="TotalLndAmt">
-          <p>Total Amount:</p>
+          <p>Total Amount: ₦{totalAmount.toFixed(2)}</p> {/* Display the total amount */}
         </div>
-        
+
         <div className="table">
-          
+          {loading ? ( // Show loading message when loading
+            <p>Loading...</p>
+          ) : (
             <div className="tableData">
               <table>
                 <thead>
@@ -167,7 +167,6 @@ const Transaction = () => {
                     <tr key={item._id}>
                       <td className='name-column'>
                         <Link to='/TransactionView1' style={{ cursor: 'pointer', color: "black", fontWeight: 'normal' }}>
-                          {/* Assuming tenant details will be fetched or displayed */}
                           Tenant ID: {item.tenant}
                         </Link>
                       </td>
@@ -188,12 +187,13 @@ const Transaction = () => {
                 </tbody>
               </table>
             </div>
-          
+          )}
         </div>
       </div>
+
+      <ToastContainer /> {/* Toast container for notifications */}
     </div>
   );
 };
 
 export default Transaction;
-
