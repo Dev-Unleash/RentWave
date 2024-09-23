@@ -159,19 +159,17 @@
     transition: color 0.3s ease;
 }
 
-/* Mobile view (max-width: 480px) */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .menuIcon1 {
-        font-size: 20px; /* Reduce icon size on smaller screens */
+        font-size: 20px; 
     }
 }
 
-/* Tablet view (max-width: 768px) */
 @media (max-width: 768px) {
     .menuIcon1 {
-        font-size: 25px; /* Moderate icon size for tablet */
+        font-size: 25px;
     }
-}
+} */
 
   
   @media screen and (max-width: 900px) {

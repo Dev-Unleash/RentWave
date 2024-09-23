@@ -95,13 +95,13 @@ const Tenantspage = () => {
       {tenants.map((item) => (
         <tr key={item._id}>
           <td className="name-column">
-            <Link to="">{item.firstName}</Link>
+           {item.firstName}  {item.lastName}
           </td>
           <td className="name-column1">{new Date(item.leaseStart).toLocaleDateString()}</td>
           <td className="name-column1">{new Date(item.leaseEnd).toLocaleDateString()}</td>
           <td className="name-column1">{item.role}</td>
           <td className="name-column1">
-            <button className="delete-btnland" onClick={() => openModal(item._id)}>Delete</button>
+            <button className="delete-btnland" onClick={() => openDeleteModal(item._id)}>Delete</button>
           </td>
         </tr>
       ))}

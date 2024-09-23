@@ -13,7 +13,8 @@ const Transaction = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [withdrawalDetails, setWithdrawalDetails] = useState({ bankName: '', accountNumber: '', amount: '' });
   const token = localStorage.getItem("userToken");
-  const url = "https://rentwave.onrender.com/api/v1/payments"; // Update this to match your landlord payments endpoint
+  
+  const url = "https://rentwave.onrender.com/api/v1/payments"; 
 
   const fetchPayments = async () => {
     setLoading(true);
