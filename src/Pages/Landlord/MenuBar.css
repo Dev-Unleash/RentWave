@@ -10,10 +10,10 @@
     justify-content: center;
     align-items: center;
 }
-.menuIcon1{
+/* .menuIcon1{
     width: 30px;
     height: 30px;
-}
+} */
 .LogoContainer1{
     height: 12%;
     width: 55%;
@@ -80,29 +80,33 @@
      /* padding-top: 20px;
      padding-left: 20px; */
      padding: 0px 20px;
-      & nav{
-        width: 70%;
+     /* background-color: red; */
+      /* & nav{
+        width: 0%;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 20px;
         gap: 15px;
         font-weight: 500;
-      }
+      } */
      }
     .MenuWrapper1{
-        
+        width: 100%;
+        height: 100%;
         display:flex;
        flex-direction: column;
         gap: 13px;
        
     }
 .Logoutmenu1{
-    height: 5%;
+    height: 10%;
     width: 100%;
     display: flex;
-    padding-left: 20px;
+    justify-content: center;
+    padding-left: 35px;
     align-items: center;
+    /* background-color: red; */
 }
 .popup1 {
     position: absolute;
@@ -150,12 +154,54 @@
     
   }
 
+
+.menu-item {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black; /* Default color is black */
+    transition: color 0.3s ease;
+    /* background-color: blue; */
+  }
+  
+  .menu-nav {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* background-color: aqua; */
+  }
+  
+  .menu-item:hover {
+    color: royalblue; /* Hover color */
+  }
+  
+  .menu-item.active {
+    color: royalblue; /* Change color to royal blue when active */
+  }
+  
+  /* .menuIcon1 {
+    margin-right: 10px;
+    font-size: 25px;
+    background-color: aqua;
+  } */
+  
   .active-link {
     color: black;
   }
 
   .menuIcon1 {
-    font-size: 30px; /* Default size for larger screens */
+    width: 30px;
+    height: 30px;
+    font-size: 40px; /* Default size for larger screens */
     transition: color 0.3s ease;
 }
 
@@ -180,6 +226,7 @@
         
     }
     .MenuContainer1 {
+        width: 100%;
        height: 70%;
     }
     .MenuWrapper1{
@@ -192,14 +239,20 @@
         gap: 30px;
         position: relative;
     }
-    .MenuWrapper1  nav{
+    /* .menu-item{
+        background-color: blue;
+    } */
+    .menu-nav{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 10%;
-        width: 100%;
+        height: 100%;
+        width: 100px;
         /* background-color: blueviolet; */
        
+    }
+    .menu-nav span{
+        display: none;
     }
     .Profile1{
         height: 100px;
@@ -240,11 +293,13 @@
         width: 10px;
         height: 40px;
     }
-    .Logoutmenu{
-        width: 100%;
-       
+    .Logoutmenu1{
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+      
     }
-    .Logoutmenu p{
+    .Logoutmenu1 p{
         font-size: 10px;
         display: none;
     }
