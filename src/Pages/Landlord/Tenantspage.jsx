@@ -1,57 +1,68 @@
 import React, { useEffect, useState } from "react";
 import "./Tenantspage.css";
 import InviteTenant from "./InviteTenant";
-import image from "../../assets/Clip.png";
-import { RiAddFill } from "react-icons/ri";
-import { RiSearchLine } from "react-icons/ri";
+import ConfirmModal from "../../Components/confirm-modal"; // Ensure the path is correct
+import { RiAddFill, RiSearchLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Tenantspage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInviteModalOpen, setIsInviteModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [tenants, setTenants] = useState([]);
-  if (isModalOpen === true) {
-    console.log("Yesss");
-  } else {
-    console.log("Nooo");
-  }
+  const [tenantToDelete, setTenantToDelete] = useState(null); // Track tenant to delete
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-  const handleSubmit = () => alert("Submitted!");
+  const openDeleteModal = (tenantId) => {
+    setTenantToDelete(tenantId);
+    setIsDeleteModalOpen(true);
+  };
 
-  const token = localStorage.getItem("userToken");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+    setTenantToDelete(null);
+  };
+
+  const handleDelete = async () => {
+    const url = `https://rentwave.onrender.com/api/v1/tenants/${tenantToDelete}`;
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      await axios.delete(url, config);
+      // Refresh the tenant list after deletion
+      getTenants();
+      closeDeleteModal();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const getTenants = async () => {
     const url = "https://rentwave.onrender.com/api/v1/tenants";
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+
     try {
       const response = await axios.get(url, config);
-      console.log(response);
       setTenants(response.data.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     getTenants();
   }, []);
-
-  // const deleteTenants = async (id) => {
-  //   const url = `https://rentwave.onrender.com/api/v1/tenants/${id}`;
-  //   try {
-  //     const response = await axios.delete(url, config);
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <div className="Pages">
@@ -64,64 +75,47 @@ const Tenantspage = () => {
           </div>
         </div>
         <div className="btnes">
-          {/* <p>View your tenants</p> */}
-          <button className="bot" onClick={() => setIsModalOpen(true)}>
-            <RiAddFill className="icon" /> Invite Tenants
+          <button className="bot" onClick={() => setIsInviteModalOpen(true)}>
+            + Invite Tenants
           </button>
         </div>
         <div className="table1">
-          {/* <img src={image} alt="" />
-          <p>No renters yet but renter details and status will appear here.</p> */}
-          <div className="tenantTable">
-            <table>
-              <thead>
-                <tr
-                  style={{
-                    borderTopLeftRadius: "5px",
-                    borderTopRightRadius: "5px",
-                  }}
-                >
-                  <th className="name-column">Name</th>
-                  <th className="name-column1">Lease start</th>
-                  <th className="name-column1">Lease End</th>
-                  <th className="name-column1">Role</th>
-                  {/* <th className="name-column2">Action</th> */}
-                </tr>
-              </thead>
-              <tbody>
-  {tenants.map((item, index) => {
-    const leaseStartDate = new Date(item.leaseStart).toLocaleDateString(); // Format lease start date
-    const leaseEndDate = new Date(item.leaseEnd).toLocaleDateString(); // Format lease end date
-    
-    return (
-      <tr key={index}>
-        <td className="name-column">
-          <Link
-            to="/TenantProfileView1"
-            style={{
-              cursor: "pointer",
-              color: "black",
-              fontWeight: "normal",
-            }}
-          >
-            {item.firstName}
-          </Link>
-        </td>
-        <td className="name-column1">{leaseStartDate}</td>
-        <td className="name-column1">{leaseEndDate}</td>
-        <td className="name-column1">{item.role}</td>
+        <div className="tenantTable">
+  <table className="tenant-table">
+    <thead>
+      <tr>
+        <th className="name-column">Name</th>
+        <th className="name-column1">Lease start</th>
+        <th className="name-column1">Lease End</th>
+        <th className="name-column1">Role</th>
+        <th className="name-column1">Action</th>
       </tr>
-    );
-  })}
-</tbody>
-            </table>
-          </div>
+    </thead>
+    <tbody>
+      {tenants.map((item) => (
+        <tr key={item._id}>
+          <td className="name-column">
+            <Link to="">{item.firstName}</Link>
+          </td>
+          <td className="name-column1">{new Date(item.leaseStart).toLocaleDateString()}</td>
+          <td className="name-column1">{new Date(item.leaseEnd).toLocaleDateString()}</td>
+          <td className="name-column1">{item.role}</td>
+          <td className="name-column1">
+            <button className="delete-btnland" onClick={() => openModal(item._id)}>Delete</button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
         </div>
       </div>
-      <InviteTenant
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSubmit={handleSubmit}
+      <InviteTenant isOpen={isInviteModalOpen} onClose={() => setIsInviteModalOpen(false)} />
+      <ConfirmModal
+        isOpen={isDeleteModalOpen}
+        onClose={closeDeleteModal}
+        onConfirm={handleDelete}
       />
     </div>
   );

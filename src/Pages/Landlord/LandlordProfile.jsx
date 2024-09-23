@@ -293,8 +293,8 @@ const LandlordProfile = () => {
                 <div className="AcctSettingsWrapper1">
                     <div className="AcctSettingsHeader">
                         <h3 className="CloseButtonPro" onClick={handleClose}>
-                            <IoArrowBack style={{ height: "45px", width: "50px",padding:'10px' }} />
-                            
+                            <IoArrowBack style={{ height: "45px", width: "50px", padding: '10px' }} />
+
                         </h3>
                         <h3 style={{ width: "80%", display: "flex", justifyContent: "center" }}>
                             Account Setting
@@ -326,33 +326,33 @@ const LandlordProfile = () => {
                             </div>
                         </div>
                         <div className="AcctInputContainer1">
-                            <form style={{ height: "100%", width: "100%" }} onSubmit={handleSubmit}>
-                                <div className="naming">
-                                    
-                                    <div className="write">
-                                        <div className='writeInput'>
+                            <form className='accprofileLand' onSubmit={handleSubmit}>
+
+
+                                <div className="write1">
+                                    <div className='writeInput'>
                                         <p>First Name</p>
                                         <input
                                             type="text"
                                             name="firstName"
                                             value={formData.firstName}
                                             onChange={handleInputChange}
-                                            // required
+                                        // required
                                         />
-                                        </div>
-                                        <div className='writeInput'>
+                                    </div>
+                                    <div className='writeInput'>
                                         <p>Last Name</p>
                                         <input
                                             type="text"
                                             name="lastName"
                                             value={formData.lastName}
                                             onChange={handleInputChange}
-                                            // required
+                                        // required
                                         />
-                                        </div>
                                     </div>
+
                                 </div>
-                                
+
                                 <div className="AcctInput">
                                     <p>Phone Number</p>
                                     <input
@@ -360,7 +360,7 @@ const LandlordProfile = () => {
                                         name="phoneNumber"
                                         value={formData.phoneNumber}
                                         onChange={handleInputChange}
-                                        // required
+                                    // required
                                     />
                                 </div>
                                 <div className="AcctInputdown">

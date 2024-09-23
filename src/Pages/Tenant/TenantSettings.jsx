@@ -90,7 +90,7 @@ const TenantSettings = () => {
         <div className="AcctSettingsHeader">
           <h3 className="CloseButtonPro" onClick={handleClose}>
             <IoArrowBack style={{ height: "45px", width: "50px" }} />
-            Back
+            
           </h3>
           <h3
             style={{ width: "80%", display: "flex", justifyContent: "center" }}
@@ -128,6 +128,7 @@ const TenantSettings = () => {
               action=""
               onSubmit={handleSubmit}
               style={{ height: "100%", width: "100%" }}
+              className="accsettingsland"
             >
               <div className="AcctInput">
                 <p>First Name</p>
