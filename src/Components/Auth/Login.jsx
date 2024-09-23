@@ -56,7 +56,7 @@ const Login = () => {
         } else {
           nav("/TenantHome");
         }
-      }, 5000);
+      }, 4000);
     } catch (error) {
       setLoading(false); 
       const errorMessage = error.response?.data?.message || "Login failed. Please try again.";
