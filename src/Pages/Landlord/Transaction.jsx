@@ -77,6 +77,7 @@
 // };
 
 // export default Transaction;
+
 import React, { useEffect, useState } from 'react';
 import './Transaction.css';
 import { RiSearchLine } from 'react-icons/ri';
@@ -87,7 +88,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 const Transaction = () => {
   const [payments, setPayments] = useState([]);
-  const [loading, setLoading] = useState(true); // Uncomment the loading state
+  const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
@@ -128,6 +129,52 @@ const Transaction = () => {
     fetchPayments();
   }, []);
 
+  // Handle withdrawal form submission
+  const handleWithdraw = async () => {
+    const { bankName, accountNumber, amount } = withdrawalDetails;
+
+    // Input validation
+    if (!bankName || !accountNumber || !amount) {
+      toast.error('Please fill in all fields for withdrawal.');
+      return;
+    }
+
+    if (Number(amount) > totalAmount) {
+      toast.error('Withdrawal amount exceeds available balance.');
+      return;
+    }
+
+    try {
+      // You will replace this with your backend API call to process withdrawal
+      const withdrawalUrl = 'https://rentwave.onrender.com/api/v1/landlord/withdraw';
+      const response = await axios.post(
+        withdrawalUrl,
+        { bankName, accountNumber, amount },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Assuming the backend returns a success message
+      if (response.data.success) {
+        toast.success('Withdrawal successful!');
+        setTotalAmount((prev) => prev - Number(amount)); // Deduct amount from total balance
+        setIsModalOpen(false); // Close the modal after success
+      }
+    } catch (error) {
+      const message = error.response?.data?.message || 'Withdrawal failed. Try again later.';
+      toast.error(message);
+    }
+  };
+
+  // Handle input changes in the modal
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setWithdrawalDetails({ ...withdrawalDetails, [name]: value });
+  };
+
   return (
     <div className='Pages'>
       <div className="PropsContainers">
@@ -148,7 +195,7 @@ const Transaction = () => {
         </div>
 
         <div className="table">
-          {loading ? ( // Show loading message when loading
+          {loading ? (
             <p>Loading...</p>
           ) : (
             <div className="tableData">
@@ -190,6 +237,44 @@ const Transaction = () => {
           )}
         </div>
       </div>
+
+      {/* Modal for Withdraw */}
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Withdraw Earnings</h2>
+            <label>
+              Bank Name:
+              <input
+                type="text"
+                name="bankName"
+                value={withdrawalDetails.bankName}
+                onChange={handleInputChange}
+              />
+            </label>
+            <label>
+              Account Number:
+              <input
+                type="text"
+                name="accountNumber"
+                value={withdrawalDetails.accountNumber}
+                onChange={handleInputChange}
+              />
+            </label>
+            <label>
+              Amount to Withdraw:
+              <input
+                type="text"
+                name="amount"
+                value={withdrawalDetails.amount}
+                onChange={handleInputChange}
+              />
+            </label>
+            <button className="withdraw-btn" onClick={handleWithdraw}>Withdraw</button>
+            <div className="close-btn" onClick={() => setIsModalOpen(false)}>x</div>
+          </div>
+        </div>
+      )}
 
       <ToastContainer /> {/* Toast container for notifications */}
     </div>
