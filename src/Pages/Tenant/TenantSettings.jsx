@@ -15,7 +15,6 @@ const TenantSettings = () => {
     phoneNumber: "",
     profilePicture: null,
   });
-  console
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userToken = localStorage.getItem("userToken");
@@ -23,7 +22,6 @@ const TenantSettings = () => {
   // Fetch tenant data from localStorage when the component mounts
   useEffect(() => {
     const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
-    console.log(tenantData)
     if (tenantData) {
       setFormData({
         firstName: tenantData.firstName || "",
@@ -59,13 +57,11 @@ const TenantSettings = () => {
     apiData.append("firstName", formData.firstName);
     apiData.append("lastName", formData.lastName);
     apiData.append("phoneNumber", formData.phoneNumber);
-    
+
     if (formData.profilePicture instanceof File) {
       apiData.append("profilePicture", formData.profilePicture);
     }
-  
-    console.log("Submitting profile data:", apiData);
-  
+
     try {
       const response = await axios.put(url, apiData, {
         headers: {
@@ -73,8 +69,17 @@ const TenantSettings = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      localStorage.setItem("userProfile", JSON.stringify(response.data));
-      alert("Profile updated successfully!");
+
+      // Update localStorage with new profile data
+      const updatedTenant = response.data.tenant;
+      const updatedProfile = JSON.parse(localStorage.getItem("userProfile"));
+      updatedProfile.tenant.firstName = updatedTenant.firstName;
+      updatedProfile.tenant.lastName = updatedTenant.lastName;
+      updatedProfile.tenant.phoneNumber = formData.phoneNumber; // Ensure phone number is updated
+      updatedProfile.tenant.profilePicture = updatedTenant.profilePicture; // Update profile picture if present
+      localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
+
+      toast.success("Profile updated successfully!");
       setLoading(false);
       handleClose();
     } catch (error) {
@@ -83,108 +88,95 @@ const TenantSettings = () => {
       setLoading(false);
     }
   };
-  
 
   return (
-    <div className="Ken" style={{ width: "100%", height: "100%"}}>
-    
-    <div className="AcctSettingCon">
-      <div className="AcctSettingsWrapper">
-        <div className="AcctSettingsHeader">
-          <h3 className="CloseButtonPro" onClick={handleClose}>
-            <IoArrowBack style={{ height: "45px", width: "50px" }} />
-            
-          </h3>
-          <h3
-            style={{ width: "80%", display: "flex", justifyContent: "center" }}
-          >
-            Account Setting
-          </h3>
-        </div>
-        <div className="AcctSettingsDown">
-          <div className="AcctProfile">
-            <div className="Pics">
-            {showImg ? (
-    <img src={showImg} alt="Profile" />
-  ) : (
-    <FaRegUserCircle style={{ height: "100px", width: "100px", color: "grey" }} />
-  )}
-              <div className="UploadIcon">
-                <input type="file" id="i" hidden onChange={posting} />
-                <label htmlFor="i" style={{ width: "max-content" }}>
-                  <FaCamera
-                    style={{
-                      height: "30px",
-                      width: "40px",
-                      position: "absolute",
-                      bottom: "-5px",
-                      right: "0px",
-                      cursor: "pointer",
-                    }}
-                  />
-                </label>
+    <div className="Ken" style={{ width: "100%", height: "100%" }}>
+      <div className="AcctSettingCon">
+        <div className="AcctSettingsWrapper">
+          <div className="AcctSettingsHeader">
+            <h3 className="CloseButtonPro" onClick={handleClose}>
+              <IoArrowBack style={{ height: "45px", width: "50px" }} />
+            </h3>
+            <h3 style={{ width: "80%", display: "flex", justifyContent: "center" }}>
+              Account Setting
+            </h3>
+          </div>
+          <div className="AcctSettingsDown">
+            <div className="AcctProfile">
+              <div className="Pics">
+                {showImg ? (
+                  <img src={showImg} alt="Profile" />
+                ) : (
+                  <FaRegUserCircle style={{ height: "100px", width: "100px", color: "grey" }} />
+                )}
+                <div className="UploadIcon">
+                  <input type="file" id="i" hidden onChange={posting} />
+                  <label htmlFor="i" style={{ width: "max-content" }}>
+                    <FaCamera
+                      style={{
+                        height: "30px",
+                        width: "40px",
+                        position: "absolute",
+                        bottom: "-5px",
+                        right: "0px",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="AcctInputContainer">
-            <form
-              action=""
-              onSubmit={handleSubmit}
-              style={{ height: "100%", width: "100%" }}
-              className="accsettingsland"
-            >
-              <div className="AcctInput">
-                <p>First Name</p>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  // required
-                />
-              </div>
-              <div className="AcctInput">
-                <p>Last Name</p>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  // required
-                />
-              </div>
-              <div className="AcctInput">
-                <p>Phone Number</p>
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  // required
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={loading}
-                style={{
-                  height: "8%",
-                  width: "45%",
-                  borderRadius: "10px",
-                  backgroundColor: loading ? "#888" : "#4D86DB",
-                  cursor: loading ? "not-allowed" : "pointer",
-                  border: "none",
-                  color: "white",
-                  fontSize: "18px",
-                }}
-              >
-                {loading ? "Loading..." : "Save Changes"}
-              </button>
-            </form>
+            <div className="AcctInputContainer">
+              <form onSubmit={handleSubmit} style={{ height: "100%", width: "100%" }} className="accsettingsland">
+                <div className="AcctInput">
+                  <p>First Name</p>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="AcctInput">
+                  <p>Last Name</p>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="AcctInput">
+                  <p>Phone Number</p>
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    height: "8%",
+                    width: "45%",
+                    borderRadius: "10px",
+                    backgroundColor: loading ? "#888" : "#4D86DB",
+                    cursor: loading ? "not-allowed" : "pointer",
+                    border: "none",
+                    color: "white",
+                    fontSize: "18px",
+                  }}
+                >
+                  {loading ? "Loading..." : "Save Changes"}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

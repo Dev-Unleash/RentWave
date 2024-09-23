@@ -1,83 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import './Transaction.css';
-// import { RiSearchLine } from 'react-icons/ri';
-// import { Link } from 'react-router-dom';
-// import axios from 'axios';
-
-// const Transaction = () => {
-//   const [payments, setPayments] = useState([]);
-//   const token = localStorage.getItem("userToken");
-//   const url = "https://rentwave.onrender.com/api/v1/payments"; // Update with your actual API URL
-
-//   const fetchPayments = async () => {
-//     try {
-//       const response = await axios.get(url, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-//       setPayments(response.data.data); // Store the payment data
-//     } catch (error) {
-//       console.error("Error fetching payments:", error.response?.data?.message || error.message);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchPayments();
-//   }, []);
-
-//   return (
-//     <div className='Pages'>
-//       <div className="PropsContainers">
-//         <div className="up">
-//           <p>Transactions</p>
-//           <div className='input'>
-//             <RiSearchLine className='icon' />
-//             <input type="search" placeholder='Search' className='put' />
-//           </div>
-          
-//         </div>
-//         <div className="TotalLndAmt">
-//         <p>Total Amount:</p>
-//         </div>
-        
-//         <div className="table">
-//           <div className="tableData">
-//             <table>
-//               <thead>
-//                 <tr>
-//                   <th className='name-column'>Name</th>
-//                   <th className='name-column1'>Amount</th>
-//                   <th className='name-column1'>Date</th>
-//                   <th className='name-column1'>Status</th>
-//                   <th className='name-column2'>Time</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 {payments.map((item) => (
-//                   <tr key={item._id}>
-//                     <td className='name-column'>
-//                       <Link to='/TransactionView1' style={{ cursor: 'pointer', color: "black", fontWeight: 'normal' }}>
-//                         {item.firstName} {item.lastName} {/* Display full name */}
-//                       </Link>
-//                     </td>
-//                     <td className='name-column1'>₦{item.amount}</td> {/* Display amount */}
-//                     <td className='name-column1'>{new Date(item.paymentDate).toLocaleDateString()}</td> {/* Display date */}
-//                     <td className='name-column1'>{item.status}</td>
-//                     <td className='name-column1'>{new Date(item.paymentDate).toLocaleTimeString()}</td> {/* Display time */}
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </table>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Transaction;
-
 import React, { useEffect, useState } from 'react';
 import './Transaction.css';
 import { RiSearchLine } from 'react-icons/ri';
@@ -98,7 +18,14 @@ const Transaction = () => {
   const url = "https://rentwave.onrender.com/api/v1/landlord/payments"; // Corrected API endpoint
 
   const fetchPayments = async () => {
+    if (!token) {
+      toast.error("Authentication token not found. Please log in.");
+      setLoading(false);
+      return;
+    }
+
     try {
+      setLoading(true);
       const response = await axios.get(url, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token for authentication
@@ -116,8 +43,8 @@ const Transaction = () => {
         setTotalAmount(total);
       }
     } catch (error) {
-      const message = error.response?.data?.message || error.message;
-      console.error("Error fetching payments:", message);
+      console.error("Error fetching payments:", error);
+      const message = error.response?.data?.message || "Error fetching payments";
       toast.error(message); // Display error message
       setErrorMessage(message);
     } finally {
@@ -145,7 +72,6 @@ const Transaction = () => {
     }
 
     try {
-      // You will replace this with your backend API call to process withdrawal
       const withdrawalUrl = 'https://rentwave.onrender.com/api/v1/landlord/withdraw';
       const response = await axios.post(
         withdrawalUrl,
@@ -157,7 +83,6 @@ const Transaction = () => {
         }
       );
 
-      // Assuming the backend returns a success message
       if (response.data.success) {
         toast.success('Withdrawal successful!');
         setTotalAmount((prev) => prev - Number(amount)); // Deduct amount from total balance

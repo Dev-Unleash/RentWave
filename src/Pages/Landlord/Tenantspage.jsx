@@ -11,17 +11,21 @@ const Tenantspage = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [tenants, setTenants] = useState([]);
   const [tenantToDelete, setTenantToDelete] = useState(null); // Track tenant to delete
+  const [singleTenant, setSingleTenant] = useState(null); // Store fetched tenant details
 
+  // Function to open the delete modal
   const openDeleteModal = (tenantId) => {
     setTenantToDelete(tenantId);
     setIsDeleteModalOpen(true);
   };
 
+  // Function to close the delete modal
   const closeDeleteModal = () => {
     setIsDeleteModalOpen(false);
     setTenantToDelete(null);
   };
 
+  // Function to handle tenant deletion
   const handleDelete = async () => {
     const url = `https://rentwave.onrender.com/api/v1/tenants/${tenantToDelete}`;
     const token = localStorage.getItem("userToken");
@@ -34,16 +38,16 @@ const Tenantspage = () => {
 
     try {
       await axios.delete(url, config);
-      // Refresh the tenant list after deletion
-      getTenants();
+      getTenants(); // Refresh the tenant list after deletion
       closeDeleteModal();
     } catch (error) {
       console.error(error);
     }
   };
 
-  const getTenants = async () => {
-    const url = "https://rentwave.onrender.com/api/v1/tenants";
+  // Function to fetch tenant by ID
+  const getTenantById = async (tenantId) => {
+    const url = `https://rentwave.onrender.com/api/v1/tenant/${tenantId}`;
     const token = localStorage.getItem("userToken");
     const config = {
       headers: {
@@ -54,14 +58,34 @@ const Tenantspage = () => {
 
     try {
       const response = await axios.get(url, config);
-      setTenants(response.data.data);
+      setSingleTenant(response.data.data); // Store the fetched tenant in state
+      console.log("Fetched tenant details:", response.data.data); // Debugging purpose
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching tenant by ID:", error.response?.data?.message || error.message);
+    }
+  };
+
+  // Function to fetch all tenants
+  const getTenants = async () => {
+    const url = "https://rentwave.onrender.com/api/v1/tenants"; // Correct endpoint for fetching all tenants
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await axios.get(url, config);
+      setTenants(response.data.data); // Assuming 'data' contains tenant array
+    } catch (error) {
+      console.error("Error fetching tenants:", error);
     }
   };
 
   useEffect(() => {
-    getTenants();
+    getTenants(); // Fetch all tenants on component mount
   }, []);
 
   return (
@@ -80,43 +104,69 @@ const Tenantspage = () => {
           </button>
         </div>
         <div className="table1">
-        <div className="tenantTable">
-  <table className="tenant-table">
-    <thead>
-      <tr>
-        <th className="name-column">Name</th>
-        <th className="name-column1">Lease start</th>
-        <th className="name-column1">Lease End</th>
-        <th className="name-column1">Role</th>
-        <th className="name-column1">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {tenants.map((item) => (
-        <tr key={item._id}>
-          <td className="name-column">
-           {item.firstName}  {item.lastName}
-          </td>
-          <td className="name-column1">{new Date(item.leaseStart).toLocaleDateString()}</td>
-          <td className="name-column1">{new Date(item.leaseEnd).toLocaleDateString()}</td>
-          <td className="name-column1">{item.role}</td>
-          <td className="name-column1">
-            <button className="delete-btnland" onClick={() => openDeleteModal(item._id)}>Delete</button>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+          <div className="tenantTable">
+            <table className="tenant-table">
+              <thead>
+                <tr>
+                  <th className="name-column">Name</th>
+                  <th className="name-column1">Lease start</th>
+                  <th className="name-column1">Lease End</th>
+                  <th className="name-column1">Role</th>
+                  <th className="name-column1">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tenants.map((item) => (
+                  <tr key={item._id}>
+                    <td className="name-column">
+                      {item.firstName} {item.lastName}
+                    </td>
+                    <td className="name-column1">
+                      {new Date(item.leaseStart).toLocaleDateString()}
+                    </td>
+                    <td className="name-column1">
+                      {new Date(item.leaseEnd).toLocaleDateString()}
+                    </td>
+                    <td className="name-column1">{item.role}</td>
+                    <td className="name-column1">
+                      {/* Fetch and view tenant by ID
+                      <button className="view-btn" onClick={() => getTenantById(item._id)}>
+                        View
+                      </button> */}
+                      {/* Delete tenant */}
+                      <button className="delete-btnland" onClick={() => openDeleteModal(item._id)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+      
+      {/* Display the InviteTenant modal */}
       <InviteTenant isOpen={isInviteModalOpen} onClose={() => setIsInviteModalOpen(false)} />
+      
+      {/* Display the ConfirmModal for delete confirmation */}
       <ConfirmModal
         isOpen={isDeleteModalOpen}
         onClose={closeDeleteModal}
         onConfirm={handleDelete}
       />
+
+      {/* Display fetched tenant details */}
+      {singleTenant && (
+        <div className="tenant-details">
+          <h2>Tenant Details</h2>
+          <p>Name: {singleTenant.firstName} {singleTenant.lastName}</p>
+          <p>Email: {singleTenant.email}</p>
+          <p>Phone Number: {singleTenant.phoneNumber}</p>
+          <p>Property ID: {singleTenant.property}</p>
+          <p>Landlord ID: {singleTenant.landlord}</p>
+        </div>
+      )}
     </div>
   );
 };

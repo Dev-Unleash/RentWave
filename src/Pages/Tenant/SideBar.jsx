@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ola from "../../assets/ola.jpg";
 import { CiStar, CiWallet } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
@@ -12,28 +11,11 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 const SideBar = () => {
   const nav = useNavigate();
-  // const userProfile = localStorage.getItem("userProfile");
-  // const userName = JSON.parse(userProfile);
-  // console.log(userName)
-  // const tenantId = userName?._id;
-
-  const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
-  const userProfile = localStorage.getItem("userProfile");
-  const userToken = localStorage.getItem("userToken");
-  const userProflie = localStorage.getItem("userProfile");
-  const userName = JSON.parse(userProflie);
-  const tenantId = userName?._id;
-  const userData = JSON.parse(userProfile);
-  console.log(userData)
-
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [tenant, setTenant] = useState(null);
 
-  console.log(userName?.tenant.firstName);  // Optional chaining for safety
-
-  const handleLogoutClick = () => {
-    setShowLogoutPopup(true);
-  };
+  const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
+  const tenantId = tenantData?._id;
 
   useEffect(() => {
     const fetchTenant = async () => {
@@ -52,9 +34,7 @@ const SideBar = () => {
 
       try {
         const res = await axios.get(url, config);
-        const data = res.data;
-        console.log("Tenant Data:", data);
-        setTenant(data); // Store the tenant data in state
+        setTenant(res.data);
       } catch (error) {
         console.error("Error fetching tenant data:", error.response?.data?.message || error.message);
       }
@@ -62,6 +42,10 @@ const SideBar = () => {
 
     fetchTenant();
   }, [tenantId]);
+
+  const handleLogoutClick = () => {
+    setShowLogoutPopup(true);
+  };
 
   const handleLogoutConfirm = async () => {
     const url = "https://rentwave.onrender.com/api/v1/logout";
@@ -74,7 +58,7 @@ const SideBar = () => {
 
     try {
       await axios.post(url, {}, config);
-      localStorage.removeItem("userInfo");
+      localStorage.removeItem("userProfile");
       localStorage.removeItem("userToken");
       toast.success("Logout successful");
       nav("/");
@@ -90,10 +74,10 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    if (!userName) {
+    if (!tenantData) {
       nav("/");
     }
-  }, [userName, nav]);
+  }, [tenantData, nav]);
 
   return (
     <>
@@ -109,15 +93,15 @@ const SideBar = () => {
         <div className="Profile">
           <div className="Pics" style={{ cursor: "pointer" }}>
             <Link to="/TenantProfile">
-              {userName?.tenant.profilePicture?.pictureUrl ? (
-                <img src={userName?.tenant.profilePicture.pictureUrl} alt="Profile" />
+              {tenantData?.profilePicture?.pictureUrl ? (
+                <img src={tenantData?.profilePicture.pictureUrl} alt="Profile" />
               ) : (
                 <FaRegUserCircle size={50} />
               )}
             </Link>
           </div>
 
-          <p>{userName?.tenant.firstName + " " + userName?.tenant.lastName}</p>
+          <p>{`${tenantData?.firstName} ${tenantData?.lastName}`}</p>
           <h3>Welcome</h3>
         </div>
 
@@ -125,80 +109,34 @@ const SideBar = () => {
           <div className="MenuWrapper">
             <nav>
               <IoHome className="menuIcon" />
-              <NavLink
-                to="/TenantHome"
-                style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }
-              >
-                Home
-              </NavLink>
+              <NavLink to="/TenantHome" activeClassName="active">Home</NavLink>
             </nav>
             <nav>
               <CiStar className="menuIcon" />
-              <NavLink
-                to="/TenantMain"
-                style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }
-              >
-                Maintenance
-              </NavLink>
+              <NavLink to="/TenantMain" activeClassName="active">Maintenance</NavLink>
             </nav>
             <nav>
               <CiWallet className="menuIcon" />
-              <NavLink
-                to="/TenantPayment"
-                style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }
-              >
-                Payment
-              </NavLink>
+              <NavLink to="/TenantPayment" activeClassName="active">Payment</NavLink>
             </nav>
             <nav>
               <CiStar className="menuIcon" />
-              <NavLink
-                to="/TenantSettings"
-                style={({ isActive }) =>
-                  isActive ? { color: "royalblue" } : { color: "black" }
-                }
-              >
-                Account Setting
-              </NavLink>
+              <NavLink to="/TenantSettings" activeClassName="active">Account Setting</NavLink>
             </nav>
           </div>
         </div>
 
         <div className="Logoutmenu">
-          <nav
-            style={{ gap: "20px", display: "flex" }}
-            onClick={handleLogoutClick}
-          >
+          <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
             <AiOutlineLogout className="menuIcon" />
-            <p
-              style={{
-                fontSize: "25px",
-                color: "black",
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
+            <p style={{ fontSize: "25px", color: "black", display: "flex", alignItems: "center", cursor: "pointer" }}>
               Logout
             </p>
           </nav>
 
           {showLogoutPopup && (
             <div className="popup">
-              <p
-                style={{
-                  color: "white",
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
+              <p style={{ color: "white", width: "100%", display: "flex", justifyContent: "center" }}>
                 Are you sure?
               </p>
               <div className="popup-text">

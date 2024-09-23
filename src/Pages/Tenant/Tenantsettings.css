@@ -67,8 +67,15 @@
     width: 100%;
     height: 100%;
     gap: 50px;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
+/* Tenant.css */
+nav a.active {
+    color: royalblue; /* Example: Change the text color to coral */
+    font-weight: bold;
+    text-decoration:none; /* Add an underline or other styles */
+  }
+  
 .AcctInput{
     height: 20%;
     width: 100%;
@@ -140,6 +147,6 @@
         background-color: brown;
     }
     .AcctInputContainer form{
-        background-color: blueviolet;
+        /* background-color: blueviolet; */
     }
 }

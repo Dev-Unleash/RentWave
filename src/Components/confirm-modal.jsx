@@ -8,7 +8,7 @@ const ConfirmModal = ({ isOpen, onClose, onConfirm }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>Are you sure?</h2>
-        <p>Do you really want to delete this tenant?</p>
+        <p>Do you really want to delete this ?</p>
         <div className="modal-buttons">
           <button onClick={onConfirm} className="confirm-button1">Yes</button>
           <button onClick={onClose} className="cancel-button">No</button>
