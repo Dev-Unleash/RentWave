@@ -90,11 +90,12 @@
     }
 
 
-    & .email {
+    & .mail {
         width: 90%;
         height: 10vh;
         display: flex;
         flex-direction: column;
+
         gap: 10px;
       
 
@@ -107,7 +108,7 @@
         }
         
         & input, select {
-            height: 60%;
+            height: 100%;
         }
 
         & select {
