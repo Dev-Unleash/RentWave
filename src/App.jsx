@@ -141,6 +141,7 @@
 import React, { useState } from 'react';
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from './Pages/Home/Home';
+import { ToastContainer } from 'react-toastify';
 import AuthRoutes from './Pages/Landlord/AuthRoutes/AuthRoutes.jsx';
 import Contact_us from './Pages/Contact_us/Contact_us';
 import Login from './Components/Auth/Login';
@@ -347,8 +348,12 @@ const App = () => {
           element:<TenantProfile showPopup={showPopup}  setShowPopup={ setShowPopup} closePopup={closePopup}/>
         }
       ]
-    }
-  ]);
+     
+    },
+    
+    <ToastContainer />
+   
+  ])
 
   return (
     <RouterProvider router={router} />

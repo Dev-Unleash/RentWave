@@ -19,16 +19,7 @@
     position: relative;
 }
 
-.naming {
-    height: 20%;
-    width: 100%;
-    /* background-color: black; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #141415;
+
 
     & .fullname {
         height: 30%;
@@ -42,13 +33,13 @@
         }
         
     }
-
-    & .write {
-        height: 60%;
+     .write1 {
+        height: 18%;
         width: 80%;
         /* background-color: blue; */
         display: flex;
         gap: 30px;
+   
 
         & .writeInput{
             display: flex;
@@ -67,7 +58,7 @@
             border: 1px solid grey;
         }
     }
-}
+
 
 
 .h4 {
@@ -111,6 +102,12 @@
     align-items: center;
     justify-content: center;
 }
+.accprofileLand {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 form {
     height: 93%;
@@ -128,9 +125,14 @@ form {
         overflow-y: scroll;
         height: 80%;
     }
-    .write{
-        height: 1000px;
+    .AcctProfile{
+        height: 18%;
+    }
+    .write1{
+        height: 60%;
         flex-direction: column;
+        justify-content: space-between;
+        gap: 50px;
         /* background-color: chartreuse; */
         /* margin-bottom: 70px; */
     }
@@ -138,12 +140,12 @@ form {
         height: 70px;
         border: none;
     }
-    Edit{
+    .Edit{
         width: 300px;
         height: 60px;
     }
     form{
-        height: 80%;
+        height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;

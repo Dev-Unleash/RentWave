@@ -156,12 +156,11 @@
 
 
 
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './LandLordHome.css';
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
 
 const LandLordHome = () => {
   const [propertyCount, setPropertyCount] = useState(0);
@@ -187,7 +186,7 @@ const LandLordHome = () => {
   const fetchCounts = async () => {
     try {
       if (!token) {
-        console.error("No token found");
+        toast.error("No token found"); // Use Toastify for error
         return;
       }
 
@@ -196,15 +195,18 @@ const LandLordHome = () => {
 
       setPropertyCount(propertiesResponse.data.data.length);
       setTenantCount(tenantsResponse.data.data.length);
+      toast.success("Counts fetched successfully!"); // Success message
     } catch (error) {
-      console.error("Error fetching counts:", error.response?.data?.message || error.message);
+      const message = error.response?.data?.message || error.message;
+      console.error("Error fetching counts:", message);
+      toast.error(message || "Failed to fetch counts."); // Error message
     }
   };
 
   const fetchTotalPayments = async () => {
     try {
       if (!token) {
-        console.error("No token found");
+        toast.error("No token found"); // Use Toastify for error
         return;
       }
 
@@ -219,15 +221,18 @@ const LandLordHome = () => {
 
       setTotalPayments(total);      // Set total payments with 5% deduction
       setTotalEarnings(total);      // Update total earnings as well
+      toast.success("Total payments fetched successfully!"); // Success message
     } catch (error) {
-      console.error("Error fetching total payments:", error.response?.data?.message || error.message);
+      const message = error.response?.data?.message || error.message;
+      console.error("Error fetching total payments:", message);
+      toast.error(message || "Failed to fetch total payments."); // Error message
     }
   };
 
   const fetchRecentActivities = async () => {
     try {
       if (!token) {
-        console.error("No token found");
+        toast.error("No token found"); // Use Toastify for error
         return;
       }
 
@@ -251,8 +256,11 @@ const LandLordHome = () => {
 
       activities.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort activities by date
       setRecentActivities(activities);
+      toast.success("Recent activities fetched successfully!"); // Success message
     } catch (error) {
-      console.error("Error fetching recent activities:", error.response?.data?.message || error.message);
+      const message = error.response?.data?.message || error.message;
+      console.error("Error fetching recent activities:", message);
+      toast.error(message || "Failed to fetch recent activities."); // Error message
     }
   };
 
@@ -305,8 +313,8 @@ const LandLordHome = () => {
               </tr>
             </thead>
             <tbody>
-              {recentActivities.map((activity, index) => (
-                <tr key={index}>
+              {recentActivities.map((activity) => (
+                <tr key={activity.date + activity.type}> {/* Assuming date and type are unique together */}
                   <td>{activity.type}</td>
                   <td>{activity.reason}</td>
                   <td>{activity.date}</td>
@@ -317,6 +325,8 @@ const LandLordHome = () => {
           </table>
         </div>
       </div>
+
+      <ToastContainer /> {/* Add ToastContainer for notifications */}
     </div>
   );
 };

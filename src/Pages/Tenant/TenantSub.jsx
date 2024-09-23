@@ -1,7 +1,7 @@
 import React from 'react'
 import "./TenantSub.css"
 import { IoNotificationsCircleSharp } from "react-icons/io5";
-import SubImage from "../../assets/download 16.png"
+// import SubImage from "../../assets/download 16.png"
 const TenantSub = () => {
   return (
     <div className='TenantSubContainer'>
@@ -18,9 +18,9 @@ const TenantSub = () => {
     <div className="TenantsubDown">
       <div className="TextImagesub">
       <h3>Oh Snap! there's nothing here</h3>
-    <div className="SubImages">
+    {/* <div className="SubImages">
         <img src={SubImage} alt="" />
-    </div>
+    </div> */}
     <h3 style={{fontWeight:"400"}}>It looks like you don’t have any subscription yet</h3>
       </div>
 

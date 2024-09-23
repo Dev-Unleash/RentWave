@@ -165,7 +165,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className='Buttons'>
+          {/* <div className='Buttons'>
             <input
               type="file"
               ref={fileInputRef}
@@ -175,7 +175,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
             <button className='But' onClick={chooseFile}> 
               <LuUpload className='buticon'/> Upload Image
             </button>
-          </div>
+          </div> */}
           <button className='Button2' type='submit' disabled={loading}>
             {loading ? 'Loading...' : 'Add'} 
           </button>

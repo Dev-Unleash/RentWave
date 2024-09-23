@@ -17,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     /* padding-inline: 30px; */
+    /* position: relative; */
 
 
     & p {
@@ -60,6 +61,7 @@
     /* position: absolute;
     right: 8%; */
   }
+  
 
   & .ds {
     width: 15%;
@@ -134,11 +136,84 @@
         
     }
 }
+.withdraw{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* padding-left: 30px; */
+}
+.witdralBtn{
+    width: 300px;
+    height: 40px;
+    background-color: #4D86DB;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
 .tableData{
     width: 100%;
     height: 100%;
     overflow: scroll;
 }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .withdraw-btn {
+    background-color: #4D86DB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .close-btn {
+    width: 100%;
+    height: 40px;
+    /* background-color: #dc3545; */
+    color: black;
+    /* padding: 10px 20px; */
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    /* padding-right: 350px; */
+    
+  }
+  
 .TotalLndAmt{
     width: 90%;
     height: 5%;
@@ -156,5 +231,8 @@
 @media screen and (max-width:900px) {
     .TotalLndAmt p{
 justify-content: flex-start;
+    }
+    .tableData{
+        width: 100%;
     }
 }
