@@ -4,6 +4,7 @@ import { RiSearchLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 const Transaction = () => {
   const [payments, setPayments] = useState([]);
@@ -13,32 +14,32 @@ const Transaction = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [withdrawalDetails, setWithdrawalDetails] = useState({ bankName: '', accountNumber: '', amount: '' });
   const token = localStorage.getItem("userToken");
-  
-  const url = "https://rentwave.onrender.com/api/v1/payments"; 
+
+  const url = "https://rentwave.onrender.com/api/v1/landlord/payments"; // Corrected API endpoint
 
   const fetchPayments = async () => {
     setLoading(true);
     try {
       const response = await axios.get(url, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // Include the token for authentication
         },
       });
-      const paymentData = response.data.data;
 
-      if (paymentData.length === 0) {
-        toast.info("No payments found for this landlord."); // Inform the user
+      const paymentData = response.data.payments;
+
+      if (!paymentData || paymentData.length === 0) {
+        toast.info("No payments found for this landlord."); // Inform the user if no data is found
+      } else {
+        setPayments(paymentData);
+        // Calculate the total amount (assuming 5% fee deduction)
+        const total = paymentData.reduce((acc, item) => acc + item.amount * 0.95, 0);
+        setTotalAmount(total);
       }
-
-      setPayments(paymentData);
-
-      // Calculate the total amount
-      const total = paymentData.reduce((acc, item) => acc + item.amount * 0.95, 0);
-      setTotalAmount(total);
     } catch (error) {
       const message = error.response?.data?.message || error.message;
       console.error("Error fetching payments:", message);
-      toast.error(message); 
+      toast.error(message); // Display error message
       setErrorMessage(message);
     } finally {
       setLoading(false);
@@ -73,8 +74,7 @@ const Transaction = () => {
           </div>
         </div>
 
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-
+       
         <div className='withdraw'>
           <button className='witdralBtn' onClick={() => setIsModalOpen(true)}>Withdraw</button>
         </div>
@@ -103,20 +103,21 @@ const Transaction = () => {
                     <tr key={item._id}>
                       <td className='name-column'>
                         <Link to='/TransactionView1' style={{ cursor: 'pointer', color: "black", fontWeight: 'normal' }}>
-                          {item.firstName} {item.lastName}
+                          {/* Assuming tenant details will be fetched or displayed */}
+                          Tenant ID: {item.tenant}
                         </Link>
                       </td>
                       <td className='name-column1'>
-                        ₦{(item.amount * 0.95).toFixed(2)}
+                        ₦{(item.amount * 0.95).toFixed(2)} {/* Displaying amount with 5% fee deduction */}
                       </td>
                       <td className='name-column1'>
-                        {item.paymentDate ? new Date(item.paymentDate).toLocaleDateString() : 'N/A'}
+                        {item.date ? new Date(item.date).toLocaleDateString() : 'N/A'}
                       </td>
                       <td className='name-column1'>
                         {item.status}
                       </td>
                       <td className='name-column1'>
-                        {item.paymentDate ? new Date(item.paymentDate).toLocaleTimeString() : 'N/A'}
+                        {item.date ? new Date(item.date).toLocaleTimeString() : 'N/A'}
                       </td>
                     </tr>
                   ))}

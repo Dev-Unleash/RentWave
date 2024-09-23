@@ -55,21 +55,6 @@ const MenuBar = () => {
     }
   }, [userData, nav]);
 
-  const menuItems = [
-    { to: '/LandLord', icon: <IoHome />, label: 'Home', key: 'home' },
-    { to: '/propertics', icon: <GiFamilyHouse />, label: 'Properties', key: 'properties' },
-    { to: '/Transactions', icon: <CiWallet />, label: 'Transactions', key: 'transactions' },
-    { to: '/View-Tenant', icon: <MdPeopleAlt />, label: 'Tenants', key: 'tenants' },
-    { to: '/Maintenance', icon: <GrHostMaintenance />, label: 'Maintenance', key: 'maintenance' },
-    { to: '/settings', icon: <FaTools />, label: 'Account Settings', key: 'settings' },
-  ];
-
-  const handleIconClick = (key) => {
-    if (activeIcon !== key) {
-      setActiveIcon(key);
-    }
-  };
-
   return (
     <>
       <div className="Sidebarwhole1">
@@ -96,29 +81,54 @@ const MenuBar = () => {
 
         <div className="MenuContainer1">
           <div className="MenuWrapper1">
-            {menuItems.map(({ to, icon, label, key }) => (
-              <nav key={key}>
-                <NavLink to={to} onClick={() => handleIconClick(key)} className='active-link'>
-                  {label}
-                </NavLink>
-                <Link className="menuside" to={to}>
-                  {React.cloneElement(icon, {
-                    onClick: () => handleIconClick(key),
-                    color: activeIcon === key ? 'royalblue' : 'black',
-                    className: "menuIcon1",
-                  })}
-                </Link>
+            <NavLink to="/LandLord" onClick={() => setActiveIcon('home')} className={`menu-item ${activeIcon === 'home' ? 'active' : ''}`}>
+              <nav className="menu-nav">
+                <IoHome className="menuIcon1" />
+                <span>Home</span>
               </nav>
-            ))}
+            </NavLink>
+
+            <NavLink to="/propertics" onClick={() => setActiveIcon('properties')} className={`menu-item ${activeIcon === 'properties' ? 'active' : ''}`}>
+              <nav className="menu-nav">
+                <GiFamilyHouse className="menuIcon1" />
+                <span>Properties</span>
+              </nav>
+            </NavLink>
+
+            <NavLink to="/Transactions" onClick={() => setActiveIcon('transactions')} className={`menu-item ${activeIcon === 'transactions' ? 'active' : ''}`}>
+              <nav className="menu-nav">
+                <CiWallet className="menuIcon1" />
+                <span>Transactions</span>
+              </nav>
+            </NavLink>
+
+            <NavLink to="/View-Tenant" onClick={() => setActiveIcon('tenants')} className={`menu-item ${activeIcon === 'tenants' ? 'active' : ''}`}>
+              <nav className="menu-nav">
+                <MdPeopleAlt className="menuIcon1" />
+                <span>Tenants</span>
+              </nav>
+            </NavLink>
+
+            <NavLink to="/Maintenance" onClick={() => setActiveIcon('maintenance')} className={`menu-item ${activeIcon === 'maintenance' ? 'active' : ''}`}>
+              <nav className="menu-nav">
+                <GrHostMaintenance className="menuIcon1" />
+                <span>Maintenance</span>
+              </nav>
+            </NavLink>
+
+            <NavLink to="/settings" onClick={() => setActiveIcon('settings')} className={`menu-item ${activeIcon === 'settings' ? 'active' : ''}`}>
+              <nav className="menu-nav">
+                <FaTools className="menuIcon1" />
+                <span>Account Settings</span>
+              </nav>
+            </NavLink>
           </div>
         </div>
 
-        <div className="Logoutmenu">
+        <div className="Logoutmenu1">
           <nav style={{ gap: "20px", display: "flex" }} onClick={handleLogoutClick}>
-            <p style={{ fontSize: "25px", color: "black", cursor: "pointer" }}>
-              Logout
-            </p>
             <AiOutlineLogout className="menuIcon1" />
+            <p style={{ fontSize: "25px", color: "black", cursor: "pointer" }}>Logout</p>
           </nav>
 
           {showLogoutPopup && (
