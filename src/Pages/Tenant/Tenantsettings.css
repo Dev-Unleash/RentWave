@@ -146,7 +146,7 @@ nav a.active {
         flex-direction: column;
         background-color: brown;
     }
-    .AcctInputContainer form{
-        /* background-color: blueviolet; */
-    }
+    /* .AcctInputContainer form{
+        background-color: blueviolet;
+    } */
 }
