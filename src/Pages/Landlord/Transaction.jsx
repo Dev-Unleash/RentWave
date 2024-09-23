@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 const Transaction = () => {
   const [payments, setPayments] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
@@ -84,9 +84,7 @@ const Transaction = () => {
         </div>
 
         <div className="table">
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
+          
             <div className="tableData">
               <table>
                 <thead>
@@ -124,7 +122,7 @@ const Transaction = () => {
                 </tbody>
               </table>
             </div>
-          )}
+          
         </div>
       </div>
 
