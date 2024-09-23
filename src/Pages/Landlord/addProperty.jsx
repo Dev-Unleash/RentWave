@@ -31,7 +31,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true
+    setLoading(true); 
 
     const formData = new FormData();
     formData.append('name', name);
@@ -59,7 +59,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
       const propertyId = response.data.data._id; 
       console.log("Property created with ID:", propertyId);
       setPropertyId(propertyId);
-      toast.success(response.data.message || 'Property added successfully!');
+      toast.success( 'Property added successfully!');
       onClose(); 
     } catch (error) {
       console.error("Error creating property:", error);
@@ -125,7 +125,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
             </div>
             <div className="inputs">
               <input 
-                type="text" 
+                type="number" 
                 placeholder='₦' 
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}

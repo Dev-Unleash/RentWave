@@ -4,8 +4,8 @@ import { IoArrowBackSharp, IoEye, IoEyeOff } from "react-icons/io5";
 import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
 // import { toast, Toaster } from "react-hot-toast";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 import logo from "../../assets/logo.png";
 
@@ -52,8 +52,8 @@ const Signup = () => {
     } else {
       try {
         setLoading(true); // Set loading state to true
-        console.log("Loading state:", loading); // Check loading state
         
+
         const apiData = {
           firstName,
           lastName,
@@ -65,37 +65,27 @@ const Signup = () => {
 
         const url = "https://rentwave.onrender.com/api/v1/signup";
 
-    
         const res = await axios.post(url, apiData);
-        console.log("API response:", res);
         const userData = res.data.data;
         const userToken = res.data.token;
-  
+        console.log(res)
+        console.log(res.response?.data?.data)
         localStorage.setItem("userInfo", JSON.stringify(userData));
         localStorage.setItem("userToken", userToken);
-       useEffect(() => {
-        userData
-       }, [])
-       
-        setLoading(false);
-        toast.success(res.data.data.message);
-        // alert(res.data.message)
-        setTimeout(()=>{
-          navigate("/VerifyEmail");
+        
 
-        },4000)
+        setLoading(false);
+       
+        toast.success("please check your email for verification");
+        // alert(res.data.message)
+        setTimeout(() => {
+          navigate("/Login");
+        }, 2000);
       } catch (error) {
-        setLoading(false); 
+        setLoading(false);
         console.error("Error during signup:", error);
-  
-   
-        if (error.response && error.response.data && error.response.data.message) {
-          
-          toast.error(error.response.data.message);
-        } else {
-         
-          toast.error("Sign up failed. Please try again.");
-        }
+
+        toast.error(error.response.data.message);
       }
     }
   };
@@ -130,11 +120,21 @@ const Signup = () => {
                   <img
                     src={logo}
                     alt="logo"
-                    style={{ width: "70%", height: "100%", objectFit: "contain" }}
+                    style={{
+                      width: "70%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
                   />
                 </Link>
               </div>
-              <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px" }}>
+              <h4
+                style={{
+                  fontSize: "14px",
+                  width: "100%",
+                  marginBottom: "50px",
+                }}
+              >
                 Sign up your business on Rent Wave
               </h4>
             </div>
@@ -235,7 +235,10 @@ const Signup = () => {
                 {seePassword ? (
                   <IoEye className="icon" onClick={togglePasswordVisibility} />
                 ) : (
-                  <IoEyeOff className="icon" onClick={togglePasswordVisibility} />
+                  <IoEyeOff
+                    className="icon"
+                    onClick={togglePasswordVisibility}
+                  />
                 )}
               </div>
             </div>
@@ -252,7 +255,10 @@ const Signup = () => {
                 {seePassword2 ? (
                   <IoEye className="icon" onClick={togglePasswordVisibility2} />
                 ) : (
-                  <IoEyeOff className="icon" onClick={togglePasswordVisibility2} />
+                  <IoEyeOff
+                    className="icon"
+                    onClick={togglePasswordVisibility2}
+                  />
                 )}
               </div>
             </div>
@@ -267,20 +273,22 @@ const Signup = () => {
                 type="checkbox"
                 required
               />
-              <span className="termsText" >
+              <span className="termsText">
                 I agree with RentWave, and the collection and processing of my
                 personal data in accordance with RentWave
               </span>
             </div>
 
             <button className="signupBtn" type="submit" disabled={loading}>
-              {loading ? "Loading..." : "Sign-Up"} 
+              {loading ? "Loading..." : "Sign-Up"}
             </button>
 
             <p style={{ fontSize: "12px", textAlign: "center" }}>
               Already have an account?{" "}
               <span style={{ color: "royalblue", cursor: "pointer" }}>
-                <Link style={{color:'royalblue'}} to="/Login">Log in</Link>
+                <Link style={{ color: "royalblue" }} to="/Login">
+                  Log in
+                </Link>
               </span>
             </p>
 
@@ -315,7 +323,6 @@ const Signup = () => {
       {/* <Toaster/> */}
       <ToastContainer />
     </>
-
   );
 };
 
