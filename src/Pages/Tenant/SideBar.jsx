@@ -101,7 +101,7 @@ const SideBar = () => {
             </Link>
           </div>
 
-          <p>{`${tenantData?.firstName} ${tenantData?.lastName}`}</p>
+          <p>{`${tenantData?.data.firstName} ${tenantData?.data.lastName}`}</p>
           <h3>Welcome</h3>
         </div>
 
