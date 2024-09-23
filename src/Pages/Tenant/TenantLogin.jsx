@@ -633,3 +633,724 @@ import React, { useState } from "react";
 // };
 
 // export default LandlordHome;
+
+
+// import React, { useEffect } from "react";
+// import "./TenantProfile.css";
+// import { Link, useNavigate } from "react-router-dom";
+// import { IoArrowBack } from "react-icons/io5";
+// import { FaRegUserCircle } from "react-icons/fa";
+// import axios from "axios";
+
+// const TenantProfile = () => {
+//   const navigate = useNavigate();
+  
+//   const handleClose = () => {
+//     navigate(-1);
+//   };
+
+//   const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
+//   const userProfile = localStorage.getItem("userProfile");
+//   const userToken = localStorage.getItem("userToken");
+//   const userProflie = localStorage.getItem("userProfile");
+//   const userName = JSON.parse(userProflie);
+//   const tenantId = userName?._id;
+//   const userData = JSON.parse(userProfile);
+//   console.log(userData)
+
+//   useEffect(() => {
+//     const fetchTenant = async () => {
+//       if (!tenantId) {
+//         console.error("No tenant ID found");
+//         return;
+//       }
+
+//       const url = `https://rentwave.onrender.com/api/v1/tenant/${tenantId}`;
+//       const token = localStorage.getItem("userToken");
+//       const config = {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       };
+
+//       try {
+//         const res = await axios.get(url, config);
+//         const data = res.data;
+//         console.log("Tenant Data:", data);
+//         setTenant(data); // Store the tenant data in state
+//       } catch (error) {
+//         console.error("Error fetching tenant data:", error.response?.data?.message || error.message);
+//       }
+//     };
+
+//     fetchTenant();
+//   }, [tenantId]);
+
+
+//   return (
+//     <div className="TenantProfilePage">
+//       <div className="TenantProfilePageWrapper">
+//         <div className="ProfileHeader">
+//           <h3 className="CloseButtonPro" onClick={handleClose}>
+//             <IoArrowBack style={{ height: "45px", width: "50px" }} /> Back
+//           </h3>
+//           <h3 style={{ width: "20%" }}>Profile</h3>
+//           <Link
+//             to="/TenantSettings"
+//             style={{ width: "20%", justifyContent: "flex-end" }}
+//           >
+//             <button>Edit</button>
+//           </Link>
+//         </div>
+//         <div className="Profilepic">
+//           <div className="Pics" style={{ cursor: "pointer" }}>
+//             {/* If profilePicture is available, display it; otherwise, show a default image */}
+//             {/* {localStorage.getItem("userProfile") && JSON.parse(localStorage.getItem("userProfile")).tenant.profilePicture?.pictureUrl ? ( */}
+//             {userName?.profilePicture?.pictureUrl ? (
+//                 <img src={userName.profilePicture.pictureUrl} alt="Profile" />
+//               ) : (
+//                 <FaRegUserCircle size={50} />
+//               )}
+//           </div>
+//         </div>
+//         <div className="ProfDetail">
+//           <ul>
+//             <li>
+//               <h3>Name:</h3>
+//               <span>{`${tenantData?.firstName || userData.firstName} ${
+//                 tenantData?.lastName || userData.lastName
+//               }`}</span>
+//             </li>
+//             <li>
+//               <h3>Email address:</h3>
+//               <span>{tenantData?.email || userData.email}</span>
+//             </li>
+//             <li>
+//               <h3>Phone number:</h3>
+//               <span>{tenantData?.phoneNumber || userData.phoneNumber}</span>
+//             </li>
+//             <li>
+//               <h3>Gender:</h3>
+//               <span>{tenantData?.gender || "N/A"}</span>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TenantProfile;
+
+
+// import React, { useEffect, useState } from "react";
+// // import ola from "../../assets/ola.jpg";
+// // import { CiStar, CiWallet } from "react-icons/ci";
+// // import { IoHome } from "react-icons/io5";
+// // import { AiOutlineLogout } from "react-icons/ai";
+// // import { Link, NavLink, useNavigate } from "react-router-dom";
+// // import Logo from "../../assets/logo-removebg-preview.png";
+// // import axios from "axios";
+// // import { toast, Toaster } from "react-hot-toast";
+// // import "./Tenant.css";
+// // import { FaRegUserCircle } from "react-icons/fa";
+
+// // const SideBar = () => {
+// //   const nav = useNavigate();
+// //   const userInfo = localStorage.getItem("userInfo");
+// //   const userData = JSON.parse(userInfo);
+// //   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+// //   const [tenant, setTenant] = useState(null);
+
+// //   const userName =JSON.parse(localStorage.getItem("userInfo"));
+// //   const tenantId = userName._id
+// //   console.log(userName.firstName)
+
+// //   const handleLogoutClick = () => {
+// //     setShowLogoutPopup(true);
+// //   };
+
+// //   useEffect(() => {
+// //     const fetchTenant = async () => {
+// //       if (!tenantId) {
+// //         console.error("No tenant ID found");
+// //         return;
+// //       }
+  
+// //       const url = `https://rentwave.onrender.com/api/v1/tenant/${tenantId}`;
+// //       const token = localStorage.getItem("userToken");
+// //       const config = {
+// //         headers: {
+// //           Authorization: `Bearer ${token}`,
+// //         },
+// //       };
+  
+// //       try {
+// //         const res = await axios.get(url, config);
+// //         const data = res.data;
+// //         console.log("Tenant Data:", data);
+// //         setTenant(data); // Set the tenant data to state
+// //       } catch (error) {
+// //         console.error("Error fetching tenant data:", error.response || error);
+// //         // toast.error(error.response?.data?.message || "Tenant not found.");
+// //       }
+// //     };
+  
+// //     fetchTenant();
+// //   }, [tenantId]);
+  
+
+// //   const handleLogoutConfirm = async () => {
+// //     const url = "https://rentwave.onrender.com/api/v1/logout";
+// //     const token = localStorage.getItem("userToken");
+// //     const config = {
+// //       headers: {
+// //         Authorization: `Bearer ${token}`,
+// //       },
+// //     };
+
+// //     try {
+// //       await axios.post(url, {}, config);
+// //       localStorage.removeItem("userInfo");
+// //       localStorage.removeItem("userToken");
+// //       toast.success("Logout successful");
+// //       nav("/");
+// //     } catch (error) {
+// //       toast.error("Logout failed. Please try again.");
+// //     } finally {
+// //       setShowLogoutPopup(false);
+// //     }
+// //   };
+
+// //   const handleLogoutCancel = () => {
+// //     setShowLogoutPopup(false);
+// //   };
+
+// //   useEffect(() => {
+// //     if (!userData) {
+// //       nav("/");
+// //     }
+// //   }, [userData, nav]);
+
+// //   return (
+// //     <>
+// //       <div className="Sidebarwhole">
+// //         <Link to="/">
+// //           <div className="LogoContainer">
+// //             <div className="Logo">
+// //               <img src={Logo} alt="Logo" />
+// //             </div>
+// //           </div>
+// //         </Link>
+
+// //         <div className="Profile">
+// //           <div className="Pics" style={{ cursor: "pointer" }}>
+// //           <Link to="/TenantProfile">
+// //       {localStorage.getItem("userInfo") && JSON.parse(localStorage.getItem("userInfo")).profilePicture?.pictureUrl ? (
+// //         <img
+// //           src={userInfo.data.profilePicture.pictureUrl}
+// //           alt="Profile"
+// //         />
+// //       ) : (
+// //         <FaRegUserCircle size={50} /> // Adjust size as needed
+// //       )}
+// //     </Link>
+// //           </div>
+
+// //           <p>{userName?.firstName + " " + userName.lastName}</p>
+// //           <h3>Welcome</h3>
+// //         </div>
+
+// //         <div className="MenuContainer">
+// //           <div className="MenuWrapper">
+// //             <nav>
+// //               <IoHome className="menuIcon" />
+// //               <NavLink
+// //                 to="/TenantHome"
+// //                 style={({ isActive }) =>
+// //                   isActive ? { color: "royalblue" } : { color: "black" }
+// //                 }
+// //               >
+// //                 Home
+// //               </NavLink>
+// //             </nav>
+// //             <nav>
+// //               <CiStar className="menuIcon" />
+// //               <NavLink
+// //                 to="/TenantMain"
+// //                 style={({ isActive }) =>
+// //                   isActive ? { color: "royalblue" } : { color: "black" }
+// //                 }
+// //               >
+// //                 Maintenance
+// //               </NavLink>
+// //             </nav>
+// //             <nav>
+// //               <CiWallet className="menuIcon" />
+// //               <NavLink
+// //                 to="/TenantPayment"
+// //                 style={({ isActive }) =>
+// //                   isActive ? { color: "royalblue" } : { color: "black" }
+// //                 }
+// //               >
+// //                 Payment
+// //               </NavLink>
+// //             </nav>
+// //             <nav>
+// //               <CiStar className="menuIcon" />
+// //               <NavLink
+// //                 to="/TenantSettings"
+// //                 style={({ isActive }) =>
+// //                   isActive ? { color: "royalblue" } : { color: "black" }
+// //                 }
+// //               >
+// //                 Account Setting
+// //               </NavLink>
+// //             </nav>
+// //           </div>
+// //         </div>
+
+// //         <div className="Logoutmenu">
+// //           <nav
+// //             style={{ gap: "20px", display: "flex" }}
+// //             onClick={handleLogoutClick}
+// //           >
+// //             <AiOutlineLogout className="menuIcon" />
+// //             <p
+// //               style={{
+// //                 fontSize: "25px",
+// //                 color: "black",
+// //                 display: "flex",
+// //                 alignItems: "center",
+// //                 cursor: "pointer",
+// //               }}
+// //             >
+// //               Logout
+// //             </p>
+// //           </nav>
+
+// //           {showLogoutPopup && (
+// //             <div className="popup">
+// //               <p
+// //                 style={{
+// //                   color: "white",
+// //                   width: "100%",
+// //                   display: "flex",
+// //                   justifyContent: "center",
+// //                 }}
+// //               >
+// //                 Are you sure?
+// //               </p>
+// //               <div className="popup-text">
+// //                 <p onClick={handleLogoutConfirm}>Yes</p>
+// //                 <p onClick={handleLogoutCancel}>No</p>
+// //               </div>
+// //             </div>
+// //           )}
+// //         </div>
+// //       </div>
+// //       <Toaster />
+// //     </>
+// //   );
+// // };
+
+// // export default SideBar;
+
+
+// import React, { useEffect, useState } from "react";
+// import ola from "../../assets/ola.jpg";
+// import { CiStar, CiWallet } from "react-icons/ci";
+// import { IoHome } from "react-icons/io5";
+// import { AiOutlineLogout } from "react-icons/ai";
+// import { Link, NavLink, useNavigate } from "react-router-dom";
+// import Logo from "../../assets/logo-removebg-preview.png";
+// import axios from "axios";
+// import { toast, Toaster } from "react-hot-toast";
+// import "./Tenant.css";
+// import { FaRegUserCircle } from "react-icons/fa";
+
+// const SideBar = () => {
+//   const nav = useNavigate();
+//   const userProfile = localStorage.getItem("userProfile");
+//   const userName = JSON.parse(userProfile);
+//   console.log(userName)
+//   const tenantId = userName?._id;
+
+//   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+//   const [tenant, setTenant] = useState(null);
+
+//   console.log(userName?.tenant.firstName);  // Optional chaining for safety
+
+//   const handleLogoutClick = () => {
+//     setShowLogoutPopup(true);
+//   };
+
+//   useEffect(() => {
+//     const fetchTenant = async () => {
+//       if (!tenantId) {
+//         console.error("No tenant ID found");
+//         return;
+//       }
+
+//       const url = `https://rentwave.onrender.com/api/v1/tenant/${tenantId}`;
+//       const token = localStorage.getItem("userToken");
+//       const config = {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       };
+
+//       try {
+//         const res = await axios.get(url, config);
+//         const data = res.data;
+//         console.log("Tenant Data:", data);
+//         setTenant(data); // Store the tenant data in state
+//       } catch (error) {
+//         console.error("Error fetching tenant data:", error.response?.data?.message || error.message);
+//       }
+//     };
+
+//     fetchTenant();
+//   }, [tenantId]);
+
+//   const handleLogoutConfirm = async () => {
+//     const url = "https://rentwave.onrender.com/api/v1/logout";
+//     const token = localStorage.getItem("userToken");
+//     const config = {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     };
+
+//     try {
+//       await axios.post(url, {}, config);
+//       localStorage.removeItem("userInfo");
+//       localStorage.removeItem("userToken");
+//       toast.success("Logout successful");
+//       nav("/");
+//     } catch (error) {
+//       toast.error("Logout failed. Please try again.");
+//     } finally {
+//       setShowLogoutPopup(false);
+//     }
+//   };
+
+//   const handleLogoutCancel = () => {
+//     setShowLogoutPopup(false);
+//   };
+
+//   useEffect(() => {
+//     if (!userName) {
+//       nav("/");
+//     }
+//   }, [userName, nav]);
+
+//   return (
+//     <>
+//       <div className="Sidebarwhole">
+//         <Link to="/">
+//           <div className="LogoContainer">
+//             <div className="Logo">
+//               <img src={Logo} alt="Logo" />
+//             </div>
+//           </div>
+//         </Link>
+
+//         <div className="Profile">
+//           <div className="Pics" style={{ cursor: "pointer" }}>
+//             <Link to="/TenantProfile">
+//               {userName?.tenant.profilePicture?.pictureUrl ? (
+//                 <img src={userName?.tenant.profilePicture.pictureUrl} alt="Profile" />
+//               ) : (
+//                 <FaRegUserCircle size={50} />
+//               )}
+//             </Link>
+//           </div>
+
+//           <p>{userName?.tenant.firstName + " " + userName?.tenant.lastName}</p>
+//           <h3>Welcome</h3>
+//         </div>
+
+//         <div className="MenuContainer">
+//           <div className="MenuWrapper">
+//             <nav>
+//               <IoHome className="menuIcon" />
+//               <NavLink
+//                 to="/TenantHome"
+//                 style={({ isActive }) =>
+//                   isActive ? { color: "royalblue" } : { color: "black" }
+//                 }
+//               >
+//                 Home
+//               </NavLink>
+//             </nav>
+//             <nav>
+//               <CiStar className="menuIcon" />
+//               <NavLink
+//                 to="/TenantMain"
+//                 style={({ isActive }) =>
+//                   isActive ? { color: "royalblue" } : { color: "black" }
+//                 }
+//               >
+//                 Maintenance
+//               </NavLink>
+//             </nav>
+//             <nav>
+//               <CiWallet className="menuIcon" />
+//               <NavLink
+//                 to="/TenantPayment"
+//                 style={({ isActive }) =>
+//                   isActive ? { color: "royalblue" } : { color: "black" }
+//                 }
+//               >
+//                 Payment
+//               </NavLink>
+//             </nav>
+//             <nav>
+//               <CiStar className="menuIcon" />
+//               <NavLink
+//                 to="/TenantSettings"
+//                 style={({ isActive }) =>
+//                   isActive ? { color: "royalblue" } : { color: "black" }
+//                 }
+//               >
+//                 Account Setting
+//               </NavLink>
+//             </nav>
+//           </div>
+//         </div>
+
+//         <div className="Logoutmenu">
+//           <nav
+//             style={{ gap: "20px", display: "flex" }}
+//             onClick={handleLogoutClick}
+//           >
+//             <AiOutlineLogout className="menuIcon" />
+//             <p
+//               style={{
+//                 fontSize: "25px",
+//                 color: "black",
+//                 display: "flex",
+//                 alignItems: "center",
+//                 cursor: "pointer",
+//               }}
+//             >
+//               Logout
+//             </p>
+//           </nav>
+
+//           {showLogoutPopup && (
+//             <div className="popup">
+//               <p
+//                 style={{
+//                   color: "white",
+//                   width: "100%",
+//                   display: "flex",
+//                   justifyContent: "center",
+//                 }}
+//               >
+//                 Are you sure?
+//               </p>
+//               <div className="popup-text">
+//                 <p onClick={handleLogoutConfirm}>Yes</p>
+//                 <p onClick={handleLogoutCancel}>No</p>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//       <Toaster />
+//     </>
+//   );
+// };
+
+// export default SideBar;
+
+// import React, { useState, useEffect } from "react";
+// import "./Tenantsettings.css";
+// import { FaCamera } from "react-icons/fa6";
+// import { IoArrowBack } from "react-icons/io5";
+// import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+// import { FaRegUserCircle } from "react-icons/fa";
+// import { toast, ToastContainer } from "react-toastify";
+
+// const TenantSettings = () => {
+//   const [showImg, setShowImg] = useState();
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     phoneNumber: "",
+//     profilePicture: null,
+//   });
+//   const [loading, setLoading] = useState(false);
+//   const navigate = useNavigate();
+//   const userToken = localStorage.getItem("userToken");
+
+//   // Fetch tenant data from localStorage when the component mounts
+//   useEffect(() => {
+//     const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
+//     if (tenantData) {
+//       setFormData({
+//         firstName: tenantData.firstName || "",
+//         lastName: tenantData.lastName || "",
+//         phoneNumber: tenantData.phoneNumber || "",
+//         profilePicture: tenantData.profilePicture?.pictureUrl || null,
+//       });
+//       setShowImg(tenantData.profilePicture?.pictureUrl || null);
+//     }
+//   }, []);
+
+//   const posting = (e) => {
+//     const file = e.target.files[0];
+//     const myImage = URL.createObjectURL(file);
+//     setShowImg(myImage);
+//     setFormData({ ...formData, profilePicture: file });
+//   };
+
+//   const handleClose = () => {
+//     navigate(-1);
+//   };
+
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData({ ...formData, [name]: value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+//     const url = "https://rentwave.onrender.com/api/v1/updateprofile";
+//     const apiData = new FormData();
+//     apiData.append("firstName", formData.firstName);
+//     apiData.append("lastName", formData.lastName);
+//     apiData.append("phoneNumber", formData.phoneNumber);
+    
+//     if (formData.profilePicture instanceof File) {
+//       apiData.append("profilePicture", formData.profilePicture);
+//     }
+  
+//     console.log("Submitting profile data:", apiData);
+  
+//     try {
+//       const response = await axios.put(url, apiData, {
+//         headers: {
+//           Authorization: `Bearer ${userToken}`,
+//           "Content-Type": "multipart/form-data",
+//         },
+//       });
+//       localStorage.setItem("userProfile", JSON.stringify(response.data));
+//       alert("Profile updated successfully!");
+//       setLoading(false);
+//       handleClose();
+//     } catch (error) {
+//       console.error("Error updating profile:", error.response);
+//       toast.error(error.response?.data?.errors || "An error occurred while updating your profile.");
+//       setLoading(false);
+//     }
+//   };
+  
+
+//   return (
+//     <>
+//     <div className="AcctSettingCon">
+//       <div className="AcctSettingsWrapper">
+//         <div className="AcctSettingsHeader">
+//           <h3 className="CloseButtonPro" onClick={handleClose}>
+//             <IoArrowBack style={{ height: "45px", width: "50px" }} />
+//             Back
+//           </h3>
+//           <h3
+//             style={{ width: "80%", display: "flex", justifyContent: "center" }}
+//           >
+//             Account Setting
+//           </h3>
+//         </div>
+//         <div className="AcctSettingsDown">
+//           <div className="AcctProfile">
+//             <div className="Pics">
+//             {showImg ? (
+//     <img src={showImg} alt="Profile" />
+//   ) : (
+//     <FaRegUserCircle style={{ height: "100px", width: "100px", color: "grey" }} />
+//   )}
+//               <div className="UploadIcon">
+//                 <input type="file" id="i" hidden onChange={posting} />
+//                 <label htmlFor="i" style={{ width: "max-content" }}>
+//                   <FaCamera
+//                     style={{
+//                       height: "30px",
+//                       width: "40px",
+//                       position: "absolute",
+//                       bottom: "-5px",
+//                       right: "0px",
+//                       cursor: "pointer",
+//                     }}
+//                   />
+//                 </label>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="AcctInputContainer">
+//             <form
+//               action=""
+//               onSubmit={handleSubmit}
+//               style={{ height: "100%", width: "100%" }}
+//             >
+//               <div className="AcctInput">
+//                 <p>First Name</p>
+//                 <input
+//                   type="text"
+//                   name="firstName"
+//                   value={formData.firstName}
+//                   onChange={handleInputChange}
+//                   // required
+//                 />
+//               </div>
+//               <div className="AcctInput">
+//                 <p>Last Name</p>
+//                 <input
+//                   type="text"
+//                   name="lastName"
+//                   value={formData.lastName}
+//                   onChange={handleInputChange}
+//                   // required
+//                 />
+//               </div>
+//               <div className="AcctInput">
+//                 <p>Phone Number</p>
+//                 <input
+//                   type="text"
+//                   name="phoneNumber"
+//                   value={formData.phoneNumber}
+//                   onChange={handleInputChange}
+//                   // required
+//                 />
+//               </div>
+//               <button
+//                 type="submit"
+//                 disabled={loading}
+//                 style={{
+//                   height: "8%",
+//                   width: "45%",
+//                   borderRadius: "10px",
+//                   backgroundColor: loading ? "#888" : "#4D86DB",
+//                   cursor: loading ? "not-allowed" : "pointer",
+//                   border: "none",
+//                   color: "white",
+//                   fontSize: "18px",
+//                 }}
+//               >
+//                 {loading ? "Loading..." : "Save Changes"}
+//               </button>
+//             </form>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//     <ToastContainer/>
+//     </>
+//   );
+// };
+
+// export default TenantSettings;  

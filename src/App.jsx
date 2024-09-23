@@ -178,6 +178,7 @@ import LandlordProfilepage from './Pages/Landlord/LandlordProfilepage.jsx';
 import TenantProfileVeiw1 from './Pages/Landlord/TenantProfileView1.jsx';
 import TransactionVeiw1 from './Pages/Landlord/TransactionVeiw1.jsx'
 import PropertyView1  from './Pages/Landlord/PropertyVeiw1.jsx'
+import VerifyEmail from './Pages/Landlord/verifyEmail/VerifyEmail.jsx';
 
 const App = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -197,6 +198,10 @@ const App = () => {
     {
       path: "/Signup",
       element: <Signup />
+    },
+    {
+      path: "/verify_email",
+      element: <VerifyEmail />
     },
     {
       path: "/ResetPassword",

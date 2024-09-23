@@ -81,7 +81,7 @@ const Signup = () => {
         toast.success(res.data.data.message);
         // alert(res.data.message)
         setTimeout(()=>{
-          navigate("/Login");
+          navigate("/VerifyEmail");
 
         },4000)
       } catch (error) {

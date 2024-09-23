@@ -15,6 +15,7 @@ const TenantSettings = () => {
     phoneNumber: "",
     profilePicture: null,
   });
+  console
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userToken = localStorage.getItem("userToken");
@@ -22,6 +23,7 @@ const TenantSettings = () => {
   // Fetch tenant data from localStorage when the component mounts
   useEffect(() => {
     const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
+    console.log(tenantData)
     if (tenantData) {
       setFormData({
         firstName: tenantData.firstName || "",
@@ -84,7 +86,8 @@ const TenantSettings = () => {
   
 
   return (
-    <>
+    <div className="Ken" style={{ width: "100%", height: "100%"}}>
+    
     <div className="AcctSettingCon">
       <div className="AcctSettingsWrapper">
         <div className="AcctSettingsHeader">
@@ -181,7 +184,7 @@ const TenantSettings = () => {
       </div>
     </div>
     <ToastContainer/>
-    </>
+    </div>
   );
 };
 

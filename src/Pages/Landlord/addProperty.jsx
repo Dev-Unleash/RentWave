@@ -60,9 +60,6 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
       console.log("Property created with ID:", propertyId);
       setPropertyId(propertyId);
       toast.success(response.data.message || 'Property added successfully!');
-      
-    
-      
       onClose(); 
     } catch (error) {
       console.error("Error creating property:", error);

@@ -90,3 +90,12 @@
         }
     }
 }
+
+
+.email {
+    text-align: center;
+    font-size: 13.5px;
+    width: 200px;
+    height: 00px;
+    background-color: aqua;
+}
