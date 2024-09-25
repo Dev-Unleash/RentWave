@@ -130,14 +130,15 @@
 } */
 
 /* Add your specific tenant-table class for styling */
-.tenant-table {
+.landlord-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    overflow-y: scroll;
 }
 
-.tenant-table th,
-.tenant-table td {
+.landlord-table th,
+.landlord-table td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -149,20 +150,20 @@
     color: #333;
 }
 
-.tenant-table tr:hover {
+/* .tenant-table tr:hover {
     background-color: #f5f5f5;
-}
+} */
 
-.tenant-table td a {
+.landlord-table td a {
     color: #4D86DB;
     text-decoration: none;
 }
 
-.tenant-table td a:hover {
+.landlord-table td a:hover {
     text-decoration: underline;
 }
 
-.tenant-table td .delete-btnland {
+.landlord-table td .delete-btnland {
     width: 100px;
     height: 30px;
     border: none;
@@ -330,7 +331,7 @@
         padding: 20px;
     }
 
-    .table1 {
+    .tableland {
         padding-bottom: 40px;
     }
 }

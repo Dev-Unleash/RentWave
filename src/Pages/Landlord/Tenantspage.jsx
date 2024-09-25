@@ -140,7 +140,7 @@ const Tenantspage = () => {
         </div>
         <div className="tableland">
           <div className="tenantTable">
-            <table className="tenant-table">
+            <table className="landlord-table">
               <thead>
                 <tr>
                   <th className="name-column">Name</th>
