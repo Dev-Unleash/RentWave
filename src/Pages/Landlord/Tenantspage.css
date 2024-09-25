@@ -90,7 +90,7 @@
     }
 }
 
-.table1 {
+.tableland {
     width: 95%;
     height: 72%;
     background-color: #fff;
@@ -101,6 +101,7 @@
     /* align-items: center; */
     gap: 10px;
     padding-bottom: 40px;
+    overflow-y: scroll;
 
     img {
         width: 20%;
@@ -115,18 +116,18 @@
     }
 }
 
-.table1 {
+/* .table {
     width: 95%;
     height: 72%;
     background-color: #fff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     padding-bottom: 40px;
-}
+} */
 
 /* Add your specific tenant-table class for styling */
 .tenant-table {

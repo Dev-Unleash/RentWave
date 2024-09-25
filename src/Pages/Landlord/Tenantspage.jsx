@@ -138,7 +138,7 @@ const Tenantspage = () => {
             + Invite Tenants
           </button>
         </div>
-        <div className="table1">
+        <div className="tableland">
           <div className="tenantTable">
             <table className="tenant-table">
               <thead>
