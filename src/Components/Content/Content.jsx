@@ -23,7 +23,7 @@ const Content = () => {
           <div className="content-block" data-aos="fade-down" data-aos-duration="2000">
             <h5>Get Paid Faster</h5>
             <p>Tenants are 62% more likely to pay on-time when using
-digital payments versus checks and cash. PayRent makes
+digital payments versus checks and cash. RentWave makes
 paying rent fast and easy for your renters. Getting started
 takes just a few minutes and your renters will enjoy the
 convenience of paying their rent from any connected device

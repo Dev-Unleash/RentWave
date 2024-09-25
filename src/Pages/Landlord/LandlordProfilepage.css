@@ -80,7 +80,7 @@
         width: 100%;
         /* background-color: blue; */
         justify-content: space-between;
-        gap: 35px;
+        gap: 55px;
         & li{
           list-style-type: none;
           display: flex;
@@ -92,5 +92,10 @@
             
           }
         }
+    }
+}
+@media screen and (max-width:900px) {
+    .ProPageWrapper{
+        width: 80%;
     }
 }

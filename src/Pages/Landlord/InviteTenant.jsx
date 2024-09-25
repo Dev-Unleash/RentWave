@@ -1,13 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./InviteTenant.css";
 import { LuUpload } from "react-icons/lu";
 import { RiErrorWarningFill } from "react-icons/ri";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate  } from "react-router-dom";
 
-const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
+const InviteTenant = ({ isOpen, onClose, onSubmit }) => { 
   const [loading, setLoading] = useState(false);
+  const [properties, setProperties] = useState([])
+  const navigate = useNavigate();
+  // const history = useHistory();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,8 +25,14 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
     removeRenter: false,
     requireInsurance: false,
   });
-console.log(formData)
+   console.log(formData)
   const fileInputRef = useRef(null);
+
+    // Fetch properties from localStorage when component mounts
+    useEffect(() => {
+      const storedProperties = JSON.parse(localStorage.getItem("propertyIds")) || [];
+      setProperties(storedProperties);
+    }, []); // Only run on mount
 
   const chooseFile = () => {
     fileInputRef.current.click();
@@ -52,13 +62,73 @@ console.log(formData)
     });
   };
 
-  const handleSubmit = async (e) => {
-    setLoading(true);
-    e.preventDefault();
+  const propertyIds = localStorage.getItem("propertyIds")
 
+  // const handleSubmit = async (e) => {
+  //   setLoading(true);
+  //   e.preventDefault();
+
+  //   const propertyIdNew = localStorage.getItem("propertyId");
+  //   const token = localStorage.getItem("userToken");
+  //   const url = "https://rentwave.onrender.com/api/v1/onboardtenant";
+  //   console.log("Property ID:", formData.propertyId);
+  //   const body = {
+  //     firstName: formData.firstName,
+  //     lastName: formData.lastName,
+  //     email: formData.email,
+  //     password: formData.password,
+  //     phoneNumber: formData.phoneNumber,
+  //     propertyId: formData.propertyId,
+  //     leaseStart: formData.leaseStart,
+  //     leaseEnd: formData.leaseEnd,
+  //   };
+
+  //   console.log("formData: ", body)
+
+  
+
+  //   const config = {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+
+  //   try {
+  //     const response = await axios.post(url, body, config);
+  //     console.log(response);
+  //     toast.success("Tenant onboarded successfully!", { autoClose: 3000 });
+  //     onSubmit();
+  //     onClose();
+  //     // formData.firstName = "";
+  //     // formData.lastName = "";
+  //     // formData.email  = "";
+  //     // formData.password = "";
+  //     // formData.phoneNumber = "";
+  //     // formData.propertyId = "";
+  //     // formData.leaseStart = "";
+  //     // formData.leaseEnd = "";
+  //     formData.Reset();
+  //     window.location.href = "/View-Tenant"
+  //   } catch (error) {
+  //     // alert(error.response?.data?.errors)
+  //     toast.error(error.response?.data?.errors, {
+  //       autoClose: 3000,
+  //     });
+  //     console.error("Error onboarding tenant:", error);
+  //   } finally {
+  //     setLoading(false); // Reset loading state
+  //   }
+  // };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+  
     const token = localStorage.getItem("userToken");
     const url = "https://rentwave.onrender.com/api/v1/onboardtenant";
-    console.log("Property ID:", formData.propertyId);
+  
     const body = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -69,26 +139,42 @@ console.log(formData)
       leaseStart: formData.leaseStart,
       leaseEnd: formData.leaseEnd,
     };
-
-    console.log("formData: ", body)
-
   
-
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(url, body, config);
       console.log(response);
       toast.success("Tenant onboarded successfully!", { autoClose: 3000 });
+      
+      // Reset form data
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+        propertyId: "",
+        leaseStart: "",
+        leaseEnd: "",
+        file: null,
+        removeRenter: false,
+        requireInsurance: false,
+      });
+  
       onSubmit();
       onClose();
+      
+      // Redirect or reload the page
+        window.location.reload("/View-Tenant");
+      // After success
+      // history.push("/view-tenant");
     } catch (error) {
-      alert(error.response?.data?.errors)
       toast.error(error.response?.data?.errors, {
         autoClose: 3000,
       });
@@ -97,6 +183,7 @@ console.log(formData)
       setLoading(false); // Reset loading state
     }
   };
+  
 
   if (!isOpen) return null;
 
@@ -132,7 +219,7 @@ console.log(formData)
           </div>
         </div>
 
-        <div className="email">
+        <div className="emailText">
           <p>Email Address</p>
           <input
             type="email"
@@ -142,7 +229,7 @@ console.log(formData)
           />
         </div>
 
-        <div className="email">
+        <div className="emailText">
           <p>Password</p>
           <input
             type="password"
@@ -152,7 +239,7 @@ console.log(formData)
           />
         </div>
 
-        <div className="email">
+        <div className="emailText">
           <p>Phone Number</p>
           <input
             type="tel"
@@ -162,14 +249,22 @@ console.log(formData)
           />
         </div>
 
-        <div className="email">
-          <p>Property Id</p>
-          <input
+        {/* Property Select Dropdown */}
+        <div className="emailText">
+          <p>Property</p>
+          <select
             name="propertyId"
             value={formData.propertyId}
             onChange={handleInputChange}
             required
-          />
+          >
+            <option value="">Select Property</option>
+            {properties.map((property) => (
+              <option key={property.propertyId} value={property.propertyId}>
+                {property.propertyName}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="nameinput">

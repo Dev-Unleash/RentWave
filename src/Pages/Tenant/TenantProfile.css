@@ -4,12 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   overflow: hidden;
+   /* overflow: hidden; */
 }
 .TenantProfilePageWrapper{
     height: 90%;
-    width:45%;
+    width:90%;
     background-color: white;
+    /* border: 2px solid red; */
     padding: 20px;
 }
 .ProfileHeader{
@@ -62,40 +63,42 @@
         }
     }
 }
-.ProfDetail{
+.ProfDetail1{
     height: 70%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* background-color: red; */
-    gap: 10px;
+    /* gap: 10px; */
     & ul{
         display: flex;
         flex-direction: column;
         width: 100%;
         /* background-color: blue; */
-        justify-content: space-between;
+        justify-content: center;
         gap: 35px;
-        & li{
-          list-style-type: none;
+        & .listDetail{
+          /* list-style-type: none; */
           display: flex;
+          justify-content: center;
+          align-items: center;
           height: 20%;
+          /* background-color: blue; */
           gap: 0px;
-          & p{
-            display: flex;
-            align-items: center;
-            
+          & span{
+            font-weight: 400;
           }
         }
     }
 }
 
 
-.email {
-    text-align: center;
-    font-size: 13.5px;
+.email3 {
+    text-align: left;
+    font-size: 16px;
     width: 200px;
-    height: 00px;
-    background-color: aqua;
+    height: 30px;
+    /* color: red; */
+    /* border: 3px solid red; */
 }

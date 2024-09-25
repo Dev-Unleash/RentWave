@@ -4,6 +4,7 @@ import { LuUpload } from "react-icons/lu";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
   const [name, setName] = useState("");
@@ -17,6 +18,8 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
+
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
@@ -47,7 +50,12 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
     }
 
     try {
-      const token = localStorage.getItem("userToken");
+      // Retrieve token from localStorage without parsing
+      const token = localStorage.getItem("userToken"); // Directly get the token string
+      if (!token) {
+        throw new Error("User token is missing. Please log in again.");
+      }
+
       const response = await axios.post('https://rentwave.onrender.com/api/v1/properties', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -55,12 +63,27 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
         },
       });
 
-    
-      const propertyId = response.data.data._id; 
-      console.log("Property created with ID:", propertyId);
-      setPropertyId(propertyId);
+      const propertyId = response.data.property._id; 
+      const propertyName = response.data.property.name;
+      console.log("Property created with ID:", propertyId, "and Name:", propertyName);
+
+      // Check if 'propertyIds' already exists in localStorage and parse it
+      const storedProperties = JSON.parse(localStorage.getItem("propertyIds")) || [];
+  
+      // Create a new property object with propertyId and propertyName
+      const newProperty = {
+        propertyId: propertyId,
+        propertyName: propertyName
+      };
+      
+      // Add the new property to the array
+      const updatedProperties = [...storedProperties, newProperty];
+      
+      // Update the localStorage with the new array of property objects
+      localStorage.setItem("propertyIds", JSON.stringify(updatedProperties));
       toast.success( 'Property added successfully!');
-      onClose(); 
+      onClose();
+      navigate = "/propertics";
     } catch (error) {
       console.error("Error creating property:", error);
 
@@ -68,7 +91,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
         const errorMessage = error.response.data.message || 'Failed to create property.';
         toast.error(errorMessage);
       } else {
-        alert(errorMessage);
+       
       }
     } finally {
       setLoading(false); 
@@ -108,7 +131,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-          <div className="email" style={{backgroundColor:"white",height:"10%"}}>
+          <div className="emailText" style={{backgroundColor:"white",height:"10%"}}>
             <p>Property Type</p>
             <select value={propertyType} onChange={(e) => setPropertyType(e.target.value)}>
               <option>Select Property</option>

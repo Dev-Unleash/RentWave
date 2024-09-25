@@ -2,6 +2,8 @@
     width: 20%;
     height: 100%;
     background-color: #F5F5F5;
+    /* display: none; */
+    padding-bottom: 30px;
 }
 
 .menuside{
@@ -180,9 +182,9 @@
     /* background-color: aqua; */
   }
   
-  .menu-item:hover {
-    color: royalblue; /* Hover color */
-  }
+  /* .menu-item:hover {
+    color: royalblue; 
+  } */
   
   .menu-item.active {
     color: royalblue; /* Change color to royal blue when active */

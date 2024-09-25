@@ -31,7 +31,7 @@ const TenMain = ({ showPopup, setShowPopup }) => {
   };
 
   const data = JSON.parse(localStorage.getItem("maintenanceRequests")) || [];
-
+    console.log("DATA :", getUser)
   useEffect(() => {
     getUser();
   }, []);

@@ -82,7 +82,7 @@
     }
 
 
-    & .email {
+    & .emailText {
         width: 90%;
         height: 10vh;
         display: flex;

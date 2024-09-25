@@ -68,6 +68,7 @@
  display: flex;
  flex-direction: column;
  align-items: center;
+ border-radius: 5px;
     & h1{
         width: 100%;
         font-size: 18px;
@@ -124,11 +125,16 @@
 @media screen and (max-width: 900px) {
     .LandLordHome{
         height: max-content;
-        /* overflow-y: scroll; */
+        overflow-y: scroll;
         /* background-color: brown; */
     }
     .TenantDashBoardBox{
         flex-wrap: wrap;
+    }
+    .TenantRecentActivity{
+        height: 70vh;
+        width: 100%;
+        overflow-y: scroll;
     }
    
 }

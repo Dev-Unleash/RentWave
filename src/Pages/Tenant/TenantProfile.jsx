@@ -12,7 +12,7 @@ const TenantProfile = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   useEffect(() => {
-    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+    const userProfile = JSON.parse(localStorage.getItem("userInfo"));
     if (userProfile?.tenant) {
       setFirstName(userProfile.tenant.firstName);
       setLastName(userProfile.tenant.lastName);
@@ -36,15 +36,17 @@ const TenantProfile = () => {
       const updatedTenant = res.data.tenant;
 
       // Update local storage with new tenant data
-      const updatedProfile = JSON.parse(localStorage.getItem("userProfile"));
+      const updatedProfile = JSON.parse(localStorage.getItem("userInfo"));
       updatedProfile.tenant = { ...updatedProfile.tenant, ...updatedTenant };
-      localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
+      localStorage.setItem("userInfo", JSON.stringify(updatedProfile));
 
       console.log("Profile updated successfully");
     } catch (error) {
       console.error("Error updating profile:", error);
     }
   };
+
+  const tenantData = JSON.parse(localStorage.getItem("userInfo"))
 
   return (
     <div className="TenantProfilePage">
@@ -60,23 +62,23 @@ const TenantProfile = () => {
         </div>
         <div className="Profilepic">
           <div className="Pics" style={{ cursor: "pointer" }}>
-            <FaRegUserCircle size={50} />
-            <img src="" alt="" />
+            {!tenantData.profilePicture.pictureUrl ? (<FaRegUserCircle size={50} />) :
+            (<img src={tenantData?.profilePicture?.pictureUrl} alt="" />)}
           </div>
         </div>
-        <div className="ProfDetail">
+        <div className="ProfDetail1">
           <ul>
-            <li>
-              <h3>Name:</h3>
-              <span>{`${firstName} ${lastName}`}</span>
+            <li className="listDetail">
+              <h3>Name:   <span>{`${tenantData.firstName} ${tenantData.lastName}`}</span></h3>
+             
             </li>
-            <li>
-              <h3>Email address:</h3>
-              <span className="email">{JSON.parse(localStorage.getItem("userProfile"))?.tenant?.email}</span>
+            <li className="listDetail">
+              <h3>Email address:   <span className="email3">{tenantData.email}</span></h3>
+             
             </li>
-            <li>
-              <h3>Phone number:</h3>
-              <span>{phoneNumber}</span>
+            <li className="listDetail">
+              <h3>Phone number:   <span>{tenantData.phoneNumber}</span></h3>
+             
             </li>
           </ul>
         </div>

@@ -84,7 +84,7 @@ const Transaction = () => {
       );
 
       if (response.data.success) {
-        toast.success('Withdrawal successful!');
+        toast.success('Withdrawal successful! Payment will be made within 24hrs of initiating withdrawal');
         setTotalAmount((prev) => prev - Number(amount)); // Deduct amount from total balance
         setIsModalOpen(false); // Close the modal after success
       }
@@ -137,22 +137,23 @@ const Transaction = () => {
                 <tbody>
                   {Array.isArray(payments) && payments.map((item) => (
                     <tr key={item._id}>
+                      {console.log(payments)}
                       <td className='name-column'>
                         <Link to='/TransactionView1' style={{ cursor: 'pointer', color: "black", fontWeight: 'normal' }}>
-                          Tenant ID: {item.tenant}
+                          {`${item.firstName} ${item.lastName}`.toUpperCase()}
                         </Link>
                       </td>
                       <td className='name-column1'>
                         ₦{(item.amount * 0.95).toFixed(2)} {/* Displaying amount with 5% fee deduction */}
                       </td>
                       <td className='name-column1'>
-                        {item.date ? new Date(item.date).toLocaleDateString() : 'N/A'}
+                        {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'N/A'}
                       </td>
                       <td className='name-column1'>
                         {item.status}
                       </td>
                       <td className='name-column1'>
-                        {item.date ? new Date(item.date).toLocaleTimeString() : 'N/A'}
+                        {item.createdAt ? new Date(item.createdAt).toLocaleTimeString() : 'N/A'}
                       </td>
                     </tr>
                   ))}

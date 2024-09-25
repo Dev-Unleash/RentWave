@@ -205,6 +205,7 @@ import './Landlord.css';
 import { FaCamera } from "react-icons/fa6";
 import { IoArrowBack } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 
 const LandlordProfile = () => {
@@ -255,20 +256,74 @@ const LandlordProfile = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     const url = "https://rentwave.onrender.com/api/v1/update";
+    //     const apiData = new FormData();
+    //     apiData.append("firstName", formData.firstName);
+    //     apiData.append("lastName", formData.lastName);
+    //     apiData.append("phoneNumber", formData.phoneNumber);
+    //     apiData.append("email", formData.email); // Added email to FormData
+    //     apiData.append("gender", formData.gender); // Added gender to FormData
+    //     if (formData.profilePicture instanceof File) {
+    //         apiData.append("profilePicture", formData.profilePicture);
+    //     }
+
+    //     try {
+    //         const response = await axios.put(url, apiData, {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //                 "Content-Type": "multipart/form-data",
+    //             },
+    //         });
+    //         localStorage.setItem("userInfo", JSON.stringify(response.data.data));
+    //         console.log("Updated Data: ", response.data)
+    //         alert("Profile updated successfully!");
+    //         handleClose();
+    //     } catch (error) {
+    //         console.error("Error updating profile:", error);
+    //         alert("Failed to update profile.");
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        
+        // Retrieve existing user data from localStorage
+        const existingUserInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
+    
         const url = "https://rentwave.onrender.com/api/v1/update";
         const apiData = new FormData();
-        apiData.append("firstName", formData.firstName);
-        apiData.append("lastName", formData.lastName);
-        apiData.append("phoneNumber", formData.phoneNumber);
-        apiData.append("email", formData.email); // Added email to FormData
-        apiData.append("gender", formData.gender); // Added gender to FormData
+        
+        // Only append the fields if they exist in the formData and differ from the existing data
+        if (formData.firstName && formData.firstName !== existingUserInfo.firstName) {
+            apiData.append("firstName", formData.firstName);
+        }
+        
+        if (formData.lastName && formData.lastName !== existingUserInfo.lastName) {
+            apiData.append("lastName", formData.lastName);
+        }
+    
+        if (formData.phoneNumber && formData.phoneNumber !== existingUserInfo.phoneNumber) {
+            apiData.append("phoneNumber", formData.phoneNumber);
+        }
+    
+        if (formData.email && formData.email !== existingUserInfo.email) {
+            apiData.append("email", formData.email);
+        }
+    
+        if (formData.gender && formData.gender !== existingUserInfo.gender) {
+            apiData.append("gender", formData.gender);
+        }
+    
         if (formData.profilePicture instanceof File) {
             apiData.append("profilePicture", formData.profilePicture);
         }
-
+    
         try {
             const response = await axios.put(url, apiData, {
                 headers: {
@@ -276,7 +331,17 @@ const LandlordProfile = () => {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            localStorage.setItem("userProfile", JSON.stringify(response.data));
+    
+            // Prepare updated user data by merging existing and updated fields
+            const updatedUserInfo = {
+                ...existingUserInfo,
+                ...response.data.data, 
+            };
+    
+            // Save the updated fields back to localStorage
+            localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
+            
+            console.log("Updated Data: ", response.data);
             alert("Profile updated successfully!");
             handleClose();
         } catch (error) {
@@ -286,6 +351,7 @@ const LandlordProfile = () => {
             setLoading(false);
         }
     };
+    
 
     return (
         <div className="Pages">

@@ -87,7 +87,7 @@ const LandlordProfilepage = () => {
         // Assuming the form submission is handled here
         // Display success notification
         toast.success("Profile updated successfully!");
-        navigate('/LandLord'); // After submit, navigate to the home dashboard
+        navigate('/settings'); // After submit, navigate to the home dashboard
     };
 
     return (
@@ -97,7 +97,7 @@ const LandlordProfilepage = () => {
                     <div className="ProHeader">
                         <h3 className="CloseButtonPro" onClick={handleClose}>
                             <IoArrowBack style={{ height: "45px", width: "50px" }} />
-                            Back
+                    
                         </h3>
                         <h3 style={{ width: "20%" }}>Profile</h3>
                         {/* The Edit button triggers form submission */}
@@ -107,7 +107,7 @@ const LandlordProfilepage = () => {
                     </div>
                     <div className="Propic">
                         <div className="theproPics" style={{ cursor: "pointer" }}>
-                            <img src={formData.profilePicture || data.profilePicture || ""} alt="Profile" />
+                            <img src={formData?.profilePicture?.pictureUrl || data?.profilePicture?.pictureUrl || ""} alt="Profile" />
                         </div>
                     </div>
                     <div className="ProfDetail">

@@ -23,6 +23,9 @@ const MenuBar = () => {
     setShowLogoutPopup(true);
   };
 
+
+
+
   const handleLogoutConfirm = async () => {
     const url = "https://rentwave.onrender.com/api/v1/logout";
     const token = localStorage.getItem("userToken");

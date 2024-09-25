@@ -13,6 +13,7 @@ const PaymentPopup = ({ closePopup }) => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Flag to prevent double submission
 
   // Handles input field changes
   const handleChange = (e) => {
@@ -29,11 +30,12 @@ const PaymentPopup = ({ closePopup }) => {
   const UserEmail = userData?.email;
   const paymentKey = import.meta.env.VITE_Public_Key;
 
- 
   const payKorapay = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-   
+    if (isSubmitting) return; // Prevents multiple submissions
+    setIsSubmitting(true);
+
     if (
       !payData.firstName ||
       !payData.lastName ||
@@ -41,16 +43,18 @@ const PaymentPopup = ({ closePopup }) => {
       !payData.paymentMethod
     ) {
       toast.error("All fields are required");
+      setIsSubmitting(false); // Reset the flag to allow retry
       return;
     }
 
     setLoading(true);
 
-   
+    const amountNew = Number(payData.amount)
+
     window.Korapay.initialize({
       key: paymentKey,
-      reference: `Omotolani_${Date.now()}`,
-      amount: payData.amount * 1, 
+      reference: `paywave_${Date.now()}`,
+      amount: amountNew,
       currency: "NGN",
       customer: {
         name: `${payData.firstName} ${payData.lastName}`,
@@ -59,7 +63,7 @@ const PaymentPopup = ({ closePopup }) => {
       onSuccess: async function (response) {
         console.log(response);
         toast.success("Payment successful. Check email for receipt.");
-        closePopup();
+
         // Prepare data for API call
         const apiData = {
           firstName: payData.firstName,
@@ -78,25 +82,47 @@ const PaymentPopup = ({ closePopup }) => {
             },
           });
 
-          const existingPayments = JSON.parse(localStorage.getItem("paymentHistory")) || [];
-          existingPayments.push(apiData);
-          localStorage.setItem("paymentHistory", JSON.stringify(existingPayments));
+          console.log(apiResponse);
 
-         
+          // Avoid saving duplicate payments to localStorage
+          const existingPayments =
+            JSON.parse(localStorage.getItem("paymentHistory")) || [];
+
+          // Check if the payment already exists
+          const isDuplicate = existingPayments.some(
+            (payment) =>
+              payment.firstName === apiData.firstName &&
+              payment.lastName === apiData.lastName &&
+              payment.amount === apiData.amount &&
+              payment.paymentMethod === apiData.paymentMethod
+          );
+
+          if (!isDuplicate) {
+            existingPayments.push(apiData);
+            localStorage.setItem(
+              "paymentHistory",
+              JSON.stringify(existingPayments)
+            );
+          }
+
+          // Close popup after successful payment and saving
           closePopup();
         } catch (error) {
           console.error("Error:", error.response?.data || error.message);
-          toast.error( "Error:",error.response?.data || error.message);
+          toast.error("Error:", error.response?.data || error.message);
+        } finally {
+          setIsSubmitting(false); // Reset the flag to allow further submissions
         }
       },
       onError: function (error) {
         console.error(error);
         toast.error("Payment failed. Please try again.");
-        setLoading(false);
+        setIsSubmitting(false); // Allow retry if there's an error
+        setLoading(false); // Reset loading state
       },
     });
 
-    setLoading(false); 
+    setLoading(false); // Reset loading after Korapay initialization
   };
 
   return (
@@ -164,8 +190,8 @@ const PaymentPopup = ({ closePopup }) => {
               </div>
             </div>
             <div className="payButton">
-              <button type="submit" disabled={loading}>
-                {loading ? "Processing..." : "Pay"}
+              <button type="submit" disabled={loading || isSubmitting}>
+                {loading || isSubmitting ? "Processing..." : "Pay"}
               </button>
             </div>
           </form>

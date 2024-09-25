@@ -180,6 +180,12 @@ justify-content: flex-end;
         width: 300px;
         height: 20px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon{
+        width: 40px;
+        height: 40px;
     }
     .btnsLandlord{
         width: 100%;
@@ -189,7 +195,8 @@ justify-content: flex-end;
     .btnsLand{
         width: 250px;
         height: 30px;
-        background-color: red;
+        padding-inline: 60px;
+        /* background-color: red; */
     }
     .table3{
         justify-content: flex-start;

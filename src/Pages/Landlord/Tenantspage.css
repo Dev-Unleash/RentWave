@@ -97,8 +97,8 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     gap: 10px;
     padding-bottom: 40px;
 
@@ -122,8 +122,8 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     gap: 10px;
     padding-bottom: 40px;
 }

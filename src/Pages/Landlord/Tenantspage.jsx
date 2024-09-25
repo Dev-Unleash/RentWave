@@ -9,9 +9,11 @@ import axios from "axios";
 const Tenantspage = () => {
   const [isInviteModalOpen, setIsInviteModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [tenants, setTenants] = useState([]);
+  // const [tenants, setTenants] = useState([]);
   const [tenantToDelete, setTenantToDelete] = useState(null); // Track tenant to delete
   const [singleTenant, setSingleTenant] = useState(null); // Store fetched tenant details
+  const [tenants, setTenants] = useState([]);
+  const [properties, setProperties] = useState([]);
 
   // Function to open the delete modal
   const openDeleteModal = (tenantId) => {
@@ -38,7 +40,7 @@ const Tenantspage = () => {
 
     try {
       await axios.delete(url, config);
-      getTenants(); // Refresh the tenant list after deletion
+      fetchTenant(); // Refresh the tenant list after deletion
       closeDeleteModal();
     } catch (error) {
       console.error(error);
@@ -67,7 +69,7 @@ const Tenantspage = () => {
 
   // Function to fetch all tenants
   const getTenants = async () => {
-    const url = "https://rentwave.onrender.com/api/v1/tenants"; // Correct endpoint for fetching all tenants
+    const url = "https://rentwave.onrender.com/api/v1/landlord/tenants"; // Correct endpoint for fetching all tenants
     const token = localStorage.getItem("userToken");
     const config = {
       headers: {
@@ -84,8 +86,41 @@ const Tenantspage = () => {
     }
   };
 
+
+  const fetchTenant = async () => {
+    const propertiesUrl = "https://rentwave.onrender.com/api/v1/landlord/properties";
+    const tenantsUrl = "https://rentwave.onrender.com/api/v1/tenants";
+    const token = localStorage.getItem("userToken");
+  
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+
+    try {
+      if (!token) throw new Error("No token found");
+
+      const propertiesResponse = await axios.get(propertiesUrl, config);
+      const tenantsResponse = await axios.get(tenantsUrl, config);
+
+      setTenants(tenantsResponse.data.data);
+      setProperties(propertiesResponse.data.data);
+    } catch (error) {
+      const message = error.response?.data?.message || error.message;
+      console.error("Error fetching counts:", message);
+    }
+  };
+
+  const tenantByLandlord = tenants.filter((tenant) => {
+    return tenant.landlord === properties[0].listedBy;
+  })
+
   useEffect(() => {
     getTenants(); // Fetch all tenants on component mount
+    fetchTenant();
   }, []);
 
   return (
@@ -116,7 +151,7 @@ const Tenantspage = () => {
                 </tr>
               </thead>
               <tbody>
-                {tenants.map((item) => (
+                {tenantByLandlord.map((item) => (
                   <tr key={item._id}>
                     <td className="name-column">
                       {item.firstName} {item.lastName}

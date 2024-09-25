@@ -14,7 +14,7 @@ const SideBar = () => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [tenant, setTenant] = useState(null);
 
-  const tenantData = JSON.parse(localStorage.getItem("userProfile"))?.tenant;
+  const tenantData = JSON.parse(localStorage.getItem("userInfo"));
   const tenantId = tenantData?._id;
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const SideBar = () => {
 
       try {
         const res = await axios.get(url, config);
-        setTenant(res.data);
+        setTenant(res.data); // You could use this tenant state somewhere if needed
       } catch (error) {
         console.error("Error fetching tenant data:", error.response?.data?.message || error.message);
       }
@@ -73,12 +73,6 @@ const SideBar = () => {
     setShowLogoutPopup(false);
   };
 
-  // useEffect(() => {
-  //   if (!tenantData) {
-  //     nav("/");
-  //   }
-  // }, [tenantData, nav]);
-
   return (
     <>
       <div className="Sidebarwhole">
@@ -101,7 +95,7 @@ const SideBar = () => {
             </Link>
           </div>
 
-          <p>{`${tenantData?.firstName} ${tenantData?.lastName}`}</p>
+          <p>{tenantData ? `${tenantData?.firstName} ${tenantData?.lastName}` : ""}</p>
           <h3>Welcome</h3>
         </div>
 
@@ -109,19 +103,27 @@ const SideBar = () => {
           <div className="MenuWrapper">
             <nav>
               <IoHome className="menuIcon" />
-              <NavLink to="/TenantHome" activeClassName="active">Home</NavLink>
+              <NavLink to="/TenantHome" className={({ isActive }) => (isActive ? "active" : "")}>
+                Home
+              </NavLink>
             </nav>
             <nav>
               <CiStar className="menuIcon" />
-              <NavLink to="/TenantMain" activeClassName="active">Maintenance</NavLink>
+              <NavLink to="/TenantMain" className={({ isActive }) => (isActive ? "active" : "")}>
+                Maintenance
+              </NavLink>
             </nav>
             <nav>
               <CiWallet className="menuIcon" />
-              <NavLink to="/TenantPayment" activeClassName="active">Payment</NavLink>
+              <NavLink to="/TenantPayment" className={({ isActive }) => (isActive ? "active" : "")}>
+                Payment
+              </NavLink>
             </nav>
             <nav>
               <CiStar className="menuIcon" />
-              <NavLink to="/TenantSettings" activeClassName="active">Account Setting</NavLink>
+              <NavLink to="/TenantSettings" className={({ isActive }) => (isActive ? "active" : "")}>
+                Account Setting
+              </NavLink>
             </nav>
           </div>
         </div>

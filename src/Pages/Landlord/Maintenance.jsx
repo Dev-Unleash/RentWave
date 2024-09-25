@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Landlord.css";
 import "./Maintenance.css";
-// import image from "../../assets/download 16.png";
 import axios from "axios";
 
 const Maintenance = () => {
   const [maintenance, setMaintenance] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem("userToken");
   const url = "https://rentwave.onrender.com/api/v1/maintenance-requests";
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -19,16 +20,20 @@ const Maintenance = () => {
   const getMaintenance = async () => {
     try {
       const response = await axios.get(url, config);
-      console.log(response);
       setMaintenance(response.data.data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching maintenance requests:", error);
+    } finally {
+      setLoading(false); 
     }
   };
 
   useEffect(() => {
     getMaintenance();
+    setLoading(false)
   }, []);
+
+  console.log("Maintenance data:", maintenance);
 
   return (
     <div className="Pages">
@@ -39,42 +44,46 @@ const Maintenance = () => {
         </div>
         <div className="thebox">
           <div className="inside">
-            {/* <h4>Oh snap! there’s nothing here</h4>
-            <img src={image} alt="" />
-            <p>There are no maintenance request yet on this account</p> */}
-
-            <table>
-              <thead>
-                <tr className="TenantMainDownHeader">
-                  <th
-                    className="TenMaincolumn1"
-                    style={{ borderTopLeftRadius: "5px", width: "30%" }}
-                  >
-                    REASON
-                  </th>
-                  <th className="TenMaincolumn">DATE/TIME</th>
-                  <th
-                    className="TenMaincolumn"
-                    style={{ borderTopRightRadius: "5px" }}
-                  >
-                    STATUS
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {maintenance?.map((item) => (
-                  <tr key={item._id} >
-                    <td className="TenMaincolumn1" style={{ width: "30%" }}>
-                      {item.requestFor} 
-                    </td>
-                    <td className="TenMaincolumn" style={{ width: "40%" }}>
-                      {new Date(item.createdAt).toLocaleString()} {/* Use createdAt */}
-                    </td>
-                    <td className="TenMaincolumn">Sent</td> {/* Default status */}
+            {loading ? (
+              <p>Loading...</p>
+            ) : maintenance.length === 0 ? (
+              <div>
+                <h4>No maintenance requests available</h4>
+              </div>
+            ) : (
+              <table>
+                <thead>
+                  <tr className="TenantMainDownHeader">
+                    <th
+                      className="TenMaincolumn1"
+                      style={{ borderTopLeftRadius: "5px", width: "30%" }}
+                    >
+                      REASON
+                    </th>
+                    <th className="TenMaincolumn">DATE/TIME</th>
+                    <th
+                      className="TenMaincolumn"
+                      style={{ borderTopRightRadius: "5px" }}
+                    >
+                      STATUS
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {maintenance.map((item) => (
+                    <tr key={item._id}>
+                      <td className="TenMaincolumn1" style={{ width: "30%" }}>
+                        {item.requestFor}
+                      </td>
+                      <td className="TenMaincolumn" style={{ width: "40%" }}>
+                        {new Date(item.createdAt).toLocaleString()}
+                      </td>
+                      <td className="TenMaincolumn">{item.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>
@@ -83,6 +92,7 @@ const Maintenance = () => {
 };
 
 export default Maintenance;
+
 
 
 
