@@ -140,7 +140,7 @@ const Tenantspage = () => {
         </div>
         <div className="tableland">
           <div className="tenantTable">
-            <table className="landlord-table">
+            <table className="landlord-table" style={{overflowY:'scroll'}}>
               <thead>
                 <tr>
                   <th className="name-column">Name</th>
