@@ -95,7 +95,7 @@ const Login = () => {
                       <img src={Logo} alt="logo" />
                     </Link>
                   </div>
-                  <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "50px", textAlign: "center", paddingBottom: '90px' }}>
+                  <h4 style={{ fontSize: "14px", width: "100%", marginBottom: "30px", textAlign: "center", paddingBottom: '90px' }}>
                     Sign up your business on Rent Wave
                   </h4>
                 </div>
@@ -110,7 +110,7 @@ const Login = () => {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
-                    <div className="input-div">
+                    <div className="input-div1">
                       <p>Password</p>
                       <div className="passwordholder">
                         <input

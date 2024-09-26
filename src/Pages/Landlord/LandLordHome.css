@@ -137,5 +137,8 @@
         width: 100%;
         overflow-y: scroll;
     }
+    .TenantRecentActivity table{
+        width: max-content;
+    }
    
 }

@@ -291,7 +291,11 @@
         width: 80px;
         font-size: 14px;
     }
+    .landlord-table{
+        width: 150vw;
+    }
 }
+
 
 /* Tablet styles (max-width: 768px) */
 @media (max-width: 768px) {
@@ -323,7 +327,11 @@
         width: 90px;
         font-size: 16px;
     }
+    .landlord-table{
+        width: 150vw;
+    }
 }
+
 
 /* Desktop styles (default styles) */
 @media (min-width: 1025px) {
@@ -334,4 +342,8 @@
     .tableland {
         padding-bottom: 40px;
     }
+    /* .landlord-table{
+        width: 150vw;
+    } */
 }
+

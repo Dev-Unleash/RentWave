@@ -233,10 +233,10 @@ const Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 {seePassword ? (
-                  <IoEye className="icon" onClick={togglePasswordVisibility} />
+                  <IoEye className="icon1" onClick={togglePasswordVisibility} />
                 ) : (
                   <IoEyeOff
-                    className="icon"
+                    className="icon1"
                     onClick={togglePasswordVisibility}
                   />
                 )}
@@ -254,10 +254,10 @@ const Signup = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 {seePassword2 ? (
-                  <IoEye className="icon" onClick={togglePasswordVisibility2} />
+                  <IoEye className="icon1" onClick={togglePasswordVisibility2} />
                 ) : (
                   <IoEyeOff
-                    className="icon"
+                    className="icon1"
                     onClick={togglePasswordVisibility2}
                   />
                 )}

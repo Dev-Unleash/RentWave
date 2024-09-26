@@ -235,4 +235,7 @@ justify-content: flex-start;
     .tableData{
         width: 100%;
     }
+    .tableData table{
+        width: max-content;
+    }
 }

@@ -108,6 +108,23 @@ form {
     }
     
 }
+.input-div1 {
+    width: 100%;
+    height: 45%;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    & select{
+        height: 50%;
+        width: 70%;
+        border-radius: 5px;
+        outline: none;
+    }
+    
+}
 
 .passwordholder {
     height: 50%;
@@ -269,14 +286,17 @@ button:hover {
     .LoginContainer {
         justify-content: center;
         align-items: center;
+        /* background-color: #4D86DB; */
     }
 
     .LoginWrapper {
-        width: 100%;
+        width: 90%;
         height: 98vh;
-        flex-direction: column-reverse;
+        /* flex-direction: column-reverse; */
         justify-content: space-between;
         align-items: center;
+        /* background-color: chocolate; */
+        /* padding: 20px; */
     }
 
     .LoginLeft {
@@ -306,7 +326,7 @@ button:hover {
     }
 
     .LoginInputDown button {
-        width: 300px;
+        width: 270px;
         height: 90px;
     }
 
@@ -333,6 +353,19 @@ button:hover {
     }
     .LoginInputForm{
         width: 100%;
+        height: 100%;
+        /* background-color: aquamarine; */
+    }
+    .input-div{
+        width: 100%;
+        height: 50%;
+        padding-bottom: 30px;
+    }
+
+    .input-div1{
+        width: 100%;
+        height: 30%;
+        padding-bottom: 30px;
     }
 
     .logo {

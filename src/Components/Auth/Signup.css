@@ -38,7 +38,8 @@
     /* background-color: red; */
     @media screen and (max-width:900px){
         width: 90%;
-        height: 100%;
+        height: 100vh;
+        overflow-y: scroll;
      }
 }
 .topLogo{
@@ -56,6 +57,9 @@
     width: 100%;
     height: 100%;
     /* background-color: blueviolet; */
+    @media screen and (max-width:900px) {
+        height: 30%;
+    }
 }
 .userinfo{
     width: 85%;
@@ -188,13 +192,17 @@ p{
     font-size: 12px;
     border: none;
 }
-.icon {
+.icon1 {
     height: 16px;
     width: 16px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen  and (max-width:900px) {
+        height: 14px;
+        width: 14px;
+    }
 }
 .terms{
     width: 85%;

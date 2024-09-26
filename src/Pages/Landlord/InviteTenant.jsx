@@ -62,6 +62,47 @@ const InviteTenant = ({ isOpen, onClose, onSubmit }) => {
     });
   };
 
+  const fetchProperties = async (e) => {
+  
+    const token = localStorage.getItem("userToken");
+    const url = "https://rentwave.onrender.com/api/v1/landlord/properties";
+  
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+  
+    try {
+      const response = await axios.get(url, config);
+      console.log(response);
+
+      const property = response.data.data.map((p) => ({
+        propertyId: p._id,
+        propertyName: p.name
+      }));  
+      
+      setProperties(property);
+
+      // Check if 'propertyIds' already exists in localStorage and parse it
+      const storedProperties = JSON.parse(localStorage.getItem("propertyIds")) || [];
+
+      // Add the new property to the array
+      const updatedProperties = [...storedProperties, properties];
+      
+      // Update the localStorage with the new array of property objects
+      localStorage.setItem("propertyIds", JSON.stringify(updatedProperties));
+
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProperties();
+  }, []);
+
   const propertyIds = localStorage.getItem("propertyIds")
 
   // const handleSubmit = async (e) => {
