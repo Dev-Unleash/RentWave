@@ -46,9 +46,6 @@ const Propertics = () => {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
-                params: {
-                    searchTerm: searchTerm,
-                },
             });
 
             setProperties(response.data.data);
@@ -91,18 +88,22 @@ const Propertics = () => {
         if (propertyToDelete) {
             deleteProperty(propertyToDelete._id);
         }
-        setIsConfirmOpen(false); // Close modal after confirming
-        setPropertyToDelete(null); // Reset property to delete
+        setIsConfirmOpen(false);
+        setPropertyToDelete(null);
     };
 
     const cancelDelete = () => {
-        setIsConfirmOpen(false); // Close modal without action
-        setPropertyToDelete(null); // Reset property to delete
+        setIsConfirmOpen(false);
+        setPropertyToDelete(null);
     };
 
     useEffect(() => {
         fetchProperties();
-    }, [searchTerm]);
+    }, []);
+
+    const filteredProperties = properties.filter(property => 
+        property.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className='Pages'>
@@ -110,8 +111,14 @@ const Propertics = () => {
                 <div className="up">
                     <p>My Property</p>
                     <div className='input'>
-                        <RiSearchLine className='icon' />
-                        <input type="search" placeholder='Search' className='put' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                        <RiSearchLine className='icon' style={{width:"30px",height:"30px"}}/>
+                        <input 
+                            type="search" 
+                            placeholder='Search' 
+                            className='put' 
+                            value={searchTerm} 
+                            onChange={(e) => setSearchTerm(e.target.value)} 
+                        />
                     </div>
                 </div>
                 <div className="btnsLandlord">
@@ -125,8 +132,8 @@ const Propertics = () => {
                     </div>
                     {loading ? (
                         <p>Loading Properties....</p>
-                    ) : properties.length > 0 ? (
-                        properties.map(property => (
+                    ) : filteredProperties.length > 0 ? (
+                        filteredProperties.map(property => (
                             <div
                                 className='propertiesCard'
                                 key={property._id}
@@ -158,8 +165,8 @@ const Propertics = () => {
 
             <ConfirmModal
                 isOpen={isConfirmOpen}
-                onConfirm={confirmDelete} // Confirm delete on confirmation
-                onClose={cancelDelete} // Use onClose to cancel
+                onConfirm={confirmDelete}
+                onClose={cancelDelete}
                 message={`Are you sure you want to delete the property: ${propertyToDelete?.name}?`}
             />
         </div>
