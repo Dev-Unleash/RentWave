@@ -28,7 +28,7 @@
     }
 
     & input {
-        width: 60%;
+        width: 40%;
         height: 50%;
         border: 1px solid #696969;
         border-radius: 10px;
@@ -50,7 +50,7 @@
   color: #fff;
   /* position: relative; */
 
-  & botton {
+  & button {
     width: 29%;
     height: 75%;
     background-color: #4D86DB;

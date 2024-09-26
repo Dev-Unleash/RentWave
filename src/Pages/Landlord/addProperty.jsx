@@ -83,7 +83,7 @@ const AddProperty = ({ isOpen, onClose, setPropertyId }) => {
       localStorage.setItem("propertyIds", JSON.stringify(updatedProperties));
       toast.success( 'Property added successfully!');
       onClose();
-      navigate = "/propertics";
+      navigate( "/propertics")
     } catch (error) {
       console.error("Error creating property:", error);
 
