@@ -135,7 +135,7 @@ const Propertics = () => {
                                 <h6>Property Name: {property.name}</h6>
                                 <h6>Location: {property.location}</h6>
                                 <h6>Availability: {property.isAvailable ? "Available" : "Not Available"}</h6>
-                                <button className='delete-btnland' onClick={() => handleDeleteConfirmation(property)}>Delete</button>
+                                <button className='propertyDel' onClick={() => handleDeleteConfirmation(property)}>Delete</button>
                             </div>
                         ))
                     ) : (
